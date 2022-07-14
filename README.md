@@ -2,6 +2,18 @@
 
 ---
 
+## Please Complete These Tasks Prior to Workshop
+
+* [Data Preparation & Sharing](data_preparation.md)
+
+* [GitHub Account](github_account.md)
+
+* [Data Science Philosophy](datasci_philosophy.md)
+
+* [Install Software](install_software.md)
+
+---
+
 ## Tentative Schedule
 
 10 am - 6 pm Eastern
@@ -14,15 +26,4 @@
 | Friday | July 22 | Barcoding Analysis |
 | Monday | July 25 | Microsatellite Analysis |
 
----
-
-## Complete These Tasks Prior to Workshop
-
-* [Data Preparation & Sharing](data_preparation.md)
-
-* [GitHub Account](github_account.md)
-
-* [Data Science Philosophy](datasci_philosophy.md)
-
-* [Install Software](install_software.md)
 
