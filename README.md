@@ -5,6 +5,7 @@
 ## Schedule
 
 | Day | Date | Topic |
+| --- | --- | --- |
 | Tuesday | July 19 | Intro To R & Tidyverse |
 | Wednesday | July 20 | Biodiversity Life History Analysis |
 | Thursday | July 21 | Geomorphometric Analysis |
