@@ -14,6 +14,8 @@ The workshop will be tailored to the data you collected this summer.  We will me
 
 * [Install Software](install_software.md)
 
+* [Set Up Permissions Key](Github_SSH.docx)
+
 ---
 
 ## Tentative Schedule
