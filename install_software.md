@@ -8,6 +8,6 @@ We will employ R, and specifically the tidyverse package, to wrangle your data i
 
 To make R more convenient to use, we will employ R Studio.  Please install R Studio on your computers if you don’t have it or if you haven’t installed it in the past month.   Go here https://www.rstudio.com/products/rstudio/download/ and select R Studio Desktop FREE.
 
-4. Install a text editor. Our recommended free editors:
-    * For Macs: the free version of [BBEdit](https://www.barebones.com/products/bbedit/)
-    * For Windows (PCs): [Notepad++](https://notepad-plus-plus.org/downloads/)
+Install a text editor. Our recommended free editors:
+   * For Macs: the free version of [BBEdit](https://www.barebones.com/products/bbedit/)
+   * For Windows (PCs): [Notepad++](https://notepad-plus-plus.org/downloads/)
