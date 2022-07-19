@@ -22,7 +22,7 @@ Use the `cd` bash command (cd = change directory) to move to your Windows direct
   
 ---
 
-## 3. Finally, Cloning the Repo
+## 3. Finally, Clone the Repo
 
 Us the following bash command in your terminal to clone the workshop repo.  Consult steps 4 and 5 of the SSH Security Key instructions.
 
