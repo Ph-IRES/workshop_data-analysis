@@ -11,3 +11,9 @@ To make R more convenient to use, we will employ R Studio.  Please install R Stu
 Install a text editor. Our recommended free editors:
    * For Macs: the free version of [BBEdit](https://www.barebones.com/products/bbedit/)
    * For Windows (PCs): [Notepad++](https://notepad-plus-plus.org/downloads/)
+
+[Install Geneious](https://www.geneious.com/download/). Be sure to download appropriately for your operating system.  Also, follow the “request a trial” link to get a 14 day trial license.  Please check your spam/junk folders, as this is where your trial license will usually end up.  *Don’t activate your license until next week.*  
+
+[Install FigTree](http://tree.bio.ed.ac.uk/software/figtree/).  There are packages available for Mac, Windows, and Linux.
+
+
