@@ -1,0 +1,94 @@
+---
+title: "Ph-IRES phylogeny"
+date: 2022-07-01
+output: Newick-formatted tree file
+---
+```{r setup}
+##finds if required packages are installed, loads them if not
+if (!require("phangorn")) install.packages("phangorn")
+if (!requireNamespace("BiocManager", quietly=TRUE)) install.packages("BiocManager") 
+if (!require("msa")) BiocManager::install("msa")
+if (!require("tinytex")) install.packages("tinytex") 
+if (!require("devtools")) install.packages("devtools") +
+devtools::install_github("kylebittinger/usedist")
+
+##load required library
+library(phangorn)
+library(ips)
+library(msa)
+#library(tinytex)
+library(usedist)
+library(tidyverse)
+
+#This will need to be set to your working directory
+knitr::opts_knit$set(root.dir = "~/Desktop/phiRes_workshop/workshop_data-analysis/phiRes_phylogeny")
+```
+```{r read in files}
+
+##creates list of .fasta files in named directory
+#you will need to select directory where individual .fasta files reside.  .fasta or .fa both acceptable file suffixes
+
+filelist<-list.files("Dog/Mitochondria/fasta_files", pattern = "fasta", full.names= TRUE)
+
+##converts RNA formatted files to DNA as necessary and produces multifasta file for alignment
+#multifasta.fa file is created outside of .fasta source folder
+#creates object seq
+
+cseq<-tibble(filename = (map(filelist, ~ .x)))%>%
+  add_column(header = map(read_lines(filelist, n_max=1), ~ .x)) %>%
+  add_column(seq = map(read_lines(filelist, skip = 1), ~ .x)) %>%
+  mutate(seq=str_replace_all(seq,"U","T"))%>%
+  mutate(header=as.character(header)) %>%
+  write_delim("Dog/Mitochondria/multifasta.fa", delim="\n", col_names = FALSE, eol="")
+                                 
+fasta.index("Dog/Mitochondria/multifasta.fa")
+seqlengths<-fasta.seqlengths("Dog/Mitochondria/multifasta.fa")
+
+seq<-readDNAStringSet("Dog/Mitochondria/multifasta.fa", format="fasta", seek.first.rec=TRUE)
+View(seq)
+
+```
+```{r alignment}
+##multi-sequence alighment.  Muscle is also an (faster) option here, but need to remove first empty line of multifasta.fa file.
+
+seqalign<-msa(seq, method= "ClustalOmega", type = "dna", verbose = TRUE)
+
+pd<-msaConvert(seqalign,"phangorn::phyDat")
+```
+```{r Perform distance matrix and distance-based trees}
+getwd()
+dm <- dist.ml(pd)
+heatmap(as.matrix(dm), margins=c(18,15), revC = TRUE,cexRow = 0.5, cexCol = 0.5, symm = TRUE)
+
+treeUPGMA  <- upgma(dm)
+plot(treeUPGMA, main="UPGMA")
+
+treeNJ  <- NJ(dm)
+plot(treeNJ, main="NJ")
+```
+```{r ML Model Selection}
+##test models, select lowest AIC
+mt <-modelTest(pd, multicore = TRUE, mc.cores= 6)
+View(mt)
+```
+```{r Initial ModelFit}
+##initial fit, use best fit model from prev chunk
+fit <- as.pml(mt, "GTR+G(4)+I")
+fit
+```
+```{r Optimize Fit and Bootstrap}
+#optimize fit, use parameters from prev chunk
+fit.opt <- update(fit, k=4, inv=0.593)
+fit.opt <- optim.pml(fit.opt, model="GTR", optInv=TRUE, optGamma=TRUE,
+                    rearrangement = "NNI", control = pml.control(trace = 0))
+fit.opt
+plot(fit.opt, main="GTR+I+G")
+
+#bootstrap model
+bs <- bootstrap.pml(fit.opt, bs=100, optNni=TRUE, multicore=TRUE, mc.cores = 6)
+plotBS<-plotBS(midpoint(fit.opt$tree), bs, p = 50, type="p")
+
+#write tree with bootstrap node labels
+write.tree(plotBS, file = "dog_mito_ML_bs.newick")
+
+```
