@@ -21,5 +21,11 @@ To save the workshop in smaller chunks, we will need to log into a new zoom link
 
 ---
 
-# R Activities 
+## Setting Up for today's Workshop
+
+I suggest that you split your screen between zoom and R-Studio.  A power point will be projected on zoom, and you will be expected to be working in R-studio during the powerpoint presentation.  There are R script files included in this repo for you to open and work in during the lectures.  Lectures will conclude with excercises that require you to apply the principles covered in the lectures.
+
+---
+
+## R Activities 
 [Base R Mind Expander](https://forms.gle/nE2CnAJj6rz8QVYo9)
