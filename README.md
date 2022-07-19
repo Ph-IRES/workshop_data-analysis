@@ -12,7 +12,7 @@ The workshop will be tailored to the data you collected this summer.  We will me
 
 * [Data Science Philosophy](datasci_philosophy.md)
 
-* [Install Software](install_software.md)
+* [Install Required Software](install_software.md)
 
 * [Set Up Permissions Key](Github_SSH.docx) And Say Goodbye to Passwords
 
