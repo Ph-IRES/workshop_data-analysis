@@ -38,13 +38,13 @@ I suggest that you split your screen between zoom and R-Studio.  A power point w
 
 ## Part 2
 
-1. Open [workshop_examples_part2.R](workshop_examples_part1.R) in RStudio.  You should be navigating to the copy of the repository that you cloned to your computer for this file.
+1. Open [workshop_examples_part2.R](workshop_examples_part2.R) in RStudio.  You should be navigating to the copy of the repository that you cloned to your computer for this file.
 2. [R_workshop_part1.pptx](R_workshop_part2.pptx) is the powerpoint presentation for this section.  You may need it for exercises.
 
 ---
 
 ## Part 3
 
-1. Open [workshop_examples_part2.R](workshop_examples_part3.R) in RStudio.  You should be navigating to the copy of the repository that you cloned to your computer for this file.
+1. Open [workshop_examples_part3.R](workshop_examples_part3.R) in RStudio.  You should be navigating to the copy of the repository that you cloned to your computer for this file.
 2. [R_workshop_part1.pptx](R_workshop_part3.pptx) is the powerpoint presentation for this section.  You may need it for exercises.
 
