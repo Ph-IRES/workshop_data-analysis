@@ -26,7 +26,7 @@ We will have a mid-morning break, a lunch break, and a mid-afternoon break. This
 
 | Day | Date | Topic |
 | --- | --- | --- |
-| Tuesday | July 19 | Intro To R & Tidyverse |
+| Tuesday | July 19 | [Intro To R & Tidyverse](./r_tidyverse_intro) |
 | Wednesday | July 20 | Biodiversity & Life History Analysis |
 | Thursday | July 21 | Life History & Geomorphometric Analysis |
 | Friday | July 22 | Barcoding Analysis |
