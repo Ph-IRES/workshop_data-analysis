@@ -16,6 +16,8 @@ The workshop will be tailored to the data you collected this summer.  We will me
 
 * [Set Up Permissions Key](Github_SSH.docx) And Say Goodbye to Passwords
 
+* [Clone This Repo to Your Computer](clone_repo.md)
+
 ---
 
 ## Tentative Schedule
