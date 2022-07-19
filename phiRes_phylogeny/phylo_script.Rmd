@@ -11,6 +11,8 @@ if (!require("msa")) BiocManager::install("msa")
 if (!require("tinytex")) install.packages("tinytex") 
 if (!require("devtools")) install.packages("devtools") +
 devtools::install_github("kylebittinger/usedist")
+if (!require("tidyverse")) install.packages("tidyverse")
+
 
 ##load required library
 library(phangorn)
@@ -28,7 +30,7 @@ knitr::opts_knit$set(root.dir = "~/Desktop/phiRes_workshop/workshop_data-analysi
 ##creates list of .fasta files in named directory
 #you will need to select directory where individual .fasta files reside.  .fasta or .fa both acceptable file suffixes
 
-filelist<-list.files("Dog/Mitochondria/fasta_files", pattern = "fasta", full.names= TRUE)
+filelist<-list.files("Dog/CO1/fasta_files", pattern = "fasta", full.names= TRUE)
 
 ##converts RNA formatted files to DNA as necessary and produces multifasta file for alignment
 #multifasta.fa file is created outside of .fasta source folder
@@ -39,12 +41,12 @@ cseq<-tibble(filename = (map(filelist, ~ .x)))%>%
   add_column(seq = map(read_lines(filelist, skip = 1), ~ .x)) %>%
   mutate(seq=str_replace_all(seq,"U","T"))%>%
   mutate(header=as.character(header)) %>%
-  write_delim("Dog/Mitochondria/multifasta.fa", delim="\n", col_names = FALSE, eol="")
+  write_delim("Dog/CO1/multifasta.fa", delim="\n", col_names = FALSE, eol="")
                                  
-fasta.index("Dog/Mitochondria/multifasta.fa")
-seqlengths<-fasta.seqlengths("Dog/Mitochondria/multifasta.fa")
+fasta.index("Dog/CO1/multifasta.fa")
+seqlengths<-fasta.seqlengths("Dog/CO1/multifasta.fa")
 
-seq<-readDNAStringSet("Dog/Mitochondria/multifasta.fa", format="fasta", seek.first.rec=TRUE)
+seq<-readDNAStringSet("Dog/CO1/multifasta.fa", format="fasta", seek.first.rec=TRUE)
 View(seq)
 
 ```
@@ -89,6 +91,6 @@ bs <- bootstrap.pml(fit.opt, bs=100, optNni=TRUE, multicore=TRUE, mc.cores = 6)
 plotBS<-plotBS(midpoint(fit.opt$tree), bs, p = 50, type="p")
 
 #write tree with bootstrap node labels
-write.tree(plotBS, file = "dog_mito_ML_bs.newick")
+write.tree(plotBS, file = "dog_CO1_ML_bs.newick")
 
 ```
