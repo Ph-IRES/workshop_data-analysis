@@ -4,7 +4,7 @@
 
 ## Schedule and Zoom Links
 
-To save the workshop in smaller chunks, we will need to log into a new zoom link for each session on each day.
+To save the workshop in smaller chunks, we will need to log into a new zoom link for each session on each day. There will be 15 minute breaks after the first and third modules.  There will be a 1 hour break for lunch after the second module.
 
 | Date | Time | Module | Live Zoom | Recording |
 | --- | --- | --- | --- | ---|
