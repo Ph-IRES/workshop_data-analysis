@@ -2,8 +2,6 @@
 
 This repository was created separate from the [2022_PIRE_omics_workshop](https://github.com/philippinespire/2022_PIRE_omics_workshop) repository to make it easier for attendees to clone workshop materials locally. Additionally, the course work can be taught/used stand alone and thus warrants its own separate repository. Below are the relevant information from the main workshop [README](https://github.com/philippinespire/2022_PIRE_omics_workshop/blob/main/README.md)
 
-![](https://github.com/Getterrobog/DipterygonotusBalteatus/blob/main/PPP_logo.png)
-
 This is the README for the 2022 PIRE Omics Workshop. It contains a link to the daily schedule, information on the workshop participants and personnel, links and installation directions for necessary software/programs, and a guide to preparing, processing, and analyzing shotgun data. During this workshop, we will be following the [PIRE SSL](https://github.com/philippinespire/pire_ssl_data_processing) and [PIRE Pre-Processing](https://github.com/philippinespire/pire_fq_gz_processing) pipelines, although both have been modified slightly for the purposes of the workshop.
 
 ---
