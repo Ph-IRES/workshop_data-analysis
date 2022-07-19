@@ -13,7 +13,7 @@
 
 ## Required Software for the Workshop
 
-Follow the preparation instructions [here](../)
+[Follow the installation instructions](../install_software.md) and additionally, review the worshop prepartion instructions in the [primary workshop readme](../README.md)
 
 ---
 
