@@ -8,7 +8,7 @@ We will employ R, and specifically the tidyverse package, to wrangle your data i
 
 To make R more convenient to use, we will employ R Studio.  Please install R Studio on your computers if you don’t have it or if you haven’t installed it in the past month.   Go [here and select R Studio Desktop FREE](https://www.rstudio.com/products/rstudio/download/).
 
-Install a text editor. Our recommended free editors:
+Install a text editor which is critial for viewing/editing DNA files or geomorphometric files.  The editors installed by your OS are inferior to our recommended free editors:
    * For Macs: the free version of [BBEdit](https://www.barebones.com/products/bbedit/)
    * For Windows (PCs): [Notepad++](https://notepad-plus-plus.org/downloads/)
 
