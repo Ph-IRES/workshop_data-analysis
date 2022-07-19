@@ -4,13 +4,13 @@ For this to work, make sure that you've successfully completed the other setup s
 
 ---
 
-## A. Open Terminal
+## 1. Open Terminal
 
 For MacOS computers, you can open your terminal and skip down to "Finally, Cloning the Repo".  For WinOS computers, after opening your Ubuntu terminal, we have to help you navigate to the WinOS directory system from the UbuntuOS virtual machine directory system.
 
 ---
 
-## B. Navigating to the WinOS Directory System (WinOS Only)
+## 2. Navigating to the WinOS Directory System (WinOS Only)
 
 Use the `cd` bash command (cd = change directory) to move to your Windows directory as follows
 
@@ -22,7 +22,7 @@ Use the `cd` bash command (cd = change directory) to move to your Windows direct
   
 ---
 
-## C. Finally, Cloning the Repo
+## 3. Finally, Cloning the Repo
 
 Us the following bash command in your terminal to clone the workshop repo.  Consult steps 4 and 5 of the SSH Security Key instructions.
 
