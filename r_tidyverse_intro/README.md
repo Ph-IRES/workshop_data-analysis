@@ -4,7 +4,7 @@
 
 ## Schedule and Zoom Links
 
-To save the workshop in smaller chunks, we will need to log into a new zoom link for each session on each day
+To save the workshop in smaller chunks, we will need to log into a new zoom link for each session on each day.
 
 | Date | Time | Module | Live Zoom | Recording |
 | --- | --- | --- | --- | ---|
