@@ -22,6 +22,8 @@ The workshop will be tailored to the data you collected this summer.  We will me
 
 10 am - 6 pm Eastern
 
+We will have a mid-morning break, a lunch break, and a mid-afternoon break. This divides the day into 4 sessions.  The exact timing of the breaks may vary from day to day.
+
 | Day | Date | Topic |
 | --- | --- | --- |
 | Tuesday | July 19 | Intro To R & Tidyverse |
@@ -30,8 +32,4 @@ The workshop will be tailored to the data you collected this summer.  We will me
 | Friday | July 22 | Barcoding Analysis |
 | Monday | July 25 | Microsatellite Analysis |
 
----
 
-## Daily Schedule
-
-We will have a mid-morning break, a lunch break, and a mid-afternoon break. This divides the day into 4 sessions.  The exact timing of the breaks may vary from day to day.
