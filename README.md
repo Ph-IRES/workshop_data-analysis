@@ -35,16 +35,21 @@ We will have a mid-morning break, a lunch break, and a mid-afternoon break. This
 | Monday | July 25 | Microsatellite Analysis |
 
 ##Links to Recordings
-R basics I
 
-R basics II
+Day 1 (July 19)
 
-R basics III
+[R basics I](https://odumedia.mediaspace.kaltura.com/media/R+Basics/1_1kvdji5e)
 
-R basics IV
+[R basics II](https://odumedia.mediaspace.kaltura.com/media/R+basics+II/1_qw350eod)
+
+[R basics III](https://odumedia.mediaspace.kaltura.com/media/David+T.+Gauthier%27s+Zoom+Meeting/1_sp2auve9)
+
+Day 2 (July 20)
 
 [Phylogeny I](https://odumedia.mediaspace.kaltura.com/media/Phylogeny+I/1_f1og4ooj)
 
-Phylogeny II
-Phylogeny III
+[Phylogeny II](https://odumedia.mediaspace.kaltura.com/media/Phylogeny+II/1_lube0fds)
+
+[Phylogeny III](https://odumedia.mediaspace.kaltura.com/media/Phylogeny+III/1_rbakwxpu)
+
 Phylogeny IV
