@@ -34,4 +34,13 @@ We will have a mid-morning break, a lunch break, and a mid-afternoon break. This
 | Friday | July 22 | Barcoding Analysis |
 | Monday | July 25 | Microsatellite Analysis |
 
+##Links to Recordings
+R basics I
+R basics II
+R basics III
+R basics IV
 
+[Phylogeny I](https://odumedia.mediaspace.kaltura.com/media/Phylogeny+I/1_f1og4ooj)
+Phylogeny II
+Phylogeny III
+Phylogeny IV
