@@ -5,13 +5,16 @@ output: Newick-formatted tree file
 ---
 ```{r setup}
 ##finds if required packages are installed, loads them if not
-if (!require("phangorn")) install.packages("phangorn")
 if (!requireNamespace("BiocManager", quietly=TRUE)) install.packages("BiocManager") 
+if (!require("phangorn"))
 if (!require("msa")) BiocManager::install("msa")
 if (!require("tinytex")) install.packages("tinytex") 
 if (!require("devtools")) install.packages("devtools") +
 devtools::install_github("kylebittinger/usedist")
 if (!require("tidyverse")) install.packages("tidyverse")
+if (!require("igraph")) install.packages("igraph", type="binary")
+if (!require("ips")) install.packages("ips")
+
 
 
 ##load required library
