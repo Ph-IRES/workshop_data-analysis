@@ -34,7 +34,7 @@ We will have a mid-morning break, a lunch break, and a mid-afternoon break. This
 | Friday | July 22 | Barcoding Analysis |
 | Monday | July 25 | Microsatellite Analysis |
 
-##Links to Recordings
+## Links to Recordings
 
 Day 1 (July 19)
 
