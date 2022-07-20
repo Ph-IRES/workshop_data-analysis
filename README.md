@@ -36,7 +36,7 @@ We will have a mid-morning break, a lunch break, and a mid-afternoon break. This
 
 ## Links to Recordings
 
-Day 1 (July 19)
+### Day 1 (July 19)
 
 [R basics I](https://odumedia.mediaspace.kaltura.com/media/R+Basics/1_1kvdji5e)
 
@@ -44,7 +44,7 @@ Day 1 (July 19)
 
 [R basics III](https://odumedia.mediaspace.kaltura.com/media/David+T.+Gauthier%27s+Zoom+Meeting/1_sp2auve9)
 
-Day 2 (July 20)
+### Day 2 (July 20)
 
 [Phylogeny I](https://odumedia.mediaspace.kaltura.com/media/Phylogeny+I/1_f1og4ooj)
 
