@@ -30,8 +30,8 @@ We will have a mid-morning break, a lunch break, and a mid-afternoon break. This
 | --- | --- | --- |
 | Tuesday | July 19 | [Intro To R & Tidyverse](./r_tidyverse_intro) |
 | Wednesday | July 20 | [Phylogeny](./phiRes_phylogeny) |
-| Thursday | July 21 | ggplot graphing and sequence curation |
-| Friday | July 22 | Barcoding Analysis |
+| Thursday | July 21 | Intro to Data Visualization with R |
+| Friday | July 22 | Advanced Data Wrangling & Visualization with R |
 | Monday | July 25 | Microsatellite Analysis |
 
 ### Links to Recordings
