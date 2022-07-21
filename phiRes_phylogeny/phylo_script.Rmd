@@ -6,7 +6,7 @@ output: Newick-formatted tree file
 ```{r setup}
 ##finds if required packages are installed, loads them if not
 if (!requireNamespace("BiocManager", quietly=TRUE)) install.packages("BiocManager")
-if (!require("phangorn"))
+if (!require("phangorn")) install.packages("phangorn")
 if (!require("msa")) BiocManager::install("msa")
 if (!require("tinytex")) install.packages("tinytex") 
 if (!require("devtools")) install.packages("devtools") +
