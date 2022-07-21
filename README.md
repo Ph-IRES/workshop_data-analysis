@@ -32,7 +32,9 @@ We will have a mid-morning break, a lunch break, and a mid-afternoon break. This
 | Wednesday | July 20 | [Phylogeny](./phiRes_phylogeny) |
 | Thursday | July 21 | Intro to Data Visualization with R |
 | Friday | July 22 | Advanced Data Wrangling & Visualization with R |
-| Monday | July 25 | Microsatellite Analysis |
+| Monday | July 25 | Statistical Analysis I |
+| Tuesday | July 26 | Statistical Analysis II |
+
 
 ### Links to Recordings
 
