@@ -83,8 +83,8 @@ fit
 ```
 ```{r Optimize Fit and Bootstrap}
 #optimize fit, use parameters from prev chunk
-fit.opt <- update(fit, k=4, inv=0.593)
-fit.opt <- optim.pml(fit.opt, model="GTR", optInv=TRUE, optGamma=TRUE,
+#fit.opt <- update(fit, k=4, inv=0.593)
+fit.opt <- optim.pml(fit, model="GTR", optBf=TRUE, optQ=TRUE, optInv=TRUE, optGamma=TRUE,
                     rearrangement = "NNI", control = pml.control(trace = 0))
 fit.opt
 plot(fit.opt, main="GTR+I+G")
