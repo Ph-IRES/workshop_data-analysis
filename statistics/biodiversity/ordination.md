@@ -15,7 +15,7 @@ For the species count data, each column is a taxon and each row is a unique site
 
 We will use the count data from the `salvador` repo which is already here in this directory.  
 
-Open `data_wrangling_vis_salvador_ordination.R` in R studio and run lines 1-52
+Open `data_wrangling_vis_salvador_ordination.R` in R studio and run lines 1-128
 
 Now we can wrangle the tibble `data` into vegan format
 
