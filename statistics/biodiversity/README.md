@@ -16,9 +16,7 @@
 
 ---
 
-## Getting Started
-
-1. Install `vegan` and any necessary dependencies 
+## Getting Started: Install `vegan` and any necessary dependencies 
 
 	```
 	> install.packages("vegan")
@@ -52,7 +50,9 @@
 
 	Note that Rtools is required but not found, so I followed the instructions given above to install Rtools
 
-2. Wrangle data into format compatible with vegan.
+---
+
+## Getting Started: Wrangle data into format compatible with vegan.
 
 	For the species count data, each column is a taxon and each row is a unique site or observation
 
