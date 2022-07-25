@@ -115,6 +115,12 @@
 									"_.*$"))
 	```
 
+	and lastly, we "attach" the metadata to the data
+
+	```r
+	attach(data_vegan.env)
+	```
+
 ## Ordination
 
 We are following the [Vegan: an introduction to ordination](https://cloud.r-project.org/web/packages/vegan/vignettes/intro-vegan.pdf) vignette, but replacing the `dune` data set with `data_vegan` from the `salvador` repo.
