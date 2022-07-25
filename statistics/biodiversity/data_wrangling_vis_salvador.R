@@ -202,4 +202,4 @@ anova(ord, by="axis", permutations=999)
 
 ord <- cca(data_vegan ~ depth_m + site + Condition(bait_type), 
            data=data_vegan.env)
-ord
+anova(ord, by="term", permutations=999)
