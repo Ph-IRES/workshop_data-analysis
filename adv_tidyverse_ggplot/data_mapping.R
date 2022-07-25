@@ -218,6 +218,7 @@ subregions_keep %>%
   geom_point(data = metadata,
              aes(x = long_e,
                  y = lat_n,
-                 color = habitat),
+                 color = habitat,
+                 shape = site),
              inherit.aes = FALSE) +
   theme_classic()
