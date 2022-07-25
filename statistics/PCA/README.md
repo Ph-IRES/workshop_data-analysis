@@ -108,7 +108,6 @@ ggbiplot(lai_ratio.pca,
   labs(title = "PC3 x PC4",
        subtitle = "Grouped by Province, With Ellipses, Variables Removed")
 ```
-```
 
 ![](Rplot05.png)
 
