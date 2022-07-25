@@ -166,8 +166,9 @@ Color coded by habitat, where deep reef is black and shallow reef is red.
 
 ---
 
+### Non-metric multidimensional scaling
+
 ```r
-# Non-metric multidimensional scaling
 ord <- metaMDS(data_vegan)
 ord
 summary(ord)
@@ -182,5 +183,22 @@ ordispider(ord, habitat, col=1:2, label = TRUE)
 
 ![](Rplot03.png)
 
+---
 
+### Fitting Environmental Variables
 
+Let us test for an effect of site and depth on the NMDS
+
+```r
+ord.fit <- 
+  envfit(ord ~ depth_m + site + bait_type, 
+         data=data_vegan.env, 
+         perm=999,
+         na.rm = TRUE)
+ord.fit
+plot(ord, dis="site")
+ordiellipse(ord, site, col=1:4, kind = "ehull", lwd=3)
+plot(ord.fit)
+```
+
+![](Rplot04.png)

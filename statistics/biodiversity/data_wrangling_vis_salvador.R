@@ -120,7 +120,10 @@ data_vegan.env <-
   mutate(site_code = str_remove(op_code,
                                 "_.*$"),
          site_code = factor(site_code),
-         habitat = factor(habitat))
+         habitat = factor(habitat),
+         bait_type = factor(bait_type),
+         site = factor(site),
+         survey_area = factor(survey_area))
 
 # and now we "attach" the metadata to the data
 
@@ -155,3 +158,17 @@ ordiellipse(ord, habitat, col=1:2, kind = "ehull", lwd=3)
 ordiellipse(ord, habitat, col=1:2, draw="polygon")
 points(ord, disp="sites", pch=21, col=1:2, bg="yellow", cex=1.3)
 ordispider(ord, habitat, col=1:2, label = TRUE)
+
+# Fitting Environmental Variables
+
+  # Let us test for an effect of site and depth on the NMDS
+
+ord.fit <- 
+  envfit(ord ~ depth_m + site + bait_type, 
+         data=data_vegan.env, 
+         perm=999,
+         na.rm = TRUE)
+ord.fit
+plot(ord, dis="site")
+ordiellipse(ord, site, col=1:4, kind = "ehull", lwd=3)
+plot(ord.fit)
