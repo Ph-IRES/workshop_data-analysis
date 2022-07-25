@@ -21,6 +21,9 @@
 ```r
 install.packages("vegan")
 ```
+
+Note that Rtools is required but not found, so I followed the instructions given below to install Rtools
+
 	WARNING: Rtools is required to build R packages but no version of Rtools compatible with the currently running version of R was found. Note that the following incompatible version(s) of Rtools were found:
 
 	  - Rtools 3.4 (installed at C:\RBuildTools\3.4)
@@ -48,8 +51,6 @@ install.packages("vegan")
 		C:\Users\cbird\AppData\Local\Temp\RtmpaKbQtZ\downloaded_packages
 	>
 
-
-Note that Rtools is required but not found, so I followed the instructions given above to install Rtools
 
 ---
 
