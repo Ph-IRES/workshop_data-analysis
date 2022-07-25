@@ -123,6 +123,30 @@ Color coded by habitat, where deep reef is black and shallow reef is red.
 
 ---
 
+### ORDINATION: Plotting with ggplot instead of base R
+
+# follow the ggvegan installation instructions here https://gavinsimpson.github.io/ggvegan/
+
+ggord <- 
+  fortify(ord) %>% 
+  tibble() %>% 
+  clean_names() %>%
+  filter(score == "sites") %>% 
+  bind_cols(tibble(data_vegan.env)) %>% 
+  clean_names()
+
+ggord %>%
+  ggplot(aes(x = nmds1,
+             y= nmds2,
+             color = site_code,
+             shape = habitat)) +
+  geom_point(size = 5) +
+  theme_classic()
+
+
+
+---
+
 ### ORDINATION: Non-metric multidimensional scaling
 
 ```r
