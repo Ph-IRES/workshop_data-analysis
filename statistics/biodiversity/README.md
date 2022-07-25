@@ -100,7 +100,7 @@ Note that `vegan` is not `tidyverse` compatible, meaning that its functions are 
 	text(ord, display = "spec", cex=0.7, col="blue")
 	```
 	
-	![](Rplot.png)
+![](Rplot.png)
 	
 	```r
 	# Non-metric multidimensional scaling
@@ -113,7 +113,7 @@ Note that `vegan` is not `tidyverse` compatible, meaning that its functions are 
 	text(ord, display = "spec", cex=0.7, col="blue")
 	```
 	
-	![](Rplot01.png)
+![](Rplot01.png)
 
 
 
