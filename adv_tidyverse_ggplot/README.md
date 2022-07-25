@@ -9,3 +9,5 @@ I expect that we will spend some time maintaining everybody's packages in R stud
 ## MAPPING YOUR SITES
 
 Run [data_mapping.R](data_mapping.R) in R Studio for mapping examples.
+
+![](Rplot.png)
