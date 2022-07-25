@@ -87,13 +87,33 @@ You can consult the [`vegan` manual](https://cloud.r-project.org/web/packages/ve
 
 Note that `vegan` is not `tidyverse` compatible, meaning that its functions are meant to be used with `base R` commands. If you want to use `ggplot`, you will have to harness the vegan output yourself, which really is not very difficult.  Just realize that the `plot` command is not `ggplot` and not compatible with `ggplot`.
 
-```r
-# Detrended correspondence analysis
-ord <- decorana(data_vegan)
-ord
-summary(ord)
-plot(ord)
-plot(ord, type = "n")
-points(ord, display = "sites", cex = 0.8, pch=21, col="red", bg="yellow")
-text(ord, display = "spec", cex=0.7, col="blue")
-```
+	```r
+	# Detrended correspondence analysis
+	ord <- decorana(data_vegan)
+	ord
+	summary(ord)
+	plot(ord)
+	
+	#nicer plot
+	plot(ord, type = "n")
+	points(ord, display = "sites", cex = 0.8, pch=21, col="red", bg="yellow")
+	text(ord, display = "spec", cex=0.7, col="blue")
+	```
+	
+	![](Rplot.png)
+	
+	```r
+	# Non-metric multidimensional scaling
+	ord <- metaMDS(data_vegan)
+	ord
+	summary(ord)
+	plot(ord)
+	plot(ord, type = "n")
+	points(ord, display = "sites", cex = 0.8, pch=21, col="red", bg="yellow")
+	text(ord, display = "spec", cex=0.7, col="blue")
+	```
+	
+	![](Rplot01.png)
+
+
+
