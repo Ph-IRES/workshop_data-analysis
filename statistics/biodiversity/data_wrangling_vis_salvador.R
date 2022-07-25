@@ -58,7 +58,7 @@ data_all <-
          time_in:bait_weight_grams,
          everything())
 
-#### DIVERSITY ####
+#### PREP DATA FOR VEGAN ####
 
 # convert species count data into tibble for vegan ingestion
   # each row is a site
@@ -129,7 +129,8 @@ data_vegan.env <-
 
 attach(data_vegan.env)
 
-# Detrended correspondence analysis
+#### ORDINATION: Detrended correspondence analysis ####
+
 ord <- decorana(data_vegan)
 ord
 summary(ord)
@@ -147,7 +148,9 @@ ordiellipse(ord, habitat, col=1:2, draw="polygon")
 points(ord, disp="sites", pch=21, col=1:2, bg="yellow", cex=1.3)
 ordispider(ord, habitat, col=1:2, label = TRUE)
 
-# Non-metric multidimensional scaling
+
+#### ORDINATION: Non-metric multidimensional scaling (NMDS) ####
+
 ord <- metaMDS(data_vegan)
 ord
 summary(ord)
@@ -159,9 +162,10 @@ ordiellipse(ord, habitat, col=1:2, draw="polygon")
 points(ord, disp="sites", pch=21, col=1:2, bg="yellow", cex=1.3)
 ordispider(ord, habitat, col=1:2, label = TRUE)
 
-# Fitting Environmental Variables
 
-  # Let us test for an effect of site and depth on the NMDS
+#### ORDINATION: Fitting Environmental Variables ####
+
+# Let us test for an effect of site and depth on the NMDS
 
 ord.fit <- 
   envfit(ord ~ depth_m + site + bait_type, 
@@ -173,4 +177,19 @@ plot(ord, dis="site")
 ordiellipse(ord, site, col=1:4, kind = "ehull", lwd=3)
 plot(ord.fit)
 
+# Plotting fitted surface of continuous variables (depth_m) on ordination plot
 ordisurf(ord, depth_m, add=TRUE)
+
+
+#### CONSTRAINED ORDINATION ####
+
+# constrained or “canonical” correspondence analysis (function cca)
+ord <- cca(data_vegan ~ depth_m + site , data=data_vegan.env)
+ord
+plot(ord, dis="site")
+points(ord, disp="site", pch=21, col=1:2, bg="yellow", cex=1.3)
+ordiellipse(ord, site, col=1:4, kind = "ehull", lwd=3)
+
+# Significance test of constraints
+anova(ord)
+anova(ord, by="term", permutations=9999)

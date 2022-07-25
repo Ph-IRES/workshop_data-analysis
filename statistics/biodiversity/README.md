@@ -212,3 +212,84 @@ ordisurf(ord, depth_m, add=TRUE)
 ```
 
 ![](Rplot05.png)
+
+### CONSTRAINED ORDINATION
+
+Example with CCA, constrained or “canonical” correspondence analysis
+
+```r
+ord <- cca(data_vegan ~ depth_m + site , data=data_vegan.env)
+ord
+plot(ord, dis="site")
+points(ord, disp="site", pch=21, col=1:2, bg="yellow", cex=1.3)
+ordiellipse(ord, site, col=1:4, kind = "ehull", lwd=3)
+```
+
+Significance Tests
+
+```r
+anova(ord)
+```
+	Permutation test for cca under reduced model
+	Permutation: free
+	Number of permutations: 999
+
+	Model: cca(formula = data_vegan ~ depth_m + site, data = data_vegan.env)
+			 Df ChiSquare      F Pr(>F)    
+	Model     4    1.2457 1.6115  0.001 ***
+	Residual 60   11.5946                  
+	---
+	Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+```r
+anova(ord, by="term", permutations=999)
+```
+	Permutation test for cca under reduced model
+	Terms added sequentially (first to last)
+	Permutation: free
+	Number of permutations: 999
+
+	Model: cca(formula = data_vegan ~ depth_m + site, data = data_vegan.env)
+			 Df ChiSquare      F Pr(>F)   
+	depth_m   1    0.3114 1.6114  0.002 **
+	site      3    0.9343 1.6116  0.002 **
+	Residual 60   11.5946                 
+	---
+	Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+```r
+anova(ord, by="mar", permutations=999)
+```
+	Permutation test for cca under reduced model
+	Marginal effects of terms
+	Permutation: free
+	Number of permutations: 999
+
+	Model: cca(formula = data_vegan ~ depth_m + site, data = data_vegan.env)
+			 Df ChiSquare      F Pr(>F)    
+	depth_m   1    0.1831 0.9476  0.575    
+	site      3    0.9343 1.6116  0.001 ***
+	Residual 60   11.5946                  
+	---
+	Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+```r
+anova(ord, by="axis", permutations=999)
+```
+Permutation test for cca under reduced model
+Forward tests for axes
+Permutation: free
+Number of permutations: 999
+
+Model: cca(formula = data_vegan ~ depth_m + site, data = data_vegan.env)
+         Df ChiSquare      F Pr(>F)    
+CCA1      1    0.5233 2.7080  0.001 ***
+CCA2      1    0.3428 1.7740  0.042 *  
+CCA3      1    0.2374 1.2287  0.411    
+CCA4      1    0.1421 0.7354  0.931    
+Residual 60   11.5946                  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+
