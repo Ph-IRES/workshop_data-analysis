@@ -57,4 +57,9 @@ Note that Rtools is required but not found, so I followed the instructions given
 ## ANALYSES
 
 * [Ordination](ordination.md)
+	* dimensional reduction of data, visualize differences among observations with many dimensions of info
+	* morphometrics, biodiversity, genetics
+* [PERMANOVA](permanova.md)
+	* test for differences in species composition or genetic composition or morpho-composition
+	* can be coaxed to do analysis of molecular variance, AMOVA (Excoffier et al 1992)
 
