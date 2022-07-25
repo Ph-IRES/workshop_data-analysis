@@ -1,5 +1,10 @@
 ## PRINCIPLE COMPONENTS ANALYSIS (PCA)
 
+Background links:
+
+* https://en.wikipedia.org/wiki/Principal_component_analysis
+
+
 ## Tutorial
 
 [datacamp](https://www.datacamp.com/tutorial/pca-analysis-r#!)
