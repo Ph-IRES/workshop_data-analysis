@@ -138,7 +138,7 @@ Note that `vegan` is not `tidyverse` compatible, meaning that its functions are 
 	plot(ord)
 	```
 	
-!{}(Rplot.png)
+![](Rplot.png)
 The symbols represent the sites (black circles) and the taxa (red +)
 	
 	```r
@@ -160,7 +160,7 @@ The sites are black circles and the taxa are spelled out in red.
 	points(ord, disp="sites", pch=21, col=1:2, bg="yellow", cex=1.3)
 	ordispider(ord, habitat, col=1:2, label = TRUE)
 	```
-	
+
 ![](Rplot02.png)
 Color coded by habitat, where deep reef is black and shallow reef is red.
 
