@@ -140,46 +140,46 @@ plot(ord)
 	
 ![](Rplot.png)
 The symbols represent the sites (black circles) and the taxa (red +)
-	
-	```r
-	#fancier plot
-	plot(ord, type = "n")
-	points(ord, display = "sites", cex = 0.8, pch=21, col="black", bg="yellow")
-	text(ord, display = "spec", cex=0.7, col="red")
-	```
-	
+
+```r
+#fancier plot
+plot(ord, type = "n")
+points(ord, display = "sites", cex = 0.8, pch=21, col="black", bg="yellow")
+text(ord, display = "spec", cex=0.7, col="red")
+```
+
 ![](Rplot01.png)
 The sites are black circles and the taxa are spelled out in red.
-	
-	```r
-	#fanciest plot
-	plot(ord, disp="sites", type="n")
-	ordihull(ord, habitat, col=1:2, lwd=3)
-	ordiellipse(ord, habitat, col=1:2, kind = "ehull", lwd=3)
-	ordiellipse(ord, habitat, col=1:2, draw="polygon")
-	points(ord, disp="sites", pch=21, col=1:2, bg="yellow", cex=1.3)
-	ordispider(ord, habitat, col=1:2, label = TRUE)
-	```
+
+```r
+#fanciest plot
+plot(ord, disp="sites", type="n")
+ordihull(ord, habitat, col=1:2, lwd=3)
+ordiellipse(ord, habitat, col=1:2, kind = "ehull", lwd=3)
+ordiellipse(ord, habitat, col=1:2, draw="polygon")
+points(ord, disp="sites", pch=21, col=1:2, bg="yellow", cex=1.3)
+ordispider(ord, habitat, col=1:2, label = TRUE)
+```
 
 ![](Rplot02.png)
 Color coded by habitat, where deep reef is black and shallow reef is red.
 
 ---
 
-	```r
-	# Non-metric multidimensional scaling
-	ord <- metaMDS(data_vegan)
-	ord
-	summary(ord)
-	#fanciest plot
-	plot(ord, disp="sites", type="n")
-	ordihull(ord, habitat, col=1:2, lwd=3)
-	ordiellipse(ord, habitat, col=1:2, kind = "ehull", lwd=3)
-	ordiellipse(ord, habitat, col=1:2, draw="polygon")
-	points(ord, disp="sites", pch=21, col=1:2, bg="yellow", cex=1.3)
-	ordispider(ord, habitat, col=1:2, label = TRUE)
-	```
-	
+```r
+# Non-metric multidimensional scaling
+ord <- metaMDS(data_vegan)
+ord
+summary(ord)
+#fanciest plot
+plot(ord, disp="sites", type="n")
+ordihull(ord, habitat, col=1:2, lwd=3)
+ordiellipse(ord, habitat, col=1:2, kind = "ehull", lwd=3)
+ordiellipse(ord, habitat, col=1:2, draw="polygon")
+points(ord, disp="sites", pch=21, col=1:2, bg="yellow", cex=1.3)
+ordispider(ord, habitat, col=1:2, label = TRUE)
+```
+
 ![](Rplot03.png)
 
 
