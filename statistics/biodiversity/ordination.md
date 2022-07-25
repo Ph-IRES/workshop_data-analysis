@@ -85,7 +85,7 @@ attach(data_vegan.env)
 ---
 
 
-## ORDINATION: Detrended correspondence analysis
+## ORDINATION: Detrended correspondence analysis (DCA)
 
 ```r
 ord <- decorana(data_vegan)
