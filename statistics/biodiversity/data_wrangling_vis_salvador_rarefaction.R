@@ -3,60 +3,18 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 library(tidyverse)
 library(janitor)
-library(readxl)
-# install.packages("maps")
-# install.packages("viridis")
-require(maps)
-require(viridis)
-theme_set(
-  theme_void()
-)
+
 # install.packages("vegan")
 library(vegan)
 
 #### USER DEFINED VARIABLES ####
 
-inFilePath1 = "./WorkingData_CLEANED_TUB,CAG.xlsx"
-inFilePath2 = "./PHIRES_MetaData.xlsx"
+inFilePath1 = "./data_si_station_gis_78-79.rds"
 
 #### READ IN DATA & CURATE ####
 
-data <-
-  read_excel(inFilePath1,
-             na="NA") %>%
-  clean_names() %>%
-  # there is a different depth for CAG_024 in data vs metadata
-  # solution: go with metadata depth, confirm with Gene & Rene
-  mutate(depth_m = case_when(op_code == "CAG_024" ~ 8,
-                             TRUE ~ depth_m),
-         family = str_to_title(family),
-         genus = str_to_title(genus),
-         species = str_to_lower(species),
-         trophic_groups = str_to_title(trophic_groups))
-
-metadata <-
-  read_excel(inFilePath2,
-             na="NA") %>%
-  clean_names() %>%
-  dplyr::rename(bait_weight_grams = weight_grams) %>%
-  mutate(site = str_to_title(site),
-         survey_area = str_to_title(survey_area),
-         habitat = str_to_title(habitat),
-         bait_type = str_to_title(bait_type))
-
-#### COMBINE DATA ####
-
-data_all <-
-  data %>%
-    left_join(metadata,
-               by = c("op_code" = "opcode",
-                      "depth_m" = "depth_m")) %>%
-  # rearrange order of columns, metadata then data
-  select(op_code,
-         site:long_e,
-         depth_m,
-         time_in:bait_weight_grams,
-         everything())
+data_si_70s <- 
+  read_rds(inFilePath1)
 
 #### PREP DATA FOR VEGAN ####
 
@@ -66,15 +24,15 @@ data_all <-
   # data are counts
 
 data_vegan <-
-  data %>%
+  data_si_70s %>%
   # make unique taxa
-  mutate(taxon = str_c(family,
-                       genus,
-                       species,
+  mutate(taxon = str_c(order,
+                       family,
+                       identification,
                        sep = "_")) %>%
   # sum all max_n counts for a taxon and op_code
   group_by(taxon,
-           op_code) %>%
+           station_code) %>%
   summarize(sum_max_n = sum(max_n)) %>%
   ungroup() %>%
   # convert tibble from long to wide format
@@ -134,10 +92,55 @@ attach(data_vegan.env)
 
 # vegan manual - https://cloud.r-project.org/web/packages/vegan/vegan.pdf
 
+# this is the example from the manual with their data
 data(BCI)
 S <- specnumber(BCI) # observed number of species
-(raremax <- min(rowSums(BCI)))
+raremax <- min(rowSums(BCI))
 Srare <- rarefy(BCI, raremax)
+
 plot(S, Srare, xlab = "Observed No. of Species", ylab = "Rarefied No. of Species")
 abline(0, 1)
+
+# draws a rarefaction curve for each row of the input data
 rarecurve(BCI, step = 20, sample = raremax, col = "blue", cex = 0.6)
+
+# redo with data_vegan from salvador data
+S <- specnumber(data_vegan) # observed number of species
+raremax <- min(rowSums(data_vegan))
+Srare <- rarefy(data_vegan, 
+                raremax,
+                se = TRUE)
+
+# make same plot as above, but with ggplot
+t(Srare) %>%
+  bind_cols(S) %>%
+  rename(Srare = S,
+         S = ...3,
+         Srare_se = se) %>%
+  ggplot(aes(x=S,
+             y=Srare)) +
+  geom_point() +
+  geom_errorbar(aes(ymin = Srare - Srare_se,
+                    ymax = Srare + Srare_se),
+                color = "grey") +
+  geom_smooth(se = FALSE,
+              color = "blue3") +
+  geom_abline(slope = 1,
+              intercept = 0) +
+  theme_classic() +
+  labs(title = "Salvador Data Set",
+       x = "Observed No. of Species",
+       y = "Rarefied No. of Species")
+
+test <-
+  rarecurve(data_vegan, 
+            step = 2, 
+            sample = raremax) %>%
+  as.matrix()
+  as_tibble(.rows = length(S))
+
+data_vegan.s <-
+  data_vegan.env
+bind_cols(S,
+          Srare)
+
