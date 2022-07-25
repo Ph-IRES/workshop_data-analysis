@@ -129,14 +129,14 @@ You can consult the [`vegan` manual](https://cloud.r-project.org/web/packages/ve
 
 Note that `vegan` is not `tidyverse` compatible, meaning that its functions are meant to be used with `base R` commands. If you want to use `ggplot`, you will have to harness the vegan output yourself, which really is not very difficult.  Just realize that the `plot` command is not `ggplot` and not compatible with `ggplot`.
 
-	```r
-	# Detrended correspondence analysis
-	ord <- decorana(data_vegan)
-	ord
-	summary(ord)
-	#boring plot
-	plot(ord)
-	```
+```r
+# Detrended correspondence analysis
+ord <- decorana(data_vegan)
+ord
+summary(ord)
+#boring plot
+plot(ord)
+```
 	
 ![](Rplot.png)
 The symbols represent the sites (black circles) and the taxa (red +)
