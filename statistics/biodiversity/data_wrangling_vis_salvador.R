@@ -172,3 +172,5 @@ ord.fit
 plot(ord, dis="site")
 ordiellipse(ord, site, col=1:4, kind = "ehull", lwd=3)
 plot(ord.fit)
+
+ordisurf(ord, depth_m, add=TRUE)

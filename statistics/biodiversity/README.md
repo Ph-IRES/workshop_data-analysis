@@ -202,3 +202,13 @@ plot(ord.fit)
 ```
 
 ![](Rplot04.png)
+Ellipses represent the sites.
+
+Add the fitted surface for depth to the ordination plot
+
+```r
+ordisurf(ord, depth_m, add=TRUE)
+
+```
+
+![](Rplot05.png)
