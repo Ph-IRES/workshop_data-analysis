@@ -4,4 +4,4 @@
 
 * [PCA](./PCA)
 
-* [Biodiversity](./biodiveristy)
+* [Biodiversity](./biodiversity)
