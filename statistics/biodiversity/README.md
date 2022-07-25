@@ -6,11 +6,15 @@
 * [BiodiversityR](https://rdrr.io/cran/BiodiversityR/)
 * [adiv](https://besjournals.onlinelibrary.wiley.com/doi/epdf/10.1111/2041-210X.13430)
 
+---
+
 ## Other Tutorials
 
 * https://www.mooreecology.com/uploads/2/4/2/1/24213970/vegantutor.pdf
 * http://www.kembellab.ca/r-workshop/biodivR/SK_Biodiversity_R.html
 * https://peat-clark.github.io/BIO381/veganTutorial.html
+
+---
 
 ## Getting Started
 
@@ -121,7 +125,9 @@
 	attach(data_vegan.env)
 	```
 
-## Ordination
+---
+
+## ORDINATION
 
 We are following the [Vegan: an introduction to ordination](https://cloud.r-project.org/web/packages/vegan/vignettes/intro-vegan.pdf) vignette, but replacing the `dune` data set with `data_vegan` from the `salvador` repo.
 
@@ -166,7 +172,7 @@ Color coded by habitat, where deep reef is black and shallow reef is red.
 
 ---
 
-### Non-metric multidimensional scaling
+### ORDINATION: Non-metric multidimensional scaling
 
 ```r
 ord <- metaMDS(data_vegan)
@@ -185,7 +191,7 @@ ordispider(ord, habitat, col=1:2, label = TRUE)
 
 ---
 
-### Fitting Environmental Variables
+### ORDINATION: Fitting Environmental Variables
 
 Let us test for an effect of site and depth on the NMDS
 
@@ -213,7 +219,9 @@ ordisurf(ord, depth_m, add=TRUE)
 
 ![](Rplot05.png)
 
-### CONSTRAINED ORDINATION
+---
+
+### ORDINATION: Constrained Ordination
 
 Example with CCA, constrained or “canonical” correspondence analysis
 
@@ -225,7 +233,9 @@ points(ord, disp="site", pch=21, col=1:2, bg="yellow", cex=1.3)
 ordiellipse(ord, site, col=1:4, kind = "ehull", lwd=3)
 ```
 
-Significance Tests
+---
+
+### ORDINATION: Constrained Ordination Significance Tests
 
 ```r
 anova(ord)
@@ -276,20 +286,43 @@ anova(ord, by="mar", permutations=999)
 ```r
 anova(ord, by="axis", permutations=999)
 ```
-Permutation test for cca under reduced model
-Forward tests for axes
-Permutation: free
-Number of permutations: 999
+	Permutation test for cca under reduced model
+	Forward tests for axes
+	Permutation: free
+	Number of permutations: 999
 
-Model: cca(formula = data_vegan ~ depth_m + site, data = data_vegan.env)
-         Df ChiSquare      F Pr(>F)    
-CCA1      1    0.5233 2.7080  0.001 ***
-CCA2      1    0.3428 1.7740  0.042 *  
-CCA3      1    0.2374 1.2287  0.411    
-CCA4      1    0.1421 0.7354  0.931    
-Residual 60   11.5946                  
+	Model: cca(formula = data_vegan ~ depth_m + site, data = data_vegan.env)
+			 Df ChiSquare      F Pr(>F)    
+	CCA1      1    0.5233 2.7080  0.001 ***
+	CCA2      1    0.3428 1.7740  0.042 *  
+	CCA3      1    0.2374 1.2287  0.411    
+	CCA4      1    0.1421 0.7354  0.931    
+	Residual 60   11.5946                  
+	---
+	Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
+### ORDINATION: Conditioned or partial ordination
 
+If there are covariates that we are not interested in testing the effect of, but we want to account for their impact on the response variables, we can partial out these covariates 
+
+```r
+ord <- cca(data_vegan ~ depth_m + site + Condition(bait_type), 
+           data=data_vegan.env)
+anova(ord, by="term", permutations=999)
+```
+
+	Permutation test for cca under reduced model
+	Terms added sequentially (first to last)
+	Permutation: free
+	Number of permutations: 999
+
+	Model: cca(formula = data_vegan ~ depth_m + site + Condition(bait_type), data = data_vegan.env)
+			 Df ChiSquare      F Pr(>F)   
+	depth_m   1    0.1778 0.9359  0.586   
+	site      2    0.7661 2.0168  0.002 **
+	Residual 55   10.4467                 
+	---
+	Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 

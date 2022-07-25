@@ -184,12 +184,22 @@ ordisurf(ord, depth_m, add=TRUE)
 #### CONSTRAINED ORDINATION ####
 
 # constrained or “canonical” correspondence analysis (function cca)
-ord <- cca(data_vegan ~ depth_m + site , data=data_vegan.env)
+ord <- cca(data_vegan ~ depth_m + site, 
+           data=data_vegan.env)
 ord
 plot(ord, dis="site")
 points(ord, disp="site", pch=21, col=1:2, bg="yellow", cex=1.3)
 ordiellipse(ord, site, col=1:4, kind = "ehull", lwd=3)
 
-# Significance test of constraints
+# Significance tests of constraints
 anova(ord)
-anova(ord, by="term", permutations=9999)
+anova(ord, by="term", permutations=999)
+anova(ord, by="mar", permutations=999)
+anova(ord, by="axis", permutations=999)
+
+
+#### Conditioned or partial ordination ####
+
+ord <- cca(data_vegan ~ depth_m + site + Condition(bait_type), 
+           data=data_vegan.env)
+ord
