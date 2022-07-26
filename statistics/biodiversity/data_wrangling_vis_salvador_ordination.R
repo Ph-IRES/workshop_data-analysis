@@ -13,6 +13,10 @@ theme_set(
 )
 # install.packages("vegan")
 library(vegan)
+# install.packages("remotes")
+# library(remotes)
+# remotes::install_github("gavinsimpson/ggvegan")
+library(ggvegan)
 
 #### USER DEFINED VARIABLES ####
 
@@ -161,6 +165,27 @@ ordiellipse(ord, habitat, col=1:2, kind = "ehull", lwd=3)
 ordiellipse(ord, habitat, col=1:2, draw="polygon")
 points(ord, disp="sites", pch=21, col=1:2, bg="yellow", cex=1.3)
 ordispider(ord, habitat, col=1:2, label = TRUE)
+
+
+#### ORDINATION: Plotting with ggplot
+
+# https://gavinsimpson.github.io/ggvegan/
+
+ggord <- 
+  fortify(ord) %>% 
+  tibble() %>% 
+  clean_names() %>%
+  filter(score == "sites") %>% 
+  bind_cols(tibble(data_vegan.env)) %>% 
+  clean_names()
+
+ggord %>%
+  ggplot(aes(x = nmds1,
+             y= nmds2,
+             color = site_code,
+             shape = habitat)) +
+  geom_point(size = 5) +
+  theme_classic() 
 
 
 #### ORDINATION: Fitting Environmental Variables ####

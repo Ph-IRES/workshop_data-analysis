@@ -4,7 +4,7 @@ We are following the [Vegan: an introduction to ordination](https://cloud.r-proj
 
 You can consult the [`vegan` manual](https://cloud.r-project.org/web/packages/vegan/vegan.pdf) where the vignette does not go into enough depth.
 
-Note that `vegan` is not `tidyverse` compatible, meaning that its functions are meant to be used with `base R` commands. If you want to use `ggplot`, you will have to harness the vegan output yourself, which really is not very difficult.  Just realize that the `plot` command is not `ggplot` and not compatible with `ggplot`.
+Note that `vegan` is not `tidyverse` compatible, meaning that its functions are meant to be used with `base R` commands. If you want to use `ggplot`, you will have to harness the vegan output yourself, which really is not very difficult.  Just realize that the `plot` command is not `ggplot` and not compatible with `ggplot`. We do show how to use the `ggvegan` package to visualize an NMDS plot, but ymmv with `ggvegan`.
 
 
 ---
@@ -85,7 +85,7 @@ attach(data_vegan.env)
 ---
 
 
-## ORDINATION: Detrended correspondence analysis
+## ORDINATION: Detrended correspondence analysis (DCA)
 
 ```r
 ord <- decorana(data_vegan)
@@ -120,6 +120,30 @@ ordispider(ord, habitat, col=1:2, label = TRUE)
 
 ![](Rplot02.png)
 Color coded by habitat, where deep reef is black and shallow reef is red.
+
+---
+
+### ORDINATION: Plotting with ggplot instead of base R
+
+# follow the ggvegan installation instructions here https://gavinsimpson.github.io/ggvegan/
+
+ggord <- 
+  fortify(ord) %>% 
+  tibble() %>% 
+  clean_names() %>%
+  filter(score == "sites") %>% 
+  bind_cols(tibble(data_vegan.env)) %>% 
+  clean_names()
+
+ggord %>%
+  ggplot(aes(x = nmds1,
+             y= nmds2,
+             color = site_code,
+             shape = habitat)) +
+  geom_point(size = 5) +
+  theme_classic()
+
+
 
 ---
 
