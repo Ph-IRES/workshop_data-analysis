@@ -1,6 +1,6 @@
 # RAREFACTION SPECIES RICHNESS
 
-We will be following the [vegan manual](https://cloud.r-project.org/web/packages/vegan/vegan.pdf) and using `rarefy`
+We will be following the [vegan manual](https://cloud.r-project.org/web/packages/vegan/vegan.pdf) 
 
 
 ---
@@ -29,9 +29,9 @@ We will be following the [vegan manual](https://cloud.r-project.org/web/packages
 
 For the species count data, each column is a taxon and each row is a unique site or observation
 
-We will use the count data from the `salvador` repo which is already here in this directory.  
+We will use the count data from the 78-79 smithsonian expecidition which is already here in this directory.  
 
-Open `data_wrangling_vis_salvador_permanova.R` in R studio and run lines 1-130
+Open `data_wrangling_vis_rarefaction.R` in R studio and run lines 1-130
 
 Now we can wrangle the tibble `data` into vegan format
 
