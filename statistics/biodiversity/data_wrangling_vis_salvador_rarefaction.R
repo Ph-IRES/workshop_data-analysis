@@ -394,7 +394,7 @@ p.plot
 # to make plot w ggplot, see https://stackoverflow.com/questions/52652195/convert-rarefaction-plots-from-vegan-to-ggplot2-in-r
 
 
-#### vegan::specpool - Extrapolated Species Richness in a Species Pool Based on Incidence (Presence Absence) ####
+#### vegan::specpool - Extrapolated Species Richness in a Species Pool Based on Incidence (Abundance) ####
 
 pool <- 
   estimateR(x = data_vegan) %>%
