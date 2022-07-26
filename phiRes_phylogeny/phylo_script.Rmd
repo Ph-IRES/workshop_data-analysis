@@ -33,16 +33,17 @@ library(microRNA)
 #This will need to be set to your working directory
 knitr::opts_knit$set(root.dir = "~/Desktop/phiRes_workshop/workshop_data-analysis/phiRes_phylogeny")
 ```
-```{r alternate file read}
+```{r file read}
 
 filelist<-list.files("Dog/CO1/fasta_files", pattern = "fasta", full.names= TRUE)
 seq<-Biostrings::readDNAStringSet(filelist)
 seq<-RNA2DNA(seq)
 
 ```
+```{r file read DEPRECATED DONT USE, eval=FALSE, include=FALSE}
 
 
-```{r file read DEPRECATED}
+#####DONT RUN THIS.  IT WILL BE DEPRECATED WHEN I AM CONFIDENT THE OTHER FILE READ SCRIPT WORKS#####
 
 ##creates list of .fasta files in named directory
 #you will need to select directory where individual .fasta files reside.  .fasta or .fa both acceptable file suffixes
@@ -68,14 +69,15 @@ View(seq)
 
 ```
 ```{r alignment}
-##multi-sequence alighment.  Muscle is also an (faster) option here, but need to remove first empty line of multifasta.fa file.
+##multi-sequence alignment.  Muscle is generally the fastest option here.  Other options are ClustalW and ClustalOmega
 
 seqalign<-msa(seq, method= "Muscle", type = "dna", verbose = TRUE)
 
 pd<-msaConvert(seqalign,"phangorn::phyDat")
 ```
 ```{r Perform distance matrix and distance-based trees}
-getwd()
+
+#margins on heatmap may need to be reduced.
 dm <- dist.ml(pd)
 heatmap(as.matrix(dm), margins=c(18,15), revC = TRUE,cexRow = 0.5, cexCol = 0.5, symm = TRUE)
 
@@ -96,18 +98,21 @@ fit <- as.pml(mt, "GTR+G(4)+I")
 fit
 ```
 ```{r Optimize Fit and Bootstrap}
-#optimize fit, use parameters from prev chunk
-#fit.opt <- update(fit, k=4, inv=0.593)
+##MAKE SURE TO CHANGE OPTIONS DEPENDING ON YOUR SELECTED MODEL.  
+#?optim.pml gives guidance on how to set optBf and optQ
+#optInv and optGamma should be set depending on whether your model includes +I and/or +G parameters
+
 fit.opt <- optim.pml(fit, model="GTR", optBf=TRUE, optQ=TRUE, optInv=TRUE, optGamma=TRUE,
                     rearrangement = "NNI", control = pml.control(trace = 0))
 fit.opt
+#main= sets the plot title
 plot(fit.opt, main="GTR+I+G")
 
 #bootstrap model
 bs <- bootstrap.pml(fit.opt, bs=100, optNni=TRUE, multicore=TRUE, mc.cores = 6)
 plotBS<-plotBS(midpoint(fit.opt$tree), bs, p = 50, type="p")
 
-#write tree with bootstrap node labels
+#write tree with bootstrap node labels *Change name of output appropriately*
 write.tree(plotBS, file = "dog_CO1_ML_bs.newick")
 
 ```
