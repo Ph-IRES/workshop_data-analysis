@@ -19,6 +19,12 @@ We will be following the [vegan manual](https://cloud.r-project.org/web/packages
 
 ---
 
+## Other Tutorials
+
+* [Primer of Ecology Using R](https://hankstevens.github.io/Primer-of-Ecology/diversity.html)
+
+---
+
 ## Getting Started: Wrangle data into format compatible with vegan.
 
 For the species count data, each column is a taxon and each row is a unique site or observation
