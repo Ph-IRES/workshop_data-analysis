@@ -135,14 +135,19 @@ attach(data_vegan.env)
 # vegan manual - https://cloud.r-project.org/web/packages/vegan/vegan.pdf
 
 # global test of model, differences in species composition with depth and site
+  #The global test of the whole model is the most powerful test of your hypothesis that you can perform. The result of this test should be the first reported in your results for the test of your model.  If the global test of the model is not significant, then there is no reason to test the individual terms of the model.  In the example here, the global test is significant (see the `Pr(>F)` column in the PERMANOVA table.)
 adonis2(data_vegan ~ depth_m*site,
         data = data_vegan.env,
         by = NULL)
 
 # test for differences in species composition with depth and site by each predictor, this is the default behavior, so `by` is not necessary
+  # Once we have found the model to be significant, we can move on to testing whether each term in the statistical model is non-randomly related to the response variables.
+
 adonis2(data_vegan ~ depth_m*site,
         data = data_vegan.env,
         by = "terms")
+
+# the rest of these examples demonstrate additional functionality. your data and sampling design dicate how your parameterize `adonis2`
 
 # test for differences in species composition with depth and site by each predictor, marginal effects
 adonis2(data_vegan ~ depth_m*site,

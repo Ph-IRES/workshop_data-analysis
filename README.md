@@ -20,6 +20,20 @@ The workshop will be tailored to the data you collected this summer.  We will me
 
 ---
 
+## Example Code
+
+* [Maps](./adv_tidyverse_ggplot)
+* [PCA](./statistics/PCA)
+* [Ordination](./statistics/biodiversity)
+* [Permutational Multivariate Analysis of Variance (PERMANOVA)](./statistics/biodiversity)
+  * testing for differences in multivariate responses among groups
+    * community composition
+    * genetic composition
+    * morphological composition
+* [Mixed Model Hypothesis Testing](./statistics/mixed_models)
+  * P-value "swiss army knife" for univariate responses
+
+---
 ## Tentative Schedule
 
 10 am - 6 pm Eastern
