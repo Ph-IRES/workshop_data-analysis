@@ -200,3 +200,15 @@ adonis2(data_vegan ~ bait_type*habitat,
         data = data_vegan.env,
         strata = site)
 		```
+## Dispersion analysis
+## From adonis2 documentation: Anderson (2001, Fig. 4) warns that the method may confound location and dispersion effects: significant differences may be caused by different within-group variation (dispersion) instead of different mean values of the groups (see Warton et al. 2012 for a general analysis). However, it seems that adonis2 is less sensitive to dispersion effects than some of its alternatives (anosim, mrpp). Function betadisper is a sister function to adonis2 to study the differences in dispersion within the same geometric framework.
+## The following will create distance matrices and perform a beta dispersion test that can be examined for potential confounding with centroids.
+```r
+dis<-vegdist(data_vegan)
+beta<-betadisper(site)
+beta
+anova(beta)
+permutest(beta, pairwise=TRUE, permutations = 999)
+plot(beta, ellipse=TRUE)
+boxplot(beta)
+```
