@@ -20,6 +20,15 @@ The workshop will be tailored to the data you collected this summer.  We will me
 
 ---
 
+## Example Code
+
+* [Maps](./adv_tidyverse_ggplot)
+* [PCA](./statistics/PCA)
+* [Ordination](./statistics/biodiversity)
+* [PERMANOVA](./statistics/biodiversity)
+* [Mixed Models](./statistics/mixed_models)
+
+---
 ## Tentative Schedule
 
 10 am - 6 pm Eastern
