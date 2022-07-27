@@ -87,6 +87,19 @@ adonis2(data_vegan ~ depth_m*site,
         by = NULL)
 ```
 
+	Permutation test for adonis under reduced model
+	Permutation: free
+	Number of permutations: 999
+
+	adonis2(formula = data_vegan ~ depth_m * site, data = data_vegan.env, by = NULL)
+		 Df SumOfSqs    R2      F Pr(>F)    
+	Model     7   5.9585 0.239 2.5573  0.001 ***
+	Residual 57  18.9728 0.761                  
+	Total    64  24.9313 1.000                  
+	---
+	Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
 ## test for differences in species composition with depth and site by each predictor, this is the default behavior, so `by` is not necessary
 ```r
 adonis2(data_vegan ~ depth_m*site,
