@@ -1,0 +1,6 @@
+date	location	sample_number	total_length_mm	standard_length_mm	weight_g	sex	stage	weight_of_gonads_g	notes	sex_clean	change	stage_clean	primary
+2022-07-08	Buenavista, Bohol	122	123	99	35.16	M	Inactie	0	07/07-09/22	M	1	Inactie	FALSE
+2022-12-07	Dumaguete, Negros	157	95	76	16.59	PM	Active	0.48	44902	PM	0	Active	FALSE
+2022-12-07	Dumaguete, Negros	158	86	70	12.24	PM	Active	0.36	44902	PM	0	Active	FALSE
+2022-12-07	Dumaguete, Negros	161	99	79	18.43	PM	Inactive	0	44902	PM	0	Inactive	FALSE
+2022-07-14	Dumaguete, Negros	204	68	54	6.35	PM	Active	0.13	07/14/22	PM	0	Active	FALSE
