@@ -26,7 +26,12 @@ The workshop will be tailored to the data you collected this summer.  We will me
 * [PCA](./statistics/PCA)
 * [Ordination](./statistics/biodiversity)
 * [PERMANOVA](./statistics/biodiversity)
-* [Mixed Models](./statistics/mixed_models)
+  * testing for differences in multivariate responses among groups
+    * community composition
+    * genetic composition
+    * morphological composition
+* [Mixed Model Hypothesis](./statistics/mixed_models)
+  * P-value "swiss army knife" for univariate responses
 
 ---
 ## Tentative Schedule
