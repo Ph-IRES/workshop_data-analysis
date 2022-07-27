@@ -2,6 +2,11 @@
 
 We will be following the [vegan manual](https://cloud.r-project.org/web/packages/vegan/vegan.pdf) and using `adonis2`
 
+Descriptions of PERMANOVA:
+* [Wikipedia](https://en.wikipedia.org/wiki/Permutational_analysis_of_variance)
+* [Cornell](https://cscu.cornell.edu/workshop/introduction-to-permanova/)
+* [Marti Anderson](https://onlinelibrary.wiley.com/doi/full/10.1002/9781118445112.stat07841)
+
 ---
 
 ## Getting Started: Wrangle data into format compatible with vegan.
@@ -99,6 +104,9 @@ adonis2(data_vegan ~ depth_m*site,
 	---
 	Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
+Interpretion of the results of PERMANOVA is straight forward and just like an ANOVA. For descriptions of PERMANOVA, see the bulleted list at the top of this document.
+
+* _Permutations_:  PERMANOVA utilizes a [permutation test](https://en.wikipedia.org/wiki/Permutation_test) to determine if there are significant differences in the [respoonse (dependent) variables](https://en.wikipedia.org/wiki/Permutation_test) among the groups defined by the [predictor (independent) variables](https://en.wikipedia.org/wiki/Permutation_test). The purpose of the permutations is to generate a [null distribution](https://en.wikipedia.org/wiki/Null_distribution) that the observed test statistic can be compared against. The [test statistic](https://en.wikipedia.org/wiki/Test_statistic) is a value that indicates the amount of difference among the groupings of your [unit of observation](https://en.wikipedia.org/wiki/Unit_of_observation).  In a nutshell, the units of observation (video transects or survey sites or individuals or ...) are randomly shuffled among the multivariate response variable values. These values can represent DNA sequences, community composition, morphology, etc.  Imagine shuffling entire rows in the `data_vegan.env` tibble, then calculating a
 
 ## test for differences in species composition with depth and site by each predictor, this is the default behavior, so `by` is not necessary
 ```r
