@@ -86,6 +86,9 @@ attach(data_vegan.env)
 ---
 
 ## global test of model, differences in species composition with depth and site
+
+The global test of the whole model is the most powerful test of your hypothesis that you can perform. The result of this test should be the first reported in your results for the test of your model.  If the global test of the model is not significant, then there is no reason to test the individual terms of the model.  In the example here, the global test is significant (see the `Pr(>F)` column in the PERMANOVA table.)
+
 ```r
 adonis2(data_vegan ~ depth_m*site,
         data = data_vegan.env,
@@ -108,9 +111,19 @@ adonis2(data_vegan ~ depth_m*site,
 
 Interpretion of the results of PERMANOVA is straight forward and just like an ANOVA. For descriptions of PERMANOVA, see the bulleted list at the top of this document.
 
-* _Permutations_:  PERMANOVA utilizes a [permutation test](https://en.wikipedia.org/wiki/Permutation_test) to determine if there are significant differences in the [respoonse (dependent) variables](https://en.wikipedia.org/wiki/Permutation_test) among the groups defined by the [predictor (independent) variables](https://en.wikipedia.org/wiki/Permutation_test). The purpose of the permutations is to generate a [null distribution](https://en.wikipedia.org/wiki/Null_distribution) that the observed test statistic can be compared against. The [test statistic](https://en.wikipedia.org/wiki/Test_statistic) is a value that indicates the amount of difference among the groupings of your [unit of observation](https://en.wikipedia.org/wiki/Unit_of_observation).  In a nutshell, the permutation test proceeds with the units of observation (video transects or survey sites or individuals or ...) being randomly shuffled among the multivariate response variable values ('data_vegan'). These values can represent DNA sequences, community composition, morphology, etc.  Imagine shuffling entire rows in the `data_vegan.env` tibble 999 times, and calculating the test statistic for each of the 999 permutations - this is the null distribution. The more permutations you do, the more precise your [p-value](https://en.wikipedia.org/wiki/P-value) is. As an example, if you only do 5 permutations, the only possible p values are 0, 0.2, 0.4, 0.6, 0.8, and 1.
-* 
-* 
+* _Permutations_:  PERMANOVA utilizes a [permutation test](https://en.wikipedia.org/wiki/Permutation_test) to determine if there are significant differences in the [respoonse (dependent) variables](https://en.wikipedia.org/wiki/Permutation_test) among the groups defined by the [predictor (independent) variables](https://en.wikipedia.org/wiki/Permutation_test). The purpose of the permutations is to generate a [null distribution](https://en.wikipedia.org/wiki/Null_distribution) that the observed test statistic can be compared against. The [test statistic](https://en.wikipedia.org/wiki/Test_statistic) is a value that indicates the amount of difference among the groupings of your [unit of observation](https://en.wikipedia.org/wiki/Unit_of_observation). For PERMANOVA, the test statistic is _F_.  _It is important to realize that if you use PERMANOVA for genetic data, you must calculate the test statics yourself because a different test statistic is used - Wrights F Statistic._  But we digress.  In a nutshell, the permutation test proceeds with the units of observation (video transects or survey sites or individuals or ...) being randomly shuffled among the multivariate response variable values (`data_vegan`). These values can represent DNA sequences, community composition, morphology, etc.  Imagine shuffling entire rows in the `data_vegan.env` tibble 999 times, and calculating the test statistic for each of the 999 permutations - this is the null distribution. The more permutations you do, the more precise your [p-value](https://en.wikipedia.org/wiki/P-value) is. As an example, if you only do 5 permutations, the only possible p values are 0, 0.2, 0.4, 0.6, 0.8, and 1. With 1000 permutations, they are 0, 0.001, 0.002, ..., 0.999, 1
+
+* _[P-values](https://en.wikipedia.org/wiki/P-value)_:  In the PERMANOVA table, the `Pr(>F)` column is the p-value.  In the example above, this p-value represents that probability of observing a "permuted" _F_ test statistic greater than or equal to the observed _F_ statistic.  Put another way, in your permutations, this value is the number of times permuted _F_ >= observed _F_ divided by the number of permutations. In the example above, we are testing the whole model (global test) which is the most powerful test of our hypothesis that the community composition of fishes in the video surveys differ by `depth_m` and `site`.  The are multiple videos per `site`, a categorical variable, and `depth_m` is a continuous variable so there are many different depths.  In the examples below, we show how to generate P-values for each predictor variable in the model. 
+
+* `F`: The observed test statistic
+
+* `R2`: this is the proportion of total variation explained by each term (row) in the PERMANOVA table. These values are calculated from the `SumOfSqs` column.  In the case above the `model` and `residual` sums of squares are divided by the `Total` to obtain `R2`.
+
+* `SumOfSqs`: This is the sum of squared differences, or a statement about the amount of variation explained by a term or factor in the model.  In the example above, the terms are the whole model (`Model`) and the error (`Residual`).  The `Total` is the sum of the `SumofSqs` of the terms.
+
+* `Df`: [degrees of freedom](https://en.wikipedia.org/wiki/Degrees_of_freedom) represent how many independent observations are contributing to the hypothesis test.  You need at least 1 df (2 observations) to generate a p-value with which to evaluate your hypothesis.
+
+
 
 ## test for differences in species composition with depth and site by each predictor, this is the default behavior, so `by` is not necessary
 ```r
