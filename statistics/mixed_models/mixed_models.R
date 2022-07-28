@@ -3,6 +3,7 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 library(tidyverse)
 library(janitor)
+library(magrittr)
 # install.packages("rlang")
 # install.packages("emmeans")
 # install.packages("afex")
@@ -66,7 +67,17 @@ theme_assembly_quality <-
 #### READ IN DATA ####
 
 data <-
-  read_rds(inFilePath)
+  read_rds(inFilePath) %>%
+  # make variable that has zero for female, one for male, and NA for everything else so we only focus in clear females and males
+  mutate(female_male = case_when(sex_clean == "F" ~ 0,
+                                 sex_clean == "M" ~ 1),
+         # because our response variable is binomial (0,1), need to make count columns for the two outcomes for the stats command that requires binoial data to be fed in this way
+         f_count = case_when(female_male == 0 ~ 1,
+                             TRUE ~ 0),
+         m_count = case_when(female_male == 1 ~ 1,
+                             TRUE ~ 0),
+         # make the fixed predictor variable a  factor
+         location = factor(location))
   
 
 #### FUNCTIONS ####
@@ -175,6 +186,7 @@ vis_dists <- function(data,
     plotdist(.)
   
   data %>%
+    drop_na(!!response_var) %>%
     pull(!!response_var) %>% 
     # log() %>%
     descdist(data=.,
@@ -182,12 +194,15 @@ vis_dists <- function(data,
   
   fw <-
     data %>%
+    drop_na(!!response_var) %>%
     pull(!!response_var) %>% 
     # log() %>%
-    fitdist(.,
-            "weibull")
+    try(fitdist(.,
+                "weibull"))
+  
   fp <-
     data %>%
+    drop_na(!!response_var) %>%
     pull(!!response_var) %>% 
     # log() %>%
     fitdist(.,
@@ -195,6 +210,7 @@ vis_dists <- function(data,
             method="mme")
   fnb <-
     data %>%
+    drop_na(!!response_var) %>%
     pull(!!response_var) %>% 
     # log() %>%
     fitdist(.,
@@ -202,6 +218,7 @@ vis_dists <- function(data,
             method="mme")
   fg <-
     data %>%
+    drop_na(!!response_var) %>%
     pull(!!response_var) %>%
     # log() %>%
     fitdist(.,
@@ -209,24 +226,29 @@ vis_dists <- function(data,
             method="mme")
   fl <-
     data %>%
+    drop_na(!!response_var) %>%
     pull(!!response_var) %>% 
     # log() %>%
     fitdist(.,
             "logis")
+  
   fln <-
     data %>%
+    drop_na(!!response_var) %>%
     pull(!!response_var) %>% 
     # log() %>%
-    fitdist(.,
-            "lnorm")
+    try(fitdist(.,
+                "lnorm"))
   fn <-
     data %>%
+    drop_na(!!response_var) %>%
     pull(!!response_var) %>% 
     # log() %>%
     fitdist(.,
             "norm")
   fge <-
     data %>%
+    drop_na(!!response_var) %>%
     pull(!!response_var) %>% 
     # log() %>%
     fitdist(.,
@@ -236,15 +258,16 @@ vis_dists <- function(data,
   
   par(mfrow = c(2, 2))
   plot.legend <- c("Weibull","Poisson","NegBinom","Gamma", "Logis","lognormal", "Normal", "Geom")
-  denscomp(list(fw, fp, fg, fl, fln, fn, fge), legendtext = plot.legend)
-  qqcomp(list(fw, fp, fg, fl, fln, fn, fge), legendtext = plot.legend)
-  cdfcomp(list(fw, fp, fg, fl, fln, fn, fge), legendtext = plot.legend)
-  ppcomp(list(fw, fp, fg, fl, fln, fn, fge), legendtext = plot.legend)
+  try(denscomp(list(fw, fp, fg, fl, fln, fn, fge), legendtext = plot.legend))
+  try(qqcomp(list(fw, fp, fg, fl, fln, fn, fge), legendtext = plot.legend))
+  try(cdfcomp(list(fw, fp, fg, fl, fln, fn, fge), legendtext = plot.legend))
+  try(ppcomp(list(fw, fp, fg, fl, fln, fn, fge), legendtext = plot.legend))
   
 }
 # hypothesis testing
 run_stats <- function(data,
                       response_var,
+                      fixed_var,
                       rand_var,
                       distribution_family,
                       binom_vars = NULL,
@@ -254,7 +277,8 @@ run_stats <- function(data,
   if(length(binom_vars) == 0){
     design <- 
       paste(quo_text(response_var),         # this stitches together the formula
-            "~ contamination * assembler",
+            # "~ contamination * assembler",
+            quo_text(fixed_var),
             rand_var)
   } else {
     design <- paste(quo_text(binom_vars),         # this stitches together the formula
@@ -577,18 +601,7 @@ vis_stats <- function(data,
 
 
 
-#### FIG 01a, TABLE 2, stat test n50 500 ####
-fig = "01"
-response_var = quo(weight_g) # quo() allows column names to be put into variables 
-rand_var = "+ (1|species) + (1|id)"
-treatment = "500NR"
-distribution_family = "poisson"
-y_label = "N50 (bp)"
-hide_legend = FALSE
-fig_w = 3.25
-fig_h = 3
-
-#### visualize continuous variables ####
+#### Explore Your Data For the Hypothesis Tests ####
 
 # it is important to understand the nature of your data
 # histograms can help you make decisions on how your data must be treated to conform with the assumptions of statistical models
@@ -597,8 +610,8 @@ data %>%
   pivot_longer(cols = c(contains("_mm"),
                         contains("_g")),
                names_to = "metric") %>%
-ggplot(aes(x=value,
-           fill = sex_clean)) +
+  ggplot(aes(x=value,
+             fill = sex_clean)) +
   geom_histogram() +
   theme_classic() +
   # theme(axis.text.x = element_text(angle = 0, 
@@ -623,12 +636,104 @@ data %>%
 # it may have to be handled differently
 
 # visualize statistical distributions (see fitdistrplus: An R Package for Fitting Distributions, 2020)
+#  vis_dists() is a function that I made above in the FUNCTIONS section.  It accepts the tibble and column name to visualize.
+#  vis_dists() creates three figures
 vis_dists(data,
-          quo(weight_g))
+          "total_length_mm")
+vis_dists(data,
+          "standard_length_mm")
+vis_dists(data,
+          "weight_g")
+# results in error making third plot because some values are zero and some of the distibutions are incompatible with zeros in data
+vis_dists(data,
+          "weight_of_gonads_g")
+# results in error making third plot because some values are zero and some of the distibutions are incompatible with zeros in data
+vis_dists(data,
+          "female_male")
 
 
-# hypothesis tests
-run_stats(data,
+
+#### Make Visualization of Hypothesis Test ####
+data %>%
+  drop_na(female_male) %>%
+  ggplot(aes(y=female_male,
+             x = total_length_mm,
+             color = location)) +
+  geom_point(size = 5) +
+  theme_classic() +
+  facet_grid(location ~ .)
+
+#### Enter Information About Your Data for A Hypothesis Test ####
+
+# define your response variable, here it is binomial
+response_var = quo(female_male) # quo() allows column names to be put into variables 
+
+# if you have binom response var then `quo(cbind(outcome1_count, outcome2_count))` 
+# if you don't have a binomial response var then set this to ""
+# this is the way the afex::mixed command wants its binomial data, rather than percents or proportions or true/false or a single column of 0 and 1
+binom_vars = quo(cbind(f_count, m_count)) 
+
+# enter partial formula for fixed predictor variables
+# one fixed var: "varname"
+# two fixed vars with interaction: "var1name * var2name"
+# two fixed vars with no interaction: "var1name + var2name"
+# if you don't have any fixed vars then set to ""
+fixed_vars = "location"
+
+# enter partial formula for fixed predictor variables
+# one rand var: "(1|varname)"
+# two rand vars: "(1|var1name) + (1|var2name)"
+# afex::mixed requires a rand var and cannot have the same var here as in fixed_vars
+rand_vars = "(1|total_length_mm)"
+
+# enter the distribution family for your response variable
+distribution_family = "binomial"
+y_label = "Sex (F=0, M=1)"
+hide_legend = FALSE
+fig_w = 3.25
+fig_h = 3
+
+# construct full model formula from variables above 
+if(length(binom_vars) == 0 & length(fixed_vars) == 0){
+  sampling_design <- 
+    paste(quo_text(response_var),         # this stitches together the formula
+          " ~ ",
+          rand_vars)
+} else if(length(binom_vars) == 0 & length(fixed_vars) > 0){
+  sampling_design <- 
+    paste(quo_text(response_var),         # this stitches together the formula
+          " ~ ",
+          fixed_vars,
+          " + ",
+          rand_vars)
+} else if(length(binom_vars) > 0 & length(fixed_vars) == 0){
+  sampling_design <- paste(quo_text(binom_vars),         # this stitches together the formula
+                  " ~ ",
+                  rand_vars)
+} else if(length(binom_vars) > 0 & length(fixed_vars) > 0){
+  sampling_design <- paste(quo_text(binom_vars),         # this stitches together the formula
+                           " ~ ",
+                           fixed_vars,
+                           " + ",
+                           rand_vars)
+}
+
+# view full model formula
+sampling_design
+
+
+#### hypothesis tests ####
+
+afex::mixed(formula = sampling_design, 
+            family = distribution_family,
+            method = "LRT",
+            sig_symbols = rep("", 4),
+            # all_fit = TRUE,
+            data = data)
+
+run_stats(data %>%
+            drop_na(response_var) %>%
+            group_by,
           response_var,
           rand_var,
           distribution_family)
