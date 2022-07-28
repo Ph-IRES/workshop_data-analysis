@@ -20,8 +20,17 @@ library(multcomp)
 library(performance)
 library(fitdistrplus)
 
+# NOTE: after loading these packages, you may find that tidyverse commands are affected 
+#       the solution is to add the appropriate package name before commands that break code
+#       such as `dplyr::select` if `select` doesn't work correctly anymore
+#       this happens when multiple packages have the same command names. 
+#       The last package loaded takes precidence, and your tidyverse commands break.
+#       you could load tidyverse last, but invariably, you will load a package after tidyverse
+#       so it's impossible to avoid this
+
 #### USER DEFINED VARIABLES ####
 
+# path to fish sex change data set
 inFilePath = "./halichores_scapularis_measurements_bartlett_2.rds"
 
 theme_assembly_quality <- 
@@ -569,8 +578,8 @@ vis_stats <- function(data,
 
 
 #### FIG 01a, TABLE 2, stat test n50 500 ####
-fig = "01a"
-response_var = quo(n50) # quo() allows column names to be put into variables 
+fig = "01"
+response_var = quo(weight_g) # quo() allows column names to be put into variables 
 rand_var = "+ (1|species) + (1|id)"
 treatment = "500NR"
 distribution_family = "poisson"
@@ -578,9 +587,6 @@ y_label = "N50 (bp)"
 hide_legend = FALSE
 fig_w = 3.25
 fig_h = 3
-
-# process data
-data <- process_quast_data(treatment)
 
 #### visualize continuous variables ####
 
@@ -614,11 +620,12 @@ data %>%
              scales = "free_x")
 
 # I'm noticing that the left skewed distribution of `weight_of_gonads_g` is quite different from the other metrics
-# it will have to be handled differently
+# it may have to be handled differently
 
 # visualize statistical distributions (see fitdistrplus: An R Package for Fitting Distributions, 2020)
-# vis_dists(data_quast,
-#           response_var)
+vis_dists(data,
+          quo(weight_g))
+
 
 # hypothesis tests
 run_stats(data,
