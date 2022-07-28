@@ -48,4 +48,11 @@ Fig 5. 4 additional plots that allow you to determine the distribution that most
 
 ## Make Visualization of Hypothesis Test
 
+Here we will test for the effect of size on the sex of _Halichores scapularis_ among different locations.
+
 ![](Rplot05.png)
+Fig 6. Plots of fish sex (F=0, M=1) against total length.  Fit lines are logistic.
+
+---
+
+##
