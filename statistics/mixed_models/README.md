@@ -44,6 +44,16 @@ Fig 4. Cullen and Frey Graph of kurtosis vs square of skewness for `total_length
 ![](Rplot04.png)
 Fig 5. 4 additional plots that allow you to determine the distribution that most closely fits `total_length_mm`
 
+## Identifying the Distribution Family for you Hypothesis Test
+
+It is especially important to identify the correct statistical distribution for your **response variable**, so the plots above can be used to help with identifying the correct distribution family for that.
+
+Here are some rules of thumb:
+* Binomial
+	* if your unit of observation falls into one of two categories, such as Male or Female, then your data is binomial
+	* percentage and proportion data that can be converted to count data is binomial
+
+
 ---
 
 ## Make Visualization of Hypothesis Test
@@ -53,6 +63,42 @@ Here we will test for the effect of size on the sex of _Halichores scapularis_ a
 ![](Rplot05.png)
 Fig 6. Plots of fish sex (F=0, M=1) against total length.  Fit lines are logistic.
 
+Some things to notice are that there are not many males from Dumaguete and not many females from Buenavista.  Consequently we might want to test some other hypotheses later. For example, testing for differences in total length by sex and location might be useful. But lets save this for later.
+
 ---
 
-##
+## Fixed Effects Hypthesis Test
+
+If you only have variables that are [fixed](https://www.stat.purdue.edu/~ghobbs/STAT_512/Lecture_Notes/ANOVA/Topic_34.pdf) then we can use `glm()` to test your hypotheses.
+
+```r
+model <<- 
+  glm(formula = female_male ~  total_length_mm + location, 
+      family = distribution_family,
+      data = data)
+```
+
+![](Rplot06.png)
+Fig 7. Plots of fish sex (F=0, M=1) against total length.  Fit lines are logistic.
+
+
+---
+
+## Enter Information About Your Data for A Hypothesis Test
+
+I tried to make it easier to get the correct statistical model by breaking it down to the different components
+	* response var
+		* binomial response vars
+	* [fixed effect vars](https://www.stat.purdue.edu/~ghobbs/STAT_512/Lecture_Notes/ANOVA/Topic_34.pdf)
+	* [random effect vars](https://www.stat.purdue.edu/~ghobbs/STAT_512/Lecture_Notes/ANOVA/Topic_34.pdf)
+
+Consult the R script
+
+---
+
+## Fitting Statistical Model w [afex::mixed](https://www.rdocumentation.org/packages/afex/versions/1.1-1/topics/mixed)
+
+[afex package on github](https://github.com/singmann/afex)
+[afex help forum](https://afex.singmann.science/)
+
+

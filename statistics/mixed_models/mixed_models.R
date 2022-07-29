@@ -6,20 +6,24 @@ library(janitor)
 library(magrittr)
 # install.packages("rlang")
 # install.packages("emmeans")
-# install.packages("afex")
 # library(devtools)
+# devtools::install_github("singmann/afex@master")
 # devtools::install_github("eclarke/ggbeeswarm")
 # install.packages("multcomp")
+# install.packages("multcompView")
 # install.packages("performance")
 # install.packages("fitdistrplus")
+# install.packages("optimx")
 
 library(rlang)
 library(emmeans)
 library(afex)
 library(ggbeeswarm)
 library(multcomp)
+library(multcompView)
 library(performance)
 library(fitdistrplus)
+library(optimx)
 
 # NOTE: after loading these packages, you may find that tidyverse commands are affected 
 #       the solution is to add the appropriate package name before commands that break code
@@ -77,7 +81,9 @@ data <-
          m_count = case_when(female_male == 1 ~ 1,
                              TRUE ~ 0),
          # make the fixed predictor variable a  factor
-         location = factor(location))
+         # location = factor(location)
+         ) %>%
+  drop_na(female_male)
   
 
 #### FUNCTIONS ####
@@ -537,11 +543,10 @@ vis_stats <- function(data,
   
   p <- 
     data %>%
-    ggplot(aes(x=assembler,
-               y=response,
-               fill = contamination)) +
-    geom_col(position = "dodge",
-             color = "black") +
+    ggplot(aes(x=total_length_mm,
+               y=female_male,
+               color = location)) +
+    geom_point() +
     scale_fill_manual(values = c("lightgrey",
                                  "white"),
                       labels = c('Pre-Screen', 
@@ -660,8 +665,136 @@ data %>%
              x = total_length_mm,
              color = location)) +
   geom_point(size = 5) +
+  geom_smooth(formula = "y ~ x", 
+              method = "glm", 
+              method.args = list(family="quasibinomial"), 
+              se = T) +
   theme_classic() +
   facet_grid(location ~ .)
+
+
+#### Fixed Effects Hypothesis Test ####
+model <<- 
+  glm(formula = female_male ~  total_length_mm * location, 
+      family = distribution_family,
+      data = data)
+
+model <<- 
+  glm(formula = female_male ~  total_length_mm + strata(location), 
+      family = distribution_family,
+      data = data)
+
+model <<- 
+  glm(formula = female_male ~  total_length_mm + location, 
+      family = distribution_family,
+      data = data)
+
+# plot
+# afex_plot(model, 
+#           "location", 
+#           "total_length_mm",
+#           data = data) +
+#   theme(axis.text.x = element_text(angle=90))
+
+data %>%
+  group_by(location) %>%
+  filter(total_length_mm == max(total_length_mm) | 
+           total_length_mm == min(total_length_mm)) %>%
+  dplyr::select(location,
+                total_length_mm)
+
+x_increment = 1
+
+data_predict <-
+  unique(data$location) %>%
+  purrr::map_df(~tibble(total_length_mm = seq(data %>%
+                                                filter(location == .x) %>%
+                                                filter(total_length_mm == min(total_length_mm)) %>%
+                                                pull(total_length_mm),
+                                              data %>%
+                                                filter(location == .x) %>%
+                                                filter(total_length_mm == max(total_length_mm)) %>%
+                                                pull(total_length_mm),
+                                              x_increment),
+                        location = .x)) 
+
+bind_cols(data_predict,
+          prob_male = predict(model,
+                              data.frame(data_predict),
+                              type = "response")) %>%
+  ggplot(aes(x = total_length_mm,
+             y = prob_male,
+             color = location)) +
+  geom_point(data = data,
+             aes(x = total_length_mm,
+                 y = female_male,
+                 color = location),
+             size = 5) +
+  geom_line(size = 2) +
+  theme_classic()
+
+
+
+# estimated marginal means & contrasts
+emmeans_model <<-
+  emmeans(model,
+          ~ total_length_mm * location,
+          alpha = alpha_sig)
+
+contrasts_model <<- 
+  contrast(emmeans_model, 
+           method = 'pairwise', 
+           simple = 'each', 
+           combine = FALSE, 
+           adjust = "bh")
+
+contrasts_model_regrid <<- 
+  contrast(regrid(emmeans_model), 
+           method = 'pairwise', 
+           simple = 'each', 
+           combine = FALSE, 
+           adjust = "bh")
+
+groupings_model <<-
+  multcomp::cld(emmeans_model, 
+                alpha = alpha_sig,
+                Letters = letters,
+                type="response",
+                adjust = "bh") %>%
+  as.data.frame %>%
+  mutate(group = str_remove_all(.group," "),
+         group = str_replace_all(group,
+                                 "(.)(.)",
+                                 "\\1,\\2")) %>%
+  rename(response = 3)
+
+# i noticed that the emmeans from groupings don't match those from emmeans so this is the table to use for making the figure
+# the emmeans means and conf intervals match those produced by afex_plot, so I think those are what we want
+groupings_model_fixed <<-
+  summary(emmeans_model,      # emmeans back transformed to the original units of response var
+          type="response") %>%
+  tibble() %>%
+  left_join(groupings_model %>%
+              dplyr::select(-response:-asymp.UCL),
+            # by = c(str_replace(fixed_vars,
+            #                    "[\\+\\*]",
+            #                    '" , "'))) %>%
+            by = c("total_length_mm",
+                   "location")) %>%
+  rename(response = 3)
+
+
+model
+model$anova_table
+summary(model)
+emmeans_model               # emmeans in transformed units used for analysis
+summary(emmeans_model,      # emmeans back transformed to the original units of response var
+        type="response")
+contrasts_model             # contrasts in transformed units used for analysis
+contrasts_model_regrid      # contrasts are back transformed
+groupings_model             # these values are back transformed, groupings based on transformed
+groupings_model_fixed       # cld messes up back transformation, this takes values from emmeans and groupings from cld
+
 
 #### Enter Information About Your Data for A Hypothesis Test ####
 
@@ -678,16 +811,17 @@ binom_vars = quo(cbind(f_count, m_count))
 # two fixed vars with interaction: "var1name * var2name"
 # two fixed vars with no interaction: "var1name + var2name"
 # if you don't have any fixed vars then set to ""
-fixed_vars = "location"
+fixed_vars = "total_length_mm * location"
 
 # enter partial formula for fixed predictor variables
 # one rand var: "(1|varname)"
 # two rand vars: "(1|var1name) + (1|var2name)"
 # afex::mixed requires a rand var and cannot have the same var here as in fixed_vars
-rand_vars = "(1|total_length_mm)"
+rand_vars = "(location|sample_number)"
 
 # enter the distribution family for your response variable
 distribution_family = "binomial"
+alpha_sig = 0.05
 y_label = "Sex (F=0, M=1)"
 hide_legend = FALSE
 fig_w = 3.25
@@ -721,15 +855,171 @@ if(length(binom_vars) == 0 & length(fixed_vars) == 0){
 # view full model formula
 sampling_design
 
+#### Mixed Effects Hypothesis Test ####
 
-#### hypothesis tests ####
 
-afex::mixed(formula = sampling_design, 
-            family = distribution_family,
-            method = "LRT",
-            sig_symbols = rep("", 4),
-            # all_fit = TRUE,
-            data = data)
+
+model <<- 
+  afex::mixed(formula = sampling_design, 
+              family = distribution_family,
+              method = "LRT",
+              sig_symbols = rep("", 4),
+              # all_fit = TRUE,
+              data = data)
+
+# plot
+# afex_plot(model, 
+#           "location", 
+#           "total_length_mm",
+#           data = data) +
+#   theme(axis.text.x = element_text(angle=90))
+
+
+
+
+# estimated marginal means & contrasts
+emmeans_model <<-
+  emmeans(model,
+          ~ total_length_mm * location,
+          alpha = alpha_sig)
+
+contrasts_model <<- 
+  contrast(emmeans_model, 
+           method = 'pairwise', 
+           simple = 'each', 
+           combine = FALSE, 
+           adjust = "bh")
+
+contrasts_model_regrid <<- 
+  contrast(regrid(emmeans_model), 
+           method = 'pairwise', 
+           simple = 'each', 
+           combine = FALSE, 
+           adjust = "bh")
+
+groupings_model <<-
+  multcomp::cld(emmeans_model, 
+                alpha = alpha_sig,
+                Letters = letters,
+                type="response",
+                adjust = "bh") %>%
+  as.data.frame %>%
+  mutate(group = str_remove_all(.group," "),
+         group = str_replace_all(group,
+                                 "(.)(.)",
+                                 "\\1,\\2")) %>%
+  rename(response = 3)
+
+# i noticed that the emmeans from groupings don't match those from emmeans so this is the table to use for making the figure
+# the emmeans means and conf intervals match those produced by afex_plot, so I think those are what we want
+groupings_model_fixed <<-
+  summary(emmeans_model,      # emmeans back transformed to the original units of response var
+          type="response") %>%
+  tibble() %>%
+  left_join(groupings_model %>%
+              dplyr::select(-response:-asymp.UCL),
+            # by = c(str_replace(fixed_vars,
+            #                    "[\\+\\*]",
+            #                    '" , "'))) %>%
+            by = c("total_length_mm",
+                   "location")) %>%
+  rename(response = 3)
+
+
+model
+model$anova_table
+summary(model)
+emmeans_model               # emmeans in transformed units used for analysis
+summary(emmeans_model,      # emmeans back transformed to the original units of response var
+        type="response")
+contrasts_model             # contrasts in transformed units used for analysis
+contrasts_model_regrid      # contrasts are back transformed
+groupings_model             # these values are back transformed, groupings based on transformed
+groupings_model_fixed       # cld messes up back transformation, this takes values from emmeans and groupings from cld
+
+## visualize hypothesis tests
+vis_stats(groupings_model_fixed,
+          data,
+          response_var,
+          treatment,
+          hide_legend)
+
+p <- 
+  groupings_model_fixed %>%
+  ggplot(aes(x=total_length_mm,
+             y=response)) +
+  geom_point() +
+  # scale_fill_manual(values = c("lightgrey",
+  #                              "white"),
+  #                   labels = c('Pre-Screen', 
+  #                              'Post-Screen')) +
+  geom_point(data = data,
+             aes(x = assembler,
+                 y = !!response_var,
+                 shape = contamination,
+                 color = species
+             ),
+             position = position_dodge(width = 0.9),
+             # color = "grey70",
+             # shape = 1,
+             size = 1)
+
+
+
+
+# default model
+model.defaults <<- 
+  afex::mixed(paste(quo_text(response_var),         # this stitches together the formula
+                    " ~ ",
+                    fixed_vars,
+                    " + ",
+                    rand_vars), 
+              sig_symbols = rep("", 
+                                4),
+              data = data)
+
+# plot
+afex_plot(model.defaults,
+          x = "total_length_mm",
+          trace = "location")
+
+p.defaults <<- 
+  afex_plot(model.defaults,               # https://rdrr.io/github/singmann/afex/man/afex_plot.html
+            x = "total_length_mm",
+            # trace = "contamination",
+            mapping = c("shape", "fill"),
+            data_geom = ggpol::geom_boxjitter,
+            data_arg = list(
+              width = 0.4, 
+              jitter.width = 0.5,
+              # jitter.height = 10,
+              outlier.intersect = TRUE),
+            point_arg = list(size = 3), 
+            line_arg = list(linetype = 0),
+            error_arg = list(size = 1.5, width = 0)) +  
+  # scale_fill_manual(values = c("lightgrey",
+  #                              "white"),
+  #                   # labels = c('Pre-Screen', 
+  #                   #            'Post-Screen')
+  # ) +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle=90)) +
+  labs(title="affex:mixed model fit defaults")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 run_stats(data %>%
             drop_na(response_var) %>%
