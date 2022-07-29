@@ -128,8 +128,6 @@ Table 1.  Now we are getting somewhere. In this estimated mariginal means table,
 	Confidence level used: 0.95 
 	Intervals are back-transformed from the logit scale 
 
----
-
 The `emmeans` output is good, but we can get more statistically sophisticated with the `contrasts` command, which allows us to explicitly control [False Discovery Rate](https://en.wikipedia.org/wiki/False_discovery_rate) and generate p-values for comparisons of probability of fish being male between locations.  The `emmeans` output is a bit conservative when it comes to FDR.  We use the Benjamini-Hochberg (`bh`) FDR algorithm in `contrasts` but you can select others as required.  
 
 ```r
@@ -143,8 +141,6 @@ contrasts_model_regrid <<-
 contrasts_model_regrid
 ```
 
----
-
 Table 2. _A priori_ contrasts testing for differences in the probability of 116mm fish being male at the three survey locations. The estimate is the difference in probabilies between sites, where a positive value indicates that the first site in the contrast has a higher probability of fish being male. For example, 116mm fish at Buenavista are 54.6% more likely to be male. Dumaguete fish are significantly less likely to be male at 116mm than fish from the other two sites.
 
 	$`simple contrasts for location`
@@ -154,11 +150,47 @@ Table 2. _A priori_ contrasts testing for differences in the probability of 116m
 	 Buenavista, Bohol - San Juan, Siquijor   -0.272 0.182 Inf  -1.492  0.1358
 	 Dumaguete, Negros - San Juan, Siquijor   -0.818 0.107 Inf  -7.610  <.0001
 
+---
+
+One last handy tool is the `multcomp::cld` command, which groups sites together that are not significantly different. You will see in my commented code below that I am skeptical about the emmeans calculated by cld, but the groupings generally work well.  This is especially true when there are many groups and it becomes difficult to track them all.  The letter based groupings are great to add to figures. 
+
+```r
+groupings_model <<-
+  multcomp::cld(emmeans_model, 
+                alpha = alpha_sig,
+                Letters = letters,
+                type="response",
+                adjust = "bh") %>%
+  as.data.frame %>%
+  mutate(group = str_remove_all(.group," "),
+         group = str_replace_all(group,
+                                 "(.)(.)",
+                                 "\\1,\\2")) %>%
+  rename(response = 3)
+
+# i noticed that the emmeans from groupings don't match those from emmeans so this is the table to use for making the figure
+# the emmeans means and conf intervals match those produced by afex_plot, so I think those are what we want
+groupings_model_fixed <<-
+  summary(emmeans_model,      # emmeans back transformed to the original units of response var
+          type="response") %>%
+  tibble() %>%
+  left_join(groupings_model %>%
+              dplyr::select(-response:-asymp.UCL),
+            # by = c(str_replace(fixed_vars,
+            #                    "[\\+\\*]",
+            #                    '" , "'))) %>%
+            by = c("total_length_mm",
+                   "location")) %>%
+  rename(response = 3)
+```
 
 
-
-
-
+	# A tibble: 3 × 9
+	  total_length_mm location           response     SE    df asymp.LCL asymp.UCL .group group
+				<dbl> <fct>                 <dbl>  <dbl> <dbl>     <dbl>     <dbl> <chr>  <chr>
+	1            116. Buenavista, Bohol    0.604  0.144    Inf   0.319       0.833 "  b"  b    
+	2            116. Dumaguete, Negros    0.0588 0.0774   Inf   0.00403     0.492 " a "  a    
+	3            116. San Juan, Siquijor   0.877  0.0619   Inf   0.698       0.956 "  b"  b  
 
 
 ---
