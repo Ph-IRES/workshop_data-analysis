@@ -188,7 +188,7 @@ Table 3. The `multicomp:cld` groupings are added to the emmeans table. Dumaguete
 	2            116. Dumaguete, Negros    0.0588 0.0774   Inf   0.00403     0.492 " a "  a    
 	3            116. San Juan, Siquijor   0.877  0.0619   Inf   0.698       0.956 "  b"  b  
 
-![](Rplot07)
+![](Rplot07.png)
 Fig 8. Estimated marginal means for the probability that 116mm fish are male at each location.  Letters indicate statistically significant groupings.
 
 ---
