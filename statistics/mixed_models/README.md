@@ -146,12 +146,17 @@ contrasts_model_regrid
 ---
 
 Table 2. _A priori_ contrasts testing for differences in the probability of 116mm fish being male at the three survey locations. The estimate is the difference in probabilies between sites, where a positive value indicates that the first site in the contrast has a higher probability of fish being male. For example, 116mm fish at Buenavista are 54.6% more likely to be male. Dumaguete fish are significantly less likely to be male at 116mm than fish from the other two sites.
+
 	$`simple contrasts for location`
 	total_length_mm = 116:
 	 contrast                               estimate    SE  df z.ratio p.value
 	 Buenavista, Bohol - Dumaguete, Negros     0.546 0.155 Inf   3.520  0.0006
 	 Buenavista, Bohol - San Juan, Siquijor   -0.272 0.182 Inf  -1.492  0.1358
 	 Dumaguete, Negros - San Juan, Siquijor   -0.818 0.107 Inf  -7.610  <.0001
+
+
+
+
 
 
 
