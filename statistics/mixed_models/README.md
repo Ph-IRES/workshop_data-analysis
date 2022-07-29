@@ -7,8 +7,9 @@ Under construction
 ## [Fixed Models](fixed_models_binom.md)
 
 Is there an effect of fishing pressure on the size at which females transition to males in a reef associated fish?  This is an example of running a fixed effects model with `glm`. The data has a binomial response variable, a categorical fixed effect, and a continuous fixed effect.  
-
-![](Rplot06.png) ![](Rplot07.png)
+| Header A       | Header B       |
+| -------------- | -------------- |
+|![](Rplot06.png) | ![](Rplot07.png)|
 
 ---
 
