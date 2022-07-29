@@ -94,7 +94,7 @@ model <<-
 	Residual Deviance: 98.76 	AIC: 106.8
 
 ![](Rplot06.png)
-Fig 7. Plots of fish sex (F=0, M=1) against total length.  Fit lines are based on the glm (female_male ~ total_length_mm + location).
+Fig 7. Plots of fish sex (F=0, M=1) against total length.  Fit lines are based on the glm (female_male ~ total_length_mm + location).  This model, without interactions, does not allow the slopes to vary freely among sites, which might be desirable because there are different ranges of sizes at different sites.  To see the alternative, change the model to female_male ~ total_length_mm * location.
 
 ---
 

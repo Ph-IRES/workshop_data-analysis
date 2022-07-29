@@ -14,6 +14,7 @@ library(magrittr)
 # install.packages("performance")
 # install.packages("fitdistrplus")
 # install.packages("optimx")
+# install.packages("effects")
 
 library(rlang)
 library(emmeans)
@@ -24,6 +25,9 @@ library(multcompView)
 library(performance)
 library(fitdistrplus)
 library(optimx)
+library(effects)
+library(ggeffects)
+library(prediction)
 
 # NOTE: after loading these packages, you may find that tidyverse commands are affected 
 #       the solution is to add the appropriate package name before commands that break code
@@ -38,7 +42,7 @@ library(optimx)
 # path to fish sex change data set
 inFilePath = "./halichores_scapularis_measurements_bartlett_2.rds"
 
-theme_assembly_quality <- 
+theme_myfigs <- 
   theme_classic() +
   theme(panel.background = element_rect(fill = 'white', 
                                         color = 'white'),
@@ -680,6 +684,18 @@ model <<-
       family = distribution_family,
       data = data)
 
+# this generates a tibble with the model predictions that can be plotted
+  # however, it does not do a good job of showing us where the model is extrapolating 
+emmeans_ggpredict <- 
+  ggemmeans(model,
+            terms = c("total_length_mm [all]",
+                      "location")) 
+  # compatible with ggplot
+  plot(emmeans_ggpredict)
+
+
+# the next several blocks of code will only show us predictions within the ranges of observation by location
+  
 # data %>%
 #   group_by(location) %>%
 #   filter(total_length_mm == max(total_length_mm) | 
@@ -718,6 +734,7 @@ bind_cols(data_predict,
   geom_line(size = 2) +
   theme_classic()
 
+# now we move on to finish the hypothesis testing.  Are there differences between the sites?
 # estimated marginal means & contrasts
 emmeans_model <<-
   emmeans(model,
@@ -781,10 +798,53 @@ groupings_model_fixed       # cld messes up back transformation, this takes valu
 
 #### Visualize Statistical Results From Previous Section ####
 
+p <- 
+  groupings_model_fixed %>%
+  ggplot(aes(x=location,
+             y=response,
+             fill = location)) +
+  geom_col(position = "dodge",
+           color = "black") +
+  # scale_fill_manual(values = c("lightgrey",
+  #                              "white"),
+  #                   labels = c('Pre-Screen', 
+  #                              'Post-Screen')) +
+  # geom_point(data = data,
+  #            aes(x = location,
+  #                y = !!response_var,
+  #                color = location
+  #            ),
+  #            position = position_dodge(width = 0.9),
+  #            # color = "grey70",
+  #            # shape = 1,
+  #            size = 1)
+  geom_errorbar(aes(ymin=asymp.LCL,
+                  ymax=asymp.UCL),
+              width = 0.2,
+              color = "grey50",
+              # size = 1,
+              position = position_dodge(width=0.9)) +
+  guides(color = "none",
+         shape = "none") +   #remove color legend
+  geom_text(aes(label=group),
+            position = position_dodge(width=0.9),
+            vjust = -0.5,
+            hjust = -0.15,
+            size = 8 / (14/5)) +  # https://stackoverflow.com/questions/25061822/ggplot-geom-text-font-size-control
+  theme_myfigs +
+  # ylim(ymin, 
+  #      ymax) +
+  labs(x = "",
+       y = "Probability of 116mm Fish Being Male") +
+  theme(legend.position=c(0.33,0.8),  
+        legend.title=element_blank())
+
+p
+
+#### Mixed Effects Hypothesis Test ####
 
 
-
-#### Enter Information About Your Data for A Hypothesis Test ####
+## Enter Information About Your Data for A Hypothesis Test ##
 
 # define your response variable, here it is binomial
 response_var = quo(female_male) # quo() allows column names to be put into variables 
@@ -792,28 +852,26 @@ response_var = quo(female_male) # quo() allows column names to be put into varia
 # if you have binom response var then `quo(cbind(outcome1_count, outcome2_count))` 
 # if you don't have a binomial response var then set this to ""
 # this is the way the afex::mixed command wants its binomial data, rather than percents or proportions or true/false or a single column of 0 and 1
-binom_vars = quo(cbind(f_count, m_count)) 
+binom_vars = quo(cbind(m_count, f_count)) 
 
 # enter partial formula for fixed predictor variables
 # one fixed var: "varname"
 # two fixed vars with interaction: "var1name * var2name"
 # two fixed vars with no interaction: "var1name + var2name"
 # if you don't have any fixed vars then set to ""
-fixed_vars = "total_length_mm * location"
+fixed_vars = "location"
 
 # enter partial formula for fixed predictor variables
 # one rand var: "(1|varname)"
 # two rand vars: "(1|var1name) + (1|var2name)"
 # afex::mixed requires a rand var and cannot have the same var here as in fixed_vars
-rand_vars = "(location|sample_number)"
+rand_vars = "(1|total_length_mm)"
 
 # enter the distribution family for your response variable
 distribution_family = "binomial"
 alpha_sig = 0.05
-y_label = "Sex (F=0, M=1)"
 hide_legend = FALSE
-fig_w = 3.25
-fig_h = 3
+
 
 # construct full model formula from variables above 
 if(length(binom_vars) == 0 & length(fixed_vars) == 0){
@@ -843,24 +901,81 @@ if(length(binom_vars) == 0 & length(fixed_vars) == 0){
 # view full model formula
 sampling_design
 
-#### Mixed Effects Hypothesis Test ####
-
-
-
+# fit mixed model
 model <<- 
-  afex::mixed(formula = sampling_design, 
+  afex::mixed(formula = female_male ~  location + (1|total_length_mm), 
               family = distribution_family,
               method = "LRT",
               sig_symbols = rep("", 4),
               # all_fit = TRUE,
               data = data)
 
-# plot
-# afex_plot(model, 
-#           "location", 
-#           "total_length_mm",
-#           data = data) +
-#   theme(axis.text.x = element_text(angle=90))
+#plot
+try(
+  afex_plot(model,
+            "location") +
+    theme(axis.text.x = element_text(angle=90))
+)
+
+model <-
+glmer(formula = female_male ~  location + (1|total_length_mm), 
+      family = distribution_family,
+      data = data)
+
+# https://github.com/strengejacke/ggeffects
+ggpredict(model,
+          "location",
+          # type="random",
+          # condition = c(total_length_mm = 0)
+          ) %>%
+  plot() +
+  theme_classic()
+
+draw(model, type = "average")
+
+effect("location",
+       mod = model)
+
+x_increment = 1
+
+data_predict <-
+  unique(data$location) %>%
+  purrr::map_df(~tibble(total_length_mm = seq(data %>%
+                                                filter(location == .x) %>%
+                                                filter(total_length_mm == min(total_length_mm)) %>%
+                                                pull(total_length_mm),
+                                              data %>%
+                                                filter(location == .x) %>%
+                                                filter(total_length_mm == max(total_length_mm)) %>%
+                                                pull(total_length_mm),
+                                              x_increment),
+                        location = .x)) 
+
+# plot model and data
+bind_cols(data_predict,
+          prob_male = predict(model,
+                              data.frame(data_predict),
+                              type = "response")) %>%
+  ggplot(aes(x = total_length_mm,
+             y = prob_male,
+             color = location)) +
+  geom_point(data = data,
+             aes(x = total_length_mm,
+                 y = female_male,
+                 color = location),
+             size = 5) +
+  geom_line(size = 2) +
+  theme_classic()
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -868,7 +983,7 @@ model <<-
 # estimated marginal means & contrasts
 emmeans_model <<-
   emmeans(model,
-          ~ total_length_mm * location,
+          ~ location,
           alpha = alpha_sig)
 
 contrasts_model <<- 
@@ -909,8 +1024,8 @@ groupings_model_fixed <<-
             # by = c(str_replace(fixed_vars,
             #                    "[\\+\\*]",
             #                    '" , "'))) %>%
-            by = c("total_length_mm",
-                   "location")) %>%
+            by = c("location",
+                   "prob")) %>%
   rename(response = 3)
 
 
@@ -925,142 +1040,49 @@ contrasts_model_regrid      # contrasts are back transformed
 groupings_model             # these values are back transformed, groupings based on transformed
 groupings_model_fixed       # cld messes up back transformation, this takes values from emmeans and groupings from cld
 
-## visualize hypothesis tests
-vis_stats(groupings_model_fixed,
-          data,
-          response_var,
-          treatment,
-          hide_legend)
+
+#### Visualize Statistical Results From Previous Section ####
 
 p <- 
   groupings_model_fixed %>%
-  ggplot(aes(x=total_length_mm,
-             y=response)) +
-  geom_point() +
+  ggplot(aes(x=location,
+             y=prob,
+             fill = location)) +
+  geom_col(position = "dodge",
+           color = "black") +
   # scale_fill_manual(values = c("lightgrey",
   #                              "white"),
   #                   labels = c('Pre-Screen', 
   #                              'Post-Screen')) +
-  geom_point(data = data,
-             aes(x = assembler,
-                 y = !!response_var,
-                 shape = contamination,
-                 color = species
-             ),
-             position = position_dodge(width = 0.9),
-             # color = "grey70",
-             # shape = 1,
-             size = 1)
+  # geom_point(data = data,
+  #            aes(x = location,
+  #                y = !!response_var,
+  #                color = location
+  #            ),
+  #            position = position_dodge(width = 0.9),
+  #            # color = "grey70",
+#            # shape = 1,
+#            size = 1)
+geom_errorbar(aes(ymin=asymp.LCL,
+                  ymax=asymp.UCL),
+              width = 0.2,
+              color = "grey50",
+              # size = 1,
+              position = position_dodge(width=0.9)) +
+  guides(color = "none",
+         shape = "none") +   #remove color legend
+  geom_text(aes(label=group),
+            position = position_dodge(width=0.9),
+            vjust = -0.5,
+            hjust = -0.15,
+            size = 8 / (14/5)) +  # https://stackoverflow.com/questions/25061822/ggplot-geom-text-font-size-control
+  theme_myfigs +
+  # ylim(ymin, 
+  #      ymax) +
+  labs(x = "",
+       y = "Probability of 116mm Fish Being Male") +
+  theme(legend.position=c(0.67,0.8),  
+        legend.title=element_blank())
 
+p
 
-
-
-# default model
-model.defaults <<- 
-  afex::mixed(paste(quo_text(response_var),         # this stitches together the formula
-                    " ~ ",
-                    fixed_vars,
-                    " + ",
-                    rand_vars), 
-              sig_symbols = rep("", 
-                                4),
-              data = data)
-
-# plot
-afex_plot(model.defaults,
-          x = "total_length_mm",
-          trace = "location")
-
-p.defaults <<- 
-  afex_plot(model.defaults,               # https://rdrr.io/github/singmann/afex/man/afex_plot.html
-            x = "total_length_mm",
-            # trace = "contamination",
-            mapping = c("shape", "fill"),
-            data_geom = ggpol::geom_boxjitter,
-            data_arg = list(
-              width = 0.4, 
-              jitter.width = 0.5,
-              # jitter.height = 10,
-              outlier.intersect = TRUE),
-            point_arg = list(size = 3), 
-            line_arg = list(linetype = 0),
-            error_arg = list(size = 1.5, width = 0)) +  
-  # scale_fill_manual(values = c("lightgrey",
-  #                              "white"),
-  #                   # labels = c('Pre-Screen', 
-  #                   #            'Post-Screen')
-  # ) +
-  theme_classic() +
-  theme(axis.text.x = element_text(angle=90)) +
-  labs(title="affex:mixed model fit defaults")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-run_stats(data %>%
-            drop_na(response_var) %>%
-            group_by,
-          response_var,
-          rand_var,
-          distribution_family)
-
-p.custom # model results
-p.defaults # default results if we didn't customize
-model$anova_table
-emmeans_model               # emmeans in transformed units used for analysis
-summary(emmeans_model,      # emmeans back transformed to the original units of response var
-        type="response")
-contrasts_model             # contrasts in transformed units used for analysis
-groupings_model             # these values are back transformed, groupings based on transformed
-groupings_model_fixed       # cld messes up back transformation, this takes values from emmeans and groupings from cld
-
-# aggregate & store hypothesis test results into tibbles
-
-table_03 <- 
-  get_table_03(model$anova_table,
-               response_var,
-               distribution_family,
-               treatment)
-
-table_04 <-
-  get_table_04(groupings_model_fixed,
-               response_var,
-               distribution_family,
-               treatment)
-
-table_05 <-
-  get_table_05(contrasts_model$`simple contrasts for assembler`,
-               response_var,
-               distribution_family,
-               treatment)  
-
-# check assumptions
-
-# visualize statistical results
-vis_stats(groupings_model_fixed,
-          data,
-          response_var,
-          treatment,
-          hide_legend)
-
-ggsave(str_c("products/fig", 
-             fig,
-             quo_text(response_var),
-             treatment,
-             ".png",
-             sep = "_"),
-       units = "in",
-       width = fig_w,
-       height = fig_h)
