@@ -44,6 +44,8 @@ Fig 4. Cullen and Frey Graph of kurtosis vs square of skewness for `total_length
 ![](Rplot04.png)
 Fig 5. 4 additional plots that allow you to determine the distribution that most closely fits `total_length_mm`
 
+---
+
 ## Identifying the Distribution Family for you Hypothesis Test
 
 It is especially important to identify the correct statistical distribution for your **response variable**, so the plots above can be used to help with identifying the correct distribution family for that.
@@ -62,6 +64,8 @@ Here we will test for the effect of size on the sex of _Halichores scapularis_ a
 
 ![](Rplot05.png)
 Fig 6. Plots of fish sex (F=0, M=1) against total length.  Fit lines are logistic.
+
+---
 
 Some things to notice are that there are not many males from Dumaguete and not many females from Buenavista.  Consequently we might want to test some other hypotheses later. For example, testing for differences in total length by sex and location might be useful. But lets save this for later.
 
@@ -94,6 +98,8 @@ model <<-
 ![](Rplot06.png)
 Fig 7. Plots of fish sex (F=0, M=1) against total length.  Fit lines are based on the glm (female_male ~ total_length_mm + location).
 
+---
+
 Ok, we have a fancy logistic model fit to our data, but we still need to test our hypothesis that sites with higher fishing pressure will be associated with higher probabilities of males at smaller sizes. 
 
 ---
@@ -112,7 +118,7 @@ summary(emmeans_model,      # emmeans back transformed to the original units of 
 
 ---
 
-Table 1.  Now we are getting somewhere.  We see that at 116 mm, the probability that a fish is male from Buenavista is 60.44% (CI95 = 31.9 - 83.3%), whereas the probability is 5.88% (CI95 = 0.4 - 49.2%) in Dumaguete, and is 87.65% (CI95 = 69.8 - 95.6%) in San Juan. 
+Table 1.  Now we are getting somewhere. In this estimated mariginal means table, we see that at 116 mm, the probability that a fish is male from Buenavista is 60.44% (CI95 = 31.9 - 83.3%), whereas the probability is 5.88% (CI95 = 0.4 - 49.2%) in Dumaguete, and is 87.65% (CI95 = 69.8 - 95.6%) in San Juan. 
 
 	 total_length_mm location             prob     SE  df asymp.LCL asymp.UCL
 				 116 Buenavista, Bohol  0.6044 0.1442 Inf   0.31899     0.833
