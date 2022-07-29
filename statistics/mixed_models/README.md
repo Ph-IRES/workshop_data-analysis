@@ -67,9 +67,9 @@ Some things to notice are that there are not many males from Dumaguete and not m
 
 ---
 
-## Fixed Effects Hypthesis Test
+## [Fixed Effects Hypthesis Test](https://en.wikipedia.org/wiki/Fixed_effects_model)
 
-If you only have variables that are [fixed](https://www.stat.purdue.edu/~ghobbs/STAT_512/Lecture_Notes/ANOVA/Topic_34.pdf) then we can use `glm()` to test your hypotheses.
+If you only have variables that are [fixed](https://en.wikipedia.org/wiki/Fixed_effects_model) then we can use `glm()` to test your hypotheses.
 
 Here we test for differences among locations in the probability that an individual is a male given the total length of the fish. We do not allow the slopes to vary among the sites.  This may be adventageous because sizes sampled differ among the sites and we might expect the slope of the lines to remain similar while the points of inflection vary.
 
@@ -96,6 +96,8 @@ Fig 7. Plots of fish sex (F=0, M=1) against total length.  Fit lines are based o
 
 Ok, we have a fancy logistic model fit to our data, but we still need to test our hypothesis that sites with higher fishing pressure will be associated with higher probabilities of males at smaller sizes. 
 
+---
+
 We use the `emmeans` command to calculate the estimated marginal means from the model.
 
 ```r
@@ -108,6 +110,8 @@ summary(emmeans_model,      # emmeans back transformed to the original units of 
         type="response")
 ```
 
+---
+
 Table 1.  Now we are getting somewhere.  We see that at 116 mm, the probability that a fish is male from Buenavista is 60.44% (CI95 = 31.9 - 83.3%), whereas the probability is 5.88% (CI95 = 0.4 - 49.2%) in Dumaguete, and is 87.65% (CI95 = 69.8 - 95.6%) in San Juan. 
 
 	 total_length_mm location             prob     SE  df asymp.LCL asymp.UCL
@@ -118,7 +122,9 @@ Table 1.  Now we are getting somewhere.  We see that at 116 mm, the probability 
 	Confidence level used: 0.95 
 	Intervals are back-transformed from the logit scale 
 
-The `emmeans` output is good, but we can get more statistically sophisticated with the `contrasts` command, which allows us to explicitly control [False Discovery Rate]() and generate p-values for comparisons of probability of fish being male between locations.  The `emmeans` output is a bit conservative when it comes to FDR.  We use the Benjamini-Hochberg (`bh`) FDR algorithm in `contrasts` but you can select others as required.  
+---
+
+The `emmeans` output is good, but we can get more statistically sophisticated with the `contrasts` command, which allows us to explicitly control [False Discovery Rate](https://en.wikipedia.org/wiki/False_discovery_rate) and generate p-values for comparisons of probability of fish being male between locations.  The `emmeans` output is a bit conservative when it comes to FDR.  We use the Benjamini-Hochberg (`bh`) FDR algorithm in `contrasts` but you can select others as required.  
 
 ```r
 contrasts_model_regrid <<- 
@@ -130,6 +136,8 @@ contrasts_model_regrid <<-
 		   
 contrasts_model_regrid
 ```
+
+---
 
 Table 2. _A priori_ contrasts testing for differences in the probability of 116mm fish being male at the three survey locations. The estimate is the difference in probabilies between sites, where a positive value indicates that the first site in the contrast has a higher probability of fish being male. For example, 116mm fish at Buenavista are 54.6% more likely to be male. Dumaguete fish are significantly less likely to be male at 116mm than fish from the other two sites.
 	$`simple contrasts for location`
