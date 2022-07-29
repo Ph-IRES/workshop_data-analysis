@@ -65,8 +65,6 @@ Here we will test for the effect of size on the sex of _Halichores scapularis_ a
 ![](Rplot05.png)
 Fig 6. Plots of fish sex (F=0, M=1) against total length.  Fit lines are logistic.
 
----
-
 Some things to notice are that there are not many males from Dumaguete and not many females from Buenavista.  Consequently we might want to test some other hypotheses later. For example, testing for differences in total length by sex and location might be useful. But lets save this for later.
 
 ---
@@ -102,8 +100,6 @@ Fig 7. Plots of fish sex (F=0, M=1) against total length.  Fit lines are based o
 
 Ok, we have a fancy logistic model fit to our data, but we still need to test our hypothesis that sites with higher fishing pressure will be associated with higher probabilities of males at smaller sizes. 
 
----
-
 We use the `emmeans` command to calculate the estimated marginal means from the model.
 
 ```r
@@ -116,8 +112,6 @@ summary(emmeans_model,      # emmeans back transformed to the original units of 
         type="response")
 ```
 
----
-
 Table 1.  Now we are getting somewhere. In this estimated mariginal means table, we see that at 116 mm, the probability that a fish is male from Buenavista is 60.44% (CI95 = 31.9 - 83.3%), whereas the probability is 5.88% (CI95 = 0.4 - 49.2%) in Dumaguete, and is 87.65% (CI95 = 69.8 - 95.6%) in San Juan. 
 
 	 total_length_mm location             prob     SE  df asymp.LCL asymp.UCL
@@ -127,6 +121,8 @@ Table 1.  Now we are getting somewhere. In this estimated mariginal means table,
 
 	Confidence level used: 0.95 
 	Intervals are back-transformed from the logit scale 
+
+---
 
 The `emmeans` output is good, but we can get more statistically sophisticated with the `contrasts` command, which allows us to explicitly control [False Discovery Rate](https://en.wikipedia.org/wiki/False_discovery_rate) and generate p-values for comparisons of probability of fish being male between locations.  The `emmeans` output is a bit conservative when it comes to FDR.  We use the Benjamini-Hochberg (`bh`) FDR algorithm in `contrasts` but you can select others as required.  
 
@@ -154,36 +150,36 @@ Table 2. _A priori_ contrasts testing for differences in the probability of 116m
 
 One last handy tool is the `multcomp::cld` command, which groups sites together that are not significantly different. You will see in my commented code below that I am skeptical about the emmeans calculated by cld, but the groupings generally work well.  This is especially true when there are many groups and it becomes difficult to track them all.  The letter based groupings are great to add to figures. 
 
-```r
-groupings_model <<-
-  multcomp::cld(emmeans_model, 
-                alpha = alpha_sig,
-                Letters = letters,
-                type="response",
-                adjust = "bh") %>%
-  as.data.frame %>%
-  mutate(group = str_remove_all(.group," "),
-         group = str_replace_all(group,
-                                 "(.)(.)",
-                                 "\\1,\\2")) %>%
-  rename(response = 3)
 
-# i noticed that the emmeans from groupings don't match those from emmeans so this is the table to use for making the figure
-# the emmeans means and conf intervals match those produced by afex_plot, so I think those are what we want
-groupings_model_fixed <<-
-  summary(emmeans_model,      # emmeans back transformed to the original units of response var
-          type="response") %>%
-  tibble() %>%
-  left_join(groupings_model %>%
-              dplyr::select(-response:-asymp.UCL),
-            # by = c(str_replace(fixed_vars,
-            #                    "[\\+\\*]",
-            #                    '" , "'))) %>%
-            by = c("total_length_mm",
-                   "location")) %>%
-  rename(response = 3)
-```
+	groupings_model <<-
+	  multcomp::cld(emmeans_model, 
+					alpha = alpha_sig,
+					Letters = letters,
+					type="response",
+					adjust = "bh") %>%
+	  as.data.frame %>%
+	  mutate(group = str_remove_all(.group," "),
+			 group = str_replace_all(group,
+									 "(.)(.)",
+									 "\\1,\\2")) %>%
+	  rename(response = 3)
+	
+	# i noticed that the emmeans from groupings don't match those from emmeans so this is the table to use for making the figure
+	# the emmeans means and conf intervals match those produced by afex_plot, so I think those are what we want
+	groupings_model_fixed <<-
+	  summary(emmeans_model, 
+			  type="response") %>%
+	  tibble() %>%
+	  left_join(groupings_model %>%
+				  dplyr::select(-response:-asymp.UCL),
+				# by = c(str_replace(fixed_vars,
+				#                    "[\\+\\*]",
+				#                    '" , "'))) %>%
+				by = c("total_length_mm",
+					   "location")) %>%
+	  rename(response = 3)
 
+Table 3. The `multicomp:cld` groupings are added to the emmeans table. Dumaguete is group 'a' and the other sites are both 'b'.
 
 	# A tibble: 3 × 9
 	  total_length_mm location           response     SE    df asymp.LCL asymp.UCL .group group
@@ -192,6 +188,8 @@ groupings_model_fixed <<-
 	2            116. Dumaguete, Negros    0.0588 0.0774   Inf   0.00403     0.492 " a "  a    
 	3            116. San Juan, Siquijor   0.877  0.0619   Inf   0.698       0.956 "  b"  b  
 
+![](Rplot07)
+Fig 8. Estimated marginal means for the probability that 116mm fish are male at each location.  Letters indicate statistically significant groupings.
 
 ---
 

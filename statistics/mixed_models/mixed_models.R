@@ -673,35 +673,19 @@ data %>%
   facet_grid(location ~ .)
 
 
-#### Fixed Effects Hypothesis Test ####
-model <<- 
-  glm(formula = female_male ~  total_length_mm * location, 
-      family = distribution_family,
-      data = data)
-
-model <<- 
-  glm(formula = female_male ~  total_length_mm + strata(location), 
-      family = distribution_family,
-      data = data)
+#### Fixed Effects Hypothesis Test, Logistic Regression, 1 Slope ####
 
 model <<- 
   glm(formula = female_male ~  total_length_mm + location, 
       family = distribution_family,
       data = data)
 
-# plot
-# afex_plot(model, 
-#           "location", 
-#           "total_length_mm",
-#           data = data) +
-#   theme(axis.text.x = element_text(angle=90))
-
-data %>%
-  group_by(location) %>%
-  filter(total_length_mm == max(total_length_mm) | 
-           total_length_mm == min(total_length_mm)) %>%
-  dplyr::select(location,
-                total_length_mm)
+# data %>%
+#   group_by(location) %>%
+#   filter(total_length_mm == max(total_length_mm) | 
+#            total_length_mm == min(total_length_mm)) %>%
+#   dplyr::select(location,
+#                 total_length_mm)
 
 x_increment = 1
 
@@ -718,6 +702,7 @@ data_predict <-
                                               x_increment),
                         location = .x)) 
 
+# plot model and data
 bind_cols(data_predict,
           prob_male = predict(model,
                               data.frame(data_predict),
@@ -733,12 +718,10 @@ bind_cols(data_predict,
   geom_line(size = 2) +
   theme_classic()
 
-
-
 # estimated marginal means & contrasts
 emmeans_model <<-
   emmeans(model,
-          ~ total_length_mm * location,
+          ~ total_length_mm + location,
           alpha = alpha_sig)
 
 contrasts_model <<- 
@@ -785,7 +768,7 @@ groupings_model_fixed <<-
 
 
 model
-model$anova_table
+anova(model)
 summary(model)
 emmeans_model               # emmeans in transformed units used for analysis
 summary(emmeans_model,      # emmeans back transformed to the original units of response var
@@ -794,6 +777,11 @@ contrasts_model             # contrasts in transformed units used for analysis
 contrasts_model_regrid      # contrasts are back transformed
 groupings_model             # these values are back transformed, groupings based on transformed
 groupings_model_fixed       # cld messes up back transformation, this takes values from emmeans and groupings from cld
+
+
+#### Visualize Statistical Results From Previous Section ####
+
+
 
 
 #### Enter Information About Your Data for A Hypothesis Test ####
