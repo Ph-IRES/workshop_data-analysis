@@ -41,6 +41,7 @@ library(prediction)
 
 # path to fish sex change data set
 inFilePath = "./halichores_scapularis_measurements_bartlett_2.rds"
+inFilePath2 = "./visayan_deer_3primer_microsat_amp_data.rds"
 
 theme_myfigs <- 
   theme_classic() +
@@ -843,147 +844,170 @@ p
 
 #### Mixed Effects Hypothesis Test ####
 
+#Here we use the visayan deer data set to demonstrate a mxed model with both fixed and randome factor.scope(
+  
+read_rds(inFilePath2)
+
+data_1bandperloc <-
+  data_all %>%
+  filter(bands_per_locus == 1) %>%
+  drop_na(amplification) %>%
+  mutate(success = case_when(amplification == 1 ~ 1,
+                             TRUE ~ 0),
+         failure = case_when(amplification == 0 ~ 1,
+                             TRUE ~ 0)) 
+
+summary(data_1bandperloc)
 
 ## Enter Information About Your Data for A Hypothesis Test ##
 
 # define your response variable, here it is binomial
-response_var = quo(female_male) # quo() allows column names to be put into variables 
+response_var = quo(amplification) # quo() allows column names to be put into variables 
+
+# enter the distribution family for your response variable
+distribution_family = "binomial"
 
 # if you have binom response var then `quo(cbind(outcome1_count, outcome2_count))` 
 # if you don't have a binomial response var then set this to ""
 # this is the way the afex::mixed command wants its binomial data, rather than percents or proportions or true/false or a single column of 0 and 1
-binom_vars = quo(cbind(m_count, f_count)) 
+binom_vars = quo(cbind(success, 
+                       failure)) 
 
 # enter partial formula for fixed predictor variables
 # one fixed var: "varname"
 # two fixed vars with interaction: "var1name * var2name"
 # two fixed vars with no interaction: "var1name + var2name"
 # if you don't have any fixed vars then set to ""
-fixed_vars = "location"
+fixed_vars = "locus * primer_x"
 
 # enter partial formula for fixed predictor variables
 # one rand var: "(1|varname)"
 # two rand vars: "(1|var1name) + (1|var2name)"
 # afex::mixed requires a rand var and cannot have the same var here as in fixed_vars
-rand_vars = "(1|total_length_mm)"
+rand_vars = "(1|individual) + (1|plate_number)"
 
-# enter the distribution family for your response variable
-distribution_family = "binomial"
 alpha_sig = 0.05
 hide_legend = FALSE
 
 
-# construct full model formula from variables above 
-if(length(binom_vars) == 0 & length(fixed_vars) == 0){
-  sampling_design <- 
-    paste(quo_text(response_var),         # this stitches together the formula
-          " ~ ",
-          rand_vars)
-} else if(length(binom_vars) == 0 & length(fixed_vars) > 0){
-  sampling_design <- 
-    paste(quo_text(response_var),         # this stitches together the formula
-          " ~ ",
-          fixed_vars,
-          " + ",
-          rand_vars)
-} else if(length(binom_vars) > 0 & length(fixed_vars) == 0){
-  sampling_design <- paste(quo_text(binom_vars),         # this stitches together the formula
-                  " ~ ",
-                  rand_vars)
-} else if(length(binom_vars) > 0 & length(fixed_vars) > 0){
-  sampling_design <- paste(quo_text(binom_vars),         # this stitches together the formula
-                           " ~ ",
-                           fixed_vars,
-                           " + ",
-                           rand_vars)
-}
+# # construct full model formula from variables above 
+# if(length(binom_vars) == 0 & length(fixed_vars) == 0){
+#   sampling_design <- 
+#     paste(quo_text(response_var),         # this stitches together the formula
+#           " ~ ",
+#           rand_vars)
+# } else if(length(binom_vars) == 0 & length(fixed_vars) > 0){
+#   sampling_design <- 
+#     paste(quo_text(response_var),         # this stitches together the formula
+#           " ~ ",
+#           fixed_vars,
+#           " + ",
+#           rand_vars)
+# } else if(length(binom_vars) > 0 & length(fixed_vars) == 0){
+#   sampling_design <- paste(quo_text(binom_vars),         # this stitches together the formula
+#                   " ~ ",
+#                   rand_vars)
+# } else if(length(binom_vars) > 0 & length(fixed_vars) > 0){
+#   sampling_design <- paste(quo_text(binom_vars),         # this stitches together the formula
+#                            " ~ ",
+#                            fixed_vars,
+#                            " + ",
+#                            rand_vars)
+# }
+# 
+# # view full model formula
+# sampling_design
+# 
+# # fit mixed model
+# model <<- 
+#   afex::mixed(formula = sampling_design, 
+#               family = distribution_family,
+#               method = "LRT",
+#               sig_symbols = rep("", 4),
+#               # all_fit = TRUE,
+#               data = data_1bandperloc)
+# 
+# model
+# #plot
+# try(
+#   afex_plot(model,
+#             "location") +
+#     theme(axis.text.x = element_text(angle=90))
+# )
 
-# view full model formula
-sampling_design
+sampling_design2 = "amplification ~  locus * primer_x + (1|individual) + (1|plate_number/plate_row:plate_column)"
+sampling_design2 = "amplification ~  locus * primer_x + (1|individual) + (1|plate_number) + (plate_number|plate_row:plate_column)"
+sampling_design2 = "amplification ~  locus * primer_x + (1|individual) + (1|plate_number) + (plate_number|plate_row) + (plate_number|plate_column)"
+sampling_design2 = "amplification ~  locus * primer_x + (1|individual) + (1|plate_number) + (1|plate_row) + (1|plate_column)"
+sampling_design2 = "amplification ~  locus * primer_x + (1|individual) + (1|plate_number)"
+sampling_design2 = "amplification ~  locus * primer_x + (1|individual) "
+# sampling_design2 = "amplification ~  locus * primer_x * individual + (1|plate_number/plate_row:plate_column)"
 
-# fit mixed model
-model <<- 
-  afex::mixed(formula = female_male ~  location + (1|total_length_mm), 
-              family = distribution_family,
-              method = "LRT",
-              sig_symbols = rep("", 4),
-              # all_fit = TRUE,
-              data = data)
-
-#plot
-try(
-  afex_plot(model,
-            "location") +
-    theme(axis.text.x = element_text(angle=90))
-)
-
-model <-
-glmer(formula = female_male ~  location + (1|total_length_mm), 
-      family = distribution_family,
-      data = data)
+model2 <-
+  glmer(formula = sampling_design2, 
+        family = distribution_family,
+        data = data_1bandperloc)
 
 # https://github.com/strengejacke/ggeffects
-ggpredict(model,
-          "location",
+ggemmeans_model2 <-
+ggpredict(model2,
+          c("primer_x",
+            "locus"),
           # type="random",
           # condition = c(total_length_mm = 0)
-          ) %>%
-  plot() +
-  theme_classic()
+          ) 
+# plot(ggemmeans_model2) +
+#   theme_classic()
 
-draw(model, type = "average")
-
-effect("location",
-       mod = model)
-
-x_increment = 1
-
-data_predict <-
-  unique(data$location) %>%
-  purrr::map_df(~tibble(total_length_mm = seq(data %>%
-                                                filter(location == .x) %>%
-                                                filter(total_length_mm == min(total_length_mm)) %>%
-                                                pull(total_length_mm),
-                                              data %>%
-                                                filter(location == .x) %>%
-                                                filter(total_length_mm == max(total_length_mm)) %>%
-                                                pull(total_length_mm),
-                                              x_increment),
-                        location = .x)) 
-
-# plot model and data
-bind_cols(data_predict,
-          prob_male = predict(model,
-                              data.frame(data_predict),
-                              type = "response")) %>%
-  ggplot(aes(x = total_length_mm,
-             y = prob_male,
-             color = location)) +
-  geom_point(data = data,
-             aes(x = total_length_mm,
-                 y = female_male,
-                 color = location),
-             size = 5) +
-  geom_line(size = 2) +
-  theme_classic()
+ggplot(ggemmeans_model2,
+       aes(x=x,
+           y = predicted,
+           color = group,
+           shape = group)) +
+  geom_line() +
+  geom_point(size=4) +
+  labs(title = sampling_design2,
+       x = "Primer Concentration (X)",
+       y = "Probability of Amplifcation Success")
 
 
 
-
-
-
-
-
-
-
-
-
+# x_increment = 1
+# 
+# data_predict <-
+#   unique(data$location) %>%
+#   purrr::map_df(~tibble(total_length_mm = seq(data %>%
+#                                                 filter(location == .x) %>%
+#                                                 filter(total_length_mm == min(total_length_mm)) %>%
+#                                                 pull(total_length_mm),
+#                                               data %>%
+#                                                 filter(location == .x) %>%
+#                                                 filter(total_length_mm == max(total_length_mm)) %>%
+#                                                 pull(total_length_mm),
+#                                               x_increment),
+#                         location = .x)) 
+# 
+# # plot model and data
+# bind_cols(data_predict,
+#           prob_male = predict(model,
+#                               data.frame(data_predict),
+#                               type = "response")) %>%
+#   ggplot(aes(x = total_length_mm,
+#              y = prob_male,
+#              color = location)) +
+#   geom_point(data = data,
+#              aes(x = total_length_mm,
+#                  y = female_male,
+#                  color = location),
+#              size = 5) +
+#   geom_line(size = 2) +
+#   theme_classic()
 
 
 # estimated marginal means & contrasts
 emmeans_model <<-
   emmeans(model,
-          ~ location,
+          ~ locus * primer_x,
           alpha = alpha_sig)
 
 contrasts_model <<- 
@@ -1024,20 +1048,20 @@ groupings_model_fixed <<-
             # by = c(str_replace(fixed_vars,
             #                    "[\\+\\*]",
             #                    '" , "'))) %>%
-            by = c("location",
-                   "prob")) %>%
+            by = c("locus",
+                   "primer_x")) %>%
   rename(response = 3)
 
 
 model
 model$anova_table
-summary(model)
-emmeans_model               # emmeans in transformed units used for analysis
+# summary(model)
+# emmeans_model               # emmeans in transformed units used for analysis
 summary(emmeans_model,      # emmeans back transformed to the original units of response var
         type="response")
-contrasts_model             # contrasts in transformed units used for analysis
+# contrasts_model             # contrasts in transformed units used for analysis
 contrasts_model_regrid      # contrasts are back transformed
-groupings_model             # these values are back transformed, groupings based on transformed
+# groupings_model             # these values are back transformed, groupings based on transformed
 groupings_model_fixed       # cld messes up back transformation, this takes values from emmeans and groupings from cld
 
 
@@ -1045,9 +1069,9 @@ groupings_model_fixed       # cld messes up back transformation, this takes valu
 
 p <- 
   groupings_model_fixed %>%
-  ggplot(aes(x=location,
-             y=prob,
-             fill = location)) +
+  ggplot(aes(x=locus,
+             y=response,
+             fill = locus)) +
   geom_col(position = "dodge",
            color = "black") +
   # scale_fill_manual(values = c("lightgrey",
@@ -1080,7 +1104,7 @@ geom_errorbar(aes(ymin=asymp.LCL,
   # ylim(ymin, 
   #      ymax) +
   labs(x = "",
-       y = "Probability of 116mm Fish Being Male") +
+       y = "Probability of Amplification at 0.854") +
   theme(legend.position=c(0.67,0.8),  
         legend.title=element_blank())
 
