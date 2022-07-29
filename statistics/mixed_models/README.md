@@ -71,6 +71,8 @@ Some things to notice are that there are not many males from Dumaguete and not m
 
 If you only have variables that are [fixed](https://www.stat.purdue.edu/~ghobbs/STAT_512/Lecture_Notes/ANOVA/Topic_34.pdf) then we can use `glm()` to test your hypotheses.
 
+Here we test for differences among locations in the probability that an individual is a male given the total length of the fish. We do not allow the slopes to vary among the sites.  This may be adventageous because sizes sampled differ among the sites and we might expect the slope of the lines to remain similar while the points of inflection vary.
+
 ```r
 model <<- 
   glm(formula = female_male ~  total_length_mm + location, 
@@ -78,8 +80,66 @@ model <<-
       data = data)
 ```
 
+	Call:  glm(formula = female_male ~ total_length_mm + location, family = distribution_family, 
+		data = data)
+
+	Coefficients:
+				   (Intercept)             total_length_mm   locationDumaguete, Negros  locationSan Juan, Siquijor  
+					  -16.2887                      0.1447                     -3.1962                      1.5358  
+
+	Degrees of Freedom: 194 Total (i.e. Null);  191 Residual
+	Null Deviance:	    262.5 
+	Residual Deviance: 98.76 	AIC: 106.8
+
 ![](Rplot06.png)
-Fig 7. Plots of fish sex (F=0, M=1) against total length.  Fit lines are logistic.
+Fig 7. Plots of fish sex (F=0, M=1) against total length.  Fit lines are based on the glm (female_male ~ total_length_mm + location).
+
+Ok, we have a fancy logistic model fit to our data, but we still need to test our hypothesis that sites with higher fishing pressure will be associated with higher probabilities of males at smaller sizes. 
+
+We use the `emmeans` command to calculate the estimated marginal means from the model.
+
+```r
+emmeans_model <<-
+  emmeans(model,
+          ~ total_length_mm + location,
+          alpha = alpha_sig)
+
+summary(emmeans_model,      # emmeans back transformed to the original units of response var
+        type="response")
+```
+
+Table 1.  Now we are getting somewhere.  We see that at 116 mm, the probability that a fish is male from Buenavista is 60.44% (CI95 = 31.9 - 83.3%), whereas the probability is 5.88% (CI95 = 0.4 - 49.2%) in Dumaguete, and is 87.65% (CI95 = 69.8 - 95.6%) in San Juan. 
+
+	 total_length_mm location             prob     SE  df asymp.LCL asymp.UCL
+				 116 Buenavista, Bohol  0.6044 0.1442 Inf   0.31899     0.833
+				 116 Dumaguete, Negros  0.0588 0.0774 Inf   0.00403     0.492
+				 116 San Juan, Siquijor 0.8765 0.0619 Inf   0.69818     0.956
+
+	Confidence level used: 0.95 
+	Intervals are back-transformed from the logit scale 
+
+The `emmeans` output is good, but we can get more statistically sophisticated with the `contrasts` command, which allows us to explicitly control [False Discovery Rate]() and generate p-values for comparisons of probability of fish being male between locations.  The `emmeans` output is a bit conservative when it comes to FDR.  We use the Benjamini-Hochberg (`bh`) FDR algorithm in `contrasts` but you can select others as required.  
+
+```r
+contrasts_model_regrid <<- 
+  contrast(regrid(emmeans_model), 
+           method = 'pairwise', 
+           simple = 'each', 
+           combine = FALSE, 
+           adjust = "bh")
+		   
+contrasts_model_regrid
+```
+
+Table 2. _A priori_ contrasts testing for differences in the probability of 116mm fish being male at the three survey locations. The estimate is the difference in probabilies between sites, where a positive value indicates that the first site in the contrast has a higher probability of fish being male. For example, 116mm fish at Buenavista are 54.6% more likely to be male. Dumaguete fish are significantly less likely to be male at 116mm than fish from the other two sites.
+	$`simple contrasts for location`
+	total_length_mm = 116:
+	 contrast                               estimate    SE  df z.ratio p.value
+	 Buenavista, Bohol - Dumaguete, Negros     0.546 0.155 Inf   3.520  0.0006
+	 Buenavista, Bohol - San Juan, Siquijor   -0.272 0.182 Inf  -1.492  0.1358
+	 Dumaguete, Negros - San Juan, Siquijor   -0.818 0.107 Inf  -7.610  <.0001
+
+
 
 
 ---
