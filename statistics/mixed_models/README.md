@@ -208,6 +208,7 @@ Consult the R script
 ## Fitting Statistical Model w [afex::mixed](https://www.rdocumentation.org/packages/afex/versions/1.1-1/topics/mixed)
 
 [afex package on github](https://github.com/singmann/afex)
+
 [afex help forum](https://afex.singmann.science/)
 
 
