@@ -1,4 +1,0 @@
-Island	Sub-location	Latitude	Longitude	Number of Samples
-Siquijor	Tambisan, San Juan	9.186639	123.449223	90
-Bohol	Cabulan Island, Buenavista	10.151735	124.032985	87
-Negros	Bantayan, Dumaguete City	9.325754	123.313062	33
