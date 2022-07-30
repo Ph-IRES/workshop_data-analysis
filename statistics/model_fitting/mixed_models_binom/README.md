@@ -6,7 +6,7 @@ Under construction
 
 ## Getting Started
 
-Open [`fixed_models.R`](mixed_models.R) in Rstudio and run the `INITIALIZATION` section
+Open [`mixed_models_bionom.R`](mixed_models_binom.R) in Rstudio and run the `INITIALIZATION` section
 
 NOTE: after loading these packages, you may find that tidyverse commands are affected. The solution is to add the appropriate package name before commands that break code such as `dplyr::select` if `select` doesn't work correctly anymore. This happens when multiple packages have the same command names. The last package loaded takes precidence, and your tidyverse commands break. You could load tidyverse last, but invariably, you will load a package after tidyverse that breaks one of its commands, so it's impossible to avoid this.
 
@@ -20,7 +20,8 @@ We will use Ingrids data set on sex change in _Halichores scapularis_ which has 
 It is important to understand the nature of your data. Histograms can help you make decisions on how your data must be treated to conform with the assumptions of statistical models.
 
 ![](Rplot.png)
-Fig 1. Histograms of fish measurements by location and sex.  U=immature, sex cannot be determined, F=female, MF=both sex organs, M=male, PM=primary male, NA= no observation made
+Fig 1. Histograms of number of PCR libraries evaluated relative to primer concentration and locus. Note that the data does not represent a complete design and that different loci should probably be subjected to different model tests.
+
 
 ![](Rplot01.png)
 Fig 2. Histograms of fish measurements by location and sex. The stages range from 0=immature sex undecipherable to 4=mature female to ...

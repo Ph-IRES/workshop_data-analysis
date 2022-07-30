@@ -28,6 +28,7 @@ library(optimx)
 library(effects)
 library(ggeffects)
 library(prediction)
+library(ggforce)
 
 # NOTE: after loading these packages, you may find that tidyverse commands are affected 
 #       the solution is to add the appropriate package name before commands that break code
@@ -40,7 +41,6 @@ library(prediction)
 #### USER DEFINED VARIABLES ####
 
 # path to fish sex change data set
-inFilePath = "./halichores_scapularis_measurements_bartlett_2.rds"
 inFilePath2 = "./visayan_deer_3primer_microsat_amp_data.rds"
 
 theme_myfigs <- 
@@ -75,118 +75,20 @@ theme_myfigs <-
 
 #### READ IN DATA ####
 
-data <-
-  read_rds(inFilePath) %>%
-  # make variable that has zero for female, one for male, and NA for everything else so we only focus in clear females and males
-  mutate(female_male = case_when(sex_clean == "F" ~ 0,
-                                 sex_clean == "M" ~ 1),
-         # because our response variable is binomial (0,1), need to make count columns for the two outcomes for the stats command that requires binoial data to be fed in this way
-         f_count = case_when(female_male == 0 ~ 1,
+# read in data and remove rows with missing data or multiple bands
+data_1bandperloc <-
+  read_rds(inFilePath2) %>%
+  filter(bands_per_locus <= 1) %>%
+  drop_na(amplification) %>%
+  mutate(success = case_when(amplification == 1 ~ 1,
                              TRUE ~ 0),
-         m_count = case_when(female_male == 1 ~ 1,
+         failure = case_when(amplification == 0 ~ 1,
                              TRUE ~ 0),
-         # make the fixed predictor variable a  factor
-         # location = factor(location)
-         ) %>%
-  drop_na(female_male)
-  
+         plate_row = factor(plate_row),
+         plate_column = factor(plate_column),
+         plate_number = factor(plate_number)) 
 
 #### FUNCTIONS ####
-# process quast data
-process_quast_data <- function(treatment){
-  tbl_assembly %>%
-    filter(!str_detect(assembly, 
-                       "broken"),
-           scaffig == "scaffolds",
-           library == treatment,
-           # merged == "unmerged"
-    ) %>%
-    group_by(library,  # this combined with the first filter statement selects treatement with best result
-             species,
-             assembler,
-             contamination) %>%
-    # filter(!!response_var == max(!!response_var,   # https://stackoverflow.com/questions/24569154/use-variable-names-in-functions-of-dplyr
-    filter(n50 == max(n50,   # https://stackoverflow.com/questions/24569154/use-variable-names-in-functions-of-dplyr
-                      na.rm=TRUE),
-           !duplicated(cbind(species,  # this removes all but 1 row with duplicate info based on the columns specified, ie when there are multiple equally good treatments
-                             library,
-                             assembler,
-                             contamination,
-                             n50))) %>%
-    tibble::rowid_to_column("id")  # this is added to make poisson dist a neg binom dist by making this col a random factor
-  
-  # mutate(assembler = factor(assembler,
-  #                           ordered=TRUE),
-  #        species = factor(species,
-  #                         ordered=TRUE),
-  #        contamination = factor(contamination,
-  #                               ordered=TRUE))
-}
-
-process_busco_data <- function(treatment){
-  tbl_busco %>%
-    filter(#!str_detect(assembly, 
-      # "broken"),
-      scaffig == "scaffolds",
-      library == treatment,
-      # merged == "unmerged"
-    ) %>% 
-    group_by(library,  # this combined with the first filter statement selects treatement with best result
-             species,
-             assembler,
-             contamination) %>%
-    # filter(!!response_var == max(!!response_var,   # https://stackoverflow.com/questions/24569154/use-variable-names-in-functions-of-dplyr
-    filter(complete_and_single_copy_buscos_s == max(complete_and_single_copy_buscos_s,   # https://stackoverflow.com/questions/24569154/use-variable-names-in-functions-of-dplyr
-                                                    na.rm=TRUE),
-           # missing_buscos_m == min(missing_buscos_m,   # https://stackoverflow.com/questions/24569154/use-variable-names-in-functions-of-dplyr
-           #                         na.rm=TRUE),
-           !duplicated(cbind(species,  # this removes all but 1 row with duplicate info based on the columns specified, ie when there are multiple equally good treatments
-                             library,
-                             assembler,
-                             contamination,
-                             complete_and_single_copy_buscos_s,
-                             missing_buscos_m))
-    ) %>%
-    tibble::rowid_to_column("id")   # this is added to make poisson dist a neg binom dist by making this col a random factor
-  # mutate(assembler = factor(assembler,
-  #                           ordered=TRUE),
-  #        species = factor(species,
-  #                         ordered=TRUE),
-  #        contamination = factor(contamination,
-  #                               ordered=TRUE))
-}
-
-join_data <- function(data_quast,
-                      data_busco){
-  data_quast %>%
-    full_join(data_busco,
-              by = c("scaffig",
-                     "species",
-                     "library",
-                     "assembler",
-                     "contamination",
-                     "repaired",
-                     "ng_input_dna")) %>%
-    dplyr::select(-contains("id.")) %>%
-    tibble::rowid_to_column("id")  # this is added to make poisson dist a neg binom dist by making this col a random factor
-}
-
-# visualize raw quast data
-vis_data <- function(data,
-                     response_var,
-                     y_label){
-  ggplot(data,
-         aes(y=!!response_var, 
-             x=assembler,
-             fill = contamination)) +
-    geom_col(position="dodge") +
-    theme_classic() +
-    # theme(axis.text.x = element_text(angle = 0, 
-    #                                  hjust=0.5)) +
-    labs(y=y_label) +
-    facet_grid(species ~ library)
-}
-
 # visualize statistical distributions (see fitdistrplus: An R Package for Fitting Distributions, 2020)
 vis_dists <- function(data,
                       response_var){
@@ -275,372 +177,131 @@ vis_dists <- function(data,
   try(ppcomp(list(fw, fp, fg, fl, fln, fn, fge), legendtext = plot.legend))
   
 }
-# hypothesis testing
-run_stats <- function(data,
-                      response_var,
-                      fixed_var,
-                      rand_var,
-                      distribution_family,
-                      binom_vars = NULL,
-                      alpha_sig = 0.05){
-  
-  # this handles binomial vs other families bc binomial requires binom_vars variable
-  if(length(binom_vars) == 0){
-    design <- 
-      paste(quo_text(response_var),         # this stitches together the formula
-            # "~ contamination * assembler",
-            quo_text(fixed_var),
-            rand_var)
-  } else {
-    design <- paste(quo_text(binom_vars),         # this stitches together the formula
-                    "~ contamination * assembler",
-                    rand_var)
-  }
-  
-  # custom model  
-  model <<- 
-    afex::mixed(formula = design, 
-                family = distribution_family,
-                method = "LRT",
-                sig_symbols = rep("", 4),
-                # all_fit = TRUE,
-                data = data)
-  
-  if(length(binom_vars) == 0){
-    p.custom <<- 
-      afex_plot(model,               # https://rdrr.io/github/singmann/afex/man/afex_plot.html
-                x = "assembler",
-                trace = "contamination",
-                mapping = c("shape", "fill"),
-                data_geom = ggpol::geom_boxjitter,
-                data_arg = list(
-                  width = 0.4, 
-                  jitter.width = 0.5,
-                  # jitter.height = 10,
-                  outlier.intersect = TRUE),
-                point_arg = list(size = 3), 
-                line_arg = list(linetype = 0),
-                error_arg = list(size = 1.5, width = 0)) +  
-      scale_fill_manual(values = c("lightgrey",
-                                   "white"),
-                        # labels = c('Pre-Screen', 
-                        #            'Post-Screen')
-      ) +
-      theme_classic() +
-      labs(title="affex:mixed model fit custom family")
-  } else {
-    p.custom <<- "need to figure out how to plot binomial model results"
-  }
-  # cbind(
-  #   afex_plot(model, ~assembler, ~contamination, 
-  #             error = "model", return = "data")$means[,c("assembler", "contamination", "y", "SE")],
-  #   multivariate = afex_plot(model, ~assembler, ~contamination,
-  #                            error = "model", return = "data")$means$error,
-  #   mean = afex_plot(model, ~assembler, ~contamination,
-  #                    error = "mean", return = "data")$means$error,
-  #   # within = afex_plot(model, ~assembler, ~contamination,
-  #   #                    error = "within", return = "data")$means$error,
-  #   between = afex_plot(model, ~assembler, ~contamination,
-  #                       error = "between", return = "data")$means$error)
-  
-  emmeans_model <<-
-    emmeans(model,
-            ~ assembler * contamination,
-            alpha = alpha_sig)
-  
-  contrasts_model <<- contrast(emmeans_model, 
-                               method = 'pairwise', 
-                               simple = 'each', 
-                               combine = FALSE, 
-                               adjust = "bh")
-  
-  groupings_model <<-
-    multcomp::cld(emmeans_model, 
-                  alpha = alpha_sig,
-                  Letters = letters,
-                  type="response",
-                  adjust = "bh") %>%
-    as.data.frame %>%
-    mutate(group = str_remove_all(.group," "),
-           group = str_replace_all(group,
-                                   "(.)(.)",
-                                   "\\1,\\2")) %>%
-    rename(response = 3)
-  
-  # i noticed that the emmeans from groupings don't match those from emmeans so this is the table to use for making the figure
-  # the emmeans means and conf intervals match those produced by afex_plot, so I think those are what we want
-  groupings_model_fixed <<-
-    summary(emmeans_model,      # emmeans back transformed to the original units of response var
-            type="response") %>%
-    tibble() %>%
-    left_join(groupings_model %>%
-                dplyr::select(-response:-asymp.UCL),
-              by = c("assembler",
-                     "contamination")) %>%
-    rename(response = 3)
-  
-  # default model
-  model.defaults <<- 
-    afex::mixed(paste(quo_text(response_var),         # this stitches together the formula
-                      "~ contamination * assembler + (1|species)"), 
-                sig_symbols = rep("", 4),
-                data = data)
-  
-  # p.defaults <<- 
-  #   afex_plot(model.defaults,               # https://rdrr.io/github/singmann/afex/man/afex_plot.html
-  #             x = "assembler",
-  #             trace = "contamination",
-  #             # data_geom = ggpol::geom_boxjitter,
-  #             dodge = 0.9,
-  #             data_geom = ggbeeswarm::geom_beeswarm,
-  #             data_arg = list(
-  #               dodge.width = 0.9,  ## needs to be same as dodge
-  #               cex = 1,
-  #               color = "darkgrey",
-  #               size = 3),
-  #             point_arg = list(size = 3), 
-  #             line_arg = list(linetype = 0),
-  #             error_arg = list(size = 1, width = 0)
-  #             ) +  
-  #     theme_classic() +
-  #     labs(title="affex:mixed model fit defaults")
-  
-  p.defaults <<- 
-    afex_plot(model.defaults,               # https://rdrr.io/github/singmann/afex/man/afex_plot.html
-              x = "assembler",
-              trace = "contamination",
-              mapping = c("shape", "fill"),
-              data_geom = ggpol::geom_boxjitter,
-              data_arg = list(
-                width = 0.4, 
-                jitter.width = 0.5,
-                # jitter.height = 10,
-                outlier.intersect = TRUE),
-              point_arg = list(size = 3), 
-              line_arg = list(linetype = 0),
-              error_arg = list(size = 1.5, width = 0)) +  
-    scale_fill_manual(values = c("lightgrey",
-                                 "white"),
-                      # labels = c('Pre-Screen', 
-                      #            'Post-Screen')
-    ) +
-    theme_classic() +
-    labs(title="affex:mixed model fit defaults")
-  
-  
-  emmeans_model.defaults <<-
-    emmeans(model.defaults,
-            ~ assembler * contamination,
-            alpha = alpha_sig)
-  
-  contrasts_model.defaults <<- contrast(emmeans_model.defaults, 
-                                        method = 'pairwise', 
-                                        simple = 'each', 
-                                        combine = FALSE, 
-                                        adjust = "bh")
-  
-  groupings_model.defaults <<-
-    multcomp::cld(emmeans_model.defaults, 
-                  alpha = alpha_sig,
-                  Letters = letters,
-                  type="response",
-                  adjust = "bh") %>%
-    as.data.frame %>%
-    mutate(group = str_remove_all(.group," "),
-           group = str_replace_all(group,
-                                   "(.)(.)",
-                                   "\\1,\\2")) %>%
-    rename(response = 3)
-  
-  # i noticed that the emmeans from groupings don't match those from emmeans so this is the table to use for making the figure
-  # the emmeans means and conf intervals match those produced by afex_plot, so I think those are what we want
-  groupings_model_fixed.defaults <<-
-    summary(emmeans_model.defaults,      # emmeans back transformed to the original units of response var
-            type="response") %>%
-    tibble() %>%
-    left_join(groupings_model.defaults %>%
-                dplyr::select(-response:-upper.CL),
-              by = c("assembler",
-                     "contamination")) %>%
-    rename(response = 3)
-}
-
-# aggregate hypothesis tests
-
-get_table_03 <- function(anova_table,
-                         response_var,
-                         distribution_family,
-                         treatment){
-  anova_table %>%
-    as_tibble(rownames = "param") %>%
-    clean_names() %>%
-    mutate(response = quo_text(response_var),
-           dist_family = distribution_family,
-           library = treatment) %>%
-    rename(p = pr_chisq) %>%
-    dplyr::select(response,
-                  dist_family,
-                  library,
-                  param, 
-                  df,
-                  chi_df,
-                  chisq,
-                  p)
-}
-
-get_table_04 <- function(groupings_model_fixed,
-                         response_var,
-                         distribution_family,
-                         treatment){
-  groupings_model_fixed %>%
-    clean_names() %>%
-    mutate(response = quo_text(response_var),
-           dist_family = distribution_family,
-           library = treatment) %>%
-    rename(ci_upper = 7,
-           ci_lower = 6) %>%
-    dplyr::select(response,
-                  dist_family,
-                  library,
-                  assembler, 
-                  contamination,
-                  response,
-                  se,
-                  df,
-                  ci_lower,
-                  ci_upper,
-                  group,
-                  group_2)
-}
-
-get_table_05 <- function(contrast_table,
-                         response_var,
-                         distribution_family,
-                         treatment){
-  contrast_table %>%
-    as_tibble() %>%
-    clean_names() %>%
-    mutate(response = quo_text(response_var),
-           dist_family = distribution_family,
-           library = treatment) %>%
-    rename(p = p_value) %>%
-    dplyr::select(response,
-                  dist_family,
-                  library,
-                  contamination,
-                  contrast, 
-                  estimate,
-                  se,
-                  df,
-                  z_ratio,
-                  p)
-}
-
-
-# visualize stats
-vis_stats <- function(data,
-                      data_all,
-                      response_var,
-                      treatment,
-                      hide_legend = FALSE,
-                      ymin = 0,
-                      ymax = NA){
-  
-  p <- 
-    data %>%
-    ggplot(aes(x=total_length_mm,
-               y=female_male,
-               color = location)) +
-    geom_point() +
-    scale_fill_manual(values = c("lightgrey",
-                                 "white"),
-                      labels = c('Pre-Screen', 
-                                 'Post-Screen')) +
-    geom_point(data = data_all,
-               aes(x = assembler,
-                   y = !!response_var,
-                   shape = contamination,
-                   color = species
-               ),
-               position = position_dodge(width = 0.9),
-               # color = "grey70",
-               # shape = 1,
-               size = 1)
-  
-  if(treatment == "all"){
-    p <- p +
-      scale_color_manual(values = c("#53B400",
-                                    "#00C094",
-                                    "#A58AFF"))
-  }
-  
-  p <- p +
-    geom_errorbar(aes(ymin=asymp.LCL,
-                      ymax=asymp.UCL),
-                  width = 0.2,
-                  color = "grey50",
-                  # size = 1,
-                  position = position_dodge(width=0.9)) +
-    guides(color = "none",
-           shape = "none") +   #remove color legend
-    geom_text(aes(label=group),
-              position = position_dodge(width=0.9),
-              vjust = -0.5,
-              hjust = -0.15,
-              size = 8 / (14/5)) +  # https://stackoverflow.com/questions/25061822/ggplot-geom-text-font-size-control
-    theme_assembly_quality +
-    ylim(ymin, 
-         ymax) +
-    labs(title = str_c("Libraries:",
-                       str_to_upper(treatment) %>%
-                         str_remove("[NR].*"),
-                       "ng",
-                       sep = " "),
-         x = "ASSEMBLER",
-         y = y_label) 
-  
-  if(hide_legend == TRUE){
-    p + theme(legend.position="blank",   #c(0.25,0.8)
-              legend.title=element_blank())
-  } else {
-    p + theme(legend.position=c(0.33,0.8),  
-              legend.title=element_blank())
-  }
-  
-}
-
-
 
 #### Explore Your Data For the Hypothesis Tests ####
 
 # it is important to understand the nature of your data
 # histograms can help you make decisions on how your data must be treated to conform with the assumptions of statistical models
 
-data %>%
-  pivot_longer(cols = c(contains("_mm"),
-                        contains("_g")),
-               names_to = "metric") %>%
-  ggplot(aes(x=value,
-             fill = sex_clean)) +
+data_1bandperloc %>%
+  ggplot(aes(x=primer_x,
+             fill = locus)) +
   geom_histogram() +
   theme_classic() +
   # theme(axis.text.x = element_text(angle = 0, 
   #                                  hjust=0.5)) +
-  facet_grid(location ~ metric,
+  facet_grid(locus ~ .,
              scales = "free_x")
 
-data %>%
-  pivot_longer(cols = c(contains("_mm"),
-                        contains("_g")),
-               names_to = "metric") %>%
-  ggplot(aes(x=value,
-             fill = factor(stage_clean))) +
-  geom_histogram() +
-  theme_classic() +
-  # theme(axis.text.x = element_text(angle = 0, 
-  #                                  hjust=0.5)) +
-  facet_grid(location ~ metric,
-             scales = "free_x")
+p_sampsize <-
+  data_1bandperloc %>%
+    group_by(plate_row,
+             plate_column) %>%
+    summarize(prop_amped = sum(amplification)/n(),
+              n = n()) %>%
+    ungroup() %>%
+    mutate(plate_row = factor(plate_row,
+                              levels = c("H",
+                                         "G",
+                                         "F",
+                                         "E",
+                                         "D",
+                                         "C",
+                                         "B",
+                                         "A")),
+           plate_column = factor(plate_column,
+                                 levels = seq(1,
+                                              12,
+                                              1))) %>%
+    complete(plate_row,
+             plate_column,
+             fill = list(prop_amped = NA,
+                         n = 0)) %>%
+    
+    ggplot(aes(x = plate_column,
+               y = plate_row,
+               color = n)) +
+    geom_point(size = 35) +
+    scale_color_gradient(high = "blue4",
+                         low = "white") +
+    geom_text(aes(label = str_c("n = ",
+                                n,
+                                sep = "")),
+              color = "black") +
+    theme_bw() +
+    labs(title = "Sample Size")
+
+p_amp <-
+  data_1bandperloc %>%
+    group_by(plate_row,
+             plate_column) %>%
+    summarize(prop_amped = sum(amplification)/n(),
+              n = n()) %>%
+    ungroup() %>%
+    mutate(plate_row = factor(plate_row,
+                  levels = c("H",
+                             "G",
+                             "F",
+                             "E",
+                             "D",
+                             "C",
+                             "B",
+                             "A")),
+           plate_column = factor(plate_column,
+                                 levels = seq(1,
+                                              12,
+                                              1))) %>%
+    complete(plate_row,
+             plate_column,
+             fill = list(prop_amped = NA,
+                         n = 0)) %>%
+    
+    ggplot(aes(x = plate_column,
+           y = plate_row,
+           color = prop_amped)) +
+    geom_point(size = 35) +
+    scale_color_gradient(high = "green4",
+                         low = "grey90") +
+    geom_text(aes(label = round(prop_amped, 
+                                2)),
+              color = "black") +
+    theme_bw() +
+    labs(title = "Proportion Amplified")
+
+# p_amp <-
+  data_1bandperloc %>%
+  group_by(plate_row,
+           plate_column) %>%
+  summarize(prop_amped = sum(amplification)/n(),
+            n = n()) %>%
+  ungroup() %>%
+  mutate(plate_row = factor(plate_row,
+                            levels = c("H",
+                                       "G",
+                                       "F",
+                                       "E",
+                                       "D",
+                                       "C",
+                                       "B",
+                                       "A")),
+         plate_column = factor(plate_column,
+                               levels = seq(1,
+                                            12,
+                                            1))) %>%
+  complete(plate_row,
+           plate_column,
+           fill = list(prop_amped = NA,
+                       n = 0)) %>%
+  
+  ggplot(aes(x = n,
+             y = prop_amped,
+             color = prop_amped)) +
+  geom_point(size = 3) +
+  scale_color_gradient(high = "green4",
+                       low = "grey90") +
+  theme_bw() +
+  labs(title = "Proportion Amplified vs Sample Size")
+
 
 # I'm noticing that the left skewed distribution of `weight_of_gonads_g` is quite different from the other metrics
 # it may have to be handled differently
@@ -846,16 +507,7 @@ p
 
 #Here we use the visayan deer data set to demonstrate a mxed model with both fixed and randome factor.scope(
   
-read_rds(inFilePath2)
 
-data_1bandperloc <-
-  data_all %>%
-  filter(bands_per_locus == 1) %>%
-  drop_na(amplification) %>%
-  mutate(success = case_when(amplification == 1 ~ 1,
-                             TRUE ~ 0),
-         failure = case_when(amplification == 0 ~ 1,
-                             TRUE ~ 0)) 
 
 summary(data_1bandperloc)
 
