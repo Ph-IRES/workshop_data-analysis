@@ -93,10 +93,43 @@ model <<-
 	Null Deviance:	    262.5 
 	Residual Deviance: 98.76 	AIC: 106.8
 
+What we are really interested in is whether there are significant differences among locations. We can use `summary()` for this. The output shows that Dumaguete is significantly different.  See [here](https://www.statology.org/interpret-glm-output-in-r/) to interpret this output.
+
+```r
+summary(model)
+```
+
+	Call:
+	glm(formula = female_male ~ total_length_mm + location, family = distribution_family, 
+		data = data)
+
+	Deviance Residuals: 
+		Min       1Q   Median       3Q      Max  
+	-2.0757  -0.2308   0.1258   0.3010   2.3112  
+
+	Coefficients:
+								Estimate Std. Error z value Pr(>|z|)    
+	(Intercept)                -16.28874    3.64712  -4.466 7.96e-06 ***
+	total_length_mm              0.14469    0.02827   5.118 3.09e-07 ***
+	locationDumaguete, Negros   -3.19619    1.45193  -2.201   0.0277 *  
+	locationSan Juan, Siquijor   1.53578    1.01223   1.517   0.1292    
+	---
+	Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+	(Dispersion parameter for binomial family taken to be 1)
+
+		Null deviance: 262.47  on 194  degrees of freedom
+	Residual deviance:  98.76  on 191  degrees of freedom
+	AIC: 106.76
+
+	Number of Fisher Scoring iterations: 7
+
+
+
 ![](Rplot06.png)
 Fig 7. Plots of fish sex (F=0, M=1) against total length.  Fit lines are based on the glm (female_male ~ total_length_mm + location).  The points are the observed data with vertical jittering to better visualize multiple observations of the same length and sex.
 
-This model, without interactions, does not allow the slopes to vary freely among sites, which might be desirable because there are different ranges of sizes at different sites.  To see the alternative, change the model to female_male ~ total_length_mm * location. 
+This model, without interactions, does not allow the slopes to vary freely among sites, which might be desirable because there are different ranges of sizes at different sites.  To see the alternative, change the model to `formula = female_male ~ total_length_mm * location`. 
 
 ---
 
