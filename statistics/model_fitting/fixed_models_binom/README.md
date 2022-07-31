@@ -125,6 +125,7 @@ summary(model)
 	Number of Fisher Scoring iterations: 7
 
 ![](Rplot06.png)
+
 Fig 7. Visualization of `model`. Note that the "Estimates"  output by `summary(model)` can be derived from this plot. The site 'Estimates' in `summary(model)` are the y values for each site fit line where x = Mean Tot L. (Intercept 'Estimate' is mean of groups intersects y=0)")
 
 
