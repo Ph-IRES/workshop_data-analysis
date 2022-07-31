@@ -247,22 +247,51 @@ model <<-
       family = distribution_family,
       data = data)
 
+
+# view properties of model
+ref_grid(model)
+
 #show parameter estimates and other summary model stats and pvals
 model
 summary(model)
 
+# visualize summare(model)
+emmip(model, 
+      location ~ total_length_mm,    # type = "response" for back transformed values
+      cov.reduce = range) +
+  geom_vline(xintercept=mean(data$total_length_mm),
+             color = "grey",
+             linetype = "dashed") +
+  geom_text(aes(x = mean(data$total_length_mm),
+                y = -10,
+                label = "mean total_length_mm"),
+            color = "grey") +
+  theme_myfigs +
+  labs(title = "Visualization of `summary(model)`",
+       subtitle = "",
+       y = "Linear Prediciton\n(Site 'Estimates' Derived from Mean Tot L)\n(Intercept 'Estimate' is mean of groups intersects y=0)")
+
+emmip(model, 
+      total_length_mm ~ location)
+
 #### Conduct A priori contrast tests for differences among sites ####
 
 # now we move on to finish the hypothesis testing.  Are there differences between the sites?
-# estimated marginal means & contrasts
+# estimated marginal means 
+
+
+
 emmeans_model <<-
   emmeans(model,
           ~ total_length_mm + location,
           alpha = alpha_sig)
 
-summary(emmeans_model,      # emmeans back transformed to the original units of response var
+
+# emmeans back transformed to the original units of response var
+summary(emmeans_model,      
         type="response")
 
+# contrasts between sites
 contrast(regrid(emmeans_model), # emmeans back transformed to the original units of response var
          method = 'pairwise', 
          simple = 'each', 

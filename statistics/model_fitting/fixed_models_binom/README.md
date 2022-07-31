@@ -124,18 +124,25 @@ summary(model)
 
 	Number of Fisher Scoring iterations: 7
 
+![](Rplot06.png)
+Fig 7. Visualization of `model`. Note that the "Estimates"  output by `summary(model)` can be derived from this plot.
+
 ---
 
 ## Estimated Marginal Means and Contrasts
 
-It is nice to have a p-value, and know that Dumaguete has a lower probability of males being observed, but this still leaves something to be desired.  We can dig deeper with the `emmeans` and `contrasts` commands.
+It is nice to have a p-value, and know that Dumaguete has a lower probability of males being observed, but this still leaves something to be desired.  We can dig deeper with the `emmeans` and `contrast` commands.
 
 ```r
 emmeans_model <<-
   emmeans(model,
           ~ total_length_mm + location,
           alpha = alpha_sig)
+```
 
+Again, we can use `summary()` to view the estimated marginal means.  Note that we set `type="response"` so that the units would be in terms of our response variable, the probability of being male, and thus, have changed sex. The estimated marginal means are returned for the mean length observed in the whole data set, 116 mm. The `prob` column 
+
+```r
 # emmeans back transformed to the original units of response var
 summary(emmeans_model,      
         type="response")
@@ -159,8 +166,8 @@ contrasts_model_regrid <<-
            adjust = "bh")
 ```
 
-![](Rplot06.png)
-Fig 7. Plots of fish sex (F=0, M=1) against total length.  Fit lines are based on the glm (female_male ~ total_length_mm + location).  The points are the observed data with vertical jittering to better visualize multiple observations of the same length and sex.
+![](Rplot07.png)
+Fig 8. Plots of fish sex (F=0, M=1) against total length.  Fit lines are based on the glm (female_male ~ total_length_mm + location).  The points are the observed data with vertical jittering to better visualize multiple observations of the same length and sex.
 
 This model, without interactions, does not allow the slopes to vary freely among sites, which might be desirable because there are different ranges of sizes at different sites.  To see the alternative, change the model to `formula = female_male ~ total_length_mm * location`. 
 
@@ -256,7 +263,7 @@ Table 3. The `multicomp:cld` groupings are added to the emmeans table. Dumaguete
 	2            116. Dumaguete, Negros    0.0588 0.0774   Inf   0.00403     0.492 " a "  a    
 	3            116. San Juan, Siquijor   0.877  0.0619   Inf   0.698       0.956 "  b"  b  
 
-![](Rplot07.png)
+![](Rplot10.png)
 Fig 8. Estimated marginal means for the probability that 116mm fish are male at each location.  Letters indicate statistically significant groupings.
 
 ---
