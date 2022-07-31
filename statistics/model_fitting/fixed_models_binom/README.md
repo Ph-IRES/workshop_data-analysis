@@ -93,7 +93,7 @@ model <<-
 	Null Deviance:	    262.5 
 	Residual Deviance: 98.76 	AIC: 106.8
 
-What we are really interested in is whether there are significant differences among locations. We can use `summary()` for this. The output shows that Dumaguete is significantly different.  See [here](https://www.statology.org/interpret-glm-output-in-r/) to interpret this output.
+What we are really interested in is whether there are significant differences among locations. We can use `summary()` for this. The output shows that Dumaguete is significantly different than the other sites (p = 0.0277) and that the probability of observing males there is lower (estimate = -3.19619).  See [here](https://www.statology.org/interpret-glm-output-in-r/) to interpret this output.
 
 ```r
 summary(model)
@@ -124,7 +124,40 @@ summary(model)
 
 	Number of Fisher Scoring iterations: 7
 
+---
 
+## Estimated Marginal Means and Contrasts
+
+It is nice to have a p-value, and know that Dumaguete has a lower probability of males being observed, but this still leaves something to be desired.  We can dig deeper with the `emmeans` and `contrasts` commands.
+
+```r
+emmeans_model <<-
+  emmeans(model,
+          ~ total_length_mm + location,
+          alpha = alpha_sig)
+
+# emmeans back transformed to the original units of response var
+summary(emmeans_model,      
+        type="response")
+```
+
+	total_length_mm location             prob     SE  df asymp.LCL asymp.UCL
+				 116 Buenavista, Bohol  0.6044 0.1442 Inf   0.31899     0.833
+				 116 Dumaguete, Negros  0.0588 0.0774 Inf   0.00403     0.492
+				 116 San Juan, Siquijor 0.8765 0.0619 Inf   0.69818     0.956
+
+	Confidence level used: 0.95 
+	Intervals are back-transformed from the logit scale 
+
+
+```r
+contrasts_model_regrid <<- 
+  contrast(regrid(emmeans_model), 
+           method = 'pairwise', 
+           simple = 'each', 
+           combine = FALSE, 
+           adjust = "bh")
+```
 
 ![](Rplot06.png)
 Fig 7. Plots of fish sex (F=0, M=1) against total length.  Fit lines are based on the glm (female_male ~ total_length_mm + location).  The points are the observed data with vertical jittering to better visualize multiple observations of the same length and sex.

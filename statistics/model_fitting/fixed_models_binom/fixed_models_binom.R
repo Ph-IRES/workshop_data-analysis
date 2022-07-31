@@ -74,7 +74,8 @@ theme_myfigs <-
         legend.title = element_text(size = 9, 
                                     color = 'black'),
         legend.background = element_blank(),
-        legend.position="blank")
+        legend.position="right"
+        )
 
 
 #### READ IN DATA ####
@@ -250,6 +251,63 @@ model <<-
 model
 summary(model)
 
+#### Conduct A priori contrast tests for differences among sites ####
+
+# now we move on to finish the hypothesis testing.  Are there differences between the sites?
+# estimated marginal means & contrasts
+emmeans_model <<-
+  emmeans(model,
+          ~ total_length_mm + location,
+          alpha = alpha_sig)
+
+summary(emmeans_model,      # emmeans back transformed to the original units of response var
+        type="response")
+
+contrast(regrid(emmeans_model), # emmeans back transformed to the original units of response var
+         method = 'pairwise', 
+         simple = 'each', 
+         combine = FALSE, 
+         adjust = "bh")
+
+groupings_model <<-
+  multcomp::cld(emmeans_model, 
+                alpha = alpha_sig,
+                Letters = letters,
+                type="response",
+                adjust = "bh") %>%
+  as.data.frame %>%
+  mutate(group = str_remove_all(.group," "),
+         group = str_replace_all(group,
+                                 "(.)(.)",
+                                 "\\1,\\2")) %>%
+  rename(response = 3)
+
+# i noticed that the emmeans from groupings don't match those from emmeans so this is the table to use for making the figure
+# the emmeans means and conf intervals match those produced by afex_plot, so I think those are what we want
+groupings_model_fixed <<-
+  summary(emmeans_model,      # emmeans back transformed to the original units of response var
+          type="response") %>%
+  tibble() %>%
+  left_join(groupings_model %>%
+              dplyr::select(-response:-asymp.UCL),
+            # by = c(str_replace(fixed_vars,
+            #                    "[\\+\\*]",
+            #                    '" , "'))) %>%
+            by = c("total_length_mm",
+                   "location")) %>%
+  rename(response = 3)
+
+
+
+emmeans_model               # emmeans in transformed units used for analysis
+summary(emmeans_model,      # emmeans back transformed to the original units of response var
+        type="response")
+contrasts_model             # contrasts in transformed units used for analysis
+contrasts_model_regrid      # contrasts are back transformed
+groupings_model             # these values are back transformed, groupings based on transformed
+groupings_model_fixed       # cld messes up back transformation, this takes values from emmeans and groupings from cld
+
+
 #### Visualize Fixed Effect Model Fit (Response Var vs Continuous X Var by Group) ####
 
 # this generates a tibble with the model predictions that can be plotted
@@ -339,66 +397,6 @@ emmeans_ggpredict <-
     geom_line(size = 2) +
     theme_classic()
 
-# now we move on to finish the hypothesis testing.  Are there differences between the sites?
-# estimated marginal means & contrasts
-emmeans_model <<-
-  emmeans(model,
-          ~ total_length_mm + location,
-          alpha = alpha_sig)
-
-contrasts_model <<- 
-  contrast(emmeans_model, 
-           method = 'pairwise', 
-           simple = 'each', 
-           combine = FALSE, 
-           adjust = "bh")
-
-contrasts_model_regrid <<- 
-  contrast(regrid(emmeans_model), 
-           method = 'pairwise', 
-           simple = 'each', 
-           combine = FALSE, 
-           adjust = "bh")
-
-groupings_model <<-
-  multcomp::cld(emmeans_model, 
-                alpha = alpha_sig,
-                Letters = letters,
-                type="response",
-                adjust = "bh") %>%
-  as.data.frame %>%
-  mutate(group = str_remove_all(.group," "),
-         group = str_replace_all(group,
-                                 "(.)(.)",
-                                 "\\1,\\2")) %>%
-  rename(response = 3)
-
-# i noticed that the emmeans from groupings don't match those from emmeans so this is the table to use for making the figure
-# the emmeans means and conf intervals match those produced by afex_plot, so I think those are what we want
-groupings_model_fixed <<-
-  summary(emmeans_model,      # emmeans back transformed to the original units of response var
-          type="response") %>%
-  tibble() %>%
-  left_join(groupings_model %>%
-              dplyr::select(-response:-asymp.UCL),
-            # by = c(str_replace(fixed_vars,
-            #                    "[\\+\\*]",
-            #                    '" , "'))) %>%
-            by = c("total_length_mm",
-                   "location")) %>%
-  rename(response = 3)
-
-
-model
-anova(model)
-summary(model)
-emmeans_model               # emmeans in transformed units used for analysis
-summary(emmeans_model,      # emmeans back transformed to the original units of response var
-        type="response")
-contrasts_model             # contrasts in transformed units used for analysis
-contrasts_model_regrid      # contrasts are back transformed
-groupings_model             # these values are back transformed, groupings based on transformed
-groupings_model_fixed       # cld messes up back transformation, this takes values from emmeans and groupings from cld
 
 
 #### Visualize Statistical Results From Previous Section ####
