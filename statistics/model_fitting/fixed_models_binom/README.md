@@ -299,6 +299,7 @@ theme_myfigs
 ![](Rplot09.png)
 Fig 10. Plots of fish sex (F=0, M=1) against total length.  Fit lines are based on the glm (female_male ~ total_length_mm + location).  The points are the observed data with vertical jittering to better visualize multiple observations of the same length and sex.
 
-This model, without interactions, does not allow the slopes to vary freely among sites, which might be desirable because there are different ranges of sizes at different sites.  To see the alternative, change the model to `formula = female_male ~ total_length_mm * location`. 
+
+This model, without interactions, does not allow the slopes to vary freely among sites, which might be desirable because there are different ranges of sizes at different sites. If we had a good sample of males and females at every site, then we would want to allow the slopes to vary freely. To see the alternative, change the model to `formula = female_male ~ total_length_mm * location`. 
 
 ---
