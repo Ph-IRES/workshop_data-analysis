@@ -39,7 +39,7 @@ Im noticing that the left skewed distribution of `weight_of_gonads_g` is quite d
 Fig 3. Histogram and cumulative distribution of `female_male`
 
 ![](Rplot03.png)
-Fig 4. Cullen and Frey Graph of kurtosis vs square of skewness for `female_male`. **I really like this one.**  This shows you which statistical distribution the data most closely resembles.  Here, the data is falls along the upper boundary of the beta distribution (grey ribbon), but we know that this is from the binomial distribution which is not represented in the Cullen Frey graph. I would expect all binomial data sets to fall along the upper edge of the beta distribution ribbon.
+Fig 4. Cullen and Frey Graph of kurtosis vs square of skewness for `female_male`. **I really like this one.**  This shows you which statistical distribution the data most closely resembles.  Here, the data is falls along the upper boundary of the beta distribution (grey ribbon). Note that the beta distribution describes the greatest amount of parameter space and many other distributions are special cases of the beta. Here, we know that our data binomially distributed because there are only 0 or 1, but the binomial dist is not represented in the Cullen Frey graph. I would expect all binomial data sets to fall along the upper edge of the beta distribution ribbon. 
 
 ![](Rplot04.png)
 Fig 5. 4 additional plots that allow you to determine the distribution that most closely fits `female_male`
