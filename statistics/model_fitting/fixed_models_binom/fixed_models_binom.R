@@ -297,6 +297,9 @@ contrast(regrid(emmeans_model), # emmeans back transformed to the original units
          combine = FALSE, 
          adjust = "bh")
 
+
+#### Group Sites Based on Model Results ####
+
 groupings_model <<-
   multcomp::cld(emmeans_model, 
                 alpha = alpha_sig,
@@ -309,6 +312,9 @@ groupings_model <<-
                                  "(.)(.)",
                                  "\\1,\\2")) %>%
   rename(response = 3)
+
+groupings_model             # these values are back transformed, groupings based on transformed
+
 
 # i noticed that the emmeans from groupings don't match those from emmeans so this is the table to use for making the figure
 # the emmeans means and conf intervals match those produced by afex_plot, so I think those are what we want
@@ -325,15 +331,52 @@ groupings_model_fixed <<-
                    "location")) %>%
   rename(response = 3)
 
-
-
-emmeans_model               # emmeans in transformed units used for analysis
-summary(emmeans_model,      # emmeans back transformed to the original units of response var
-        type="response")
-contrasts_model             # contrasts in transformed units used for analysis
-contrasts_model_regrid      # contrasts are back transformed
-groupings_model             # these values are back transformed, groupings based on transformed
 groupings_model_fixed       # cld messes up back transformation, this takes values from emmeans and groupings from cld
+
+#### Visualize Estimated Marginal Means Output With Group Categories ####
+
+p <- 
+  groupings_model_fixed %>%
+  ggplot(aes(x=location,
+             y=response,
+             fill = location)) +
+  geom_col(position = "dodge",
+           color = "black") +
+  # scale_fill_manual(values = c("lightgrey",
+  #                              "white"),
+  #                   labels = c('Pre-Screen', 
+  #                              'Post-Screen')) +
+  # geom_point(data = data,
+  #            aes(x = location,
+  #                y = !!response_var,
+  #                color = location
+  #            ),
+  #            position = position_dodge(width = 0.9),
+  #            # color = "grey70",
+#            # shape = 1,
+#            size = 1)
+geom_errorbar(aes(ymin=asymp.LCL,
+                  ymax=asymp.UCL),
+              width = 0.2,
+              color = "grey50",
+              # size = 1,
+              position = position_dodge(width=0.9)) +
+  guides(color = "none",
+         shape = "none") +   #remove color legend
+  geom_text(aes(label=group),
+            position = position_dodge(width=0.9),
+            vjust = -0.5,
+            hjust = -0.15,
+            size = 8 / (14/5)) +  # https://stackoverflow.com/questions/25061822/ggplot-geom-text-font-size-control
+  theme_myfigs +
+  # ylim(ymin, 
+  #      ymax) +
+  labs(x = "",
+       y = "Probability of 116mm Fish Being Male") +
+  theme(legend.position=c(0.33,0.8),  
+        legend.title=element_blank())
+
+p
 
 
 #### Visualize Fixed Effect Model Fit (Response Var vs Continuous X Var by Group) ####
@@ -427,50 +470,6 @@ emmeans_ggpredict <-
 
 
 
-#### Visualize Statistical Results From Previous Section ####
-
-p <- 
-  groupings_model_fixed %>%
-  ggplot(aes(x=location,
-             y=response,
-             fill = location)) +
-  geom_col(position = "dodge",
-           color = "black") +
-  # scale_fill_manual(values = c("lightgrey",
-  #                              "white"),
-  #                   labels = c('Pre-Screen', 
-  #                              'Post-Screen')) +
-  # geom_point(data = data,
-  #            aes(x = location,
-  #                y = !!response_var,
-  #                color = location
-  #            ),
-  #            position = position_dodge(width = 0.9),
-  #            # color = "grey70",
-  #            # shape = 1,
-  #            size = 1)
-  geom_errorbar(aes(ymin=asymp.LCL,
-                  ymax=asymp.UCL),
-              width = 0.2,
-              color = "grey50",
-              # size = 1,
-              position = position_dodge(width=0.9)) +
-  guides(color = "none",
-         shape = "none") +   #remove color legend
-  geom_text(aes(label=group),
-            position = position_dodge(width=0.9),
-            vjust = -0.5,
-            hjust = -0.15,
-            size = 8 / (14/5)) +  # https://stackoverflow.com/questions/25061822/ggplot-geom-text-font-size-control
-  theme_myfigs +
-  # ylim(ymin, 
-  #      ymax) +
-  labs(x = "",
-       y = "Probability of 116mm Fish Being Male") +
-  theme(legend.position=c(0.33,0.8),  
-        legend.title=element_blank())
-
-p
 
 #### Mixed Effects Hypothesis Test ####
 

@@ -150,7 +150,7 @@ summary(emmeans_model,
         type="response")
 ```
 
-Table 1.  Now we are getting somewhere. In this estimated mariginal means table, we see that at 116 mm, the probability that a fish is male from Buenavista is 60.44% (CI95 = 31.9 - 83.3%), whereas the probability is 5.88% (CI95 = 0.4 - 49.2%) in Dumaguete, and is 87.65% (CI95 = 69.8 - 95.6%) in San Juan. 
+*Table 1.*  Now we are getting somewhere. In this estimated mariginal means table, we see that at 116 mm, the probability that a fish is male from Buenavista is 60.44% (CI95 = 31.9 - 83.3%), whereas the probability is 5.88% (CI95 = 0.4 - 49.2%) in Dumaguete, and is 87.65% (CI95 = 69.8 - 95.6%) in San Juan. 
 
 	total_length_mm location             prob     SE  df asymp.LCL asymp.UCL
 				 116 Buenavista, Bohol  0.6044 0.1442 Inf   0.31899     0.833
@@ -171,7 +171,7 @@ contrasts_model_regrid <<-
            adjust = "bh")
 ```
 
-Table 2. _A priori_ contrasts testing for differences in the probability of 116mm fish being male at the three survey locations. The estimate is the difference in probabilies between sites, where a positive value indicates that the first site in the contrast has a higher probability of fish being male. For example, 116mm fish at Buenavista are 54.6% more likely to be male. Dumaguete fish are significantly less likely to be male at 116mm than fish from the other two sites.
+*Table 2.* _A priori_ contrasts testing for differences in the probability of 116mm fish being male at the three survey locations. The estimate is the difference in probabilies between sites, where a positive value indicates that the first site in the contrast has a higher probability of fish being male. For example, 116mm fish at Buenavista are 54.6% more likely to be male. Dumaguete fish are significantly less likely to be male at 116mm than fish from the other two sites.
 
 	total_length_mm = 116:
 	 contrast                               estimate    SE  df z.ratio p.value
@@ -181,12 +181,70 @@ Table 2. _A priori_ contrasts testing for differences in the probability of 116m
 
 	P value adjustment: BH method for 3 tests 
 
+
 ---
 
-## 
+## Group Sites by Significant Differences with `multicomp::cld`
+
+It is often very convenient to categorize the levels of your categorical variable (location) into groups with significant differences. 
+
+```r
+groupings_model <<-
+  multcomp::cld(emmeans_model, 
+                alpha = alpha_sig,
+                Letters = letters,
+                type="response",
+                adjust = "bh") %>%
+  as.data.frame %>%
+  mutate(group = str_remove_all(.group," "),
+         group = str_replace_all(group,
+                                 "(.)(.)",
+                                 "\\1,\\2")) %>%
+  rename(response = 3)
+
+groupings_model             # these values are back transformed, groupings based on transformed
+```
+
+I noticed that the confidence limits of the emmeans output by `multicomp:cld` do not match those from `emmeans`.  This may cause some slight deviations between confidence limits and groupings.  In other data, the output from `emmeans` matches `afex::afex_plot` and `afex::mixed`, so I think that `emmeans` is more correct where there are conflicts. Here I add the groupings from `cld` to the `emmeans` output for the purposes of making a figure to show the results.
+
+```r
+groupings_model_fixed <<-
+  summary(emmeans_model,      # emmeans back transformed to the original units of response var
+          type="response") %>%
+  tibble() %>%
+  left_join(groupings_model %>%
+              dplyr::select(-response:-asymp.UCL),
+            # by = c(str_replace(fixed_vars,
+            #                    "[\\+\\*]",
+            #                    '" , "'))) %>%
+            by = c("total_length_mm",
+                   "location")) %>%
+  rename(response = 3)
+
+groupings_model_fixed  
+```
+
+Table 3. The `multicomp:cld` groupings are added to the emmeans table. Dumaguete is group 'a' and the other sites are both 'b'.
+
+	# A tibble: 3 × 9
+	  total_length_mm location           response     SE    df asymp.LCL asymp.UCL .group group
+				<dbl> <fct>                 <dbl>  <dbl> <dbl>     <dbl>     <dbl> <chr>  <chr>
+	1            116. Buenavista, Bohol    0.604  0.144    Inf   0.319       0.833 "  b"  b    
+	2            116. Dumaguete, Negros    0.0588 0.0774   Inf   0.00403     0.492 " a "  a    
+	3            116. San Juan, Siquijor   0.877  0.0619   Inf   0.698       0.956 "  b"  b  
 
 ![](Rplot07.png)
-Fig 8. Plots of fish sex (F=0, M=1) against total length.  Fit lines are based on the glm (female_male ~ total_length_mm + location).  The points are the observed data with vertical jittering to better visualize multiple observations of the same length and sex.
+Fig 8. Estimated marginal means for the probability that 116mm fish are male at each location.  Letters indicate statistically significant groupings according to `multicomp:cld`.
+
+
+--
+
+## Visualize Model Predictions (Probability of being Male vs Total Length)
+
+We have tested our hypothesis, but the tables above are not completely satisfying.  What about the probability of fish being male at lengths other than the mean?  We can calculate the estimated marginal means and confidence limits for different values of `total_length_mm` and generate a plot very easily with `ggemmeans`. 
+
+![](Rplot08.png)
+Fig 9. Plots of fish sex (F=0, M=1) against total length.  Fit lines are based on the glm (female_male ~ total_length_mm + location).  The points are the observed data with vertical jittering to better visualize multiple observations of the same length and sex.
 
 This model, without interactions, does not allow the slopes to vary freely among sites, which might be desirable because there are different ranges of sizes at different sites.  To see the alternative, change the model to `formula = female_male ~ total_length_mm * location`. 
 
@@ -226,17 +284,7 @@ One last handy tool is the `multcomp::cld` command, which groups sites together 
 					   "location")) %>%
 	  rename(response = 3)
 
-Table 3. The `multicomp:cld` groupings are added to the emmeans table. Dumaguete is group 'a' and the other sites are both 'b'.
 
-	# A tibble: 3 × 9
-	  total_length_mm location           response     SE    df asymp.LCL asymp.UCL .group group
-				<dbl> <fct>                 <dbl>  <dbl> <dbl>     <dbl>     <dbl> <chr>  <chr>
-	1            116. Buenavista, Bohol    0.604  0.144    Inf   0.319       0.833 "  b"  b    
-	2            116. Dumaguete, Negros    0.0588 0.0774   Inf   0.00403     0.492 " a "  a    
-	3            116. San Juan, Siquijor   0.877  0.0619   Inf   0.698       0.956 "  b"  b  
-
-![](Rplot10.png)
-Fig 8. Estimated marginal means for the probability that 116mm fish are male at each location.  Letters indicate statistically significant groupings.
 
 ---
 
