@@ -186,7 +186,8 @@ contrasts_model_regrid <<-
 
 ## Group Sites by Significant Differences with `multicomp::cld`
 
-It is often very convenient to categorize the levels of your categorical variable (location) into groups with significant differences. 
+
+It is often very convenient to categorize the levels of your categorical variable (location) into groups with significant differences.  One last handy tool is the `multcomp::cld` command, which groups sites together that are not significantly different. You will see in my commented code below that I am skeptical about the emmeans confidence limits calculated by `cld`, but the groupings generally work well.  This is especially true when there are many groups and it becomes difficult to track them all.  The letter based groupings are great to add to figures. 
 
 ```r
 groupings_model <<-
@@ -239,52 +240,65 @@ Fig 8. Estimated marginal means for the probability that 116mm fish are male at 
 
 --
 
-## Visualize Model Predictions (Probability of being Male vs Total Length)
+## Visualize Model Predictions (Probability of being Male vs Total Length) with `ggeffects::ggemmeans`
 
-We have tested our hypothesis, but the tables above are not completely satisfying.  What about the probability of fish being male at lengths other than the mean?  We can calculate the estimated marginal means and confidence limits for different values of `total_length_mm` and generate a plot very easily with `ggemmeans`. 
+We have tested our hypothesis, but the tables and figures above are not completely satisfying. What about the probability of fish being male at lengths other than the mean?  We would like to show the model output in the same format as Fig 6 above.  Well, we can calculate the estimated marginal means and confidence limits for many values of `total_length_mm` and generate a plot very easily with `ggemmeans`. By setting `terms = "total_length_mm [all]"` many values of total length will be evaluated from the min to the max observed values.
+
+```r
+emmeans_ggpredict <- 
+  ggemmeans(model,
+            terms = c("total_length_mm [all]",
+                      "location")) 
+  # compatible with ggplot
+  # shows models, but extrapolates beyond observations
+  plot(emmeans_ggpredict) +
+    #this is our custom plot theme defined in USER DEFINED VARIABLES
+    theme_myfigs
+```
 
 ![](Rplot08.png)
-Fig 9. Plots of fish sex (F=0, M=1) against total length.  Fit lines are based on the glm (female_male ~ total_length_mm + location).  The points are the observed data with vertical jittering to better visualize multiple observations of the same length and sex.
+Fig 9. Plots of fish sex (F=0, M=1) against total length.  Fit lines are based on the glm (female_male ~ total_length_mm + location). 
+
+This plot (Fig 9) is pretty good, but it contains extrapolations and does not accurately reflect the data.  We can make this better by filtering the tibble created by `ggemmeans` down to those between the min and max length for each location and adding the original data to the plot using `geom_jitter()`.  In the example below, we use `ggpredict` to bring your attention to its existence, but in this case it is interchangable with `ggemmeans`.
+
+```r
+#make a tibble that has the max and min continuous xvar for each categorical xvar
+min_max_xvar <-  
+data %>%
+  rename(x = total_length_mm,
+		 group = location) %>%
+  group_by(group) %>%
+  filter(x == max(x) |
+		   x == min(x)) %>%
+  dplyr::select(group,
+				x) %>%
+  arrange(group,
+		  x) %>%
+  mutate(min_max = case_when(row_number() %% 2 == 0 ~ "max_x",
+							 TRUE ~ "min_x")) %>%
+  pivot_wider(names_from = min_max,
+			  values_from = x)
+# then use that tibble to filter the object made by ggpredict and plot
+emmeans_ggpredict %>%
+left_join(min_max_xvar) %>% 
+filter(x >= min_x,
+	   x <= max_x) %>% 
+plot() +
+#add in our observed values of female_male
+geom_jitter(data = data,
+		   aes(x = total_length_mm,
+			   y = female_male,
+			   color = location),
+		   size = 3,
+		   inherit.aes = FALSE,
+		   width = 0,
+		   height = 0.02) +
+theme_myfigs
+```
+
+![](Rplot09.png)
+Fig 10. Plots of fish sex (F=0, M=1) against total length.  Fit lines are based on the glm (female_male ~ total_length_mm + location).  The points are the observed data with vertical jittering to better visualize multiple observations of the same length and sex.
 
 This model, without interactions, does not allow the slopes to vary freely among sites, which might be desirable because there are different ranges of sizes at different sites.  To see the alternative, change the model to `formula = female_male ~ total_length_mm * location`. 
 
 ---
-
-
----
-
-One last handy tool is the `multcomp::cld` command, which groups sites together that are not significantly different. You will see in my commented code below that I am skeptical about the emmeans calculated by cld, but the groupings generally work well.  This is especially true when there are many groups and it becomes difficult to track them all.  The letter based groupings are great to add to figures. 
-
-
-	groupings_model <<-
-	  multcomp::cld(emmeans_model, 
-					alpha = alpha_sig,
-					Letters = letters,
-					type="response",
-					adjust = "bh") %>%
-	  as.data.frame %>%
-	  mutate(group = str_remove_all(.group," "),
-			 group = str_replace_all(group,
-									 "(.)(.)",
-									 "\\1,\\2")) %>%
-	  rename(response = 3)
-	
-	# i noticed that the emmeans from groupings don't match those from emmeans so this is the table to use for making the figure
-	# the emmeans means and conf intervals match those produced by afex_plot, so I think those are what we want
-	groupings_model_fixed <<-
-	  summary(emmeans_model, 
-			  type="response") %>%
-	  tibble() %>%
-	  left_join(groupings_model %>%
-				  dplyr::select(-response:-asymp.UCL),
-				# by = c(str_replace(fixed_vars,
-				#                    "[\\+\\*]",
-				#                    '" , "'))) %>%
-				by = c("total_length_mm",
-					   "location")) %>%
-	  rename(response = 3)
-
-
-
----
-
