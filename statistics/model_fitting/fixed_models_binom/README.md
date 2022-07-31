@@ -50,7 +50,7 @@ Fig 5. 4 additional plots that allow you to determine the distribution that most
 
 It is especially important to identify the correct statistical distribution for your **response variable**, so the plots above can be used to help with identifying the correct distribution family for that.
 
-Here are some rules of thumb:
+Here the rule of thumb is:
 * Binomial
 	* if your unit of observation falls into one of two categories, such as Male or Female, then your data is binomial
 	* percentage and proportion data that can be converted to count data is binomial
@@ -94,7 +94,9 @@ model <<-
 	Residual Deviance: 98.76 	AIC: 106.8
 
 ![](Rplot06.png)
-Fig 7. Plots of fish sex (F=0, M=1) against total length.  Fit lines are based on the glm (female_male ~ total_length_mm + location).  This model, without interactions, does not allow the slopes to vary freely among sites, which might be desirable because there are different ranges of sizes at different sites.  To see the alternative, change the model to female_male ~ total_length_mm * location.
+Fig 7. Plots of fish sex (F=0, M=1) against total length.  Fit lines are based on the glm (female_male ~ total_length_mm + location).  The points are the observed data with vertical jittering to better visualize multiple observations of the same length and sex.
+
+This model, without interactions, does not allow the slopes to vary freely among sites, which might be desirable because there are different ranges of sizes at different sites.  To see the alternative, change the model to female_male ~ total_length_mm * location. 
 
 ---
 

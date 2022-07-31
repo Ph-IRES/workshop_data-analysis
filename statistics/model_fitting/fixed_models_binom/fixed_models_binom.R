@@ -2,8 +2,10 @@
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 library(tidyverse)
-library(janitor)
 library(magrittr)
+# library(janitor)
+# install.packages("fitdistrplus")
+
 # install.packages("rlang")
 # install.packages("emmeans")
 # library(devtools)
@@ -12,21 +14,22 @@ library(magrittr)
 # install.packages("multcomp")
 # install.packages("multcompView")
 # install.packages("performance")
-# install.packages("fitdistrplus")
 # install.packages("optimx")
 # install.packages("effects")
 
-library(rlang)
+library(fitdistrplus)
 library(emmeans)
-library(afex)
-library(ggbeeswarm)
 library(multcomp)
 library(multcompView)
+library(ggeffects)
+
+
+library(rlang)
+library(afex)
+library(ggbeeswarm)
 library(performance)
-library(fitdistrplus)
 library(optimx)
 library(effects)
-library(ggeffects)
 library(prediction)
 
 # NOTE: after loading these packages, you may find that tidyverse commands are affected 
@@ -42,6 +45,8 @@ library(prediction)
 # path to fish sex change data set
 inFilePath = "./halichores_scapularis_measurements_bartlett_2.rds"
 
+# you can make a default theme for your publication's figures.  This makes things easier for you. 
+# feel free to customize as necessary
 theme_myfigs <- 
   theme_classic() +
   theme(panel.background = element_rect(fill = 'white', 
@@ -87,97 +92,81 @@ data <-
          # make the fixed predictor variable a  factor
          # location = factor(location)
          ) %>%
+  # we are removing all observations that were not classified as female or male for this binomial analysis
   drop_na(female_male)
   
 
 #### FUNCTIONS ####
+# Functions are commands that you define.  Here we define a function that makes several plots.
+# running the code below will only save the function into memory.  Later we will call the function to make the plots
 # visualize statistical distributions (see fitdistrplus: An R Package for Fitting Distributions, 2020)
 vis_dists <- function(data,
                       response_var){
   
-  data %>%
-    pull(!!response_var) %>% 
-    # log() %>%
-    plotdist(.)
-  
-  data %>%
+  data_plot <-
+    data %>%
     drop_na(!!response_var) %>%
-    pull(!!response_var) %>% 
     # log() %>%
-    descdist(data=.,
-             boot=1000)
+    pull(!!response_var)
+  
+  plotdist(data_plot)
+  descdist(data_plot,
+           boot=1000)
   
   fw <-
-    data %>%
-    drop_na(!!response_var) %>%
-    pull(!!response_var) %>% 
-    # log() %>%
-    try(fitdist(.,
+    try(fitdist(data_plot,
                 "weibull"))
-  
   fp <-
-    data %>%
-    drop_na(!!response_var) %>%
-    pull(!!response_var) %>% 
-    # log() %>%
-    fitdist(.,
-            "pois",
-            method="mme")
+    try(fitdist(data_plot,
+                "pois",
+                method="mme"))
   fnb <-
-    data %>%
-    drop_na(!!response_var) %>%
-    pull(!!response_var) %>% 
-    # log() %>%
-    fitdist(.,
-            "nbinom",
-            method="mme")
+    try(fitdist(data_plot,
+                "nbinom",
+                method="mme"))
   fg <-
-    data %>%
-    drop_na(!!response_var) %>%
-    pull(!!response_var) %>%
-    # log() %>%
-    fitdist(.,
-            "gamma",
-            method="mme")
+    try(fitdist(data_plot,
+                "gamma",
+                method="mme"))
   fl <-
-    data %>%
-    drop_na(!!response_var) %>%
-    pull(!!response_var) %>% 
-    # log() %>%
-    fitdist(.,
-            "logis")
-  
+    try(fitdist(data_plot,
+                "logis"))
+
   fln <-
-    data %>%
-    drop_na(!!response_var) %>%
-    pull(!!response_var) %>% 
-    # log() %>%
-    try(fitdist(.,
+    try(fitdist(data_plot,
                 "lnorm"))
+
   fn <-
-    data %>%
-    drop_na(!!response_var) %>%
-    pull(!!response_var) %>% 
-    # log() %>%
-    fitdist(.,
-            "norm")
+    try(fitdist(data_plot,
+                "norm"))
   fge <-
-    data %>%
-    drop_na(!!response_var) %>%
-    pull(!!response_var) %>% 
-    # log() %>%
-    fitdist(.,
-            "geom",
-            method="mme")
+    try(fitdist(data_plot,
+                "geom",
+                method="mme"))
   
+  # remove distibutions that choke on neg or zero values if there are neg or zero values
+  data_plot_lessorequal_zero = data_plot <= 0
   
+  fits_to_plot <- 
+    if(TRUE %in% data_plot_lessorequal_zero){
+      list(fp, fl, fn, fge)
+    } else {
+      list(fw, fp, fnb, fg, fl, fln, fn, fge)
+    }
+  
+  plot_legend <- 
+    if(TRUE %in% data_plot_lessorequal_zero){
+      c("Poisson", "Logis", "Normal", "Geom")
+    } else {
+      c("Weibull","Poisson","NegBinom","Gamma", "Logis","lognormal", "Normal", "Geom")
+    }
+denscomp(fge)
   par(mfrow = c(2, 2))
-  plot.legend <- c("Weibull","Poisson","NegBinom","Gamma", "Logis","lognormal", "Normal", "Geom")
-  try(denscomp(list(fw, fp, fg, fl, fln, fn, fge), legendtext = plot.legend))
-  try(qqcomp(list(fw, fp, fg, fl, fln, fn, fge), legendtext = plot.legend))
-  try(cdfcomp(list(fw, fp, fg, fl, fln, fn, fge), legendtext = plot.legend))
-  try(ppcomp(list(fw, fp, fg, fl, fln, fn, fge), legendtext = plot.legend))
-  
+  try(denscomp(fits_to_plot, legendtext = plot_legend))
+  try(qqcomp(fits_to_plot, legendtext = plot_legend))
+  try(cdfcomp(fits_to_plot, legendtext = plot_legend))
+  try(ppcomp(fits_to_plot, legendtext = plot_legend))
+  par(mfrow = c(1, 1))
 }
 
 
@@ -249,11 +238,19 @@ data %>%
 
 
 #### Fixed Effects Hypothesis Test, Logistic Regression, 1 Slope ####
+distribution_family = "binomial"
+alpha_sig = 0.05
 
 model <<- 
   glm(formula = female_male ~  total_length_mm + location, 
       family = distribution_family,
       data = data)
+
+#show parameter estimates and other summary model stats and pvals
+model
+summary(model)
+
+#### Visualize Fixed Effect Model Fit (Response Var vs Continuous X Var by Group) ####
 
 # this generates a tibble with the model predictions that can be plotted
   # however, it does not do a good job of showing us where the model is extrapolating 
@@ -262,7 +259,10 @@ emmeans_ggpredict <-
             terms = c("total_length_mm [all]",
                       "location")) 
   # compatible with ggplot
-  plot(emmeans_ggpredict)
+  # shows models, but extrapolates beyond observations
+  plot(emmeans_ggpredict) +
+    #this is our custom plot theme defined in USER DEFINED VARIABLES
+    theme_myfigs
 
 
 # the next several blocks of code will only show us predictions within the ranges of observation by location
@@ -289,7 +289,17 @@ emmeans_ggpredict <-
     left_join(min_max_xvar) %>% 
     filter(x >= min_x,
            x <= max_x) %>% 
-    plot()
+    plot() +
+    #add in our observed values of female_male
+    geom_jitter(data = data,
+               aes(x = total_length_mm,
+                   y = female_male,
+                   color = location),
+               size = 3,
+               inherit.aes = FALSE,
+               width = 0,
+               height = 0.02) +
+    theme_myfigs
   
 
 # alternatively, we can use the predict command.  The logic used is similar to above.
