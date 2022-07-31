@@ -33,13 +33,13 @@ Im noticing that the left skewed distribution of `weight_of_gonads_g` is quite d
 
 `vis_dists()` is a function that I made in the FUNCTIONS section of this script.  It accepts the tibble and column name to visualize. Here we evaluate the response variable `female_male`
 
-vis_dists() creates three figures
+`vis_dists()` creates three figures
 
 ![](Rplot02.png)
 Fig 3. Histogram and cumulative distribution of `female_male`
 
 ![](Rplot03.png)
-Fig 4. Cullen and Frey Graph of kurtosis vs square of skewness for `female_male`. **I really like this one.**  This shows you which statistical distribution the data most closely resembles.  Here, the data is nearly log normal, but better fit by the beta distribution.
+Fig 4. Cullen and Frey Graph of kurtosis vs square of skewness for `female_male`. **I really like this one.**  This shows you which statistical distribution the data most closely resembles.  Here, the data is falls along the upper boundary of the beta distribution (grey ribbon), but we know that this is from the binomial distribution which is not represented in the Cullen Frey graph. I would expect all binomial data sets to fall along the upper edge of the beta distribution ribbon.
 
 ![](Rplot04.png)
 Fig 5. 4 additional plots that allow you to determine the distribution that most closely fits `female_male`
