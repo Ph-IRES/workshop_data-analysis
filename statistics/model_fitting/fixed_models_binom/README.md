@@ -93,7 +93,7 @@ model <<-
 	Null Deviance:	    262.5 
 	Residual Deviance: 98.76 	AIC: 106.8
 
-What we are really interested in is whether there are significant differences among locations. We can use `summary()` for this. The output shows that Dumaguete is significantly different than the other sites (p = 0.0277) and that the probability of observing males there is lower (estimate = -3.19619).  See [here](https://www.statology.org/interpret-glm-output-in-r/) to interpret this output.
+What we are really interested in is whether there are significant differences among locations. We can use `summary()` for this. The output shows that Dumaguete is significantly different than the other sites (p = 0.0277) and that the probability of observing males there is lower (estimate = -3.19619).  See [here](https://www.statology.org/interpret-glm-output-in-r/) for additional guidance to interpret this output.
 
 ```r
 summary(model)
@@ -126,12 +126,12 @@ summary(model)
 
 ![](Rplot06.png)
 
-Fig 7. Visualization of `model`. Note that the "Estimates"  output by `summary(model)` can be derived from this plot. The site 'Estimates' in `summary(model)` are the y values for each site fit line where x = Mean Tot L. (Intercept 'Estimate' is mean of groups intersects y=0)")
+Fig 7. Visualization of `model`. Note that the "Estimates"  output by `summary(model)` can be derived from this plot. The site 'Estimates' in `summary(model)` are the y values for each site fit line where x = Mean Tot L. The intercept 'Estimate' is the mean of groups at x=0. Note that the y axis is on the logit scale, not probability of being male.
 
 
 ---
 
-## Estimated Marginal Means and Contrasts
+## Estimated Marginal Means and _a priori_ Contrasts
 
 It is nice to have a p-value, and know that Dumaguete has a lower probability of males being observed, but this still leaves something to be desired.  We can dig deeper with the `emmeans` and `contrast` commands.
 
@@ -142,13 +142,15 @@ emmeans_model <<-
           alpha = alpha_sig)
 ```
 
-Again, we can use `summary()` to view the estimated marginal means.  Note that we set `type="response"` so that the units would be in terms of our response variable, the probability of being male, and thus, have changed sex. The estimated marginal means are returned for the mean length observed in the whole data set, 116 mm. The `prob` column 
+Again, we can use `summary()` to view the estimated marginal means.  Note that we set `type="response"` so that the units will be in terms of our response variable, the probability of being male (0-1), and thus, having changed sex. The estimated marginal means are returned for the mean length observed in the whole data set, 116 mm. The `prob` column 
 
 ```r
 # emmeans back transformed to the original units of response var
 summary(emmeans_model,      
         type="response")
 ```
+
+Table 1.  Now we are getting somewhere. In this estimated mariginal means table, we see that at 116 mm, the probability that a fish is male from Buenavista is 60.44% (CI95 = 31.9 - 83.3%), whereas the probability is 5.88% (CI95 = 0.4 - 49.2%) in Dumaguete, and is 87.65% (CI95 = 69.8 - 95.6%) in San Juan. 
 
 	total_length_mm location             prob     SE  df asymp.LCL asymp.UCL
 				 116 Buenavista, Bohol  0.6044 0.1442 Inf   0.31899     0.833
@@ -158,6 +160,7 @@ summary(emmeans_model,
 	Confidence level used: 0.95 
 	Intervals are back-transformed from the logit scale 
 
+Next we run the contrasts to compare sites at the mean total length and determine the probability that the differences observed could be due to random chance (p-values).  The `emmeans` output is good, but we can get more statistically sophisticated with the `contrasts` command, which allows us to explicitly control [False Discovery Rate](https://en.wikipedia.org/wiki/False_discovery_rate) and generate p-values for comparisons of probability of fish being male between locations.  The `emmeans` output is a bit conservative when it comes to FDR.  We use the Benjamini-Hochberg (`bh`) FDR algorithm in `contrasts` but you can select others as required.
 
 ```r
 contrasts_model_regrid <<- 
@@ -167,6 +170,20 @@ contrasts_model_regrid <<-
            combine = FALSE, 
            adjust = "bh")
 ```
+
+Table 2. _A priori_ contrasts testing for differences in the probability of 116mm fish being male at the three survey locations. The estimate is the difference in probabilies between sites, where a positive value indicates that the first site in the contrast has a higher probability of fish being male. For example, 116mm fish at Buenavista are 54.6% more likely to be male. Dumaguete fish are significantly less likely to be male at 116mm than fish from the other two sites.
+
+	total_length_mm = 116:
+	 contrast                               estimate    SE  df z.ratio p.value
+	 Buenavista, Bohol - Dumaguete, Negros     0.546 0.155 Inf   3.520  0.0006
+	 Buenavista, Bohol - San Juan, Siquijor   -0.272 0.182 Inf  -1.492  0.1358
+	 Dumaguete, Negros - San Juan, Siquijor   -0.818 0.107 Inf  -7.610  <.0001
+
+	P value adjustment: BH method for 3 tests 
+
+---
+
+## 
 
 ![](Rplot07.png)
 Fig 8. Plots of fish sex (F=0, M=1) against total length.  Fit lines are based on the glm (female_male ~ total_length_mm + location).  The points are the observed data with vertical jittering to better visualize multiple observations of the same length and sex.
@@ -175,53 +192,6 @@ This model, without interactions, does not allow the slopes to vary freely among
 
 ---
 
-Ok, we have a fancy logistic model fit to our data, but we still need to test our hypothesis that sites with higher fishing pressure will be associated with higher probabilities of males at smaller sizes. 
-
-We use the `emmeans` command to calculate the estimated marginal means from the model.
-
-```r
-emmeans_model <<-
-  emmeans(model,
-          ~ total_length_mm + location,
-          alpha = alpha_sig)
-
-summary(emmeans_model,      # emmeans back transformed to the original units of response var
-        type="response")
-```
-
-Table 1.  Now we are getting somewhere. In this estimated mariginal means table, we see that at 116 mm, the probability that a fish is male from Buenavista is 60.44% (CI95 = 31.9 - 83.3%), whereas the probability is 5.88% (CI95 = 0.4 - 49.2%) in Dumaguete, and is 87.65% (CI95 = 69.8 - 95.6%) in San Juan. 
-
-	 total_length_mm location             prob     SE  df asymp.LCL asymp.UCL
-				 116 Buenavista, Bohol  0.6044 0.1442 Inf   0.31899     0.833
-				 116 Dumaguete, Negros  0.0588 0.0774 Inf   0.00403     0.492
-				 116 San Juan, Siquijor 0.8765 0.0619 Inf   0.69818     0.956
-
-	Confidence level used: 0.95 
-	Intervals are back-transformed from the logit scale 
-
----
-
-The `emmeans` output is good, but we can get more statistically sophisticated with the `contrasts` command, which allows us to explicitly control [False Discovery Rate](https://en.wikipedia.org/wiki/False_discovery_rate) and generate p-values for comparisons of probability of fish being male between locations.  The `emmeans` output is a bit conservative when it comes to FDR.  We use the Benjamini-Hochberg (`bh`) FDR algorithm in `contrasts` but you can select others as required.  
-
-```r
-contrasts_model_regrid <<- 
-  contrast(regrid(emmeans_model), 
-           method = 'pairwise', 
-           simple = 'each', 
-           combine = FALSE, 
-           adjust = "bh")
-		   
-contrasts_model_regrid
-```
-
-Table 2. _A priori_ contrasts testing for differences in the probability of 116mm fish being male at the three survey locations. The estimate is the difference in probabilies between sites, where a positive value indicates that the first site in the contrast has a higher probability of fish being male. For example, 116mm fish at Buenavista are 54.6% more likely to be male. Dumaguete fish are significantly less likely to be male at 116mm than fish from the other two sites.
-
-	$`simple contrasts for location`
-	total_length_mm = 116:
-	 contrast                               estimate    SE  df z.ratio p.value
-	 Buenavista, Bohol - Dumaguete, Negros     0.546 0.155 Inf   3.520  0.0006
-	 Buenavista, Bohol - San Juan, Siquijor   -0.272 0.182 Inf  -1.492  0.1358
-	 Dumaguete, Negros - San Juan, Siquijor   -0.818 0.107 Inf  -7.610  <.0001
 
 ---
 

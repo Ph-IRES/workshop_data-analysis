@@ -59,7 +59,7 @@ theme_myfigs <-
                                    color = 'black'),
         axis.text.x = element_text(size = 9, 
                                    color = 'black'),
-        axis.title.x = element_blank(),
+        # axis.title.x = element_blank(),
         axis.title.y = element_text(size = 10, 
                                     color = 'black'),
         plot.title = element_text(size = 10, 
@@ -239,6 +239,8 @@ data %>%
 
 
 #### Fixed Effects Hypothesis Test, Logistic Regression, 1 Slope ####
+
+# here we set some variables for convenience
 distribution_family = "binomial"
 alpha_sig = 0.05
 
@@ -255,7 +257,7 @@ ref_grid(model)
 model
 summary(model)
 
-# visualize summare(model)
+# visualize summary(model)
 emmip(model, 
       location ~ total_length_mm,    # type = "response" for back transformed values
       cov.reduce = range) +
@@ -269,10 +271,8 @@ emmip(model,
   theme_myfigs +
   labs(title = "Visualization of `summary(model)`",
        subtitle = "",
-       y = "Linear Prediciton\n(Site 'Estimates' Derived from Mean Tot L)\n(Intercept 'Estimate' is mean of groups intersects y=0)")
-
-emmip(model, 
-      total_length_mm ~ location)
+       y = "Linear Prediciton\n(Site 'Estimates' Derived from Mean Tot L)\n(Intercept 'Estimate' is mean of groups intersects y=0)",
+       x = "Mean Total Length")
 
 #### Conduct A priori contrast tests for differences among sites ####
 
@@ -285,7 +285,6 @@ emmeans_model <<-
   emmeans(model,
           ~ total_length_mm + location,
           alpha = alpha_sig)
-
 
 # emmeans back transformed to the original units of response var
 summary(emmeans_model,      
