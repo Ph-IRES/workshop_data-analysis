@@ -342,14 +342,114 @@ This model, does not capture all of the random effects caused by microplate posi
 
 ---
 
+## Loci Tested at 3 Primer Concentrations
+
+We are going to boil this down to just the results that matter.
+
+First, we are getting some model fitting errors that should be rectified. Searching for help on model convergence is a good idea.
+```
+> model3 <-
++   glmer(formula = sampling_design3, 
++         family = distribution_family,
++         data = data_1bandperloc_3)
+Warning messages:
+1: In checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv,  :
+  unable to evaluate scaled gradient
+2: In checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv,  :
+  Model failed to converge: degenerate  Hessian with 2 negative eigenvalues
+```
+
+Given that, some of the contrasts are significant.
+
+```
+locus = WY34:
+ contrast                   estimate    SE  df z.ratio p.value
+ primer_x0.6 - primer_x1.25   0.5810 0.191 Inf   3.045  0.0023
+
+locus = WY44:
+ contrast                   estimate    SE  df z.ratio p.value
+ primer_x0.6 - primer_x1.25   0.1440 0.263 Inf   0.548  0.5839
+
+locus = WY46:
+ contrast                   estimate    SE  df z.ratio p.value
+ primer_x0.6 - primer_x1.25   0.4803 0.207 Inf   2.321  0.0203
+
+locus = WY55:
+ contrast                   estimate    SE  df z.ratio p.value
+ primer_x0.6 - primer_x1.25  -0.2163 0.261 Inf  -0.828  0.4078
+
+locus = WY56:
+ contrast                   estimate    SE  df z.ratio p.value
+ primer_x0.6 - primer_x1.25   0.1655 0.125 Inf   1.329  0.1837
+
+locus = WY60:
+ contrast                   estimate    SE  df z.ratio p.value
+ primer_x0.6 - primer_x1.25  -0.0883 0.220 Inf  -0.402  0.6878
+
+locus = WY62:
+ contrast                   estimate    SE  df z.ratio p.value
+ primer_x0.6 - primer_x1.25   0.6068 0.179 Inf   3.393  0.0007
 
 
+$`simple contrasts for locus`
+primer_x = 0.60:
+ contrast    estimate     SE  df z.ratio p.value
+ WY34 - WY44 -0.03133 0.2485 Inf  -0.126  0.9743
+ WY34 - WY46  0.02329 0.2572 Inf   0.091  0.9743
+ WY34 - WY55  0.22210 0.2273 Inf   0.977  0.7521
+ WY34 - WY56  0.41551 0.2248 Inf   1.848  0.2712
+ WY34 - WY60 -0.06457 0.2341 Inf  -0.276  0.9743
+ WY34 - WY62 -0.02580 0.2571 Inf  -0.100  0.9743
+ WY44 - WY46  0.05463 0.2126 Inf   0.257  0.9743
+ WY44 - WY55  0.25343 0.2344 Inf   1.081  0.7521
+ WY44 - WY56  0.44684 0.2048 Inf   2.182  0.2712
+ WY44 - WY60 -0.03324 0.2139 Inf  -0.155  0.9743
+ WY44 - WY62  0.00553 0.2345 Inf   0.024  0.9812
+ WY46 - WY55  0.19881 0.2432 Inf   0.818  0.7896
+ WY46 - WY56  0.39222 0.2116 Inf   1.853  0.2712
+ WY46 - WY60 -0.08786 0.2228 Inf  -0.394  0.9743
+ WY46 - WY62 -0.04909 0.2441 Inf  -0.201  0.9743
+ WY55 - WY56  0.19341 0.2105 Inf   0.919  0.7521
+ WY55 - WY60 -0.28667 0.2197 Inf  -1.305  0.6719
+ WY55 - WY62 -0.24790 0.2439 Inf  -1.016  0.7521
+ WY56 - WY60 -0.48008 0.1990 Inf  -2.413  0.2712
+ WY56 - WY62 -0.44131 0.2155 Inf  -2.048  0.2712
+ WY60 - WY62  0.03877 0.2272 Inf   0.171  0.9743
 
+primer_x = 1.25:
+ contrast    estimate     SE  df z.ratio p.value
+ WY34 - WY44 -0.46842 0.1950 Inf  -2.402  0.0312
+ WY34 - WY46 -0.07739 0.0727 Inf  -1.064  0.3770
+ WY34 - WY55 -0.57524 0.1722 Inf  -3.341  0.0025
+ WY34 - WY56  0.00000 0.0000 Inf   0.000  1.0000
+ WY34 - WY60 -0.73386 0.1455 Inf  -5.043  <.0001
+ WY34 - WY62  0.00000 0.0000 Inf   0.000  1.0000
+ WY44 - WY46  0.39103 0.2064 Inf   1.894  0.1019
+ WY44 - WY55 -0.10682 0.2581 Inf  -0.414  0.7922
+ WY44 - WY56  0.46842 0.1950 Inf   2.402  0.0312
+ WY44 - WY60 -0.26545 0.2379 Inf  -1.116  0.3770
+ WY44 - WY62  0.46842 0.1950 Inf   2.402  0.0312
+ WY46 - WY55 -0.49785 0.1908 Inf  -2.609  0.0239
+ WY46 - WY56  0.07739 0.0727 Inf   1.064  0.3770
+ WY46 - WY60 -0.65647 0.1631 Inf  -4.025  0.0003
+ WY46 - WY62  0.07739 0.0727 Inf   1.064  0.3770
+ WY55 - WY56  0.57524 0.1722 Inf   3.341  0.0025
+ WY55 - WY60 -0.15863 0.2109 Inf  -0.752  0.5582
+ WY55 - WY62  0.57524 0.1722 Inf   3.341  0.0025
+ WY56 - WY60 -0.73386 0.1455 Inf  -5.043  <.0001
+ WY56 - WY62  0.00000 0.0000 Inf   0.000  1.0000
+ WY60 - WY62  0.73386 0.1455 Inf   5.043  <.0001
 
+P value adjustment: BH method for 21 tests 
+```
 
+And the primary issue with model fitting seems to stem from combinations of `locus` and `primer_x` that completely failed (no amplification). Notice the wide confidence limits when the probability of success is near or equal to zero.
 
+![](Rplot11.png)
+Fig 12. Estimated marginal means for amplification success at primer concentrations of 0.6 and 1.25.  
 
-
+![](Rplot12.png)
+Fig 13. This is the overall model fit as of now. The CI ribbons are not shown for clarity - consult Fig 12.
 
 
 

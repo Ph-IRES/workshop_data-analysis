@@ -274,7 +274,7 @@ data_1bandperloc %>%
        x = "Primer Concentration (x)")
 
 
-#### SEPARATE LOCI BY PRIMER CONCENTRATION GROUPS
+#### SEPARATE LOCI BY PRIMER CONCENTRATION GROUPS ####
 
 #separate loci into groups by primer_x
 data_locus_groups <- 
@@ -282,6 +282,8 @@ data_locus_groups <-
   group_by(locus) %>%
   # remove loci that failed on every sample to simplify
   filter(sum(amplification) > 0) %>%
+  # remove loci that succeeded on oevery sample to simplify
+  filter(mean(amplification) < 1) %>%
   ungroup() %>%
   distinct(primer_x,
            locus) %>%
@@ -298,10 +300,16 @@ data_1bandperloc_3 <-
   data_1bandperloc %>%
   left_join(data_locus_groups,
             by = "locus") %>%
-  filter(n_primer_x <= 3)  
+  filter(n_primer_x == 3) 
+
+data_1bandperloc_2 <-
+  data_1bandperloc %>%
+  left_join(data_locus_groups,
+            by = "locus") %>%
+  filter(n_primer_x == 2)  
 
 
-#### Mixed Effects Hypothesis Test ####
+#### Mixed Effects Hypothesis Test, 11 primer_x concentrations ####
 
 #Here we use the visayan deer data set to demonstrate a mxed model with both fixed and randome factor.scope(
 
@@ -518,138 +526,113 @@ emmeans_ggpredict %>%
   theme_myfigs
 
 
-# alternatively, we can use the predict command.  The logic used is similar to above.
-x_increment = 1
-
-data_predict <-
-  unique(data$location) %>%
-  purrr::map_df(~tibble(total_length_mm = seq(data %>%
-                                                filter(location == .x) %>%
-                                                filter(total_length_mm == min(total_length_mm)) %>%
-                                                pull(total_length_mm),
-                                              data %>%
-                                                filter(location == .x) %>%
-                                                filter(total_length_mm == max(total_length_mm)) %>%
-                                                pull(total_length_mm),
-                                              x_increment),
-                        location = .x)) 
-ggpredict(model,
-          newdata = data.frame(data_predict),
-          terms = c("total_length_mm [all]",
-                    "location"))
-
-# plot model and data
-bind_cols(data_predict,
-          prob_male = predict(model,
-                              data.frame(data_predict),
-                              type = "response",
-                              se.fit = TRUE)) %>%
-  ggplot(aes(x = total_length_mm,
-             y = prob_male,
-             color = location)) +
-  geom_point(data = data,
-             aes(x = total_length_mm,
-                 y = female_male,
-                 color = location),
-             size = 5) +
-  geom_line(size = 2) +
-  theme_classic()
 
 
 
+#### 3 primer_x concentrations: Mixed Effects Hypothesis Test####
+
+#Here we use the visayan deer data set to demonstrate a mxed model with both fixed and randome factor.scope(
+
+## Enter Information About Your Data for A Hypothesis Test ##
+
+# define your response variable, here it is binomial
+response_var = quo(amplification) # quo() allows column names to be put into variables 
+
+# enter the distribution family for your response variable
+distribution_family = "binomial"
 
 
+alpha_sig = 0.05
 
+# we start with the loci subjected to 11 primer concentrations (we removed loci with no amplification to simplify)
 
+# sampling_design3 = "amplification ~  locus * primer_x + (1|individual) + (1|plate_number/plate_row:plate_column)"
+# sampling_design3 = "amplification ~  locus * primer_x + (1|individual) + (1|plate_number) + (plate_number|plate_row:plate_column)"
+sampling_design3 = "amplification ~  locus * primer_x + (1|individual) + (1|plate_number) + (1|plate_row) + (1|plate_column)"
 
-#### OLD ####
+sampling_design3 = "cbind(success,failure) ~  locus * primer_x + (1|individual) + (1|plate_number) + (1|plate_row) + (1|plate_column)"
+# sampling_design3 = "amplification ~  locus * primer_x + (1|individual) + (1|plate_number)"
+# sampling_design3 = "amplification ~  locus * primer_x + (1|individual) "
+# sampling_design3 = "amplification ~  locus * primer_x * individual + (1|plate_number/plate_row:plate_column)"
 
+model3 <-
+  glmer(formula = sampling_design3, 
+        family = distribution_family,
+        data = data_1bandperloc_3)
 
+model3
+anova(model3)
+summary(model3)
 
-
-# https://github.com/strengejacke/ggeffects
-ggemmeans_model11 <-
-ggpredict(model11,
-          c("primer_x",
-            "locus"),
-          # type="random",
-          # condition = c(total_length_mm = 0)
-          ) 
-plot(ggemmeans_model11) +
-  theme_classic() +
-  geom_point(size=4) +
-  labs(title = "Loci Amplified from 0.1 - 1.25x w/ at Least 1 Success",
-       subtitle = sampling_design11,
-       x = "Primer Concentration (X)",
-       y = "Probability of Amplifcation Success")
-
-# ggplot(ggemmeans_model2,
-#        aes(x=x,
-#            y = predicted,
-#            color = group,
-#            shape = group)) +
-#   geom_line() +
-#   geom_point(size=4) +
-#   labs(title = sampling_design2,
-#        x = "Primer Concentration (X)",
-#        y = "Probability of Amplifcation Success")
-
-
-
-# x_increment = 1
+# # fit mixed model
+# model3 <<-
+#   afex::mixed(formula = sampling_design3,
+#               family = distribution_family,
+#               method = "LRT",
+#               sig_symbols = rep("", 4),
+#               # all_fit = TRUE,
+#               data = data_1bandperloc_3)
 # 
-# data_predict <-
-#   unique(data$location) %>%
-#   purrr::map_df(~tibble(total_length_mm = seq(data %>%
-#                                                 filter(location == .x) %>%
-#                                                 filter(total_length_mm == min(total_length_mm)) %>%
-#                                                 pull(total_length_mm),
-#                                               data %>%
-#                                                 filter(location == .x) %>%
-#                                                 filter(total_length_mm == max(total_length_mm)) %>%
-#                                                 pull(total_length_mm),
-#                                               x_increment),
-#                         location = .x)) 
-# 
-# # plot model and data
-# bind_cols(data_predict,
-#           prob_male = predict(model,
-#                               data.frame(data_predict),
-#                               type = "response")) %>%
-#   ggplot(aes(x = total_length_mm,
-#              y = prob_male,
-#              color = location)) +
-#   geom_point(data = data,
-#              aes(x = total_length_mm,
-#                  y = female_male,
-#                  color = location),
-#              size = 5) +
-#   geom_line(size = 2) +
-#   theme_classic()
+# model3
+# #plot
+# try(
+#   afex_plot(model3,
+#             "locus") +
+#     theme(axis.text.x = element_text(angle=90))
+# )
 
+# visualize summary(model)
+emmip(model3, 
+      locus ~ primer_x,    # type = "response" for back transformed values
+      cov.reduce = range) +
+  geom_vline(xintercept=mean(data_1bandperloc_3$primer_x),
+             color = "grey",
+             linetype = "dashed") +
+  geom_text(aes(x = mean(data_1bandperloc_3$primer_x),
+                y = -2,
+                label = "mean primer_x"),
+            color = "grey") +
+  theme_myfigs +
+  labs(title = "Visualization of `summary(model3)`",
+       subtitle = "",
+       y = "Linear Prediciton",
+       x = "Primer Concentration X")
 
-# estimated marginal means & contrasts
+#### 3 primer_x concentrations: Conduct A priori contrast tests for differences among sites  ####
+
+# now we move on to finish the hypothesis testing.  Are there differences between the sites?
+# estimated marginal means 
+
 emmeans_model <<-
-  emmeans(model,
-          ~ locus * primer_x,
+  emmeans(model3,
+          ~ primer_x + locus,
           alpha = alpha_sig)
 
-contrasts_model <<- 
-  contrast(emmeans_model, 
-           method = 'pairwise', 
-           simple = 'each', 
-           combine = FALSE, 
-           adjust = "bh")
+emmeans_model_min_max <<-
+  emmeans(model3,
+          ~ primer_x + locus,
+          alpha = alpha_sig,
+          cov.reduce = range)
 
-contrasts_model_regrid <<- 
-  contrast(regrid(emmeans_model), 
-           method = 'pairwise', 
-           simple = 'each', 
-           combine = FALSE, 
-           adjust = "bh")
+# emmeans back transformed to the original units of response var
+summary(emmeans_model,      
+        type="response")
+
+summary(emmeans_model_min_max,      
+        type="response")
+
+# contrasts between sites
+contrast(regrid(emmeans_model_min_max), # emmeans back transformed to the original units of response var
+         method = 'pairwise', 
+         simple = 'each', 
+         combine = FALSE, 
+         adjust = "bh")
+
+
+#### 3 primer_x concentrations: Group Sites Based on Model Results ####
 
 groupings_model <<-
-  multcomp::cld(emmeans_model, 
+  multcomp::cld(emmeans_model_min_max, 
                 alpha = alpha_sig,
                 Letters = letters,
                 type="response",
@@ -661,10 +644,13 @@ groupings_model <<-
                                  "\\1,\\2")) %>%
   rename(response = 3)
 
+groupings_model             # these values are back transformed, groupings based on transformed
+
+
 # i noticed that the emmeans from groupings don't match those from emmeans so this is the table to use for making the figure
 # the emmeans means and conf intervals match those produced by afex_plot, so I think those are what we want
 groupings_model_fixed <<-
-  summary(emmeans_model,      # emmeans back transformed to the original units of response var
+  summary(emmeans_model_min_max,      # emmeans back transformed to the original units of response var
           type="response") %>%
   tibble() %>%
   left_join(groupings_model %>%
@@ -672,28 +658,17 @@ groupings_model_fixed <<-
             # by = c(str_replace(fixed_vars,
             #                    "[\\+\\*]",
             #                    '" , "'))) %>%
-            by = c("locus",
-                   "primer_x")) %>%
+            by = c("primer_x",
+                   "locus")) %>%
   rename(response = 3)
 
-
-model
-model$anova_table
-# summary(model)
-# emmeans_model               # emmeans in transformed units used for analysis
-summary(emmeans_model,      # emmeans back transformed to the original units of response var
-        type="response")
-# contrasts_model             # contrasts in transformed units used for analysis
-contrasts_model_regrid      # contrasts are back transformed
-# groupings_model             # these values are back transformed, groupings based on transformed
 groupings_model_fixed       # cld messes up back transformation, this takes values from emmeans and groupings from cld
 
-
-#### Visualize Statistical Results From Previous Section ####
+#### 3 primer_x concentrations: Visualize Estimated Marginal Means Output With Group Categories ####
 
 p <- 
   groupings_model_fixed %>%
-  ggplot(aes(x=locus,
+  ggplot(aes(x=factor(primer_x),
              y=response,
              fill = locus)) +
   geom_col(position = "dodge",
@@ -727,10 +702,75 @@ geom_errorbar(aes(ymin=asymp.LCL,
   theme_myfigs +
   # ylim(ymin, 
   #      ymax) +
-  labs(x = "",
-       y = "Probability of Amplification at 0.854") +
-  theme(legend.position=c(0.67,0.8),  
-        legend.title=element_blank())
+  labs(x = "Primer Concentration (X)",
+       y = "Probability of Amplification Success") +
+  theme(legend.position=c(0.33,0.8),  
+        legend.title=element_blank()) +
+  facet_grid(. ~ locus)
 
 p
+
+
+#### 3 primer_x concentrations: Visualize Fixed Effect Model Fit (Response Var vs Continuous X Var by Group) ####
+
+# this generates a tibble with the model predictions that can be plotted
+# however, it does not do a good job of showing us where the model is extrapolating 
+emmeans_ggpredict <- 
+  ggemmeans(model3,
+            terms = c("primer_x [all]",
+                      "locus")) 
+# compatible with ggplot
+# shows models, but extrapolates beyond observations
+plot(emmeans_ggpredict) +
+  #this is our custom plot theme defined in USER DEFINED VARIABLES
+  theme_myfigs
+
+ggplot(emmeans_ggpredict,
+       aes(y=predicted,
+           x=x,
+           color = group)) +
+  geom_line() +
+  theme_myfigs
+
+# the next several blocks of code will only show us predictions within the ranges of observation by location
+
+# this way uses ggpredict, which has some nice features
+#make a tibble that has the max and min continuous xvar for each categorical xvar
+min_max_xvar <-  
+  data_1bandperloc_3 %>%
+  rename(x = primer_x,
+         group = locus) %>%
+  group_by(group) %>%
+  filter(x == max(x) |
+           x == min(x)) %>%
+  dplyr::select(group,
+                x) %>%
+  arrange(group,
+          x) %>%
+  distinct() %>%
+  mutate(min_max = case_when(row_number() %% 2 == 0 ~ "max_x",
+                             TRUE ~ "min_x")) %>%
+  pivot_wider(names_from = min_max,
+              values_from = x)
+# then use that tibble to filter the object made by ggpredict and plot
+emmeans_ggpredict %>%
+  left_join(min_max_xvar) %>% 
+  filter(x >= min_x,
+         x <= max_x) %>% 
+  ggplot(aes(y=predicted,
+             x=x,
+             color = group)) +
+  geom_line() +
+  #add in our observed values of female_male
+  geom_jitter(data = data_1bandperloc_3,
+              aes(x = primer_x,
+                  y = amplification,
+                  color = locus),
+              size = 3,
+              inherit.aes = FALSE,
+              width = 0.025,
+              height = 0.025) +
+  theme_myfigs
+
+
 
