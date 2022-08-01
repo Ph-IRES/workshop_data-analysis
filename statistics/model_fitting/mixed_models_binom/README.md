@@ -451,7 +451,7 @@ Fig 12. Estimated marginal means for amplification success at primer concentrati
 ![](Rplot12.png)
 Fig 13. This is the overall model fit as of now. The CI ribbons are not shown for clarity - consult Fig 12.
 
-
+It appears that decreasing the primer concentration below 0.6x will likely lead to improvement in the amplification of WY34, 46, 62, and maybe 56.
 
 
 
