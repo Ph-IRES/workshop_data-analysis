@@ -212,6 +212,10 @@ The summary output identifies a potential difference with WY48 (p = 0.0758), whi
 	---
 	Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
+
+# Under construction ...
+
+
 ![](Rplot07.png)
 Fig 8. Visualization of `model11`. Note that the "Estimates"  output by `summary(model)` can be derived from this plot. The site 'Estimates' in `summary(model)` are the y values for each site fit line where x = mean primer x. The intercept 'Estimate' is the mean of groups at x=0. Note that the y axis is on the logit scale, not probability of amplifcation success, but larger y values are related to increased amplification success..
 

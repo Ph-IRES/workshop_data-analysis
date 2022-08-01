@@ -201,7 +201,7 @@ distribution_family = "poisson"
 
 alpha_sig = 0.05
 
-# we start with the loci subjected to 11 primer concentrations (we removed loci with no max_n to simplify)
+# we start with the full model, then reduce complexity
 sampling_design = "max_n ~  habitat * study_locations + (1 | study_locations:bait_type) + (1|study_locations:bait_type:op_code)"
 sampling_design2 = "max_n ~  habitat * study_locations + (1 | study_locations:bait_type)"
 sampling_design3 = "max_n ~  habitat * study_locations + (1 | study_locations:op_code)"
@@ -232,18 +232,26 @@ model3 <<-
               # all_fit = TRUE,
               data = data_all)
 
+model4 <<-
+  afex::mixed(formula = sampling_design4,
+              family = distribution_family,
+              method = "LRT",
+              sig_symbols = rep("", 4),
+              # all_fit = TRUE,
+              data = data_all)
+
 # show
 model
 model2
 model3
+model4
 
+model = model4
 
-
-
+# view anova table
 anova(model)
-summary(model)
 
-# visualize summary(model)
+# visualize anova(model)
 emmip(model, 
       study_locations ~ habitat,    # type = "response" for back transformed values
       cov.reduce = range) +
@@ -535,13 +543,23 @@ geom_errorbar(aes(ymin=asymp.LCL,
             vjust = -0.5,
             hjust = -0.15,
             size = 8 / (14/5)) +  # https://stackoverflow.com/questions/25061822/ggplot-geom-text-font-size-control
+  geom_point(data = data_all,
+             aes(x = study_locations,
+                 y = !!response_var,
+                 shape = habitat),
+             position=position_jitterdodge(),
+             size = 3,
+             color = "darkgrey",
+             inherit.aes = FALSE) +
   theme_myfigs +
   # ylim(ymin, 
   #      ymax) +
   labs(x = "Depth",
        y = "Mean Max_N") +
   theme(legend.position=c(0.33,0.8),  
-        legend.title=element_blank()) 
+        legend.title=element_blank()) +
+  scale_y_continuous(trans='log10')
+
 
 p
 
@@ -747,6 +765,14 @@ data_all %>%
              fill = habitat))+
   geom_bar(position = "dodge", 
            stat = "identity") +
+  geom_point(data = data_all_summaxn,
+             aes(x = study_locations,
+                 y = !!response_var,
+                 shape = habitat),
+             position=position_jitterdodge(),
+             size = 3,
+             color = "darkgrey",
+             inherit.aes = FALSE) +
   xlab("Study Locations") +
   ylab("Mean MaxN per BRUV Deployment") +
   labs(title = "Mean MaxN at TRNP vs. Cagayancillo",
@@ -757,8 +783,9 @@ data_all %>%
                                "Mesophotic Reef")) +
   geom_errorbar(aes(ymax = mean_sum_max_n + se_sum_max_n,
                     ymin = mean_sum_max_n - se_sum_max_n), 
-                position = "dodge") 
-
+                position = "dodge") +
+  scale_y_continuous(trans='log10') 
+  
 
 #### sum_max_n: Mixed Effects Hypothesis Test ####
 
@@ -783,13 +810,6 @@ alpha_sig = 0.05
 
 # we start with the loci subjected to 11 primer concentrations (we removed loci with no sum_max_n to simplify)
 
-sampling_design = "sum_max_n ~  habitat * study_locations + (1|study_locations:bait_type)"
-
-# # fit mixed model
-model <<- 
-  glm(formula = sampling_design, 
-      family = distribution_family,
-      data = data_all_summaxn)
 
 sampling_design = "sum_max_n ~  habitat * study_locations + (1|study_locations:bait_type)"
 
