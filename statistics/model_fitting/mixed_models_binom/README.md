@@ -488,18 +488,3 @@ It appears that increasing the primer concentration above 1x will likely lead to
 
 
 
-
-
-
-
-
-
-
-
-
-
-[afex package on github](https://github.com/singmann/afex)
-
-[afex help forum](https://afex.singmann.science/)
-
-
