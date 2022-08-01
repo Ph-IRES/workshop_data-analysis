@@ -227,7 +227,7 @@ It is often very convenient to categorize the levels of your categorical variabl
 
 ```r
 groupings_model <<-
-  multcomp::cld(emmeans_model, 
+  multcomp::cld(emmeans_model_min_max, 
                 alpha = alpha_sig,
                 Letters = letters,
                 type="response",
@@ -246,7 +246,7 @@ I noticed that the confidence limits of the emmeans output by `multicomp:cld` do
 
 ```r
 groupings_model_fixed <<-
-  summary(emmeans_model,      # emmeans back transformed to the original units of response var
+  summary(emmeans_model_min_max,      # emmeans back transformed to the original units of response var
           type="response") %>%
   tibble() %>%
   left_join(groupings_model %>%
@@ -254,24 +254,25 @@ groupings_model_fixed <<-
             # by = c(str_replace(fixed_vars,
             #                    "[\\+\\*]",
             #                    '" , "'))) %>%
-            by = c("total_length_mm",
-                   "location")) %>%
+            by = c("primer_x",
+                   "locus")) %>%
   rename(response = 3)
 
 groupings_model_fixed  
 ```
 
-Table 3. The `multicomp:cld` groupings are added to the emmeans table. Dumaguete is group 'a' and the other sites are both 'b'.
+Table 3. The `multicomp:cld` groupings are added to the emmeans table. Only two groups are identified 'a' and 'b'. 
 
-	# A tibble: 3 × 9
-	  total_length_mm location           response     SE    df asymp.LCL asymp.UCL .group group
-				<dbl> <fct>                 <dbl>  <dbl> <dbl>     <dbl>     <dbl> <chr>  <chr>
-	1            116. Buenavista, Bohol    0.604  0.144    Inf   0.319       0.833 "  b"  b    
-	2            116. Dumaguete, Negros    0.0588 0.0774   Inf   0.00403     0.492 " a "  a    
-	3            116. San Juan, Siquijor   0.877  0.0619   Inf   0.698       0.956 "  b"  b  
-
-![](Rplot07.png)
-Fig 8. Estimated marginal means for the probability that 116mm fish are male at each location.  Letters indicate statistically significant groupings according to `multicomp:cld`.
+  primer_x locus response     SE    df asymp.LCL asymp.UCL .group group
+     <dbl> <fct>    <dbl>  <dbl> <dbl>     <dbl>     <dbl> <chr>  <chr>
+1     0.1  WY24    0.0694 0.111    Inf   0.00253     0.687 " ab"  a,b  
+2     1.25 WY24    0.168  0.156    Inf   0.0221      0.644 " a "  a    
+3     0.1  WY48    0.0476 0.0827   Inf   0.00140     0.641 " ab"  a,b  
+4     1.25 WY48    0.963  0.0448   Inf   0.687       0.997 "  b"  b    
+5     0.1  WY68    0.150  0.202    Inf   0.00781     0.798 " ab"  a,b  
+6     1.25 WY68    0.141  0.135    Inf   0.0181      0.594 " a "  a    
+![](Rplot08.png)
+Fig 9. Estimated marginal means for the probability that 116mm fish are male at each location.  Letters indicate statistically significant groupings according to `multicomp:cld`. Note that the groups conflict with the contrasts.  This can happen at the edge of significance (0.05 in this case).
 
 
 --

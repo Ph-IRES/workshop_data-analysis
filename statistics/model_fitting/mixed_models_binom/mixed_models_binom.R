@@ -362,7 +362,8 @@ emmeans_model <<-
           ~ primer_x + locus,
           alpha = alpha_sig)
 
-emmeans(model11,
+emmeans_model_min_max <<-
+  emmeans(model11,
         ~ primer_x + locus,
         alpha = alpha_sig,
         cov.reduce = range)
@@ -371,8 +372,11 @@ emmeans(model11,
 summary(emmeans_model,      
         type="response")
 
+summary(emmeans_model_min_max,      
+        type="response")
+
 # contrasts between sites
-contrast(regrid(emmeans_model), # emmeans back transformed to the original units of response var
+contrast(regrid(emmeans_model_min_max), # emmeans back transformed to the original units of response var
          method = 'pairwise', 
          simple = 'each', 
          combine = FALSE, 
@@ -382,7 +386,7 @@ contrast(regrid(emmeans_model), # emmeans back transformed to the original units
 #### Group Sites Based on Model Results ####
 
 groupings_model <<-
-  multcomp::cld(emmeans_model, 
+  multcomp::cld(emmeans_model_min_max, 
                 alpha = alpha_sig,
                 Letters = letters,
                 type="response",
@@ -400,7 +404,7 @@ groupings_model             # these values are back transformed, groupings based
 # i noticed that the emmeans from groupings don't match those from emmeans so this is the table to use for making the figure
 # the emmeans means and conf intervals match those produced by afex_plot, so I think those are what we want
 groupings_model_fixed <<-
-  summary(emmeans_model,      # emmeans back transformed to the original units of response var
+  summary(emmeans_model_min_max,      # emmeans back transformed to the original units of response var
           type="response") %>%
   tibble() %>%
   left_join(groupings_model %>%
@@ -408,8 +412,8 @@ groupings_model_fixed <<-
             # by = c(str_replace(fixed_vars,
             #                    "[\\+\\*]",
             #                    '" , "'))) %>%
-            by = c("total_length_mm",
-                   "location")) %>%
+            by = c("primer_x",
+                   "locus")) %>%
   rename(response = 3)
 
 groupings_model_fixed       # cld messes up back transformation, this takes values from emmeans and groupings from cld
@@ -418,9 +422,9 @@ groupings_model_fixed       # cld messes up back transformation, this takes valu
 
 p <- 
   groupings_model_fixed %>%
-  ggplot(aes(x=location,
+  ggplot(aes(x=factor(primer_x),
              y=response,
-             fill = location)) +
+             fill = locus)) +
   geom_col(position = "dodge",
            color = "black") +
   # scale_fill_manual(values = c("lightgrey",
@@ -436,7 +440,7 @@ p <-
   #            # color = "grey70",
 #            # shape = 1,
 #            size = 1)
-geom_errorbar(aes(ymin=asymp.LCL,
+  geom_errorbar(aes(ymin=asymp.LCL,
                   ymax=asymp.UCL),
               width = 0.2,
               color = "grey50",
@@ -452,10 +456,11 @@ geom_errorbar(aes(ymin=asymp.LCL,
   theme_myfigs +
   # ylim(ymin, 
   #      ymax) +
-  labs(x = "",
-       y = "Probability of 116mm Fish Being Male") +
+  labs(x = "Primer Concentration (x)",
+       y = "Probability of Amplification Success") +
   theme(legend.position=c(0.33,0.8),  
-        legend.title=element_blank())
+        legend.title=element_blank()) +
+  facet_grid(. ~ locus)
 
 p
 
