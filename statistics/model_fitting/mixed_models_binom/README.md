@@ -23,12 +23,12 @@ It is important to understand the nature of your data. Histograms can help you m
 
 ![](Rplot.png)
 Fig 1. Histograms of number of PCR libraries evaluated relative to primer concentration and locus. Note that the data does not represent a complete design and that different loci should probably be subjected to different model tests.
-
-
 ![](Rplot01.png)
-Fig 2. Histograms of fish measurements by location and sex. The stages range from 0=immature sex undecipherable to 4=mature female to ...
+Fig 2. Heatmaps of sample size (number of libraries) and proportion amplified by plate address.
 
-Im noticing that the left skewed distribution of `weight_of_gonads_g` is quite different from the other metrics. It may have to be handled differently.
+
+![](Rplot02.png)
+Fig 3. Scatterplot of proportion amplified against number of libraries. Each point is a well address. Shapes represent the number of different individuals and color is the number of loci.
 
 ---
 
@@ -38,14 +38,14 @@ Im noticing that the left skewed distribution of `weight_of_gonads_g` is quite d
 
 vis_dists() creates three figures
 
-![](Rplot02.png)
-Fig 3. Histogram and cumulative distribution of `total_length_mm`
-
 ![](Rplot03.png)
-Fig 4. Cullen and Frey Graph of kurtosis vs square of skewness for `total_length_mm`. **I really like this one.**  This shows you which statistical distribution the data most closely resembles.  Here, the data is nearly log normal, but better fit by the beta distribution.
+Fig 4. Histogram and cumulative distribution of `amplification`
 
 ![](Rplot04.png)
-Fig 5. 4 additional plots that allow you to determine the distribution that most closely fits `total_length_mm`
+Fig 5. Cullen and Frey Graph of kurtosis vs square of skewness for `amplification`. **I really like this one.**  This shows you which statistical distribution the data most closely resembles.  Here, the data is nearly log normal, but better fit by the beta distribution.
+
+![](Rplot05.png)
+Fig 6. 4 additional plots that allow you to determine the distribution that most closely fits `amplification`
 
 ---
 
