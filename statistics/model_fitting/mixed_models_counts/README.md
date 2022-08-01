@@ -20,13 +20,14 @@ We will use Noelles data set on cross amplification of microsat loci in Visayan 
 It is important to understand the nature of your data. Histograms can help you make decisions on how your data must be treated to conform with the assumptions of statistical models.
 
 ![](Rplot.png)
-Fig 1. Histograms of number of PCR libraries evaluated relative to primer concentration and locus. Note that the data does not represent a complete design and that different loci should probably be subjected to different model tests.
+Fig 1. Histograms of the maximum number of fish from the same species  per video visible within one frame by MPA and depth.  
+
 ![](Rplot01.png)
-Fig 2. Heatmaps of sample size (number of libraries) and proportion amplified by plate address.
+Fig 2. Histograms of the sum of maximum number of fish from the same species per video visible within one frame by MPA and depth.
 
 
 ![](Rplot02.png)
-Fig 3. Scatterplot of proportion amplified against number of libraries. Each point is a well address. Shapes represent the number of different individuals and color is the number of loci.
+Fig 3. Barplot showing the sum of maximum number of fish from the same species per video visible within one frame.
 
 ---
 
@@ -34,13 +35,13 @@ Fig 3. Scatterplot of proportion amplified against number of libraries. Each poi
 
 `vis_dists()` is a function that I made in the FUNCTIONS section of this script.  It accepts the tibble and column name to visualize.
 
-vis_dists() creates three figures
+Let us look at the statistical distribution for both the `max_n` values and the `sum_max_n` values.  The difference here is that `sum_max_n` are the `max_n` values summed within a video.
 
 ![](Rplot03.png)
-Fig 4. Histogram and cumulative distribution of `amplification`
+Fig 4. Cullen and Frey Graph of kurtosis vs square of skewness for `max_n`. This shows you which statistical distribution the data most closely resembles.  Here, the data is best fit by the beta distribution.
 
 ![](Rplot04.png)
-Fig 5. Cullen and Frey Graph of kurtosis vs square of skewness for `amplification`. **I really like this one.**  This shows you which statistical distribution the data most closely resembles.  Here, the data is nearly log normal, but better fit by the beta distribution.
+Fig 5. Cullen and Frey Graph of kurtosis vs square of skewness for `max_n`. This shows you which statistical distribution the data most closely resembles.  Here, the data is best fit by the beta distribution but the bootstraps are much messier. It's probably best to stick to `max_n` as the unit of observation for the analysis.
 
 ![](Rplot05.png)
 Fig 6. 4 additional plots that allow you to determine the distribution that most closely fits `amplification`
@@ -49,19 +50,23 @@ Fig 6. 4 additional plots that allow you to determine the distribution that most
 
 ## Identifying the Distribution Family for you Hypothesis Test
 
-It is especially important to identify the correct statistical distribution for your **response variable**, so the plots above can be used to help with identifying the correct distribution family for that.
+It is especially important to identify the correct statistical distribution for your **response variable**, so the plots above can be used to help with identifying the correct distribution family for that. But realize that it's the distribution of the errors in the mdoel that matter. 
 
 Here are some rules of thumb:
 * Binomial
 	* if your unit of observation falls into one of two categories, such as Male or Female, then your data is binomial
 	* percentage and proportion data that can be converted to count data is binomial
+* Poisson
+	* if your resposne variable is counts, this is a good place to start
+* Gamma
+	* if your response variable is continuous and is not pct or bounded by zero and one, this is a good place to start
 
 
 ---
 
 ## Make Visualization of Hypothesis Test
 
-Here we will test for the effect of size on the sex of _Halichores scapularis_ among different locations.
+Here we will test for the effect of MPA and depth on the mean `max_n`.
 
 ![](Rplot06.png)
 Fig 7. Plots of amplification success rate vs. primer concentration. Each point is a PCR library and is jittered by 0.025 both vertically and horizontally.  Fit lines are logistic.
