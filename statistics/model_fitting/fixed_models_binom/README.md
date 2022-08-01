@@ -21,7 +21,6 @@ It is important to understand the nature of your data. Histograms can help you m
 
 ![](Rplot.png)
 Fig 1. Histograms of fish measurements by location and sex.  U=immature, sex cannot be determined, F=female, MF=both sex organs, M=male, PM=primary male, NA= no observation made
-
 ![](Rplot01.png)
 Fig 2. Heat maps of sample size (number of libraries) and proportion libraries amplified by well position.
 
@@ -41,10 +40,10 @@ Fig 3. Scatter plot of proportion amplified vs. number of libraries per well add
 Fig 4. Histogram and cumulative distribution of `ampllification` success
 
 ![](Rplot04.png)
-Fig 5. Cullen and Frey Graph of kurtosis vs square of skewness for `female_male`. **I really like this one.**  This shows you which statistical distribution the data most closely resembles.  Here, the data is falls along the upper boundary of the beta distribution (grey ribbon). Note that the beta distribution describes the greatest amount of parameter space and many other distributions are special cases of the beta. Here, we know that our data binomially distributed because there are only 0 or 1, but the binomial dist is not represented in the Cullen Frey graph. I would expect all binomial data sets to fall along the upper edge of the beta distribution ribbon. 
+Fig 5. Cullen and Frey Graph of kurtosis vs square of skewness for `ampllification`. **I really like this one.**  This shows you which statistical distribution the data most closely resembles.  Here, the data is falls along the upper boundary of the beta distribution (grey ribbon). Note that the beta distribution describes the greatest amount of parameter space and many other distributions are special cases of the beta. Here, we know that our data binomially distributed because there are only 0 or 1, but the binomial dist is not represented in the Cullen Frey graph. I would expect all binomial data sets to fall along the upper edge of the beta distribution ribbon. 
 
 ![](Rplot05.png)
-Fig 6. 4 additional plots that allow you to determine the distribution that most closely fits `female_male`
+Fig 6. 4 additional plots that allow you to determine the distribution that most closely fits `ampllification`
 
 ---
 
@@ -62,10 +61,10 @@ Here the rule of thumb is:
 
 ## Make Visualization of Hypothesis Test
 
-Here we will test for the effect of size on the sex of _Halichores scapularis_ among different locations.
+Here we will test for the effect of primer concentration on amplification success among different locations at each locus without subsetting the data.
 
-![](Rplot05.png)
-Fig 6. Plots of fish sex (F=0, M=1) against total length.  Fit lines are logistic.
+![](Rplot06.png)
+Fig 7. Plots of amplification success (FALSE=0, TRUE=1) against primer concentration as a function of that recommended in the literature.  Fit lines are logistic.
 
 Some things to notice are that there are not many males from Dumaguete and not many females from Buenavista.  Consequently we might want to test some other hypotheses later. For example, testing for differences in total length by sex and location might be useful. But lets save this for later.
 
