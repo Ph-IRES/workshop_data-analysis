@@ -45,8 +45,6 @@ Fig 4. Cullen and Frey Graph of kurtosis vs square of skewness for `max_n`. This
 ![](Rplot04.png)
 Fig 5. Cullen and Frey Graph of kurtosis vs square of skewness for `max_n`. This shows you which statistical distribution the data most closely resembles.  Here, the data is best fit by the beta distribution but the bootstraps are much messier. 
 
-![](Rplot05.png)
-Fig 6. 4 additional plots that allow you to determine the distribution that most closely fits `amplification`
 
 ---
 
@@ -70,10 +68,8 @@ Here are some rules of thumb:
 
 Here we will test for the effect of MPA and depth on the mean `mean_max_n`.
 
-![](Rplot06.png)
-Fig 7. Plots of amplification success rate vs. primer concentration. Each point is a PCR library and is jittered by 0.025 both vertically and horizontally.  Fit lines are logistic.
-
-Some things to notice are that some loci are tested across a broader range of primer concentrations than others.  They should probably be split apart into groups and analyzed separately.
+![](Rplot05.png)
+Fig 6. Plots of mean_mean_max_n by MPA and depth category.  Error bars are standard error.
 
 ---
 
