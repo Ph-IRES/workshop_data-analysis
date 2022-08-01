@@ -72,7 +72,7 @@ Some things to notice are that some loci are tested across a broader range of pr
 
 ---
 
-## [Fixed Effects Hypthesis Test](https://en.wikipedia.org/wiki/Fixed_effects_model)
+## [Generalized Linear Mixed Effects Hypothesis Test](https://en.wikipedia.org/wiki/Generalized_linear_mixed_model)
 
 If you only have variables that are [fixed](https://en.wikipedia.org/wiki/Fixed_effects_model) then we can use `glm()` to test your hypotheses.
 
