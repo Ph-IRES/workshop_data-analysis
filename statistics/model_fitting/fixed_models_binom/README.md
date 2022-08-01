@@ -23,9 +23,10 @@ It is important to understand the nature of your data. Histograms can help you m
 Fig 1. Histograms of fish measurements by location and sex.  U=immature, sex cannot be determined, F=female, MF=both sex organs, M=male, PM=primary male, NA= no observation made
 
 ![](Rplot01.png)
-Fig 2. Histograms of fish measurements by location and sex. The stages range from 0=immature sex undecipherable to 4=mature female to ...
+Fig 2. Heat maps of sample size (number of libraries) and proportion libraries amplified by well position.
 
-Im noticing that the left skewed distribution of `weight_of_gonads_g` is quite different from the other metrics. It may have to be handled differently.
+![](Rplot02.png)
+Fig 3. Scatter plot of proportion amplified vs. number of libraries per well address. Numbers of loci are noted with color, and n individuals are noted with shape.
 
 ---
 

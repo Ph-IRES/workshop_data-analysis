@@ -4,6 +4,8 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 library(tidyverse)
 library(janitor)
 library(magrittr)
+library(gridExtra)
+
 # install.packages("rlang")
 # install.packages("emmeans")
 # library(devtools)
@@ -150,6 +152,7 @@ p_sampsize <-
               color = "black") +
     theme_bw() +
     labs(title = "Sample Size")
+p_sampsize
 
 p_amp <-
   data_1bandperloc %>%
@@ -187,13 +190,22 @@ p_amp <-
               color = "black") +
     theme_bw() +
     labs(title = "Proportion Amplified")
+p_amp
+
+grid.arrange(p_sampsize,
+             p_amp,
+             nrow=2,
+             ncol=1)
+
 
 # p_amp <-
   data_1bandperloc %>%
   group_by(plate_row,
            plate_column) %>%
   summarize(prop_amped = sum(amplification)/n(),
-            n = n()) %>%
+            n = n(),
+            n_loci = length(unique(locus)),
+            n_ind = length(unique(individual))) %>%
   ungroup() %>%
   mutate(plate_row = factor(plate_row,
                             levels = c("H",
@@ -207,16 +219,24 @@ p_amp <-
          plate_column = factor(plate_column,
                                levels = seq(1,
                                             12,
-                                            1))) %>%
+                                            1)),
+         plate_address = str_c(plate_row,
+                               plate_column,
+                               sep="")) %>%
   complete(plate_row,
            plate_column,
            fill = list(prop_amped = NA,
                        n = 0)) %>%
-  
+  filter(n > 0) %>%
   ggplot(aes(x = n,
              y = prop_amped,
-             color = prop_amped)) +
+             color = n_loci,
+             shape = factor(n_ind))) +
   geom_point(size = 3) +
+  geom_smooth(aes(x=n,
+                  y=prop_amped),
+              se = FALSE,
+              inherit.aes = FALSE) +
   scale_color_gradient(high = "green4",
                        low = "grey90") +
   theme_bw() +
