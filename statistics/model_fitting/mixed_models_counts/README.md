@@ -1,6 +1,6 @@
 # TESTING HYPOTHESES WITH MIXED & FIXED MODELS: COUNT DATA
 
-One MPA, TRNP, has been established for decades.  The other, Cagayancillo, was just established when these data were collected.  Is there a difference in the abundance of large carnivorous fishes in shallow relative to deep mesophotic reefs.  It is hypothesized that deeper fish might have more of a refuge from fishermen, and so we might expect the abundance of shallow fish relative to deep to be less at the newer MPA.  One might also hypothesize that abundance would be greater at the older MPA.
+One MPA, TRNP, has been established for decades.  The other, Cagayancillo, was just established when these data were collected.  Is there a difference in the abundance of large carnivorous fishes in shallow relative to deep mesophotic reefs?  It is hypothesized that deeper fish might have more of a refuge from fishermen, and so we might expect the abundance of shallow fish relative to deep to be less at the newer MPA.  One might also hypothesize that abundance would be greater at the older MPA.
 
 Baited videos were scored for the most indiviudals from each species that were visible in one frame - the max n.  Different stations received different bait fish, a confounding factor. 
 
@@ -75,9 +75,7 @@ Fig 6. Plots of mean_mean_max_n by MPA and depth category.  Error bars are stand
 
 ## [Generalized Linear Mixed Effects Hypothesis Test](https://en.wikipedia.org/wiki/Generalized_linear_mixed_model)
 
-If you only have variables that are [fixed](https://en.wikipedia.org/wiki/Fixed_effects_model) then we can use `glm()` to test your hypotheses.
-
-Here we test for differences among locations in the probability that an individual is a male given the total length of the fish. We do not allow the slopes to vary among the sites.  This may be adventageous because sizes sampled differ among the sites and we might expect the slope of the lines to remain similar while the points of inflection vary.
+Here we test for differences in the mean_mean_max_n among MPA and depths.
 
 ```r
 model11 <-
