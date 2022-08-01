@@ -108,7 +108,7 @@ What we are really interested in is whether the primer concentration is affectin
 summary(model11)
 ```
 
-The summary output identifies a potential difference with WY48, which seems to have increasing amplification success with primer concentration.
+The summary output identifies a potential difference with WY48 (p = 0.0758), which seems to have increasing amplification success with primer concentration.  This is a great example of 0.05 not being a magic number.  It seems very likely that increasing primer concentration will positively affect locus WY48, and there is only a 7.6% probability of it not. 
 
 	Fixed effects:
 					   Estimate Std. Error z value Pr(>|z|)  
@@ -121,9 +121,8 @@ The summary output identifies a potential difference with WY48, which seems to h
 	---
 	Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-
 ![](Rplot07.png)
-Fig 8. Visualization of `model11`. Note that the "Estimates"  output by `summary(model)` can be derived from this plot. The site 'Estimates' in `summary(model)` are the y values for each site fit line where x = Mean Tot L. The intercept 'Estimate' is the mean of groups at x=0. Note that the y axis is on the logit scale, not probability of amplifcation success, but larger y values are related to increased amplification success..
+Fig 8. Visualization of `model11`. Note that the "Estimates"  output by `summary(model)` can be derived from this plot. The site 'Estimates' in `summary(model)` are the y values for each site fit line where x = mean primer x. The intercept 'Estimate' is the mean of groups at x=0. Note that the y axis is on the logit scale, not probability of amplifcation success, but larger y values are related to increased amplification success..
 
 
 ---
@@ -134,49 +133,83 @@ It is nice to have a p-value, and know that Dumaguete has a lower probability of
 
 ```r
 emmeans_model <<-
-  emmeans(model,
-          ~ total_length_mm + location,
+  emmeans(model11,
+          ~ primer_x + locus,
           alpha = alpha_sig)
 ```
 
-Again, we can use `summary()` to view the estimated marginal means.  Note that we set `type="response"` so that the units will be in terms of our response variable, the probability of being male (0-1), and thus, having changed sex. The estimated marginal means are returned for the mean length observed in the whole data set, 116 mm. The `prob` column 
+Again, we can use `summary()` to view the estimated marginal means.  Note that we set `type="response"` so that the units will be in terms of our response variable, the probability of amplifcation success (0-1). The estimated marginal means are returned for the mean primer concentration observed in the whole data set, 0.85x. The `prob` column is the prob of amplifcation success.  The LCL is the lower confidence limit and the UCL is the upper confidence limit of the probability of amplification success.
 
 ```r
 # emmeans back transformed to the original units of response var
 summary(emmeans_model,      
         type="response")
+		
+summary(emmeans_model_min_max,      
+        type="response")
 ```
 
-*Table 1.*  Now we are getting somewhere. In this estimated mariginal means table, we see that at 116 mm, the probability that a fish is male from Buenavista is 60.44% (CI95 = 31.9 - 83.3%), whereas the probability is 5.88% (CI95 = 0.4 - 49.2%) in Dumaguete, and is 87.65% (CI95 = 69.8 - 95.6%) in San Juan. 
+*Table 1.*  Now we are getting somewhere. In this estimated mariginal means table, we see that at primer concentration 0.85x, the probability of amplification for WY48 is 74.8% (CI95 = 44.18 - 91.8%), but it is lower for the other loci. At a primer concentration of 1.25x, the predicted amplification success rate of WY48 goes up to 96.33% (CI95 = 68.724 - 99.7%).
 
-	total_length_mm location             prob     SE  df asymp.LCL asymp.UCL
-				 116 Buenavista, Bohol  0.6044 0.1442 Inf   0.31899     0.833
-				 116 Dumaguete, Negros  0.0588 0.0774 Inf   0.00403     0.492
-				 116 San Juan, Siquijor 0.8765 0.0619 Inf   0.69818     0.956
+	 primer_x locus  prob     SE  df asymp.LCL asymp.UCL
+		 0.85 WY24  0.125 0.0779 Inf    0.0342     0.366
+		 0.85 WY48  0.748 0.1271 Inf    0.4418     0.918
+		 0.85 WY68  0.144 0.0866 Inf    0.0408     0.400
+	
+	Confidence level used: 0.95 
+	Intervals are back-transformed from the logit scale
+
+	 primer_x locus   prob     SE  df asymp.LCL asymp.UCL
+		 0.10 WY24  0.0694 0.1114 Inf   0.00253     0.687
+		 1.25 WY24  0.1683 0.1564 Inf   0.02215     0.644
+		 0.10 WY48  0.0476 0.0827 Inf   0.00140     0.641
+		 1.25 WY48  0.9633 0.0448 Inf   0.68724     0.997
+		 0.10 WY68  0.1500 0.2023 Inf   0.00781     0.798
+		 1.25 WY68  0.1411 0.1353 Inf   0.01808     0.594
 
 	Confidence level used: 0.95 
 	Intervals are back-transformed from the logit scale 
 
-Next we run the contrasts to compare sites at the mean total length and determine the probability that the differences observed could be due to random chance (p-values).  The `emmeans` output is good, but we can get more statistically sophisticated with the `contrasts` command, which allows us to explicitly control [False Discovery Rate](https://en.wikipedia.org/wiki/False_discovery_rate) and generate p-values for comparisons of probability of fish being male between locations.  The `emmeans` output is a bit conservative when it comes to FDR.  We use the Benjamini-Hochberg (`bh`) FDR algorithm in `contrasts` but you can select others as required.
+Next we run the contrasts to compare sites at the maximum primer concentration and determine the probability that the differences observed could be due to random chance (p-values).  The `emmeans` output is good, but we can get more statistically sophisticated with the `contrasts` command, which allows us to explicitly control [False Discovery Rate](https://en.wikipedia.org/wiki/False_discovery_rate) and generate p-values for comparisons of probability of amplification between loci.  The `emmeans` output is a bit conservative when it comes to FDR.  We use the Benjamini-Hochberg (`bh`) FDR algorithm in `contrasts` but you can select others as required.
 
 ```r
 contrasts_model_regrid <<- 
-  contrast(regrid(emmeans_model), 
+  contrast(regrid(emmeans_model_min_max), 
            method = 'pairwise', 
            simple = 'each', 
            combine = FALSE, 
            adjust = "bh")
 ```
 
-*Table 2.* _A priori_ contrasts testing for differences in the probability of 116mm fish being male at the three survey locations. The estimate is the difference in probabilies between sites, where a positive value indicates that the first site in the contrast has a higher probability of fish being male. For example, 116mm fish at Buenavista are 54.6% more likely to be male. Dumaguete fish are significantly less likely to be male at 116mm than fish from the other two sites.
+*Table 2.* _A priori_ contrasts testing for differences in the probability of amplification between 0.1x and 1.25x primer concentration, as well as between loci at each of these primer concentrations. The estimate is the difference in probabilies between loci or primer concentrations, where a negative value indicates that the second category in the contrast has a higher probability of amplification. For example, locus WY48 is 91.564% more likely to amplify at 1.25x than 0.1x (p < 0.0001). WY48 is also 79.5% more likely to amplify than WY24 at 1.25x (p  < 0.0001).
 
-	total_length_mm = 116:
-	 contrast                               estimate    SE  df z.ratio p.value
-	 Buenavista, Bohol - Dumaguete, Negros     0.546 0.155 Inf   3.520  0.0006
-	 Buenavista, Bohol - San Juan, Siquijor   -0.272 0.182 Inf  -1.492  0.1358
-	 Dumaguete, Negros - San Juan, Siquijor   -0.818 0.107 Inf  -7.610  <.0001
+	locus = WY24:
+	 contrast                   estimate    SE  df z.ratio p.value
+	 primer_x0.1 - primer_x1.25 -0.09891 0.228 Inf  -0.433  0.6651
 
-	P value adjustment: BH method for 3 tests 
+	locus = WY48:
+	 contrast                   estimate    SE  df z.ratio p.value
+	 primer_x0.1 - primer_x1.25 -0.91564 0.115 Inf  -7.945  <.0001
+
+	locus = WY68:
+	 contrast                   estimate    SE  df z.ratio p.value
+	 primer_x0.1 - primer_x1.25  0.00886 0.287 Inf   0.031  0.9754
+
+
+	$`simple contrasts for locus`
+	primer_x = 0.10:
+	 contrast    estimate    SE  df z.ratio p.value
+	 WY24 - WY48   0.0218 0.102 Inf   0.214  0.8305
+	 WY24 - WY68  -0.0806 0.169 Inf  -0.476  0.8305
+	 WY48 - WY68  -0.1023 0.176 Inf  -0.582  0.8305
+
+	primer_x = 1.25:
+	 contrast    estimate    SE  df z.ratio p.value
+	 WY24 - WY48  -0.7950 0.152 Inf  -5.225  <.0001
+	 WY24 - WY68   0.0272 0.147 Inf   0.185  0.8529
+	 WY48 - WY68   0.8222 0.132 Inf   6.217  <.0001
+
+	P value adjustment: BH method for 3 tests  
 
 
 ---
