@@ -288,11 +288,11 @@ data_locus_groups <-
   group_by(locus) %>%
   summarize(n_primer_x = n()) 
 
-data_1bandperloc_10 <-
+data_1bandperloc_11 <-
   data_1bandperloc %>%
   left_join(data_locus_groups,
             by = "locus") %>%
-  filter(n_primer_x >= 10)
+  filter(n_primer_x == 11)
 
 data_1bandperloc_3 <-
   data_1bandperloc %>%
@@ -316,33 +316,72 @@ distribution_family = "binomial"
 
 alpha_sig = 0.05
 
+# we start with the loci subjected to 11 primer concentrations (we removed loci with no amplification to simplify)
 
-# sampling_design10 = "amplification ~  locus * primer_x + (1|individual) + (1|plate_number/plate_row:plate_column)"
-# sampling_design10 = "amplification ~  locus * primer_x + (1|individual) + (1|plate_number) + (plate_number|plate_row:plate_column)"
-# sampling_design10 = "amplification ~  locus * primer_x + (1|individual) + (1|plate_number) + (plate_number|plate_row) + (plate_number|plate_column)"
-sampling_design10 = "amplification ~  locus * primer_x + (1|individual) + (1|plate_number) + (1|plate_row) + (1|plate_column)"
-# sampling_design10 = "amplification ~  locus * primer_x + (1|individual) + (1|plate_number)"
-# sampling_design10 = "amplification ~  locus * primer_x + (1|individual) "
-# sampling_design10 = "amplification ~  locus * primer_x * individual + (1|plate_number/plate_row:plate_column)"
+# sampling_design11 = "amplification ~  locus * primer_x + (1|individual) + (1|plate_number/plate_row:plate_column)"
+# sampling_design11 = "amplification ~  locus * primer_x + (1|individual) + (1|plate_number) + (plate_number|plate_row:plate_column)"
+# sampling_design11 = "amplification ~  locus * primer_x + (1|individual) + (1|plate_number) + (plate_number|plate_row) + (plate_number|plate_column)"
+sampling_design11 = "amplification ~  locus * primer_x + (1|individual) + (1|plate_number) + (1|plate_row) + (1|plate_column)"
+# sampling_design11 = "amplification ~  locus * primer_x + (1|individual) + (1|plate_number)"
+# sampling_design11 = "amplification ~  locus * primer_x + (1|individual) "
+# sampling_design11 = "amplification ~  locus * primer_x * individual + (1|plate_number/plate_row:plate_column)"
 
-model10 <-
-  glmer(formula = sampling_design10, 
+model11 <-
+  glmer(formula = sampling_design11, 
         family = distribution_family,
-        data = data_1bandperloc_10)
+        data = data_1bandperloc_11)
+
+model11
+anova(model11)
+summary(model11)
+
+# visualize summary(model)
+emmip(model11, 
+      locus ~ primer_x,    # type = "response" for back transformed values
+      cov.reduce = range) +
+  geom_vline(xintercept=mean(data_1bandperloc_11$primer_x),
+             color = "grey",
+             linetype = "dashed") +
+  geom_text(aes(x = mean(data_1bandperloc_11$primer_x),
+                y = -2,
+                label = "mean primer_x"),
+            color = "grey") +
+  theme_myfigs +
+  labs(title = "Visualization of `summary(model11)`",
+       subtitle = "",
+       y = "Linear Prediciton",
+       x = "Primer Concentration X")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # https://github.com/strengejacke/ggeffects
-ggemmeans_model10 <-
-ggpredict(model10,
+ggemmeans_model11 <-
+ggpredict(model11,
           c("primer_x",
             "locus"),
           # type="random",
           # condition = c(total_length_mm = 0)
           ) 
-plot(ggemmeans_model10) +
+plot(ggemmeans_model11) +
   theme_classic() +
   geom_point(size=4) +
   labs(title = "Loci Amplified from 0.1 - 1.25x w/ at Least 1 Success",
-       subtitle = sampling_design10,
+       subtitle = sampling_design11,
        x = "Primer Concentration (X)",
        y = "Probability of Amplifcation Success")
 

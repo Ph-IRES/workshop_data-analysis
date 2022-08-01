@@ -79,57 +79,51 @@ If you only have variables that are [fixed](https://en.wikipedia.org/wiki/Fixed_
 Here we test for differences among locations in the probability that an individual is a male given the total length of the fish. We do not allow the slopes to vary among the sites.  This may be adventageous because sizes sampled differ among the sites and we might expect the slope of the lines to remain similar while the points of inflection vary.
 
 ```r
-model <<- 
-  glm(formula = female_male ~  total_length_mm + location, 
-      family = distribution_family,
-      data = data)
+model11 <-
+  glmer(formula = sampling_design11, 
+        family = distribution_family,
+        data = data_1bandperloc_11)
 ```
 
-	Call:  glm(formula = female_male ~ total_length_mm + location, family = distribution_family, 
-		data = data)
+	Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
+	 Family: binomial  ( logit )
+	Formula: amplification ~ locus * primer_x + (1 | individual) + (1 | plate_number) +      (1 | plate_row) + (1 | plate_column)
+	   Data: data_1bandperloc_11
+		 AIC      BIC   logLik deviance df.resid 
+	 125.402  153.277  -52.701  105.402      110 
+	Random effects:
+	 Groups       Name        Std.Dev. 
+	 plate_column (Intercept) 0.0004559
+	 individual   (Intercept) 0.1769521
+	 plate_row    (Intercept) 0.0003342
+	 plate_number (Intercept) 1.0106441
+	Number of obs: 120, groups:  plate_column, 11; individual, 10; plate_row, 8; plate_number, 5
+	Fixed Effects:
+		   (Intercept)           locusWY48           locusWY68            primer_x  locusWY48:primer_x  locusWY68:primer_x  
+			   -2.6830             -0.8572              0.9542              0.8682              4.5771             -0.9302  
 
-	Coefficients:
-				   (Intercept)             total_length_mm   locationDumaguete, Negros  locationSan Juan, Siquijor  
-					  -16.2887                      0.1447                     -3.1962                      1.5358  
-
-	Degrees of Freedom: 194 Total (i.e. Null);  191 Residual
-	Null Deviance:	    262.5 
-	Residual Deviance: 98.76 	AIC: 106.8
-
-What we are really interested in is whether there are significant differences among locations. We can use `summary()` for this. The output shows that Dumaguete is significantly different than the other sites (p = 0.0277) and that the probability of observing males there is lower (estimate = -3.19619).  See [here](https://www.statology.org/interpret-glm-output-in-r/) for additional guidance to interpret this output.
+What we are really interested in is whether the primer concentration is affecting amplification success. We can look at a visualization of the model fit to get a better look.
 
 ```r
-summary(model)
+summary(model11)
 ```
 
-	Call:
-	glm(formula = female_male ~ total_length_mm + location, family = distribution_family, 
-		data = data)
+The summary output identifies a potential difference with WY48, which seems to have increasing amplification success with primer concentration.
 
-	Deviance Residuals: 
-		Min       1Q   Median       3Q      Max  
-	-2.0757  -0.2308   0.1258   0.3010   2.3112  
-
-	Coefficients:
-								Estimate Std. Error z value Pr(>|z|)    
-	(Intercept)                -16.28874    3.64712  -4.466 7.96e-06 ***
-	total_length_mm              0.14469    0.02827   5.118 3.09e-07 ***
-	locationDumaguete, Negros   -3.19619    1.45193  -2.201   0.0277 *  
-	locationSan Juan, Siquijor   1.53578    1.01223   1.517   0.1292    
+	Fixed effects:
+					   Estimate Std. Error z value Pr(>|z|)  
+	(Intercept)         -2.6830     1.9200  -1.397   0.1623  
+	locusWY48           -0.8572     2.0448  -0.419   0.6751  
+	locusWY68            0.9542     1.7666   0.540   0.5891  
+	primer_x             0.8682     2.1161   0.410   0.6816  
+	locusWY48:primer_x   4.5771     2.5779   1.776   0.0758 .
+	locusWY68:primer_x  -0.9302     2.0406  -0.456   0.6485  
 	---
 	Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-	(Dispersion parameter for binomial family taken to be 1)
 
-		Null deviance: 262.47  on 194  degrees of freedom
-	Residual deviance:  98.76  on 191  degrees of freedom
-	AIC: 106.76
-
-	Number of Fisher Scoring iterations: 7
-
-![](Rplot06.png)
-
-Fig 7. Visualization of `model`. Note that the "Estimates"  output by `summary(model)` can be derived from this plot. The site 'Estimates' in `summary(model)` are the y values for each site fit line where x = Mean Tot L. The intercept 'Estimate' is the mean of groups at x=0. Note that the y axis is on the logit scale, not probability of being male.
+![](Rplot07.png)
+Fig 8. Visualization of `model11`. Note that the "Estimates"  output by `summary(model)` can be derived from this plot. The site 'Estimates' in `summary(model)` are the y values for each site fit line where x = Mean Tot L. The intercept 'Estimate' is the mean of groups at x=0. Note that the y axis is on the logit scale, not probability of amplifcation success, but larger y values are related to increased amplification success..
 
 
 ---
