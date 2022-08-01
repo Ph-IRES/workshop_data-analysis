@@ -28,6 +28,7 @@ Fig 2. Heat maps of sample size (number of libraries) and proportion libraries a
 ![](Rplot02.png)
 Fig 3. Scatter plot of proportion amplified vs. number of libraries per well address. Numbers of loci are noted with color, and n individuals are noted with shape.
 
+
 ---
 
 ### fitdistrplus: An R Package for Fitting Distributions

@@ -243,9 +243,6 @@ grid.arrange(p_sampsize,
   labs(title = "Proportion Amplified vs Sample Size")
 
 
-# I'm noticing that the left skewed distribution of `weight_of_gonads_g` is quite different from the other metrics
-# it may have to be handled differently
-
 # visualize statistical distributions (see fitdistrplus: An R Package for Fitting Distributions, 2020)
 #  vis_dists() is a function that I made above in the FUNCTIONS section.  It accepts the tibble and column name to visualize.
 #  vis_dists() creates three figures
@@ -260,7 +257,7 @@ vis_dists(data,
           "weight_of_gonads_g")
 # results in error making third plot because some values are zero and some of the distibutions are incompatible with zeros in data
 vis_dists(data,
-          "female_male")
+          "amplification")
 
 
 
