@@ -300,7 +300,7 @@ data_1bandperloc_3 <-
   data_1bandperloc %>%
   left_join(data_locus_groups,
             by = "locus") %>%
-  filter(n_primer_x == 3) 
+  filter(n_primer_x == 3)
 
 data_1bandperloc_2 <-
   data_1bandperloc %>%
@@ -550,7 +550,7 @@ alpha_sig = 0.05
 # sampling_design3 = "amplification ~  locus * primer_x + (1|individual) + (1|plate_number) + (plate_number|plate_row:plate_column)"
 sampling_design3 = "amplification ~  locus * primer_x + (1|individual) + (1|plate_number) + (1|plate_row) + (1|plate_column)"
 
-sampling_design3 = "cbind(success,failure) ~  locus * primer_x + (1|individual) + (1|plate_number) + (1|plate_row) + (1|plate_column)"
+# sampling_design3 = "cbind(success,failure) ~  locus * primer_x + (1|individual) + (1|plate_number) + (1|plate_row) + (1|plate_column)"
 # sampling_design3 = "amplification ~  locus * primer_x + (1|individual) + (1|plate_number)"
 # sampling_design3 = "amplification ~  locus * primer_x + (1|individual) "
 # sampling_design3 = "amplification ~  locus * primer_x * individual + (1|plate_number/plate_row:plate_column)"
@@ -605,12 +605,12 @@ emmip(model3,
 
 emmeans_model <<-
   emmeans(model3,
-          ~ primer_x + locus,
+          ~ primer_x * locus,
           alpha = alpha_sig)
 
 emmeans_model_min_max <<-
   emmeans(model3,
-          ~ primer_x + locus,
+          ~ primer_x * locus,
           alpha = alpha_sig,
           cov.reduce = range)
 
@@ -763,6 +763,255 @@ emmeans_ggpredict %>%
   geom_line() +
   #add in our observed values of female_male
   geom_jitter(data = data_1bandperloc_3,
+              aes(x = primer_x,
+                  y = amplification,
+                  color = locus),
+              size = 3,
+              inherit.aes = FALSE,
+              width = 0.025,
+              height = 0.025) +
+  theme_myfigs
+
+
+
+
+
+#### 2 primer_x concentrations: Mixed Effects Hypothesis Test####
+
+#Here we use the visayan deer data set to demonstrate a mxed model with both fixed and randome factor.scope(
+
+## Enter Information About Your Data for A Hypothesis Test ##
+
+# define your response variable, here it is binomial
+response_var = quo(amplification) # quo() allows column names to be put into variables 
+
+# enter the distribution family for your response variable
+distribution_family = "binomial"
+
+
+alpha_sig = 0.05
+
+# we start with the loci subjected to 11 primer concentrations (we removed loci with no amplification to simplify)
+
+# sampling_design2 = "amplification ~  locus * primer_x + (1|individual) + (1|plate_number/plate_row:plate_column)"
+# sampling_design2 = "amplification ~  locus * primer_x + (1|individual) + (1|plate_number) + (plate_number|plate_row:plate_column)"
+sampling_design2 = "amplification ~  locus * primer_x + (1|individual) + (1|plate_number) + (1|plate_row) + (1|plate_column)"
+
+# sampling_design2 = "cbind(success,failure) ~  locus * primer_x + (1|individual) + (1|plate_number) + (1|plate_row) + (1|plate_column)"
+# sampling_design2 = "amplification ~  locus * primer_x + (1|individual) + (1|plate_number)"
+# sampling_design2 = "amplification ~  locus * primer_x + (1|individual) "
+# sampling_design2 = "amplification ~  locus * primer_x * individual + (1|plate_number/plate_row:plate_column)"
+
+model2 <-
+  glmer(formula = sampling_design2, 
+        family = distribution_family,
+        data = data_1bandperloc_2)
+
+model2
+anova(model2)
+summary(model2)
+
+# # fit mixed model
+# model2 <<-
+#   afex::mixed(formula = sampling_design2,
+#               family = distribution_family,
+#               method = "LRT",
+#               sig_symbols = rep("", 4),
+#               # all_fit = TRUE,
+#               data = data_1bandperloc_2)
+# 
+# model2
+# #plot
+# try(
+#   afex_plot(model2,
+#             "locus") +
+#     theme(axis.text.x = element_text(angle=90))
+# )
+
+# visualize summary(model)
+emmip(model2, 
+      locus ~ primer_x,    # type = "response" for back transformed values
+      cov.reduce = range) +
+  geom_vline(xintercept=mean(data_1bandperloc_2$primer_x),
+             color = "grey",
+             linetype = "dashed") +
+  geom_text(aes(x = mean(data_1bandperloc_2$primer_x),
+                y = -2,
+                label = "mean primer_x"),
+            color = "grey") +
+  theme_myfigs +
+  labs(title = "Visualization of `summary(model2)`",
+       subtitle = "",
+       y = "Linear Prediciton",
+       x = "Primer Concentration X")
+
+#### 2 primer_x concentrations: Conduct A priori contrast tests for differences among sites  ####
+
+# now we move on to finish the hypothesis testing.  Are there differences between the sites?
+# estimated marginal means 
+
+emmeans_model <<-
+  emmeans(model2,
+          ~ primer_x * locus,
+          alpha = alpha_sig)
+
+emmeans_model_min_max <<-
+  emmeans(model2,
+          ~ primer_x * locus,
+          alpha = alpha_sig,
+          cov.reduce = range)
+
+# emmeans back transformed to the original units of response var
+summary(emmeans_model,      
+        type="response")
+
+summary(emmeans_model_min_max,      
+        type="response")
+
+# contrasts between sites
+contrast(regrid(emmeans_model_min_max), # emmeans back transformed to the original units of response var
+         method = 'pairwise', 
+         simple = 'each', 
+         combine = FALSE, 
+         adjust = "bh")
+
+
+#### 2 primer_x concentrations: Group Sites Based on Model Results ####
+
+groupings_model <<-
+  multcomp::cld(emmeans_model_min_max, 
+                alpha = alpha_sig,
+                Letters = letters,
+                type="response",
+                adjust = "bh") %>%
+  as.data.frame %>%
+  mutate(group = str_remove_all(.group," "),
+         group = str_replace_all(group,
+                                 "(.)(.)",
+                                 "\\1,\\2")) %>%
+  rename(response = 2)
+
+groupings_model             # these values are back transformed, groupings based on transformed
+
+
+# i noticed that the emmeans from groupings don't match those from emmeans so this is the table to use for making the figure
+# the emmeans means and conf intervals match those produced by afex_plot, so I think those are what we want
+groupings_model_fixed <<-
+  summary(emmeans_model_min_max,      # emmeans back transformed to the original units of response var
+          type="response") %>%
+  tibble() %>%
+  left_join(groupings_model %>%
+              rename(locus = response) %>%
+              rename(response = prob) %>%
+              dplyr::select(-response:-asymp.UCL),
+            # by = c(str_replace(fixed_vars,
+            #                    "[\\+\\*]",
+            #                    '" , "'))) %>%
+            by = c("primer_x",
+                   "locus")) %>%
+  rename(response = 3)
+
+groupings_model_fixed       # cld messes up back transformation, this takes values from emmeans and groupings from cld
+
+#### 2 primer_x concentrations: Visualize Estimated Marginal Means Output With Group Categories ####
+
+p <- 
+  groupings_model_fixed %>%
+  ggplot(aes(x=factor(primer_x),
+             y=response,
+             fill = locus)) +
+  geom_col(position = "dodge",
+           color = "black") +
+  # scale_fill_manual(values = c("lightgrey",
+  #                              "white"),
+  #                   labels = c('Pre-Screen', 
+  #                              'Post-Screen')) +
+  # geom_point(data = data,
+  #            aes(x = location,
+  #                y = !!response_var,
+  #                color = location
+  #            ),
+  #            position = position_dodge(width = 0.9),
+  #            # color = "grey70",
+#            # shape = 1,
+#            size = 1)
+geom_errorbar(aes(ymin=asymp.LCL,
+                  ymax=asymp.UCL),
+              width = 0.2,
+              color = "grey50",
+              # size = 1,
+              position = position_dodge(width=0.9)) +
+  guides(color = "none",
+         shape = "none") +   #remove color legend
+  geom_text(aes(label=group),
+            position = position_dodge(width=0.9),
+            vjust = -0.5,
+            hjust = -0.15,
+            size = 8 / (14/5)) +  # https://stackoverflow.com/questions/25061822/ggplot-geom-text-font-size-control
+  theme_myfigs +
+  # ylim(ymin, 
+  #      ymax) +
+  labs(x = "Primer Concentration (X)",
+       y = "Probability of Amplification Success") +
+  theme(legend.position=c(0.33,0.8),  
+        legend.title=element_blank()) +
+  facet_grid(. ~ locus)
+
+p
+
+
+#### 2 primer_x concentrations: Visualize Fixed Effect Model Fit (Response Var vs Continuous X Var by Group) ####
+
+# this generates a tibble with the model predictions that can be plotted
+# however, it does not do a good job of showing us where the model is extrapolating 
+emmeans_ggpredict <- 
+  ggemmeans(model2,
+            terms = c("primer_x [all]",
+                      "locus")) 
+# compatible with ggplot
+# shows models, but extrapolates beyond observations
+plot(emmeans_ggpredict) +
+  #this is our custom plot theme defined in USER DEFINED VARIABLES
+  theme_myfigs
+
+ggplot(emmeans_ggpredict,
+       aes(y=predicted,
+           x=x,
+           color = group)) +
+  geom_line() +
+  theme_myfigs
+
+# the next several blocks of code will only show us predictions within the ranges of observation by location
+
+# this way uses ggpredict, which has some nice features
+#make a tibble that has the max and min continuous xvar for each categorical xvar
+min_max_xvar <-  
+  data_1bandperloc_2 %>%
+  rename(x = primer_x,
+         group = locus) %>%
+  group_by(group) %>%
+  filter(x == max(x) |
+           x == min(x)) %>%
+  dplyr::select(group,
+                x) %>%
+  arrange(group,
+          x) %>%
+  distinct() %>%
+  mutate(min_max = case_when(row_number() %% 2 == 0 ~ "max_x",
+                             TRUE ~ "min_x")) %>%
+  pivot_wider(names_from = min_max,
+              values_from = x)
+# then use that tibble to filter the object made by ggpredict and plot
+emmeans_ggpredict %>%
+  left_join(min_max_xvar) %>% 
+  filter(x >= min_x,
+         x <= max_x) %>% 
+  ggplot(aes(y=predicted,
+             x=x,
+             color = group)) +
+  geom_line() +
+  #add in our observed values of female_male
+  geom_jitter(data = data_1bandperloc_2,
               aes(x = primer_x,
                   y = amplification,
                   color = locus),

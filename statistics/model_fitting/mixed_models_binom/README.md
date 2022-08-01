@@ -454,6 +454,37 @@ Fig 13. This is the overall model fit as of now. The CI ribbons are not shown fo
 It appears that decreasing the primer concentration below 0.6x will likely lead to improvement in the amplification of WY34, 46, 62, and maybe 56.
 
 
+---
+
+## Loci Tested at 2 Primer Concentrations
+
+We are going to boil this down to just the results that matter.
+
+Fit seems ok. 
+
+One of the contrasts are significant.
+
+```
+locus = WY45:
+ contrast                estimate    SE  df z.ratio p.value
+ primer_x0.6 - primer_x1     -0.1 0.221 Inf  -0.452  0.6515
+
+locus = WY59:
+ contrast                estimate    SE  df z.ratio p.value
+ primer_x0.6 - primer_x1     -0.4 0.200 Inf  -2.000  0.0455
+
+locus = WY64:
+ contrast                estimate    SE  df z.ratio p.value
+ primer_x0.6 - primer_x1     -0.1 0.170 Inf  -0.587  0.5571
+
+P value adjustment: BH method for 3 tests 
+```
+
+![](Rplot13.png)
+Fig 14. Estimated marginal means for amplification success at primer concentrations of 0.6 and 1x.  
+
+
+It appears that increasing the primer concentration above 1x will likely lead to improvement in the amplification of WY59.
 
 
 
