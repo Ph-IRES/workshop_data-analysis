@@ -343,6 +343,7 @@ emmeans_ggpredict <-
                     x) %>%
       arrange(group,
               x) %>%
+      distinct() %>%
       mutate(min_max = case_when(row_number() %% 2 == 0 ~ "max_x",
                                  TRUE ~ "min_x")) %>%
       pivot_wider(names_from = min_max,

@@ -456,7 +456,7 @@ p <-
   theme_myfigs +
   # ylim(ymin, 
   #      ymax) +
-  labs(x = "Primer Concentration (x)",
+  labs(x = "Primer Concentration (X)",
        y = "Probability of Amplification Success") +
   theme(legend.position=c(0.33,0.8),  
         legend.title=element_blank()) +
@@ -470,9 +470,9 @@ p
 # this generates a tibble with the model predictions that can be plotted
 # however, it does not do a good job of showing us where the model is extrapolating 
 emmeans_ggpredict <- 
-  ggemmeans(model,
-            terms = c("total_length_mm [all]",
-                      "location")) 
+  ggemmeans(model11,
+            terms = c("primer_x [all]",
+                      "locus")) 
 # compatible with ggplot
 # shows models, but extrapolates beyond observations
 plot(emmeans_ggpredict) +
@@ -485,9 +485,9 @@ plot(emmeans_ggpredict) +
 # this way uses ggpredict, which has some nice features
 #make a tibble that has the max and min continuous xvar for each categorical xvar
 min_max_xvar <-  
-  data %>%
-  rename(x = total_length_mm,
-         group = location) %>%
+  data_1bandperloc_11 %>%
+  rename(x = primer_x,
+         group = locus) %>%
   group_by(group) %>%
   filter(x == max(x) |
            x == min(x)) %>%
@@ -495,6 +495,7 @@ min_max_xvar <-
                 x) %>%
   arrange(group,
           x) %>%
+  distinct() %>%
   mutate(min_max = case_when(row_number() %% 2 == 0 ~ "max_x",
                              TRUE ~ "min_x")) %>%
   pivot_wider(names_from = min_max,
@@ -506,14 +507,14 @@ emmeans_ggpredict %>%
          x <= max_x) %>% 
   plot() +
   #add in our observed values of female_male
-  geom_jitter(data = data,
-              aes(x = total_length_mm,
-                  y = female_male,
-                  color = location),
+  geom_jitter(data = data_1bandperloc_11,
+              aes(x = primer_x,
+                  y = amplification,
+                  color = locus),
               size = 3,
               inherit.aes = FALSE,
-              width = 0,
-              height = 0.02) +
+              width = 0.025,
+              height = 0.025) +
   theme_myfigs
 
 

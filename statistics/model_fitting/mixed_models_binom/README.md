@@ -277,67 +277,68 @@ Fig 9. Estimated marginal means for the probability that 116mm fish are male at 
 
 --
 
-## Visualize Model Predictions (Probability of being Male vs Total Length) with `ggeffects::ggemmeans`
+## Visualize Model Predictions (Probability of Amplificaiton vs Primer Concentration) with `ggeffects::ggemmeans`
 
-We have tested our hypothesis, but the tables and figures above are not completely satisfying. What about the probability of fish being male at lengths other than the mean?  We would like to show the model output in the same format as Fig 6 above.  Well, we can calculate the estimated marginal means and confidence limits for many values of `total_length_mm` and generate a plot very easily with `ggemmeans`. By setting `terms = "total_length_mm [all]"` many values of total length will be evaluated from the min to the max observed values.
+We have tested our hypothesis, but the tables and figures above are not completely satisfying. What about the probability of fish being male at lengths other than the mean?  We would like to show the model output in the same format as Fig 7 above.  Well, we can calculate the estimated marginal means and confidence limits for many values of `amplification` and generate a plot very easily with `ggemmeans`. By setting `terms = "amplification [all]"` many values of total length will be evaluated from the min to the max observed values.
 
 ```r
 emmeans_ggpredict <- 
-  ggemmeans(model,
-            terms = c("total_length_mm [all]",
-                      "location")) 
-  # compatible with ggplot
-  # shows models, but extrapolates beyond observations
-  plot(emmeans_ggpredict) +
-    #this is our custom plot theme defined in USER DEFINED VARIABLES
-    theme_myfigs
+  ggemmeans(model11,
+            terms = c("primer_x [all]",
+                      "locus")) 
+# compatible with ggplot
+# shows models, but might extrapolate beyond observations
+plot(emmeans_ggpredict) +
+  #this is our custom plot theme defined in USER DEFINED VARIABLES
+  theme_myfigs
 ```
 
-![](Rplot08.png)
-Fig 9. Plots of fish sex (F=0, M=1) against total length.  Fit lines are based on the glm (female_male ~ total_length_mm + location). 
+![](Rplot09.png)
+Fig 10. Plots of amplification success against primer concentration.  Fit lines are based on the glmer (amplification ~  locus * primer_x + (1|individual) + (1|plate_number) + (1|plate_row) + (1|plate_column)). 
 
-This plot (Fig 9) is pretty good, but it contains extrapolations and does not accurately reflect the data.  We can make this better by filtering the tibble created by `ggemmeans` down to those between the min and max length for each location and adding the original data to the plot using `geom_jitter()`.  In the example below, we use `ggpredict` to bring your attention to its existence, but in this case it is interchangable with `ggemmeans`.
+This plot (Fig 9) is pretty good, but it might contain extrapolations and does not have the data.  We can make this better by filtering the tibble created by `ggemmeans` down to those between the min and max length for each location and adding the original data to the plot using `geom_jitter()`.  In the example below, we use `ggpredict` to bring your attention to its existence, but in this case it is interchangable with `ggemmeans`.
 
 ```r
 #make a tibble that has the max and min continuous xvar for each categorical xvar
 min_max_xvar <-  
-data %>%
-  rename(x = total_length_mm,
-		 group = location) %>%
+  data_1bandperloc_11 %>%
+  rename(x = primer_x,
+         group = locus) %>%
   group_by(group) %>%
   filter(x == max(x) |
-		   x == min(x)) %>%
+           x == min(x)) %>%
   dplyr::select(group,
-				x) %>%
+                x) %>%
   arrange(group,
-		  x) %>%
+          x) %>%
+  distinct() %>%
   mutate(min_max = case_when(row_number() %% 2 == 0 ~ "max_x",
-							 TRUE ~ "min_x")) %>%
+                             TRUE ~ "min_x")) %>%
   pivot_wider(names_from = min_max,
-			  values_from = x)
+              values_from = x)
 # then use that tibble to filter the object made by ggpredict and plot
 emmeans_ggpredict %>%
-left_join(min_max_xvar) %>% 
-filter(x >= min_x,
-	   x <= max_x) %>% 
-plot() +
-#add in our observed values of female_male
-geom_jitter(data = data,
-		   aes(x = total_length_mm,
-			   y = female_male,
-			   color = location),
-		   size = 3,
-		   inherit.aes = FALSE,
-		   width = 0,
-		   height = 0.02) +
-theme_myfigs
+  left_join(min_max_xvar) %>% 
+  filter(x >= min_x,
+         x <= max_x) %>% 
+  plot() +
+  #add in our observed values of female_male
+  geom_jitter(data = data_1bandperloc_11,
+              aes(x = primer_x,
+                  y = amplification,
+                  color = locus),
+              size = 3,
+              inherit.aes = FALSE,
+              width = 0.025,
+              height = 0.025) +
+  theme_myfigs
 ```
 
-![](Rplot09.png)
-Fig 10. Plots of fish sex (F=0, M=1) against total length.  Fit lines are based on the glm (female_male ~ total_length_mm + location).  The points are the observed data with vertical jittering to better visualize multiple observations of the same length and sex.
+![](Rplot10.png)
+Fig 11. Plots of amplification success against primer concentration.  Fit lines are based on the glmer (amplification ~  locus * primer_x + (1|individual) + (1|plate_number) + (1|plate_row) + (1|plate_column)).  The points are the observed data with vertical & horizontal jittering to better visualize multiple observations of the same primer_x and amplification success.
 
 
-This model, without interactions, does not allow the slopes to vary freely among sites, which might be desirable because there are different ranges of sizes at different sites. If we had a good sample of males and females at every site, then we would want to allow the slopes to vary freely. To see the alternative, change the model to `formula = female_male ~ total_length_mm * location`. 
+This model, does not capture all of the random effects caused by microplate positions, but it accounts for most of them. For our purposes, this model design is adequate and it changes very little if we add or remove random effects.
 
 ---
 
