@@ -12,7 +12,7 @@ Open [`mixed_models_bionom.R`](mixed_models_binom.R) in Rstudio and run the `INI
 
 NOTE: after loading these packages, you may find that tidyverse commands are affected. The solution is to add the appropriate package name before commands that break code such as `dplyr::select` if `select` doesn't work correctly anymore. This happens when multiple packages have the same command names. The last package loaded takes precidence, and your tidyverse commands break. You could load tidyverse last, but invariably, you will load a package after tidyverse that breaks one of its commands, so it's impossible to avoid this.
 
-We will use Ingrids data set on sex change in _Halichores scapularis_ which has been saved as an R data structure (RDS) file. 
+We will use Noelles data set on cross amplification of microsat loci in Visayan spotted deer which has been saved as an R data structure (RDS) file. 
 
 ---
 

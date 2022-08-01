@@ -43,7 +43,10 @@ library(ggforce)
 
 # path to fish sex change data set
 inFilePath2 = "./visayan_deer_3primer_microsat_amp_data.rds"
+functionPath = "../functions/model_fitting_functions.R"
 
+# you can make a default theme for your publication's figures.  This makes things easier for you. 
+# feel free to customize as necessary
 theme_myfigs <- 
   theme_classic() +
   theme(panel.background = element_rect(fill = 'white', 
@@ -56,7 +59,7 @@ theme_myfigs <-
                                    color = 'black'),
         axis.text.x = element_text(size = 9, 
                                    color = 'black'),
-        axis.title.x = element_blank(),
+        # axis.title.x = element_blank(),
         axis.title.y = element_text(size = 10, 
                                     color = 'black'),
         plot.title = element_text(size = 10, 
@@ -71,7 +74,9 @@ theme_myfigs <-
         legend.title = element_text(size = 9, 
                                     color = 'black'),
         legend.background = element_blank(),
-        legend.position="blank")
+        legend.position="right"
+  )
+
 
 
 #### READ IN DATA ####
@@ -91,93 +96,7 @@ data_1bandperloc <-
 
 #### FUNCTIONS ####
 # visualize statistical distributions (see fitdistrplus: An R Package for Fitting Distributions, 2020)
-vis_dists <- function(data,
-                      response_var){
-  
-  data %>%
-    pull(!!response_var) %>% 
-    # log() %>%
-    plotdist(.)
-  
-  data %>%
-    drop_na(!!response_var) %>%
-    pull(!!response_var) %>% 
-    # log() %>%
-    descdist(data=.,
-             boot=1000)
-  
-  fw <-
-    data %>%
-    drop_na(!!response_var) %>%
-    pull(!!response_var) %>% 
-    # log() %>%
-    try(fitdist(.,
-                "weibull"))
-  
-  fp <-
-    data %>%
-    drop_na(!!response_var) %>%
-    pull(!!response_var) %>% 
-    # log() %>%
-    fitdist(.,
-            "pois",
-            method="mme")
-  fnb <-
-    data %>%
-    drop_na(!!response_var) %>%
-    pull(!!response_var) %>% 
-    # log() %>%
-    fitdist(.,
-            "nbinom",
-            method="mme")
-  fg <-
-    data %>%
-    drop_na(!!response_var) %>%
-    pull(!!response_var) %>%
-    # log() %>%
-    fitdist(.,
-            "gamma",
-            method="mme")
-  fl <-
-    data %>%
-    drop_na(!!response_var) %>%
-    pull(!!response_var) %>% 
-    # log() %>%
-    fitdist(.,
-            "logis")
-  
-  fln <-
-    data %>%
-    drop_na(!!response_var) %>%
-    pull(!!response_var) %>% 
-    # log() %>%
-    try(fitdist(.,
-                "lnorm"))
-  fn <-
-    data %>%
-    drop_na(!!response_var) %>%
-    pull(!!response_var) %>% 
-    # log() %>%
-    fitdist(.,
-            "norm")
-  fge <-
-    data %>%
-    drop_na(!!response_var) %>%
-    pull(!!response_var) %>% 
-    # log() %>%
-    fitdist(.,
-            "geom",
-            method="mme")
-  
-  
-  par(mfrow = c(2, 2))
-  plot.legend <- c("Weibull","Poisson","NegBinom","Gamma", "Logis","lognormal", "Normal", "Geom")
-  try(denscomp(list(fw, fp, fg, fl, fln, fn, fge), legendtext = plot.legend))
-  try(qqcomp(list(fw, fp, fg, fl, fln, fn, fge), legendtext = plot.legend))
-  try(cdfcomp(list(fw, fp, fg, fl, fln, fn, fge), legendtext = plot.legend))
-  try(ppcomp(list(fw, fp, fg, fl, fln, fn, fge), legendtext = plot.legend))
-  
-}
+source(functionPath)
 
 #### Explore Your Data For the Hypothesis Tests ####
 
