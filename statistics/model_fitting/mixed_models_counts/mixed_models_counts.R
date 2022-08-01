@@ -356,7 +356,7 @@ alpha_sig = 0.05
 
 # we start with the loci subjected to 11 primer concentrations (we removed loci with no sum_max_n to simplify)
 
-sampling_design = "sum_max_n ~  habitat * study_locations "
+sampling_design = "sum_max_n ~  habitat * study_locations"
 
 # # fit mixed model
 model <<-

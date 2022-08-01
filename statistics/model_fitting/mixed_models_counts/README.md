@@ -1,6 +1,8 @@
-# TESTING HYPOTHESES WITH MIXED MODELS: COUNT DATA
+# TESTING HYPOTHESES WITH MIXED & FIXED MODELS: COUNT DATA
 
-Is there an effect of primer concentration on the probability of amplification success among loci? This is an example of running a mixed effects model with `glmer`.  The data has a binomial response variable, a categorical fixed effect, a continuous fixed effect, and nested random effects.
+One MPA, TRNP, has been established for decades.  The other, Cagayancillo, was just established when these data were collected.  Is there a difference in the abundance of large carnivorous fishes in shallow relative to deep mesophotic reefs.  It is hypothesized that deeper fish might have more of a refuge from fishermen, and so we might expect the abundance of shallow fish relative to deep to be less at the newer MPA.  One might also hypothesize that abundance would be greater at the older MPA.
+
+Baited videos were scored for the most indiviudals from each species that were visible in one frame - the max n.  Different stations received different bait fish, a confounding factor. 
 
 ---
 
@@ -41,7 +43,7 @@ Let us look at the statistical distribution for both the `max_n` values and the 
 Fig 4. Cullen and Frey Graph of kurtosis vs square of skewness for `max_n`. This shows you which statistical distribution the data most closely resembles.  Here, the data is best fit by the beta distribution.
 
 ![](Rplot04.png)
-Fig 5. Cullen and Frey Graph of kurtosis vs square of skewness for `max_n`. This shows you which statistical distribution the data most closely resembles.  Here, the data is best fit by the beta distribution but the bootstraps are much messier. It's probably best to stick to `max_n` as the unit of observation for the analysis.
+Fig 5. Cullen and Frey Graph of kurtosis vs square of skewness for `max_n`. This shows you which statistical distribution the data most closely resembles.  Here, the data is best fit by the beta distribution but the bootstraps are much messier. 
 
 ![](Rplot05.png)
 Fig 6. 4 additional plots that allow you to determine the distribution that most closely fits `amplification`
@@ -66,7 +68,7 @@ Here are some rules of thumb:
 
 ## Make Visualization of Hypothesis Test
 
-Here we will test for the effect of MPA and depth on the mean `max_n`.
+Here we will test for the effect of MPA and depth on the mean `mean_max_n`.
 
 ![](Rplot06.png)
 Fig 7. Plots of amplification success rate vs. primer concentration. Each point is a PCR library and is jittered by 0.025 both vertically and horizontally.  Fit lines are logistic.
