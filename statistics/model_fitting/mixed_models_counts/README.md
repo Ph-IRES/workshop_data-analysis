@@ -67,6 +67,7 @@ Here are some rules of thumb:
 Here we will test for the effect of MPA and depth on the mean `mean_max_n`.
 
 ![](Rplot05.png)
+
 Fig 6. Plots of mean_mean_max_n by MPA and depth category.  Error bars are standard error. Grey points are observations. It's pretty clear that the means and symmetrical error bars are not a great fit to the data.
 
 ---
