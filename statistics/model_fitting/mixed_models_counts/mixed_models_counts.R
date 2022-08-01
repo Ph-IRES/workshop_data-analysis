@@ -174,7 +174,16 @@ data_all %>%
                                "Mesophotic Reef")) +
   geom_errorbar(aes(ymax = mean_mean_max_n + se_mean_max_n,
                     ymin = mean_mean_max_n - se_mean_max_n), 
-                position = "dodge") 
+                position = "dodge") +
+  geom_point(data = data_all,
+             aes(x = study_locations,
+                 y = !!response_var,
+                 shape = habitat),
+             position=position_jitterdodge(),
+             size = 3,
+             color = "darkgrey",
+             inherit.aes = FALSE) +
+  scale_y_continuous(trans='log10')
 
 
 #### max_n: Mixed Effects Hypothesis Test ####
@@ -193,10 +202,10 @@ distribution_family = "poisson"
 alpha_sig = 0.05
 
 # we start with the loci subjected to 11 primer concentrations (we removed loci with no max_n to simplify)
-sampling_design = "max_n ~  habitat * study_locations + (1 | study_locations:op_code)"
-sampling_design = "max_n ~  habitat * study_locations + (1 | study_locations:op_code)"
 sampling_design = "max_n ~  habitat * study_locations + (1 | study_locations:bait_type) + (1|study_locations:bait_type:op_code)"
-sampling_design = "max_n ~  habitat * study_locations + (1|study_locations:bait_type:op_code) "
+sampling_design2 = "max_n ~  habitat * study_locations + (1 | study_locations:bait_type)"
+sampling_design3 = "max_n ~  habitat * study_locations + (1 | study_locations:op_code)"
+sampling_design4 = "max_n ~  habitat * study_locations + (1|study_locations:bait_type:op_code) "
 
 # # fit mixed model
 model <<-
@@ -207,7 +216,30 @@ model <<-
               # all_fit = TRUE,
               data = data_all)
 
+model2 <<-
+  afex::mixed(formula = sampling_design2,
+              family = distribution_family,
+              method = "LRT",
+              sig_symbols = rep("", 4),
+              # all_fit = TRUE,
+              data = data_all)
+
+model3 <<-
+  afex::mixed(formula = sampling_design3,
+              family = distribution_family,
+              method = "LRT",
+              sig_symbols = rep("", 4),
+              # all_fit = TRUE,
+              data = data_all)
+
+# show
 model
+model2
+model3
+
+
+
+
 anova(model)
 summary(model)
 
@@ -859,16 +891,8 @@ p <-
   #                              "white"),
   #                   labels = c('Pre-Screen', 
   #                              'Post-Screen')) +
-  # geom_point(data = data,
-  #            aes(x = location,
-  #                y = !!response_var,
-  #                color = location
-  #            ),
-  #            position = position_dodge(width = 0.9),
-  #            # color = "grey70",
-#            # shape = 1,
-#            size = 1)
-geom_errorbar(aes(ymin=asymp.LCL,
+
+  geom_errorbar(aes(ymin=asymp.LCL,
                   ymax=asymp.UCL),
               width = 0.2,
               color = "grey50",
@@ -883,12 +907,13 @@ geom_errorbar(aes(ymin=asymp.LCL,
             size = 8 / (14/5)) +  # https://stackoverflow.com/questions/25061822/ggplot-geom-text-font-size-control
   geom_point(data = data_all_summaxn,
               aes(x = study_locations,
-                  y = sum_max_n,
+                  y = !!response_var,
                   shape = habitat),
               position=position_jitterdodge(),
               size = 3,
               color = "darkgrey",
               inherit.aes = FALSE) +
+  scale_y_continuous(trans='log10') +
   theme_myfigs +
   # ylim(ymin, 
   #      ymax) +

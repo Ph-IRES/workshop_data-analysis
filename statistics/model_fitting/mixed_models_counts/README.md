@@ -59,6 +59,10 @@ Here are some rules of thumb:
 * Gamma
 	* if your response variable is continuous and is not pct or bounded by zero and one, this is a good place to start
 
+* Zero and 1 inflated models
+	* if there are many zeros and or ones, a special zero or one inflated model may be the best bet
+
+
 ---
 
 
@@ -75,48 +79,136 @@ Fig 6. Plots of mean_mean_max_n by MPA and depth category.  Error bars are stand
 
 ## [Generalized Linear Mixed Effects Hypothesis Test](https://en.wikipedia.org/wiki/Generalized_linear_mixed_model)
 
-Here we test for differences in the mean_mean_max_n among MPA and depths.
+Here we test for differences in the mean_mean_max_n among MPA and depths. We explore the full model (`sampling_design`) and two reduced models.  See [R stats Model Formulae](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/formula.html) for review of syntax to construct formulas.
 
 ```r
-model11 <-
-  glmer(formula = sampling_design11, 
-        family = distribution_family,
-        data = data_1bandperloc_11)
+# we start with the full model, then reduce complexity
+sampling_design = "max_n ~  habitat * study_locations + (1 | study_locations:bait_type) + (1|study_locations:bait_type:op_code)"
+sampling_design2 = "max_n ~  habitat * study_locations + (1 | study_locations:bait_type)"
+sampling_design3 = "max_n ~  habitat * study_locations + (1 | study_locations:op_code)"
+sampling_design4 = "max_n ~  habitat * study_locations + (1|study_locations:bait_type:op_code) "
+
+# # fit mixed model
+model <<-
+  afex::mixed(formula = sampling_design,
+              family = distribution_family,
+              method = "LRT",
+              sig_symbols = rep("", 4),
+              # all_fit = TRUE,
+              data = data_all)
+
+model2 <<-
+  afex::mixed(formula = sampling_design2,
+              family = distribution_family,
+              method = "LRT",
+              sig_symbols = rep("", 4),
+              # all_fit = TRUE,
+              data = data_all)
+
+model3 <<-
+  afex::mixed(formula = sampling_design3,
+              family = distribution_family,
+              method = "LRT",
+              sig_symbols = rep("", 4),
+              # all_fit = TRUE,
+              data = data_all)
+
+model4 <<-
+  afex::mixed(formula = sampling_design4,
+              family = distribution_family,
+              method = "LRT",
+              sig_symbols = rep("", 4),
+              # all_fit = TRUE,
+              data = data_all)
+
+# show
+model
+model2
+model3
+model4
+
 ```
 
-	Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
-	 Family: binomial  ( logit )
-	Formula: amplification ~ locus * primer_x + (1 | individual) + (1 | plate_number) +      (1 | plate_row) + (1 | plate_column)
-	   Data: data_1bandperloc_11
-		 AIC      BIC   logLik deviance df.resid 
-	 125.402  153.277  -52.701  105.402      110 
-	Random effects:
-	 Groups       Name        Std.Dev. 
-	 plate_column (Intercept) 0.0004559
-	 individual   (Intercept) 0.1769521
-	 plate_row    (Intercept) 0.0003342
-	 plate_number (Intercept) 1.0106441
-	Number of obs: 120, groups:  plate_column, 11; individual, 10; plate_row, 8; plate_number, 5
-	Fixed Effects:
-		   (Intercept)           locusWY48           locusWY68            primer_x  locusWY48:primer_x  locusWY68:primer_x  
-			   -2.6830             -0.8572              0.9542              0.8682              4.5771             -0.9302  
+The random effects defined in the full model `(1 | study_locations:bait_type) + (1|study_locations:bait_type:op_code)` are too complex given the `boundary (singular)` warnings.  We should consider a reduced model.
 
-What we are really interested in is whether the primer concentration is affecting amplification success. We can look at a visualization of the model fit to get a better look.
+	> model
+	Mixed Model Anova Table (Type 3 tests, LRT-method)
+
+	Model: max_n ~ habitat * study_locations + (1 | study_locations:bait_type) + 
+	Model:     (1 | study_locations:bait_type:op_code)
+	Data: data_all
+	Df full model: 6
+					   Effect df Chisq p.value
+	1                 habitat  1  0.10    .755
+	2         study_locations  1  3.64    .056
+	3 habitat:study_locations  1  1.98    .160
+	Warning messages:
+	1: lme4 reported (at least) the following warnings for 'full':
+	  * boundary (singular) fit: see help('isSingular') 
+	2: lme4 reported (at least) the following warnings for 'habitat':
+	  * boundary (singular) fit: see help('isSingular') 
+	3: lme4 reported (at least) the following warnings for 'study_locations':
+	  * boundary (singular) fit: see help('isSingular') 
+	4: lme4 reported (at least) the following warnings for 'habitat:study_locations':
+	  * boundary (singular) fit: see help('isSingular') 
+
+In the second model, we ignore the video in which the data was collected, and group observations of `max_n` by bait type.  This is probably not a great idea given that max_n is defined, in part, by the video (`op_code`). Also notice that the p values are different.
+
+	> model2
+	Mixed Model Anova Table (Type 3 tests, LRT-method)
+
+	Model: max_n ~ habitat * study_locations + (1 | study_locations:bait_type)
+	Data: data_all
+	Df full model: 5
+					   Effect df Chisq p.value
+	1                 habitat  1  0.31    .578
+	2         study_locations  1  4.14    .042
+	3 habitat:study_locations  1 13.64   <.001
+
+In the third model, we retain the video id (`op_code`) but we ignore the confounding factor of bait type.
+
+	> model3
+	Mixed Model Anova Table (Type 3 tests, LRT-method)
+
+	Model: max_n ~ habitat * study_locations + (1 | study_locations:op_code)
+	Data: data_all
+	Df full model: 5
+					   Effect df Chisq p.value
+	1                 habitat  1  0.10    .755
+	2         study_locations  1  3.64    .056
+	3 habitat:study_locations  1  1.98    .160
+
+In the 4th model, we retain the video id (`op_code`) nested within bait type. This seems like the best compromise if we are not to stick with the full model.
+
+	> model4
+	Mixed Model Anova Table (Type 3 tests, LRT-method)
+
+	Model: max_n ~ habitat * study_locations + (1 | study_locations:bait_type:op_code)
+	Data: data_all
+	Df full model: 5
+					   Effect df Chisq p.value
+	1                 habitat  1  0.10    .755
+	2         study_locations  1  3.64    .056
+	3 habitat:study_locations  1  1.98    .160
+
+
+Note that we make the variable `model` equal to `model4` in the r script, as we move forward from here.
 
 ```r
-summary(model11)
+anova(model)
 ```
 
 The summary output identifies a potential difference with WY48 (p = 0.0758), which seems to have increasing amplification success with primer concentration.  This is a great example of 0.05 not being a magic number.  It seems very likely that increasing primer concentration will positively affect locus WY48, and there is only a 7.6% probability of it not. 
 
-	Fixed effects:
-					   Estimate Std. Error z value Pr(>|z|)  
-	(Intercept)         -2.6830     1.9200  -1.397   0.1623  
-	locusWY48           -0.8572     2.0448  -0.419   0.6751  
-	locusWY68            0.9542     1.7666   0.540   0.5891  
-	primer_x             0.8682     2.1161   0.410   0.6816  
-	locusWY48:primer_x   4.5771     2.5779   1.776   0.0758 .
-	locusWY68:primer_x  -0.9302     2.0406  -0.456   0.6485  
+	Mixed Model Anova Table (Type 3 tests, LRT-method)
+
+	Model: max_n ~ habitat * study_locations + (1 | study_locations:bait_type:op_code)
+	Data: data_all
+	Df full model: 5
+							Df  Chisq Chi Df Pr(>Chisq)  
+	habitat                  4 0.0973      1    0.75510  
+	study_locations          4 3.6428      1    0.05631 .
+	habitat:study_locations  4 1.9786      1    0.15954  
 	---
 	Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
