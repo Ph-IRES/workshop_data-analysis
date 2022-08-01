@@ -23,7 +23,7 @@ Is there an effect of primer concentration on the probability of amplification s
 
 ![](mixed_models_binom/Rplot08.png)
 
-## [Mixed Models: Count Data](mixed_models_counts/mixed_models_counts.R)
+## [Mixed Models: Count Data](mixed_models_counts)
 
 One MPA, TRNP, has been established for decades.  The other, Cagayancillo, was just established when these data were collected.  Is there a difference in the abundance of large carnivorous fishes in shallow relative to deep mesophotic reefs?  It is hypothesized that deeper fish might have more of a refuge from fishermen, and so we might expect the abundance of shallow fish relative to deep to be less at the newer MPA.  One might also hypothesize that abundance would be greater at the older MPA.
 

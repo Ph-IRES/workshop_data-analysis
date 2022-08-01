@@ -26,8 +26,6 @@ Fig 1. Histograms of the maximum number of fish from the same species  per video
 
 ![](Rplot01.png)
 Fig 2. Histograms of the sum of maximum number of fish from the same species per video visible within one frame by MPA and depth.
-
-
 ![](Rplot02.png)
 Fig 3. Barplot showing the sum of maximum number of fish from the same species per video visible within one frame.
 
@@ -61,8 +59,8 @@ Here are some rules of thumb:
 * Gamma
 	* if your response variable is continuous and is not pct or bounded by zero and one, this is a good place to start
 
-
 ---
+
 
 ## Make Visualization of Hypothesis Test
 
@@ -72,6 +70,7 @@ Here we will test for the effect of MPA and depth on the mean `mean_max_n`.
 Fig 6. Plots of mean_mean_max_n by MPA and depth category.  Error bars are standard error.
 
 ---
+
 
 ## [Generalized Linear Mixed Effects Hypothesis Test](https://en.wikipedia.org/wiki/Generalized_linear_mixed_model)
 

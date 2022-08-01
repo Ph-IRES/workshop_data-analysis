@@ -51,10 +51,14 @@ Fig 5. 4 additional plots that allow you to determine the distribution that most
 
 It is especially important to identify the correct statistical distribution for your **response variable**, so the plots above can be used to help with identifying the correct distribution family for that.
 
-Here the rule of thumb is:
+Here are some rules of thumb:
 * Binomial
 	* if your unit of observation falls into one of two categories, such as Male or Female, then your data is binomial
 	* percentage and proportion data that can be converted to count data is binomial
+* Poisson
+	* if your resposne variable is counts, this is a good place to start
+* Gamma
+	* if your response variable is continuous and is not pct or bounded by zero and one, this is a good place to start
 
 
 ---
