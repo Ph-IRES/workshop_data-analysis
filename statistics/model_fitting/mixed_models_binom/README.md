@@ -136,6 +136,12 @@ emmeans_model <<-
   emmeans(model11,
           ~ primer_x + locus,
           alpha = alpha_sig)
+
+emmeans_model_min_max <<-
+  emmeans(model11,
+        ~ primer_x + locus,
+        alpha = alpha_sig,
+        cov.reduce = range)
 ```
 
 Again, we can use `summary()` to view the estimated marginal means.  Note that we set `type="response"` so that the units will be in terms of our response variable, the probability of amplifcation success (0-1). The estimated marginal means are returned for the mean primer concentration observed in the whole data set, 0.85x. The `prob` column is the prob of amplifcation success.  The LCL is the lower confidence limit and the UCL is the upper confidence limit of the probability of amplification success.
