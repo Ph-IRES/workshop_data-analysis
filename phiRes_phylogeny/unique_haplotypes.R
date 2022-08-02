@@ -21,7 +21,7 @@ haps<-haplotype(alignment, indels="5th")
 
 #some file format contortions...
 haps.dna <- as.dna(haps)
-haps.dnabin <- as.DNAbin(haps.dna)
+haps.dnabin <- haplotypes::as.DNAbin(haps.dna)
 
 #and using ape::write.dna for the output file
 write.dna(haps.dnabin, file = 'haplotypes.fasta', format = 'fasta' )
