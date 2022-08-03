@@ -35,7 +35,7 @@ knitr::opts_knit$set(root.dir = "~/Desktop/phiRes_workshop/workshop_data-analysi
 ```
 ```{r file read}
 
-filelist<-list.files("Dog/CO1/fasta_files", pattern = "fasta", full.names= TRUE)
+filelist<-list.files("Kohama", pattern = "fasta", full.names= TRUE)
 seq<-Biostrings::readDNAStringSet(filelist)
 seq<-RNA2DNA(seq)
 

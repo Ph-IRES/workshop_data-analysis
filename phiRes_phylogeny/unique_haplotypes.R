@@ -13,7 +13,7 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 #reads in data.  
 
-alignment<-haplotypes::read.fas(file="B_tumba_alignment.fasta")
+alignment<-haplotypes::read.fas(file="DG_CO1_align.fasta")
 
 #generates haplotype files#
 #selection of indel treatment is rather important here.  Most predictable is to set them as a 5th character state
@@ -24,5 +24,5 @@ haps.dna <- as.dna(haps)
 haps.dnabin <- haplotypes::as.DNAbin(haps.dna)
 
 #and using ape::write.dna for the output file
-write.dna(haps.dnabin, file = 'haplotypes.fasta', format = 'fasta' )
+write.dna(haps.dnabin, file = 'CO1_uniques_haplotypes.fasta', format = 'fasta' )
 
