@@ -29,7 +29,7 @@ library(tidyverse)
 library(seqinr)
 library(Biostrings)
 library(microRNA)
-
+#
 #This will need to be set to your working directory
 knitr::opts_knit$set(root.dir = "~/Desktop/phiRes_workshop/workshop_data-analysis/phiRes_phylogeny")
 ```
