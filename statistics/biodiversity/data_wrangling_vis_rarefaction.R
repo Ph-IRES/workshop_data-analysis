@@ -1,11 +1,16 @@
 #### INITIALIZATION ####
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
+library(Smisc) #this package affects tidyverse
+library(Rmisc) # this package affects tidyverse
+library(boot)
 library(tidyverse)
 library(janitor)
 
 # install.packages("vegan")
 library(vegan)
+#devtools::install_github("pnnl/Smisc")
+
 
 #### USER DEFINED VARIABLES ####
 
@@ -378,10 +383,104 @@ sapply(mods$models, AIC)
 # abundance based richness rarefaction curve
   # creates 1 curve per data frame, so if you want multiple curves, have to make them separately then combine into 1 tibble to plot
   # increase permutations to 999 if you use this for your project
-p<-estaccumR(data_vegan, permutations = 50)
-p.plot<-plot(p, display = c("chao","ace"))
+  # chao is an estimate of the lower bound of the true species richness for count data
+  # ace is for coverage data (pct cvg)
+p <- estaccumR(data_vegan, permutations = 50)
+p.plot <- plot(p, display = c("chao","ace"))
 p.plot
+
 # to make plot w ggplot, see https://stackoverflow.com/questions/52652195/convert-rarefaction-plots-from-vegan-to-ggplot2-in-r
+
+# prepare for ggplot
+data_estaccumR_plot <-
+  p$chao %>%
+  # t() %>%
+  as_tibble() %>%
+  dplyr::mutate(N = row_number()) %>%
+  pivot_longer(cols = starts_with("V"),
+               names_to = "permutation") %>%
+  group_by(N) %>%
+  dplyr::summarize(chao_mean = mean(value),
+                   chao_ci_lower = quantile(value,
+                                            probs = 0.025),
+                   chao_ci_upper = quantile(value,
+                                            probs = 0.975))
+
+data_estaccumR_plot
+
+data_estaccumR_plot %>%
+  ggplot(aes(x=N,
+             y=chao_mean)) +
+  geom_ribbon(aes(ymin=chao_ci_lower,
+                  ymax=chao_ci_upper),
+              fill = "grey") +
+  geom_line() +
+  theme_classic()
+
+#### vegan::estaccumR Extrapolated Species Richness Curve in a Species Pool Based on Abundance, Multiple Curves ####
+
+# we have to use some data wrangling skills to run estaccumR for each category in the data set
+
+# first we make a function from the code above to convert the output of estaccumR to a tibble with mean and confidence limits
+estaccumR_plot <- 
+  function(data_chao,
+           category_id){
+    
+  data_chao %>%
+  as_tibble() %>%
+  dplyr::mutate(N = row_number()) %>%
+  pivot_longer(cols = starts_with("V"),
+               names_to = "permutation") %>%
+  group_by(N) %>%
+  dplyr::summarize(chao_mean = mean(value),
+                   chao_ci_lower = quantile(value,
+                                            probs = 0.025),
+                   chao_ci_upper = quantile(value,
+                                            probs = 0.975)) %>%
+  ungroup() %>%
+  mutate(category_id = category_id)
+  }
+
+# then we subset the data by category, one per curve, run estaccumR and save the results 
+# here we make a species accumulation curve for each depth category
+p.shallow <-
+  bind_cols(data_vegan,
+            data_vegan.env) %>%
+  dplyr::filter(depth_cat == "<2m") %>%
+  dplyr::select(-odu_station_code:-chemical_euthanasia) %>%
+  estaccumR(permutations = 100)
+
+p.mid <-
+  bind_cols(data_vegan,
+            data_vegan.env) %>%
+  dplyr::filter(depth_cat == "2-15m") %>%
+  dplyr::select(-odu_station_code:-chemical_euthanasia) %>%
+  estaccumR(permutations = 100)
+
+p.deep <-
+  bind_cols(data_vegan,
+            data_vegan.env) %>%
+  dplyr::filter(depth_cat == ">15m") %>%
+  dplyr::select(-odu_station_code:-chemical_euthanasia) %>%
+  estaccumR(permutations = 100)
+
+#lastly, we use our function to process the output from each depth category, bind the data frames together, and plot the results
+bind_rows(estaccumR_plot(p.shallow$chao,
+                         ">2m"),
+          estaccumR_plot(p.mid$chao,
+                         "2-15m"),
+          estaccumR_plot(p.deep$chao,
+                         ">15m")) %>%
+  ggplot(aes(x=N,
+             y=chao_mean,
+             color = category_id)) +
+  geom_ribbon(aes(ymin=chao_ci_lower,
+                  ymax=chao_ci_upper),
+              fill = "grey90") +
+  geom_line() +
+  theme_classic() +
+  labs(y = "Estimated Species Richness (Chao)",
+       x = "Number of Samples")
 
 #### vegan::poolaccum Extrapolated Species Richness Curve in a Species Pool Based on Presence Absence ####
 
@@ -394,7 +493,7 @@ p.plot
 # to make plot w ggplot, see https://stackoverflow.com/questions/52652195/convert-rarefaction-plots-from-vegan-to-ggplot2-in-r
 
 
-#### vegan::estimateR - Extrapolated Species Richness in a Species Pool Based on Incidence (Abundance) ####
+#### vegan::estimateR - Extrapolated Species Richness in a Species Pool Based on Abundance ####
 
 pool <- 
   estimateR(x = data_vegan) %>%
