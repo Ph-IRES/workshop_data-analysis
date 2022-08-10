@@ -473,10 +473,11 @@ bind_rows(estaccumR_plot(p.shallow$chao,
                          ">15m")) %>%
   ggplot(aes(x=N,
              y=chao_mean,
-             color = category_id)) +
+             color = category_id,
+             fill = category_id)) +
   geom_ribbon(aes(ymin=chao_ci_lower,
                   ymax=chao_ci_upper),
-              fill = "grey90") +
+              alpha = 0.5) +
   geom_line() +
   theme_classic() +
   labs(y = "Estimated Species Richness (Chao)",
