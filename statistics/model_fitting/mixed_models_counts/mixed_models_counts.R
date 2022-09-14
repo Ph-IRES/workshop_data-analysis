@@ -980,7 +980,7 @@ data_all %>%
 
 
 
-#### sum_max_n bait: Mixed Effects Hypothesis Test ####
+#### sum_max_n bait: Fixed Effects Hypothesis Test ####
 
 data_all_summaxn_bait <- 
   data_all %>%
@@ -1011,7 +1011,7 @@ sampling_design = "sum_max_n ~  habitat * study_locations + study_locations:bait
 model <<- 
   glm(formula = sampling_design, 
       family = distribution_family,
-      data = data_all_summaxn)
+      data = data_all_summaxn_bait)
 
 model
 anova(model)
