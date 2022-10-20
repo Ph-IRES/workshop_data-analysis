@@ -5,26 +5,6 @@ We will be following the [vegan manual](https://cloud.r-project.org/web/packages
 
 ---
 
-## Other Packages
-
-* [`fossil`](https://search.r-project.org/CRAN/refmans/fossil/html/00Index.html)
-	* see [`spp.est`](https://search.r-project.org/CRAN/refmans/fossil/html/spp.est.html)
-* [`BAT`](https://search.r-project.org/CRAN/refmans/BAT/html/00Index.html)
-	* [`alpha.estimate`](https://search.r-project.org/CRAN/refmans/BAT/html/alpha.estimate.html)
-* [`iNEXT`](https://github.com/AnneChao/iNEXT)
-* [Chaos Software](http://chao.stat.nthu.edu.tw/wordpress/software_download/)
-	* [Chaos Github](https://github.com/AnneChao?tab=repositories)
-* [mobr: Measurement of Biodiversity](https://rdrr.io/cran/mobr/)
-	* [mobr::rarefaction()](https://rdrr.io/cran/mobr/man/rarefaction.html)
-
----
-
-## Other Tutorials
-
-* [Primer of Ecology Using R](https://hankstevens.github.io/Primer-of-Ecology/diversity.html)
-
----
-
 ## Getting Started: Wrangle data into format compatible with vegan.
 
 For the species count data, each column is a taxon and each row is a unique site or observation
@@ -156,3 +136,24 @@ adonis2(data_vegan ~ bait_type*habitat,
         data = data_vegan.env,
         strata = site)
 		```
+
+
+---
+
+## Other Packages
+
+* [`fossil`](https://search.r-project.org/CRAN/refmans/fossil/html/00Index.html)
+	* see [`spp.est`](https://search.r-project.org/CRAN/refmans/fossil/html/spp.est.html)
+* [`BAT`](https://search.r-project.org/CRAN/refmans/BAT/html/00Index.html)
+	* [`alpha.estimate`](https://search.r-project.org/CRAN/refmans/BAT/html/alpha.estimate.html)
+* [`iNEXT`](https://github.com/AnneChao/iNEXT)
+* [Chaos Software](http://chao.stat.nthu.edu.tw/wordpress/software_download/)
+	* [Chaos Github](https://github.com/AnneChao?tab=repositories)
+* [mobr: Measurement of Biodiversity](https://rdrr.io/cran/mobr/)
+	* [mobr::rarefaction()](https://rdrr.io/cran/mobr/man/rarefaction.html)
+
+---
+
+## Other Tutorials
+
+* [Primer of Ecology Using R](https://hankstevens.github.io/Primer-of-Ecology/diversity.html)
