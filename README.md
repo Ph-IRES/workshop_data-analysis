@@ -22,16 +22,18 @@ The workshop will be tailored to the data you collected this summer.  We will me
 
 ## Tutorials
 
-* [Maps](./adv_tidyverse_ggplot)
-* [PCA](./statistics/PCA)
-* [Biodiversity Analysis](./statistics/biodiversity)
-* [Permutational Multivariate Analysis of Variance (PERMANOVA)](./statistics/biodiversity)
-  * testing for differences in multivariate responses among groups
-    * community composition
-    * genetic composition
-    * morphological composition
-* [Mixed Model Hypothesis Testing](./statistics/model_fitting)
+* [Intro to R & Tidyverse](tutorial_r_tidyverse_intro)
+
+* [Maps with R](tutorial_r_maps)
+
+* [Principle Components Analysis with R](tutorial_r_pca)
+
+* [Biodiversity Analyses with R](tutorial_r_biodiversity)
+
+* [Fixed & Mixed Model Hypothesis Testing](tutorial_r_model_fitting)
   * P-value "swiss army knife" for univariate responses
+  
+* [Phylogenetic Analysis](tutorial_phylogeny)
 
 ---
 ## Tentative Schedule
@@ -42,8 +44,8 @@ We will have a mid-morning break, a lunch break, and a mid-afternoon break. This
 
 | Day | Date | Topic |
 | --- | --- | --- |
-| Tuesday | July 19 | [Intro To R & Tidyverse](./r_tidyverse_intro) |
-| Wednesday | July 20 | [Phylogeny](./phiRes_phylogeny) |
+| Tuesday | July 19 | [Intro To R & Tidyverse](tutorial_r_tidyverse_intro) |
+| Wednesday | July 20 | [Phylogenies](tutorial_phylogeny) |
 | Thursday | July 21 | Intro to Data Visualization with R |
 | Friday | July 22 | Advanced Data Wrangling & Visualization with R |
 | Monday | July 25 | Statistical Analysis I |

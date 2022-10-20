@@ -167,7 +167,7 @@ points(ord, disp="sites", pch=21, col=1:2, bg="yellow", cex=1.3)
 ordispider(ord, habitat, col=1:2, label = TRUE)
 
 
-#### ORDINATION: Plotting with ggplot
+#### ORDINATION: NMDS Plotting with ggplot
 
 # https://gavinsimpson.github.io/ggvegan/
 
@@ -188,7 +188,7 @@ ggord %>%
   theme_classic() 
 
 
-#### ORDINATION: Fitting Environmental Variables ####
+#### ORDINATION: NMDS Fitting Environmental Variables - Vectors & Surfaces ####
 
 # Let us test for an effect of site and depth on the NMDS
 
@@ -204,6 +204,83 @@ plot(ord.fit)
 
 # Plotting fitted surface of continuous variables (depth_m) on ordination plot
 ordisurf(ord, depth_m, add=TRUE)
+
+#### ORDINATION: NMDS Generating Species Loading Values - Vectors ####
+
+# use envfit to generate species loading vectors
+ord_species_vectors <- 
+  envfit(ord$points, 
+         data_vegan, 
+         perm=1000)
+
+ord_species_vectors
+
+# convert envfit output to ggplot tibble
+ggord_species_vectors <- 
+  as.data.frame(scores(ord_species_vectors, 
+                       display = "vectors")) %>%
+  clean_names() %>%
+  dplyr::rename(nmds1 = mds1,
+                nmds2 = mds2) %>%
+  mutate(species = rownames(.))
+
+# convert metaMDS output to ggplot tibble
+ggord <- 
+  fortify(ord) %>% 
+  tibble() %>% 
+  clean_names() %>%
+  filter(score == "sites") %>% 
+  bind_cols(data_vegan.env) %>%
+  clean_names()
+
+#### nMDS Plot  ####
+
+habitatcolors <- c("#6FAFC6", 
+                   "#F08080")
+habitatlabels <- c("Mesophotic Reef",
+                   "Shallow Reef")
+
+ggord_plot <- 
+  ggord %>%
+  ggplot(aes(x = nmds1,
+             y = nmds2,
+             color = habitat,
+             shape = study_locations)) +
+  # scale_x_continuous(limits = c(-3,3)) +
+  geom_point(size = 5) +
+  scale_shape_manual(values = c(16,2)) +
+  # stat_ellipse(aes(group = studylocation_habitat,
+  #                  lty=factor(study_locations))) +
+  scale_linetype_manual(values=c(1,2,1,2)) +
+  
+  coord_fixed() + ## need aspect ratio of 1!
+  geom_segment(data = ggord_species_vectors,
+               aes(x = 0, 
+                   xend = nmds1*3, 
+                   y = 0, 
+                   yend = nmds2*3),
+               arrow = arrow(length = unit(.25,
+                                           "cm")),
+               color = "grey",
+               inherit.aes = FALSE) +
+  geom_text(data = ggord_species_vectors,
+            aes(x = nmds1*3,
+                y = nmds2*3,
+                label = species),
+            size = 3,
+            inherit.aes = FALSE) +
+  
+  theme_classic() +
+  xlab("NMDS 1") +
+  ylab("NMDS 2") +
+  labs(color = "Habitat", 
+       shape = "Study Locations", 
+       linetype = "Study Locations",
+       title = "NMDS Plots of Fish Assemblage") + 
+  scale_color_manual(values = habitatcolors,
+                     # labels = habitatlabels
+                     )
+ggord_plot
 
 
 #### CONSTRAINED ORDINATION ####
