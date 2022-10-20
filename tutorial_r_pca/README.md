@@ -9,13 +9,9 @@ Background links:
 
 This tutorial was modeled after [that of datacamp](https://www.datacamp.com/tutorial/pca-analysis-r#!)
 
-We will use Jerome's crab morphometric ratio data instead of the data used in the link
+We will use Jerome's crab morphometric ratio data instead of the data used in the data camp tutorial.
 
-1. First, clone his [repo](https://github.com/Ph-IRES/uy), then open `uy/data_wrangling_vis.R` in R studio
-
-```bash
-git clone git@github.com:Ph-IRES/uy.git
-```
+1. First, in your local copy of the `workshop_data-analysis` repo, open `data_wrangling_vis.R` in R studio
 
 2. Then run lines 1-56 in `data_wrangling_vis.R`.  This will create the tibble `data_lai_ratios` from his excel data.  This will be used for the PCA
 
