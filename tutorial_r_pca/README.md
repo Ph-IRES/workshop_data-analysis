@@ -7,7 +7,7 @@ Background links:
 
 ## Tutorial
 
-[datacamp](https://www.datacamp.com/tutorial/pca-analysis-r#!)
+This tutorial was modeled after [that of datacamp](https://www.datacamp.com/tutorial/pca-analysis-r#!)
 
 We will use Jerome's crab morphometric ratio data instead of the data used in the link
 
