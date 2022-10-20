@@ -20,7 +20,7 @@ The workshop will be tailored to the data you collected this summer.  We will me
 
 ---
 
-## Example Code
+## Tutorials
 
 * [Maps](./adv_tidyverse_ggplot)
 * [PCA](./statistics/PCA)
