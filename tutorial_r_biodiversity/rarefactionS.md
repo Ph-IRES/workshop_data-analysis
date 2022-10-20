@@ -9,9 +9,9 @@ We will be following the [vegan manual](https://cloud.r-project.org/web/packages
 
 For the species count data, each column is a taxon and each row is a unique site or observation
 
-We will use the count data from the 78-79 smithsonian expecidition which is already here in this directory.  
+We will use the count data from the 78-79 smithsonian expedidition which is already here in this directory.  
 
-Open `data_wrangling_vis_rarefaction.R` in R studio and run lines 1-130
+In your local copy of the `workshop_data-analysis` reop, open `tutorial_r_biodiversity/data_wrangling_vis_rarefaction.R` in R studio and run lines 1-130
 
 Now we can wrangle the tibble `data` into vegan format
 
