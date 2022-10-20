@@ -1,13 +1,7 @@
-# ADVANCED TIDYVERSE & GGPLOT
+# Making Maps with R Using `ggplot2`
 
-We are going to look at the initial data wrangling and plotting for each student's project.
-
-I expect that we will spend some time maintaining everybody's packages in R studio
-
----
-
-## MAPPING YOUR SITES
-
-Run [data_mapping.R](data_mapping.R) in R Studio for mapping examples.
+Open [data_mapping.R](data_mapping.R) in R Studio and execute the code line by line for examples of how to make maps.  The code used to make the last map is universal and can be copied and pasted into your own code.
 
 ![](Rplot.png)
+
+While this tutorial is focused on making maps, new data wrangling concepts may also be employed than have been covered previously.
