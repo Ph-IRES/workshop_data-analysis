@@ -4,4 +4,4 @@ Open [data_mapping.R](data_mapping.R) in R Studio and execute the code line by l
 
 ![](Rplot.png)
 
-While this tutorial is focused on making maps, new data wrangling concepts may also be employed than have been covered previously.
+While this tutorial is focused on making maps, new data wrangling concepts may also be employed.
