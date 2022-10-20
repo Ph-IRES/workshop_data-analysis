@@ -1,18 +1,10 @@
-# BIODIVERSITY ANALYSIS
+# BIODIVERSITY ANALYSES
 
-## R Packages
+## R Packages for Biodiversity Analyses
 
 * [vegan](https://cloud.r-project.org/web/packages/vegan/index.html)
 * [BiodiversityR](https://rdrr.io/cran/BiodiversityR/)
 * [adiv](https://besjournals.onlinelibrary.wiley.com/doi/epdf/10.1111/2041-210X.13430)
-
----
-
-## Other Tutorials
-
-* https://www.mooreecology.com/uploads/2/4/2/1/24213970/vegantutor.pdf
-* http://www.kembellab.ca/r-workshop/biodivR/SK_Biodiversity_R.html
-* https://peat-clark.github.io/BIO381/veganTutorial.html
 
 ---
 
@@ -64,4 +56,12 @@ Note that Rtools is required but not found, so I followed the instructions given
 	* can be coaxed to do analysis of molecular variance, AMOVA (Excoffier et al 1992)
 * [Rarefaction Species Richness](rarefactionS.md)
 	* 
+
+---
+
+## Other Tutorials
+
+* https://www.mooreecology.com/uploads/2/4/2/1/24213970/vegantutor.pdf
+* http://www.kembellab.ca/r-workshop/biodivR/SK_Biodiversity_R.html
+* https://peat-clark.github.io/BIO381/veganTutorial.html
 
