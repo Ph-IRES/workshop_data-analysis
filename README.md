@@ -30,7 +30,7 @@ The workshop will be tailored to the data you collected this summer.  We will me
     * community composition
     * genetic composition
     * morphological composition
-* [Mixed Model Hypothesis Testing](./statistics/mixed_models)
+* [Mixed Model Hypothesis Testing](./statistics/model_fitting)
   * P-value "swiss army knife" for univariate responses
 
 ---
