@@ -1,4 +1,4 @@
-# RAREFACTION SPECIES RICHNESS
+# SPECIES RICHNESS, RAREFACTION, and ACCUMULATION CURVES
 
 We will be following the [vegan manual](https://cloud.r-project.org/web/packages/vegan/vegan.pdf) 
 
