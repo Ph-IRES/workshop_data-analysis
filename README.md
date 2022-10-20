@@ -26,7 +26,7 @@ The workshop will be tailored to the data you collected this summer.  We will me
 
 [R for Data Science: Exercise Solutions](https://jrnold.github.io/r4ds-exercise-solutions/data-visualisation.html)
 
-[TAMUCC's 2022 Computation Biology Course (bash, R, python, git, markdown)](https://github.com/tamucc-comp-bio-2022/classroom_repo)
+[TAMUCC's 2022 Computational Biology Course (bash, R, python, git, markdown)](https://github.com/tamucc-comp-bio-2022/classroom_repo)
 
 ---
 
