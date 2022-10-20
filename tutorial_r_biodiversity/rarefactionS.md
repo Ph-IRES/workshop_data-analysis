@@ -77,7 +77,9 @@ and lastly, we "attach" the metadata to the data
 ```r
 attach(data_vegan.env)
 ```
- 
+
+Continue the tutorial by following the comments and running the code in `tutorial_r_biodiversity/data_wrangling_vis_rarefaction.R`
+
 ---
 
 ## Other Packages
