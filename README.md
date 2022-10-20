@@ -20,6 +20,14 @@ The workshop will be tailored to the data you collected this summer.  We will me
 
 ---
 
+## Resources
+
+[R for Data Science](https://r4ds.had.co.nz/index.html)
+
+[R for Data Science: Exercise Solutions](https://jrnold.github.io/r4ds-exercise-solutions/data-visualisation.html)
+
+---
+
 ## Tutorials
 
 * [Intro to R & Tidyverse](tutorial_r_tidyverse_intro)
