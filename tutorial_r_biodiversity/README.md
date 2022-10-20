@@ -54,7 +54,7 @@ Note that Rtools is required but not found, so I followed the instructions given
 * [PERMANOVA](permanova.md)
 	* test for differences in species composition or genetic composition or morpho-composition
 	* can be coaxed to do analysis of molecular variance, AMOVA (Excoffier et al 1992)
-* [Rarefaction Species Richness](rarefactionS.md)
+* [Species Richness, Rarefaction & Species Accumulation Curves](rarefactionS.md)
 	* 
 
 ---
