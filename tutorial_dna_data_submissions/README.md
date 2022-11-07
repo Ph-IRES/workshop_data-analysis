@@ -81,9 +81,12 @@ Consult with your mentor/advisor prior to creating a new project.  There may be 
 
 ## Adding an Expedition to an Existing Project
 
+1. Goto the [GEOME Workbench/View Projects Page](https://geome-db.org/workbench/dashboard)
+	![](geome_viewprojects.png)
 
+2.
 
 ---
 
-_Note: for issues not covered here, you can consult the [GeOMe User Guide](https://docs.google.com/document/d/1j94NWlrcwu85xGaRda98SSTpRFgRg_RcrYG4Qs5CB1w/edit?usp=sharing), [FAQ](https://docs.google.com/document/d/1tEFpclCyJ6aLnypmtdfdjLVhiWQ-rYhGqu5eGhq3s5s/edit?usp=sharing), and [Help Document](https://geome-db.org/docs/helpDocumentation.pdf)_
+_Note: for issues/topics not covered here, you can consult the [GeOMe User Guide](https://docs.google.com/document/d/1j94NWlrcwu85xGaRda98SSTpRFgRg_RcrYG4Qs5CB1w/edit?usp=sharing), [FAQ](https://docs.google.com/document/d/1tEFpclCyJ6aLnypmtdfdjLVhiWQ-rYhGqu5eGhq3s5s/edit?usp=sharing), and [Help Document](https://geome-db.org/docs/helpDocumentation.pdf)_
 
