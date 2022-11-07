@@ -102,7 +102,7 @@ Consult with your mentor/advisor prior to creating a new expedition.  There may 
 ---
 
 
-## Creating a MetaData Template & Entering the Data
+## Creating a MetaData Template & Entering the Data (DNA Data = FASTA)
 
 Consult with your mentor/advisor prior to creating a new template.  There may be a template that has already been created that you should use.
 
@@ -124,20 +124,43 @@ Consult with your mentor/advisor prior to creating a new template.  There may be
 	* Only edit the "Samples" worksheet, do not edit any other worksheet.
 	* Red fields (columns) are required
 	* Some fields can only accept certain values, these are listed in the "Lists" worksheet.  Do not edit the data in "Lists". 
-	* The "Samples_Fields" worksheet has the definition of each field and indicates whether there is "controlled vocabulary", ie you must use the terms in the "Lists" worksheet.
+	* The "Samples_Fields" worksheet has the definition of each field and indicates whether there is "controlled vocabulary", ie you must use the terms in the "Lists" worksheet, or if each row requires a unique id.
 
 4. Enter your data in the "Samples" worksheet.
 
 	* generally, each row has the information for one individual, but this is not always the case. Consult with your mentor/advisor if you are unsure
+	* make sure identify the columns that require unique values in each row and label them accordingly
+		* generally, the `materialSampleID` must match the FASTA sequence name exactly
+		* if you have multiple loci, there must be one FASTA for each locus. This means that the FASTA sequence names must be identical among loci. You can differentiate loci by file name.
 	* try to fill in every field for every row of data, avoid blanks
 	* use the Data/Filter excel option to view all entries for each field and correct spellings as necessary
-	* if you have more than one entry for a field, delimit the entries with `bash` pipes, i.e. `|`.
+	* if you have more than one entry for a field, delimit the entries with `bash` pipes, i.e. `|`
+	* do not use [new line characters](https://en.wikipedia.org/wiki/Newline) such as [carriage returns](https://en.wikipedia.org/wiki/Carriage_return) or [line feeds](https://en.wikipedia.org/wiki/Newline#Representation)
+	* do not edit the field (column) names
 
 ---
 
 
-## 
+## Validating and Loading Data in GEOME (DNA Data = FASTA)
 
+1. Goto the [GEOME Workbench/View Projects Page](https://geome-db.org/workbench/dashboard) and select the project you want to add an expedition to.  
+
+	![](geome_viewprojects.png)
+
+2. Select [Load Data](https://geome-db.org/workbench/upload) in the left panel and validate your metadata
+
+	![](geome_validatedata.png)
+	
+	* Select "Excel Workbook" and FASTA
+	* Select "Only validate data"
+	* Browse to the metadata sheet
+	* Browse to each DNA file (one per marker)
+	* Verify the locations 
+	* Select the Expedition name
+	* Select Validate
+	* Edit the metadata in the excel workbook and/or FASTA files and repeat as necessary until you pass the validation
+
+3. Load data by repeating 2, but don't check "Only Validate Data"
 
 ---
 
