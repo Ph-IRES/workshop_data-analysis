@@ -102,7 +102,7 @@ Consult with your mentor/advisor prior to creating a new expedition.  There may 
 ---
 
 
-## Creating a MetaData Template
+## Creating a MetaData Template & Entering the Data
 
 Consult with your mentor/advisor prior to creating a new template.  There may be a template that has already been created that you should use.
 
@@ -118,6 +118,26 @@ Consult with your mentor/advisor prior to creating a new template.  There may be
 	* Select each field (column) you want in your metadata template worksheet
 		* if you are unsure of the meaning of a field name, click the "DEF" link
 	* Select "EXPORT EXCEL"
+
+3. Open the Excel file and read the "Instructions" worksheet. Here are some highlights:
+	
+	* Only edit the "Samples" worksheet, do not edit any other worksheet.
+	* Red fields (columns) are required
+	* Some fields can only accept certain values, these are listed in the "Lists" worksheet.  Do not edit the data in "Lists". 
+	* The "Samples_Fields" worksheet has the definition of each field and indicates whether there is "controlled vocabulary", ie you must use the terms in the "Lists" worksheet.
+
+4. Enter your data in the "Samples" worksheet.
+
+	* generally, each row has the information for one individual, but this is not always the case. Consult with your mentor/advisor if you are unsure
+	* try to fill in every field for every row of data, avoid blanks
+	* use the Data/Filter excel option to view all entries for each field and correct spellings as necessary
+	* if you have more than one entry for a field, delimit the entries with `bash` pipes, i.e. `|`.
+
+---
+
+
+## 
+
 
 ---
 
