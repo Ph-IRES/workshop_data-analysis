@@ -28,7 +28,10 @@ You can read more about GEOME here:
 		* We will generally enter our data as part of the Diversity of the IndoPacific (DIPNet) Team
 
 	* "Minimum Information Requirements" section
+	![](geome_minimuminfo.PNG)
+
 	* "Data usage policy" section
+	![](geome_policy.png)
 
 3. Read the [User Guide to Creating Local Identifiers](https://fims.readthedocs.io/en/latest/fims/identifiers.html), aka sample names.  Then discuss the local identifiers you want to use in your project with your mentor/advisor
 
