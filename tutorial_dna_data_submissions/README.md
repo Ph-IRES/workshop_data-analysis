@@ -15,11 +15,12 @@ You can read more about GEOME here:
 
 1. Goto GEOME's [Getting Started Web Page](https://geome-db.org/about) and make an account. After creating your account, login.
 
-2. Return to GEOME's [Getting Started Web Page](https://geome-db.org/about) and read the "Creating Projects & Expeditions" section.  We will generally enter our data as part of the Diversity of the IndoPacific (DIPNet) Team.
+2. Return to GEOME's [Getting Started Web Page](https://geome-db.org/about) and 
 
-3. On to GEOME's [Getting Started Web Page](https://geome-db.org/about), read the "Minimum Information Requirements" section.
-
-4. On to GEOME's [Getting Started Web Page](https://geome-db.org/about), read the "Data usage policy" section.
+	* read the "Creating Projects & Expeditions" section.  
+		* We will generally enter our data as part of the Diversity of the IndoPacific (DIPNet) Team
+	* read the "Minimum Information Requirements" section
+	* read the "Data usage policy" section
 
 5. Goto GEOME's [Create a Project as Part of an Existing Team](https://geome-db.org/project/new) page. Consult with your mentor or advisor on the following information:
 
