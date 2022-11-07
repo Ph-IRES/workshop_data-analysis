@@ -13,8 +13,6 @@ You can read more about GEOME here:
 
 ![](https://geome-db.org/docs/geomeWorkflow.png)
 
-_Note that you can consult the [GeOMe Help Document](https://geome-db.org/docs/helpDocumentation.pdf)_
-
 1. Goto GEOME's [Getting Started Web Page](https://geome-db.org/about) and make an account. After creating your account, login.
 
 2. Return to GEOME's [Getting Started Web Page](https://geome-db.org/about) and 
@@ -25,6 +23,8 @@ _Note that you can consult the [GeOMe Help Document](https://geome-db.org/docs/h
 	* read the "Data usage policy" section
 
 3. Read the [User Guide to Creating Local Identifiers](https://fims.readthedocs.io/en/latest/fims/identifiers.html), aka sample names.  Then discuss the local identifiers you want to use in your project with your mentor/advisor
+
+_Note that you can consult the [GeOMe Help Document](https://geome-db.org/docs/helpDocumentation.pdf)_
 
 ---
 
@@ -38,4 +38,6 @@ _Note that you can consult the [GeOMe Help Document](https://geome-db.org/docs/h
 	* Existing team workspace (DIPNet)
 	* Don't check "Public Project" right now, you can change it later.
 
+
+_Note that you can consult the [GeOMe Help Document](https://geome-db.org/docs/helpDocumentation.pdf)_
 
