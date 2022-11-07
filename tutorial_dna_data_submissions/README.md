@@ -81,7 +81,7 @@ Consult with your mentor/advisor prior to creating a new project.  There may be 
 
 ## Adding and Modifying Expeditions in an Existing Project
 
-Consult with your mentor/advisor prior to creating a new expedition.  There may be an expedition that has already been created that you should use.
+Consult with your mentor/advisor prior to creating a new expedition.  There may be an expedition that has already been created that you should use. 
 
 1. Goto the [GEOME Workbench/View Projects Page](https://geome-db.org/workbench/dashboard) and select the project you want to add an expedition to.  
 
@@ -98,6 +98,26 @@ Consult with your mentor/advisor prior to creating a new expedition.  There may 
 3. Edit an existing expedition by selecting [My Expeditions](https://geome-db.org/workbench/expeditions) in the left panel, and then selecting the expedition
 
 	![](geome_editexpedition.png)
+
+---
+
+
+## Creating a MetaData Template
+
+Consult with your mentor/advisor prior to creating a new template.  There may be a template that has already been created that you should use.
+
+1. Goto the [GEOME Workbench/View Projects Page](https://geome-db.org/workbench/dashboard) and select the project you want to add an expedition to.  
+
+	![](geome_viewprojects.png)
+
+2. Select [Generate Template](https://geome-db.org/workbench/template) 
+
+	![](geome_template.png)
+
+	* Template Config: DEFAULT
+	* Select each field (column) you want in your metadata template worksheet
+		* if you are unsure of the meaning of a field name, click the "DEF" link
+	* Select "EXPORT EXCEL"
 
 ---
 
