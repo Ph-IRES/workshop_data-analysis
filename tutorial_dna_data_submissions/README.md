@@ -15,6 +15,8 @@ You can read more about GEOME here:
 
 1. Goto GEOME's [Getting Started Web Page](https://geome-db.org/about) and make an account. After creating your account, login.
 
+	![](geome_login.png)
+
 2. Return to GEOME's [Getting Started Web Page](https://geome-db.org/about) and 
 
 	* read the "Creating Projects & Expeditions" section.  
