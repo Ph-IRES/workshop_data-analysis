@@ -24,8 +24,9 @@ You can read more about GEOME here:
 2. Return to GEOME's [Getting Started Web Page](https://geome-db.org/about) and read the
 
 	* "Creating Projects & Expeditions" section.  
+	![](https://geome-db.org/img/expeditionProjectTeamGraphic.png)
 		* We will generally enter our data as part of the Diversity of the IndoPacific (DIPNet) Team
-		![](https://geome-db.org/img/expeditionProjectTeamGraphic.png)
+
 	* "Minimum Information Requirements" section
 	* "Data usage policy" section
 
