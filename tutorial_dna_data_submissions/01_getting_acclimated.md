@@ -1,6 +1,6 @@
 # Getting Acclimated to GEOME
 
-1. Goto GEOME's [Getting Started Web Page](https://geome-db.org/about) and make an account. After creating your account, login.
+1. Log into GEOME.
 
 	![](geome_login.png)
 
@@ -8,7 +8,7 @@
  
 	![](https://geome-db.org/docs/geomeWorkflow.png)
 
-2. Return to GEOME's [Getting Started Web Page](https://geome-db.org/about) and read the
+2. Return to GEOME's [Getting Started Web Page](https://geome-db.org/about) and read the:
 
 	* "Creating Projects & Expeditions" section.  
 	![](https://geome-db.org/img/expeditionProjectTeamGraphic.png)

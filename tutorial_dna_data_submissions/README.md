@@ -12,6 +12,8 @@ You can read more about GEOME here:
 
 ## How To
 
+0. [Make a GEOME Account](00_make_account.md)
+
 1. [Getting Acclimated to GEOME](01_getting_acclimated.md)
 
 2. [Creating a New Project in GEOME in an Existing Team (DIPNet)](02_create_project.md)
