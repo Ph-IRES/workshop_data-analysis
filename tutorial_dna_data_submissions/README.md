@@ -24,7 +24,7 @@ You can read more about GEOME here:
 
 3. Read the [User Guide to Creating Local Identifiers](https://fims.readthedocs.io/en/latest/fims/identifiers.html), aka sample names.  Then discuss the local identifiers you want to use in your project with your mentor/advisor
 
-_Note that you can consult the [GeOMe Help Document](https://geome-db.org/docs/helpDocumentation.pdf)_
+	_Note that you can consult the [GeOMe Help Document](https://geome-db.org/docs/helpDocumentation.pdf)_
 
 ---
 
@@ -39,5 +39,5 @@ _Note that you can consult the [GeOMe Help Document](https://geome-db.org/docs/h
 	* Don't check "Public Project" right now, you can change it later.
 
 
-_Note that you can consult the [GeOMe Help Document](https://geome-db.org/docs/helpDocumentation.pdf)_
+	_Note that you can consult the [GeOMe Help Document](https://geome-db.org/docs/helpDocumentation.pdf)_
 
