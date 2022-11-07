@@ -160,7 +160,14 @@ Consult with your mentor/advisor prior to creating a new template.  There may be
 	* Select Validate
 	* Edit the metadata in the excel workbook and/or FASTA files and repeat as necessary until you pass the validation
 
-3. Load data by repeating 2, but don't check "Only Validate Data"
+3. Load data by repeating step 2, but don't check "Only Validate Data"
+
+---
+
+
+## Sending FASTA files to GenBank
+
+In progress...  
 
 ---
 
