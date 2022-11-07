@@ -11,18 +11,20 @@ You can read more about GEOME here:
 
 ## Getting Acclimated to GEOME
 
+"This diagram shows how data is managed in the GEOME environment. Boxes in solid blue indicate GEOME functions that the user interacts with, such as generating templates and loading data. The white boxes with a green border are functions that happen outside of the GEOME environment, such as data entry into a spreadsheet." 
 ![](https://geome-db.org/docs/geomeWorkflow.png)
 
 1. Goto GEOME's [Getting Started Web Page](https://geome-db.org/about) and make an account. After creating your account, login.
 
 	![](geome_login.png)
 
-2. Return to GEOME's [Getting Started Web Page](https://geome-db.org/about) and 
+2. Return to GEOME's [Getting Started Web Page](https://geome-db.org/about) and read the
 
-	* read the "Creating Projects & Expeditions" section.  
+	* "Creating Projects & Expeditions" section.  
 		* We will generally enter our data as part of the Diversity of the IndoPacific (DIPNet) Team
-	* read the "Minimum Information Requirements" section
-	* read the "Data usage policy" section
+		![](https://geome-db.org/img/expeditionProjectTeamGraphic.png)
+	* "Minimum Information Requirements" section
+	* "Data usage policy" section
 
 3. Read the [User Guide to Creating Local Identifiers](https://fims.readthedocs.io/en/latest/fims/identifiers.html), aka sample names.  Then discuss the local identifiers you want to use in your project with your mentor/advisor
 
