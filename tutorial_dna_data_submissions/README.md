@@ -18,3 +18,14 @@ You can read more about GEOME here:
 2. Return to GEOME's [Getting Started Web Page](https://geome-db.org/about) and read the "Creating Projects & Expeditions" section.  We will generally enter our data as part of the Diversity of the IndoPacific (DIPNet) Team.
 
 3. On to GEOME's [Getting Started Web Page](https://geome-db.org/about), read the "Minimum Information Requirements" section.
+
+4. On to GEOME's [Getting Started Web Page](https://geome-db.org/about), read the "Data usage policy" section.
+
+5. Goto GEOME's [Create a Project as Part of an Existing Team](https://geome-db.org/project/new) page. Consult with your mentor or advisor on the following information:
+
+	* Project Title
+	* Project Description
+	* Existing team workspace (DIPNet)
+	* Don't check "Public Project" right now, you can change it later.
+
+
