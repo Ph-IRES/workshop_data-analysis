@@ -1,4 +1,4 @@
-# Submitting DNA Data to NCBI GenBank and GEOME DataBase
+# Submitting DNA Data to NCBI GenBank and MetaData to GEOME DataBase
 
 We will use the [GEOME](https://geome-db.org/) suite of tools to submit our DNA sequences and the associated metadata to both the GEOME Database as well as [NCBI GenBank](https://www.ncbi.nlm.nih.gov/). 
 
@@ -30,7 +30,9 @@ You can read more about GEOME here:
 
 ## Creating a New Project in GEOME
 
-1. Goto GEOME's [Create a Project as Part of an Existing Team](https://geome-db.org/project/new) page. Consult with your mentor or advisor on the following information, then enter it and create a project.
+Consult with your mentor/advisor prior to creating a new project.
+
+1. Goto GEOME's [Create a Project as Part of an Existing Team](https://geome-db.org/project/new) page. Consult with your mentor or advisor on the following information, then enter it and create a project. You will be taken the to the "Workbench" after creating the project.
 
 	* Project Title
 	* Project Description
@@ -38,6 +40,17 @@ You can read more about GEOME here:
 	* Existing team workspace (DIPNet)
 	* Don't check "Public Project" right now, you can change it later.
 
+2. Select the [Project Settings](https://geome-db.org/workbench/project/settings) on the left panel, near the bottom, and edit the info under the "Settings" tab
+
+	* Title: adjust as necessary
+	* Description: good to list brief description of project, grant funding, and PIs
+	* Visibility: private
+	* Discoverable: true
+	* Enforce Expedition Access Control: unchecked
+	* ...
+	* License: CC0
+
+3. 
 
 	_Note that you can consult the [GeOMe Help Document](https://geome-db.org/docs/helpDocumentation.pdf)_
 
