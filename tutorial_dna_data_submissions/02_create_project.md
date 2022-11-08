@@ -28,7 +28,7 @@ Consult with your mentor/advisor prior to creating a new project.  There may be 
 
 	![](geom_projectmembers.png)
 
-	* Members must have a GEOME User Account
+	* Members must have a GEOME User Account. If they do not, GEOME will send them an invitation
 
 4. You can get links to share with project members in the [Project Overview](https://geome-db.org/workbench/project-overview) located in the left panel
 
