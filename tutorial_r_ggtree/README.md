@@ -1,4 +1,4 @@
-# `ggtree` tutorial
+# TUTORIAL:  VISUALIZING PHYLOGENETIC TREES WITH `ggtree`
 
 `ggtree` is a tidyverse R package for making visualizations of phylogenetic trees
 
