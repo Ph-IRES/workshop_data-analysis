@@ -11,6 +11,8 @@
 
 [NCBI GENBANK WEBSITE](https://www.ncbi.nlm.nih.gov/)  
 
+[`rentrez` vignette](https://cran.r-project.org/web/packages/rentrez/vignettes/rentrez_tutorial.html)
+
 ---
 
 ## BACKGROUND
@@ -52,7 +54,7 @@ library(seqinr)
 The next step is to construct a search query that will retrieve the sequence data you are interested in. You can use the entrez_search function from the rentrez package to do this. For example, if you want to search for all sequences from the species Portunus pelagicus with the keyword "COI", you can use the following code:
 
 ```r
-search_query <- 
+search_results <- 
     entrez_search(db = "nucleotide", 
     term = "Portunus pelagicus[orgn] AND COI")
 ```
