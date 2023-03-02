@@ -8,4 +8,5 @@
 
 Book: [Data Integration Manipulation and Visualization of Phylogenetic Trees by Gauangchuang Yu](https://yulab-smu.top/treedata-book/index.html)
 
+![](https://www.routledge.com/Data-Integration-Manipulation-and-Visualization-of-Phylogenetic-Trees/Yu/p/book/9781032233574)
 
