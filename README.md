@@ -45,6 +45,8 @@ The workshop will be tailored to the data you collected this summer.  We will me
   
 * [Phylogenetic Analysis](tutorial_phylogeny)
 
+* [Visualizing Phylogenetic Trees](tutorial_r_ggtree)
+
 ---
 ## Tentative Schedule
 
