@@ -1,4 +1,4 @@
-# Data Analysis Workshop 2022
+# Data Analysis Workshop 2022-2023
 
 The workshop will be tailored to the data you collected this summer.  We will meet on Zoom (link TBA) and we will record the sessions.  Links to the recorded sessions will be posted here.
 
