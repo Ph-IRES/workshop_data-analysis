@@ -43,7 +43,7 @@ The workshop will be tailored to the data you collected this summer.  We will me
 * [Fixed & Mixed Model Hypothesis Testing](tutorial_r_model_fitting)
   * P-value "swiss army knife" for univariate responses
   
-* [Phylogenetic Analysis](tutorial_phylogeny)
+* [Phylogenetic Analysis](tutorial_phylogeny_analysis)
 
 * [Visualizing Phylogenetic Trees](tutorial_r_ggtree)
 
@@ -56,12 +56,12 @@ We will have a mid-morning break, a lunch break, and a mid-afternoon break. This
 
 | Day | Date | Topic |
 | --- | --- | --- |
-| Tuesday | July 19 | [Intro To R & Tidyverse](tutorial_r_tidyverse_intro) |
-| Wednesday | July 20 | [Phylogenies](tutorial_phylogeny) |
-| Thursday | July 21 | Intro to Data Visualization with R |
-| Friday | July 22 | Advanced Data Wrangling & Visualization with R |
-| Monday | July 25 | Statistical Analysis I |
-| Tuesday | July 26 | Statistical Analysis II |
+| Monday | July 16 | [Intro To R & Tidyverse](tutorial_r_tidyverse_intro) |
+| Tuesday | July 17 | Intro to Data Visualization with R |
+| Wednesday | July 18 | [Phylogenies](tutorial_phylogeny_analysis) |
+| Monday | July 23 | Advanced Data Wrangling & Visualization with R |
+| Tuesday | July 24 | Statistical Analysis I |
+| Wednesday | July 25 | Statistical Analysis II |
 
 
 ### Links to Recordings
