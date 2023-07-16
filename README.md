@@ -64,7 +64,7 @@ We will have a mid-morning break, a lunch break, and a mid-afternoon break. This
 | Wednesday | July 25 | Statistical Analysis II |
 
 
-### Links to Recordings
+### Links to Recordings 2022
 
 #### Day 1 (July 19)
 
