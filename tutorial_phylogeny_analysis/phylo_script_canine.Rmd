@@ -1,0 +1,196 @@
+---
+title: "R phylogeny"
+date: 2023-06-13
+---
+```{r setup}
+##finds if required packages are installed, loads them if not
+if (!requireNamespace("BiocManager", quietly=TRUE)) install.packages("BiocManager")
+if (!require("phangorn")) install.packages("phangorn")
+if (!require("ape")) install.packages("ape")
+if (!require("msa")) BiocManager::install("msa")
+if (!require("tinytex")) install.packages("tinytex") 
+if (!require("devtools")) install.packages("devtools") +
+if (!require("tidyverse")) install.packages("tidyverse")
+if (!require("igraph")) install.packages("igraph", type="binary")
+if (!require("ips")) install.packages("ips")
+if(!require("seqinr")) install.packages("seqinr")
+if(!require("ggtext")) install.packages("ggtext")
+if(!require("bios2mds")) install.packages("bios2mds")
+if(!require("Biostrings")) BiocManager::install("Biostrings")
+if(!require("microRNA")) BiocManager::install("microRNA")
+if(!require("ggtree")) BiocManager::install("ggtree")
+if(!require("ggimage")) BiocManager::install("ggimage", type="binary")
+if (!require("rgl")) install.packages("rgl", type="binary")
+if (!require("RCurl")) install.packages("RCurl", type="binary")
+if (!require("YuLab-SMU/ggmsa")) devtools::install_github("YuLab-SMU/ggmsa", type="binary")
+if (!require("treedataverse")) BiocManager::install("YuLab-SMU/treedataverse", type="binary", force=TRUE)
+if (!require("usedist")) devtools::install_github("kylebittinger/usedist")
+
+
+##load required library
+library(tidyverse)
+library(phangorn)
+library(ips)
+library(msa)
+library(bios2mds)
+library(tinytex)
+library(usedist)
+library(tidyverse)
+library(seqinr)
+library(Biostrings)
+library(microRNA)
+library(ggtree)
+library(ggimage)
+library(ape)
+library(ggtext)
+library(ggmsa)
+library(ggrepel)
+
+#Sets working directory
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+
+#deprecate 
+#knitr::opts_knit$set(root.dir = "~/Desktop/phiRes_workshop/workshop_data-analysis/phiRes_phylogeny")
+```
+```{r file read}
+#SET input directory.  This should contain separate .fasta files for sequences you want to tree-ize
+indir<-"canidae/co1/fasta_files"
+
+filelist<-list.files(indir, pattern = "fasta", full.names= TRUE)
+seq<-Biostrings::readDNAStringSet(filelist)
+seq<-RNA2DNA(seq)
+```
+```{r alignment}
+##multi-sequence alignment.  Muscle is generally the fastest option here.  Other options are ClustalW and ClustalOmega
+
+seqalign<-msa(seq, method= "Muscle", type = "dna", verbose = TRUE)
+writeXStringSet(as(unmasked(seqalign), "XStringSet"), file="aln.fasta")
+nt<-readDNAMultipleAlignment("aln.fasta", format = "fasta")
+
+#basic alignment
+print(seqalign, show="complete")
+
+##ggmsa for prettier alignments
+ggmsa(nt, color = "Clustal", disagreement = TRUE, seq_name = TRUE, start = 100, end = 150) + 
+  geom_seqlogo() + 
+  geom_msaBar() 
+
+#convert to phyDat object
+pd<-msaConvert(seqalign,"phangorn::phyDat")
+```
+```{r Perform distance matrix and distance-based trees}
+
+#margins on heatmap may need to be reduced.
+dm <- dist.ml(pd)
+heatmap(as.matrix(dm), margins=c(18,15), revC = TRUE,cexRow = 0.5, cexCol = 0.5, symm = TRUE)
+
+treeUPGMA  <- upgma(dm)
+plot(treeUPGMA, main="UPGMA")
+
+treeNJ  <- NJ(dm)
+plot(treeNJ, main="NJ")
+```
+```{r ML Model Selection}
+##test models, select lowest AIC
+mt <-modelTest(pd, multicore = TRUE, mc.cores= 6)
+View(mt)
+```
+```{r Initial ModelFit}
+##initial fit, use best fit model from prev chunk
+fit <- as.pml(mt)
+fit
+```
+```{r Optimize Fit and Bootstrap}
+##MAKE SURE TO CHANGE OPTIONS DEPENDING ON YOUR SELECTED MODEL.  
+#?optim.pml gives guidance on how to set optBf and optQ
+#optInv and optGamma should be set depending on whether your model includes +I and/or +G parameters
+
+fit.opt <- optim.pml(fit, optBf=TRUE, optQ=TRUE, optInv=TRUE, optGamma=FALSE,
+                    rearrangement = "NNI", control = pml.control(trace = 0))
+fit.opt
+#main= sets the plot title
+plot(fit.opt, main="TrN+I")
+
+#bootstrap model
+bs <- bootstrap.pml(fit.opt, bs=100, optNni=TRUE, multicore=TRUE, mc.cores = 6)
+
+##plotBS functions
+#type = he type of tree to plot, one of "phylogram", "cladogram", "fan", "unrooted", "radial" or "none". If type is "none" the tree is returned with the bootstrap values assigned to the node labels.
+#method = either "FBP" the classical bootstrap (default) or "TBE" (transfer bootstrap)
+#digits = nteger indicating the number of decimal places.
+#p	= only plot support values higher than this percentage number (default is 0).
+
+tree<-plotBS(fit.opt$tree, bs, p = 80, digits = 0, type="p", method="FBP")
+#digits doesn't seem to work in plotBS, so this is a workaround
+tree$node.label<-round(tree$node.label, digits=0)
+
+```
+
+```{r tree options}
+#rooting functions
+  #midpoint() runs a midpoint root {phangorn}
+  #root() or unroot() will root on a specific node or unroot tree {ape}
+
+tree <- midpoint(tree)
+
+#support for tip images
+
+imgdir <- "canidae/pics"
+
+#generate tip label database
+
+tips <- as_tibble(tree$tip.label)
+
+tips <- tips %>% 
+  mutate(accession=str_extract(value,"[A-Z]{2}_?[0-9]{6}"),
+         sciname=str_extract(value, "[A-Z]{1}[a-z]+ [a-z]+ ([a-z]+)?"),
+         sciname=str_replace(sciname, "isolate", ""),
+         sciname=str_replace(sciname, "from", ""),
+         genus=str_extract(sciname, "^[A-Za-z]+ "),
+         species=str_split_i(sciname, " ", 2),
+         subspecies=str_split_i(sciname, " ", 3),
+         isolate=str_extract(value, "(?<=isolate) .*"), 
+         isolate=str_replace_all(isolate,"voucher.*","")
+        ) 
+```
+
+```{r generate trees and options}
+#basic tree with names
+treeplot <- ggtree(
+  tree) %<+% tips +
+  xlim(NA, 1) +
+  ylim(NA, 50) +
+    geom_tiplab(
+      aes(label=paste0('italic(', genus, ')~italic(', species, ')~italic(', subspecies, ')~', isolate, '')), parse=TRUE) 
+
+#bootstrap labels  
+#subset line will set lower cutoff for bootstrap scores
+treeplot <- treeplot +  
+  geom_nodelab(aes(label=label, 
+      subset = !is.na(as.numeric(label)) & as.numeric(label) > 80), 
+      nudge_x = 0.01
+  )
+
+
+
+#clade labels
+treeplot <- treeplot +
+  geom_cladelab(node=81, label="Vulpini", textcolor='red', barcolor='red', offset=.3) +
+  geom_hilight(node=81, fill = "red", extend=0.185)
+
+treeplot   
+
+```
+```{r tree tools}
+#following can be used to get information on node and clade numbers
+get_taxa_name(treeplot)
+
+tbl.tree <- tree %>% as.treedata %>% as_tibble()
+View(tbl.tree)
+
+##export tree in Newick format
+write.tree(tree, file="newick.tree")
+
+```
+
+
