@@ -84,7 +84,7 @@ stm %>%
 dmd %>%
   ggplot(aes(x = price,
              fill = cut)) +
-  geom_histogram(bins = 100)
+  geom_histogram(bins = 10)
 
 dmd %>%
   ggplot(aes(x = price,
@@ -134,7 +134,7 @@ dmd %>%
   ggplot(aes(x = price,
              fill = cut)) +
   geom_histogram(bins = 100) +
-  facet_grid(~cut)
+  facet_grid(. ~ cut)
 
 dmd %>%
   ggplot(aes(x = price,
@@ -152,7 +152,8 @@ stm %>%
   geom_smooth(method = "lm",
               formula = y ~ poly(x,3),
               se = FALSE) +
-  facet_wrap(~name)
+  facet_wrap(~name,
+             nrow=5)
 
 stm %>%
   filter(year == 1998,
@@ -180,21 +181,22 @@ stm %>%
 
 library(RColorBrewer)
 
-(themes_plot <- stm %>%
-  group_by(category) %>%
-  summarise(mean_winds = mean(wind),
-            sd_winds = sd(wind)) %>%
-  ungroup() %>%
-  ggplot(aes(x = category,
-             y = mean_winds,
-             fill = category)) +
-  geom_col() +
-  geom_errorbar(aes(ymin = mean_winds - sd_winds,
-                    ymax = mean_winds + sd_winds)) +
-  xlab("Category") +
-  ylab("Mean Wind Speed") +
-  labs(fill = "Category",
-       title = "Mean Wind Speeds for Documented Hurricanes, 
+(themes_plot <- 
+    stm %>%
+    group_by(category) %>%
+    summarise(mean_winds = mean(wind),
+              sd_winds = sd(wind)) %>%
+    ungroup() %>%
+    ggplot(aes(x = category,
+               y = mean_winds,
+               fill = category)) +
+    geom_col() +
+    geom_errorbar(aes(ymin = mean_winds - sd_winds,
+                      ymax = mean_winds + sd_winds)) +
+    xlab("Category") +
+    ylab("Mean Wind Speed") +
+    labs(fill = "Category",
+         title = "Mean Wind Speeds for Documented Hurricanes, 
        Tropical Storms,\nand Tropical Depressions from 1975 - 2020"))
 
 themes_plot +
@@ -212,40 +214,41 @@ themes_plot +
 themes_plot +
   theme_void()
 
-(plot2save <- stm %>%
-  group_by(category) %>%
-  summarise(mean_winds = mean(wind),
-            sd_winds = sd(wind)) %>%
-  ungroup() %>%
-  ggplot(aes(x = category,
-             y = mean_winds,
-             fill = category)) +
-  geom_col() +
-  geom_errorbar(aes(ymin = mean_winds - sd_winds,
-                    ymax = mean_winds + sd_winds),
-                width = .5,
-                size = .75) +
-  xlab("Category") +
-  ylab("Mean Wind Speed") +
-  labs(fill = "Category",
-       title = "Mean Wind Speeds for Documented Hurricanes,\nTropical Storms, and Tropical Depressions from 1975 - 2020") +
-  theme_classic() +
-  theme(panel.grid.major.y = element_line(size = .5, 
-                                          linetype = "longdash", 
-                                          colour = "darkgrey"),
-        panel.grid.minor.y = element_line(size = .1,
-                                          linetype = "dashed",
-                                          colour = "lightgrey"),
-        axis.title = element_text(size = 16, colour = "black"),
-        axis.text = element_text(size = 12, colour = "black"),
-        title = element_text(size = 16, colour = "black"),
-        legend.position = "none"))
+plot2save <- 
+    stm %>%
+    group_by(category) %>%
+    summarise(mean_winds = mean(wind),
+              sd_winds = sd(wind)) %>%
+    ungroup() %>%
+    ggplot(aes(x = category,
+               y = mean_winds,
+               fill = category)) +
+    geom_col() +
+    geom_errorbar(aes(ymin = mean_winds - sd_winds,
+                      ymax = mean_winds + sd_winds),
+                  width = .5,
+                  size = .75) +
+
+    labs(y = "Mean Wind Speed",
+         x = "Category",
+         fill = "Category",
+         title = "Mean Wind Speeds for Documented Hurricanes,\nTropical Storms, and Tropical Depressions from 1975 - 2020") +
+    theme_classic() +
+    theme(panel.grid.major.y = element_line(linewidth  = .5, 
+                                            linetype = "longdash", 
+                                            colour = "darkgrey"),
+          panel.grid.minor.y = element_line(linewidth = .1,
+                                            linetype = "dashed",
+                                            colour = "lightgrey"),
+          axis.title = element_text(size = 16, colour = "black"),
+          axis.text = element_text(size = 12, colour = "black"),
+          title = element_text(size = 16, colour = "black"),
+          legend.position = "none")
 
 ggsave(plot2save,
        filename = "saved_plot.png",
        units = "in",
        width = 8,
        height = 5)
- 
 
-         
+

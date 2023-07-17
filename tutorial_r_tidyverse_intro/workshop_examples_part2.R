@@ -1,12 +1,16 @@
 rm(list=ls())
 
 #install.packages("tidyverse")
-library("tidyverse")
+library(tidyverse)
+library(janitor)
 
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 #### Reading in data ####
-fastqc_tbl <- read_tsv("fastqc_data.tsv")
+fastqc_tbl <- 
+  read_tsv("fastqc_data.tsv") %>%
+  clean_names()
+
 read_delim("fastqc_data.tsv", 
            delim = "\t")
 
@@ -55,22 +59,22 @@ fastqc_tbl %>%
   select(id,
          gc_interpretation)
 
-(fastqc_tbl_separate <- fastqc_tbl %>%
+fastqc_tbl_separate <- fastqc_tbl %>%
     separate(id,
              into = c("wga",
                       "species",
                       "repair",
                       "ng_dna"),
-             sep = "_"))
+             sep = "_")
 
-(fastqc_tbl_unite <- fastqc_tbl_separate %>%
+fastqc_tbl_unite <- fastqc_tbl_separate %>%
     relocate(species, 
              ng_dna,
              repair,
              wga) %>%
     unite("id", 
           species:wga,
-          sep = "-"))
+          sep = "-")
 
 #### Summarising a Tibble ####
 
