@@ -32,9 +32,9 @@ This tutorial is for the Ph-IRES program participants.
 
 ---
 
-## 6. Using your terminal, navigate to the directory you want to download your repo to.
+## 6. Clone the repo to your computer
 
-Your terminal can be either the stand alone app or the tab in the lower left panel of RStudio
+* Using your terminal (could be either the stand alone app or in RStudio) navigate to the directory you want to download you repo to.
 
 ```
 # mac
@@ -56,4 +56,28 @@ cd Downloads
 
 ```
 git clone PasteLinkHere
+```
+
+## 9. Copy one of your data files into the data directory of your repo on your computer
+
+Mac users can use the mac finder and win users can use the win explorer.  If you know how, you could also use the terminal to accomplish this.
+
+## 10. Log you changes to the repo in the terminal
+
+```
+# goto your repo directory
+
+cd NameOfYourRepo
+
+# stage changes to your repo on your computer
+
+git add
+
+# commit those changes to your repo on your computer
+
+git commit -m "added my first data file"
+
+# push the changes to GitHub
+
+git push
 ```
