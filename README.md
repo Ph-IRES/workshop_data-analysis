@@ -34,6 +34,8 @@ The workshop will be tailored to the data you collected this summer.  We will me
 
 * [Intro to R & Tidyverse](tutorial_r_tidyverse_intro)
 
+* [Creating GitHub Repo from Template](tutorial_github_make_repo)
+
 * [Maps with R](tutorial_r_maps)
 
 * [Principle Components Analysis with R](tutorial_r_pca)
