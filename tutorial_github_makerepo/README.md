@@ -32,9 +32,9 @@ This tutorial is for the Ph-IRES program participants.
 
 ---
 
-## 6. Clone the repo to your computer
+## 6. Using your terminal navigate to the directory you want to download you repo to.
 
-* Using your terminal (could be either the stand alone app or in RStudio) navigate to the directory you want to download you repo to.
+Your terminal can be either the stand alone app or the tab in the lower left panel of RStudio
 
 ```
 # mac
