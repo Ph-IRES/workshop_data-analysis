@@ -81,3 +81,23 @@ git commit -m "added my first data file"
 
 git push
 ```
+
+---
+
+## 11. On GitHub, confirm that the data file was added
+
+---
+
+# 12. On GitHub, modify your README.md file in the main repo directory
+
+---
+
+# 13.  Pull the changes you made to your repo on GitHub to the copy of your repo on your computer in the terminal.
+
+```
+git pull
+```
+
+---
+
+# 14. Confirm changes made on GitHub are now on you computer
