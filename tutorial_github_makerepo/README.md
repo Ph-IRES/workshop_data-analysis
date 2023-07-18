@@ -4,9 +4,7 @@ This tutorial is for the Ph-IRES program participants.
 
 ---
 
-# Why GitHub?
-
-# Why Use GitHub for Your Biology Research
+# Why Use GitHub for Your Biology Research?
 
 GitHub provides a platform for version control and collaboration that can enhance the management, sharing, and reproducibility of your research, including both data and R scripts. Here are a few reasons why you should consider using GitHub:
 
@@ -32,7 +30,7 @@ Remember that while GitHub can be very useful, it also requires learning some ne
 
 ---
 
-# Why Use GitHub over Dropbox or Google Drive
+# Why Use GitHub over Dropbox or Google Drive?
 
 While Dropbox and Google Drive offer simple, easy-to-use platforms for storing and sharing files, they are fundamentally different from GitHub and lack some key features that are critical for effective code and data management. Here's why GitHub may be more suitable for your needs as a biologist working with data and R scripts:
 
