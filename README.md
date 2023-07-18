@@ -36,6 +36,8 @@ The workshop will be tailored to the data you collected this summer.  We will me
 
 * [Creating GitHub Repo from Template](tutorial_github_makerepo)
 
+* [Using the `Issues` Feature of GitHub](tutorial_github_issues)
+
 * [Maps with R](tutorial_r_maps)
 
 * [Principle Components Analysis with R](tutorial_r_pca)

@@ -20,7 +20,8 @@ inFilePath1 = "metadata.rds"
 
 #### READ IN DATA####
 
-read_rds(inFilePath1)
+metadata <-
+  read_rds(inFilePath1)
 
 
 #### SIMPLE MAP OF SITE LOCATIONS ####
@@ -34,18 +35,19 @@ metadata %>%
 #### MAP OF WORLD USING MAPS PKG ####
 #https://www.datanovia.com/en/blog/how-to-create-a-map-using-ggplot2/
 
-world_map <- map_data("world")
+world_map <- 
+  map_data("world")
 
 world_map %>%
-ggplot(aes(x = long, 
-           y = lat, 
-           group = group)) +
+  ggplot(aes(x = long, 
+             y = lat, 
+             group = group)) +
   geom_polygon(fill="tan", 
                color = "brown4")
 
 #### MAP OF ONE REGION USING MAPS PKG ####
 map_data("world",
-         region = "Philippines") %>%
+         region = "San Marino") %>%
   ggplot(aes(x = long, 
              y = lat,
              group = group)) +
@@ -62,7 +64,8 @@ subregion_label_data <-
   dplyr::summarize(long = mean(long), 
                    lat = mean(lat)) %>%
   filter(subregion == "Negros" |
-           subregion == "Cebu")
+           subregion == "Cebu") %>%
+  ungroup()
 
 region_label_data <- 
   map_data("world",
@@ -88,7 +91,7 @@ map_data("world",
             aes(x = long,
                 y= lat,
                 label = region),
-            size = 10,
+            size = 6,
             hjust = 0.5,
             inherit.aes = FALSE) +
   # this next block is where the data points are added from metadata
@@ -96,7 +99,7 @@ map_data("world",
              aes(x = long_e,
                  y = lat_n,
                  color = habitat),
-             inherit.aes = FALSE) +
+             inherit.aes = FALSE) #+
   theme_classic()
 
 
@@ -111,17 +114,17 @@ maxLong = 122.5
 # make vector of unique subregions within window
 subregions_keep <-
   map_data("world") %>%
-    filter(long > minLong,
-           long < maxLong,
-           lat > minLat,
-           lat < maxLat) %>%
-    distinct(subregion) %>%
-    pull()
+  filter(long > minLong,
+         long < maxLong,
+         lat > minLat,
+         lat < maxLat) %>%
+  distinct(subregion) %>%
+  pull()
 
 # filter world map down to only the subregions
 subregions_keep %>%
   purrr::map_df(~ map_data("world") %>%
-               filter(subregion == .x)) %>%
+                  filter(subregion == .x)) %>%
   # change lat and long values in keeper subregions that fall outside window to the window boundaries, prevents whacky shapes
   mutate(lat = case_when(lat < minLat ~ minLat,
                          lat > maxLat ~ maxLat,
