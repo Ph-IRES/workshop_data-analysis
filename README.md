@@ -46,6 +46,8 @@ The workshop will be tailored to the data you collected this summer.  We will me
 
 * [Fixed & Mixed Model Hypothesis Testing](tutorial_r_model_fitting)
   * P-value "swiss army knife" for univariate responses
+ 
+* [Querying NCBI Genbank With R](tutorial_r_ncbi_genbank)
   
 * [Phylogenetic Analysis](tutorial_phylogeny_analysis)
 
