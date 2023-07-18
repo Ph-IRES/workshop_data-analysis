@@ -2,6 +2,22 @@
 
 This tutorial is for the Ph-IRES program participants.
 
+GitHub provides a platform for version control and collaboration that can enhance the management, sharing, and reproducibility of your research, including both data and R scripts. Here are a few reasons why you should consider using GitHub for your biology work:
+
+    Version Control: GitHub provides a record of all changes made to a file or set of files over time, allowing you to track your progress and revert to a previous version if necessary. This is particularly helpful when working with complex scripts or large datasets, as it can prevent data loss and facilitate troubleshooting.
+
+    Collaboration: GitHub can also make collaboration easier by allowing multiple people to work on the same project simultaneously. This is useful if you're part of a research team or collaborating with other scientists. Everyone can make their own changes and then merge them together, with GitHub keeping track of who made what changes.
+
+    Reproducibility: One of the key issues in scientific research is reproducibility. By using GitHub, you can ensure that your scripts and data are available for others to validate your results or build upon your work. This openness is not only good scientific practice, but it can also enhance your reputation within the scientific community.
+
+    Documentation: GitHub allows for thorough documentation of your project, which can be particularly helpful when returning to a project after some time has passed. This is also beneficial for others looking at your project, as it provides context and helps them understand your workflow and the choices you've made.
+
+    Showcase Work: GitHub also serves as a portfolio of your work, and can be a great way to showcase your skills and projects to potential employers or collaborators.
+
+    Integration with other tools: GitHub works well with many other tools used in data science and bioinformatics. For example, if you're using R, you can take advantage of RStudio's built-in tools for version control with Git.
+
+Remember that while GitHub can be very useful, it also requires learning some new skills, particularly around the Git command line interface. If you're new to version control or Git, it may take some time to get up to speed. But the long-term benefits to your research and data management practices can be substantial.
+
 ---
 
 ## 1. Goto the [Ph-IRES Organization on GitHub](https://github.com/Ph-IRES)
