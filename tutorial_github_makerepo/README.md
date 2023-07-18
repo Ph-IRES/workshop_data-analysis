@@ -71,7 +71,7 @@ cd NameOfYourRepo
 
 # stage changes to your repo on your computer
 
-git add
+git add --all
 
 # commit those changes to your repo on your computer
 
