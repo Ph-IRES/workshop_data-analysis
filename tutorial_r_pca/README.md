@@ -127,12 +127,13 @@ You can fill in the missing values with some reasonable values. The choice of th
 ```r
 # Impute missing values with column mean
 data_lai_ratios_imputed <- data_lai_ratios %>%
-  mutate(across(where(is.numeric), ~replace(., is.na(.), mean(., na.rm = TRUE))))```
+  mutate(across(where(is.numeric), ~replace(., is.na(.), mean(., na.rm = TRUE))))
 
 # Perform PCA
 pca_result <- data_lai_ratios_imputed %>%
   select(-code, -baranguay) %>%
   prcomp(center = TRUE, scale. = TRUE)
+
 ```
 
 In the code above:
