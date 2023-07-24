@@ -144,3 +144,81 @@ ggbiplot(lai_ratio.pca,
   labs(title = "PC3 x PC4",
        subtitle = "Grouped by Province, With Ellipses, Variables Removed")
 
+#### Missing Data Imputation ####
+
+data_lai_ratios_imputed <- 
+  data_lai_ratios %>%
+  dplyr::mutate(across(where(is.numeric), 
+                       ~replace(., 
+                                is.na(.), 
+                                mean(., 
+                                     na.rm=TRUE))))
+data_lai_ratios_imputed
+
+
+# Perform PCA
+lai_ratio_imputed.pca <- 
+  data_lai_ratios_imputed %>%
+  select(-code, -baranguay) %>%
+  prcomp(center = TRUE, scale. = TRUE)
+
+
+summary(lai_ratio_imputed.pca)
+summary(lai_ratio.pca)
+
+ggbiplot(lai_ratio_imputed.pca,
+         labels = data_lai_ratios %>%
+           pull(code),
+         ellipse = TRUE,
+         groups = data_lai_ratios %>%
+           mutate(province = str_remove(baranguay,
+                                        "^.*, ")) %>%
+           pull(province),
+         choices = c(3,4),
+         var.axes = FALSE) +
+  theme_classic() +
+  labs(title = "PC3 x PC4",
+       subtitle = "Grouped by Province, With Ellipses, Variables Removed")
+
+
+#### Missing value imputation for PCA ####
+
+
+# Install and load the package
+install.packages("missMDA")
+library(missMDA)
+
+# Estimate the number of dimensions
+nb <- 
+  estim_ncpPCA(data_lai_ratios %>%
+                 select(-code:-baranguay))
+
+# Impute the missing values
+lai_ratio_imputed_2 <- 
+  imputePCA(data_lai_ratios %>%
+              select(-code:-baranguay), 
+            ncp = nb$ncp)
+
+# Now use this data in your PCA
+lai_ratio_imputed_2.pca <- 
+  prcomp(imputed_data$completeObs, 
+                     center = TRUE, 
+                     scale. = TRUE)
+
+summary(lai_ratio_imputed_2.pca)
+summary(lai_ratio.pca)
+summary(lai_ratio_imputed.pca)
+
+ggbiplot(lai_ratio_imputed_2.pca,
+         labels = data_lai_ratios %>%
+           pull(code),
+         ellipse = TRUE,
+         groups = data_lai_ratios %>%
+           mutate(province = str_remove(baranguay,
+                                        "^.*, ")) %>%
+           pull(province),
+         choices = c(3,4),
+         var.axes = FALSE) +
+  theme_classic() +
+  labs(title = "PC3 x PC4",
+       subtitle = "Grouped by Province, With Ellipses, Variables Removed")
