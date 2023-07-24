@@ -112,3 +112,82 @@ ggbiplot(lai_ratio.pca,
 
 ![](Rplot05.png)
 
+---
+
+## Dealing With Missing Data
+
+PCA (Principal Component Analysis) cannot handle missing values directly, and by default, the prcomp function in R will throw an error if you try to apply it to data with missing values. However, you have multiple ways to deal with missing values in PCA:
+
+---
+
+### Imputation: 
+
+You can fill in the missing values with some reasonable values. The choice of these values can be quite complex and depends on the specific application. Common choices are using the mean, median, or mode of the available data for that variable. The mice package in R provides several methods for imputing missing data.
+
+```r
+# Impute missing values with column mean
+data_lai_ratios_imputed <- data_lai_ratios %>%
+  mutate(across(where(is.numeric), ~replace(., is.na(.), mean(., na.rm = TRUE))))```
+
+# Perform PCA
+pca_result <- data_lai_ratios_imputed %>%
+  select(-code, -baranguay) %>%
+  prcomp(center = TRUE, scale. = TRUE)
+```
+
+In the code above:
+
+    The mutate() function is used to change values in the dataset.
+    The across() function is used to apply a function across multiple columns.
+    The where(is.numeric) function is used to select only the numeric columns.
+    The replace() function is used to replace the NA values in each numeric column with the mean of that column (calculated with mean(., na.rm = TRUE)).
+
+This will replace all NA values in each numeric column with the mean of the non-missing values in that column.
+
+After the imputation, we perform PCA using prcomp() on the numerical columns only. We use select(-code, -baranguay) to exclude the non-numerical columns code and baranguay from the PCA.
+
+Please be aware that mean imputation is a simple method and may not always be the best choice, depending on the nature of your data and the reason for the missingness. Other imputation methods might give better results in some cases. The 'mice' or 'missMDA' packages in R provide more advanced imputation method
+
+---
+
+### PCA on available data (Complete-Case Analysis): 
+You can do the PCA on just the complete cases, that is, the observations without any missing data. This can be done in R by using na.omit() function.  Above, we used the `select()` function to accomplish this.
+
+```R
+
+# Example
+pca_result <- prcomp(na.omit(data_lai_ratios), center = TRUE, scale. = TRUE)
+```
+
+---
+
+### Multiple Imputation: 
+
+This is a more advanced method, where instead of filling in a single value, you fill in the missing values multiple times, creating several different "complete" datasets. You then perform your analysis (like PCA) on each of these datasets and combine the results. This gives you a measure of the uncertainty of your analysis due to the missing data.
+
+---
+
+### Missing value imputation for PCA: 
+
+You can also use the package missMDA in R, which provides a way to estimate the missing data for PCA.
+
+Here is an example of using missMDA package:
+
+```R
+
+# Install and load the package
+install.packages("missMDA")
+library(missMDA)
+
+# Estimate the number of dimensions
+nb <- estim_ncpPCA(data_lai_ratios[, -c(1:2)])
+
+# Impute the missing values
+imputed_data <- imputePCA(data_lai_ratios[, -c(1:2)], ncp = nb$ncp)
+
+# Now use this data in your PCA
+pca_result <- prcomp(imputed_data$completeObs, center = TRUE, scale. = TRUE)
+```
+
+Remember, dealing with missing data always involves making assumptions, and there's no one-size-fits-all solution. The appropriate method depends on why the data is missing and the specific characteristics of your dataset.
+User
