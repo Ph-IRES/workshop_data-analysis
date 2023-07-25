@@ -61,7 +61,7 @@ indir<-"canidae/co1/fasta_files"
 filelist<-list.files(indir, pattern = "fasta", full.names= TRUE)
 
 #if you have a multifasta, use this:
-filelist<-"goby_seqs.fasta"
+#filelist<-"goby_seqs.fasta"
 
 seq<-Biostrings::readDNAStringSet(filelist)
 seq<-RNA2DNA(seq)
@@ -139,11 +139,11 @@ tree$node.label<-round(tree$node.label, digits=0)
   #root() will root on an outgroup or specific node or unroot tree {ape}
   #unroot() will unroot the tree {ape}
 
-tree <- unroot(tree)
+#tree <- unroot(tree)
 
-tree <- root(tree, outgroup = "KJ603240 Vulpes zerda ")
+#tree <- root(tree, outgroup = "EU408262 Canis lupus familiaris isolate Chihuahua5P ")
 
-tree <- root(tree, node = 57)
+#tree <- root(tree, node = 57)
 
 tree <- midpoint(tree)
 
@@ -234,10 +234,10 @@ treeplot
 ##bootstrap labels  
 ##subset line will set lower cutoff for bootstrap scores
 treeplot <- treeplot +  
-  geom_nodelab(aes(label=label, color=label,
+  geom_nodelab(aes(label=label,
       subset = !is.na(as.numeric(label)) & as.numeric(label) > 80), 
       nudge_x = -0.015,
-      nudge_y = 0.5,
+      nudge_y = 0.6,
       node="internal", 
       show.legend = FALSE)
 
