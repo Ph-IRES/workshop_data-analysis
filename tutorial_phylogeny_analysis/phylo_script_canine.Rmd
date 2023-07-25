@@ -125,13 +125,7 @@ tree<-plotBS(fit.opt$tree, bs, p = 80, digits = 0, type="p", method="FBP")
 tree$node.label<-round(tree$node.label, digits=0)
 
 ```
-```{r tree info}
-#following can be used to get information on node and clade numbers
-get_taxa_name(treeplot)
 
-tbl.tree <- tree %>% as.treedata %>% as_tibble()
-View(tbl.tree)
-```
 ```{r tree options}
 #rooting functions
   ##NEED TO CHOOSE ONE OF THE OPTIONS BELOW.  COMMENT OUT THE REST.
@@ -170,16 +164,8 @@ tips <- tips %>%
          isolate=str_replace_all(isolate,"voucher.*","")
         ) 
 ```
+```{r generate basic tree}
 
-```{r generate trees and options}
-##create dataframe for metadata
-dat <- data.frame(id=c(55,54), tribe=c("Vulpini","Canini"), offset = c(0.3,0.4), group = c("A","B"))
-
-##wrangle node labels into support values for newick files
-
-#tree <- read.newick(tree, node.label='support')
-
-##basic tree with names
 treeplot <- ggtree(
   tree) %<+% tips +
   xlim(NA, 1) +
@@ -188,18 +174,37 @@ treeplot <- ggtree(
       aes(label=paste0('italic(', genus, ')~italic(', species, ')~italic(', subspecies, ')~', isolate, '')), parse=TRUE) 
 
 treeplot
+```
+```{r basic tree with color coded bootstrap values on branches}
 
 ##if you want boostrap values color coded...
-treeplot <- ggtree(
+##note change in treeplot variable name.
+
+treeplot2 <- ggtree(
   tree, aes(color=node)) %<+% tips +
   xlim(NA, 1) +
   ylim(NA, 55) +
     geom_tiplab(
       aes(label=paste0('italic(', genus, ')~italic(', species, ')~italic(', subspecies, ')~', isolate, '')), parse=TRUE, color = "black") 
 
-treeplot
+treeplot2
+```
 
+```{r tree info}
+#following can be used to get information on node and clade numbers
+get_taxa_name(treeplot)
 
+tbl.tree <- tree %>% as.treedata %>% as_tibble()
+View(tbl.tree)
+```
+
+```{r modify and manipulate trees}
+##create dataframe for metadata
+dat <- data.frame(id=c(53,52), tribe=c("Vulpini","Canini"), offset = c(0.3,0.4), group = c("A","B"))
+
+##wrangle node labels into support values for newick files
+
+#tree <- read.newick(tree, node.label='support')
 
 ##add a symbol to a node
 #treeplot <- treeplot + geom_point2(aes(subset=node==54), color='darkgreen', size=5)
@@ -227,13 +232,15 @@ treeplot <- treeplot +
       subset = !is.na(as.numeric(label)) & as.numeric(label) > 80), 
       nudge_x = -0.015,
       nudge_y = 0.5,
-      node="internal")
+      node="internal", 
+      show.legend = FALSE)
+
 treeplot
 
 #tip images
 treeplot <- treeplot +
   geom_tiplab(aes(subset=grepl("(Vulpes vulpes|Chihuahua)",label), image=paste0(imgdir, '/',label,'.jpg')), 
-                geom="image", hjust= 1, offset = c(0.4,0.3), align=FALSE, size=0.1, by='height')
+                geom="image", hjust= 1, offset = c(0.4,0.4), align=FALSE, size=0.1, by='height')
 treeplot
 
 ```
