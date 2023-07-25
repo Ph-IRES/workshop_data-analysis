@@ -125,13 +125,30 @@ tree<-plotBS(fit.opt$tree, bs, p = 80, digits = 0, type="p", method="FBP")
 tree$node.label<-round(tree$node.label, digits=0)
 
 ```
+```{r tree info}
+#following can be used to get information on node and clade numbers
+get_taxa_name(treeplot)
 
+tbl.tree <- tree %>% as.treedata %>% as_tibble()
+View(tbl.tree)
+```
 ```{r tree options}
 #rooting functions
+  ##NEED TO CHOOSE ONE OF THE OPTIONS BELOW.  COMMENT OUT THE REST.
   #midpoint() runs a midpoint root {phangorn}
-  #root() or unroot() will root on a specific node or unroot tree {ape}
+  #root() will root on an outgroup or specific node or unroot tree {ape}
+  #unroot() will unroot the tree {ape}
+
+tree <- unroot(tree)
+
+tree <- root(tree, outgroup = "KJ603240 Vulpes zerda ")
+
+tree <- root(tree, node = 57)
 
 tree <- midpoint(tree)
+
+#If using root() this seems to falsely indicate the tree is unrooted.  
+is.rooted(tree)
 
 #support for tip images
 
@@ -155,30 +172,69 @@ tips <- tips %>%
 ```
 
 ```{r generate trees and options}
-#basic tree with names
+##create dataframe for metadata
+dat <- data.frame(id=c(55,54), tribe=c("Vulpini","Canini"), offset = c(0.3,0.4), group = c("A","B"))
+
+##wrangle node labels into support values for newick files
+
+#tree <- read.newick(tree, node.label='support')
+
+##basic tree with names
 treeplot <- ggtree(
   tree) %<+% tips +
   xlim(NA, 1) +
-  ylim(NA, 50) +
+  ylim(NA, 55) +
     geom_tiplab(
       aes(label=paste0('italic(', genus, ')~italic(', species, ')~italic(', subspecies, ')~', isolate, '')), parse=TRUE) 
 
-#bootstrap labels  
-#subset line will set lower cutoff for bootstrap scores
-treeplot <- treeplot +  
-  geom_nodelab(aes(label=label, 
-      subset = !is.na(as.numeric(label)) & as.numeric(label) > 80), 
-      nudge_x = 0.01
-  )
+treeplot
+
+##if you want boostrap values color coded...
+treeplot <- ggtree(
+  tree, aes(color=node)) %<+% tips +
+  xlim(NA, 1) +
+  ylim(NA, 55) +
+    geom_tiplab(
+      aes(label=paste0('italic(', genus, ')~italic(', species, ')~italic(', subspecies, ')~', isolate, '')), parse=TRUE, color = "black") 
+
+treeplot
 
 
+
+##add a symbol to a node
+#treeplot <- treeplot + geom_point2(aes(subset=node==54), color='darkgreen', size=5)
+#treeplot
+
+#hilight nodes
+treeplot <- treeplot + geom_hilight(node = 79, fill="steelblue", extend = 0.3)
+treeplot
 
 #clade labels
 treeplot <- treeplot +
-  geom_cladelab(node=81, label="Vulpini", textcolor='red', barcolor='red', offset=.3) +
-  geom_hilight(node=81, fill = "red", extend=0.185)
+  geom_cladelab(data=dat, mapping=aes(node=id, label=tribe, color = group, offset=offset), show.legend = FALSE)
+treeplot  
 
-treeplot   
+
+#flip or rotate branches
+treeplot <- rotate(treeplot, 60)
+treeplot
+
+
+##bootstrap labels  
+##subset line will set lower cutoff for bootstrap scores
+treeplot <- treeplot +  
+  geom_nodelab(aes(label=label, color=label,
+      subset = !is.na(as.numeric(label)) & as.numeric(label) > 80), 
+      nudge_x = -0.015,
+      nudge_y = 0.5,
+      node="internal")
+treeplot
+
+#tip images
+treeplot <- treeplot +
+  geom_tiplab(aes(subset=grepl("(Vulpes vulpes|Chihuahua)",label), image=paste0(imgdir, '/',label,'.jpg')), 
+                geom="image", hjust= 1, offset = c(0.4,0.3), align=FALSE, size=0.1, by='height')
+treeplot
 
 ```
 ```{r tree tools}
@@ -192,5 +248,4 @@ View(tbl.tree)
 write.tree(tree, file="newick.tree")
 
 ```
-
 
