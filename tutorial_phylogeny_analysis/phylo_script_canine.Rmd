@@ -53,10 +53,15 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 #knitr::opts_knit$set(root.dir = "~/Desktop/phiRes_workshop/workshop_data-analysis/phiRes_phylogeny")
 ```
 ```{r file read}
-#SET input directory.  This should contain separate .fasta files for sequences you want to tree-ize
-indir<-"canidae/co1/fasta_files"
+##SET input directory.  This should contain separate .fasta files for sequences you want to tree-ize
 
+#if you have a file full of individual .fasta files, use this:
+indir<-"canidae/co1/fasta_files"
 filelist<-list.files(indir, pattern = "fasta", full.names= TRUE)
+
+#if you have a multifasta, use this:
+filelist<-"goby_seqs.fasta"
+
 seq<-Biostrings::readDNAStringSet(filelist)
 seq<-RNA2DNA(seq)
 ```
