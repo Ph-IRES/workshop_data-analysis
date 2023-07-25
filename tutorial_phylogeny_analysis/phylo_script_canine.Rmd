@@ -10,7 +10,7 @@ if (!require("phangorn")) install.packages("phangorn")
 if (!require("ape")) install.packages("ape")
 if (!require("msa")) BiocManager::install("msa")
 if (!require("tinytex")) install.packages("tinytex") 
-if (!require("devtools")) install.packages("devtools") +
+if (!require("devtools")) install.packages("devtools") 
 if (!require("tidyverse")) install.packages("tidyverse")
 if (!require("igraph")) install.packages("igraph", type="binary")
 if (!require("ips")) install.packages("ips")
