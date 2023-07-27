@@ -4,7 +4,7 @@ Under construction
 
 ---
 
-[Excellent Reference](https://bookdown.org/steve_midway/DAR/random-effects.html#types-of-models-with-random-effects)
+[For Additional Help Try "Data Analayis in R"](https://bookdown.org/steve_midway/DAR/random-effects.html#types-of-models-with-random-effects)
 
 ---
 
