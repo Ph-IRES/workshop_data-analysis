@@ -32,6 +32,7 @@
 9a - 4p 
 
 We will have a mid-morning break, a lunch break, and a mid-afternoon break. This divides the day into 4 sessions.  The exact timing of the breaks may vary from day to day.
+The content of the workshop will vary depending on our progress and needs of individual participants/projects.
 
 | Day | Date | Topic |
 | --- | --- | --- |
