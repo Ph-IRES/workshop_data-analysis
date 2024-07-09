@@ -27,9 +27,22 @@
 [TAMUCC's 2022 Computational Biology Course (bash, R, python, git, markdown)](https://github.com/tamucc-comp-bio-2022/classroom_repo)
 
 ---
+## Tentative Schedule
 
+9a - 4p 
 
+We will have a mid-morning break, a lunch break, and a mid-afternoon break. This divides the day into 4 sessions.  The exact timing of the breaks may vary from day to day.
 
+| Day | Date | Topic |
+| --- | --- | --- |
+| Monday | July 15 | [Management of Biological Data / Introduction to UNIX CLI and R]() |
+| Tuesday | July 16 | [Intro to Data Visualization with ggplot2]() / [Intro to Data Wrangling with Tidyverse]() |
+| Wednesday | July 17 | [Phylogenetic analysis]() |
+| Thursday | July 18 | [Population genetics]() |
+| Friday | July 19 | [Statistical analysis I]() |
+| Monday | July 22 | [Statistical analysis II]() |
+| Tuesday | July 23 | [Automate your own data analysis I]() |
+| Wednesday | July 24 | [Automate your own data analysis II]() 
 
 # Data Analysis Workshop 2022-2023
 # This workshop has been completed but can still be consulted for resources.  
