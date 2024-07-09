@@ -1,5 +1,38 @@
-# Data Analysis Workshop 2022-2023
+# Data Analysis Workshop 2024
 
+---
+
+## Please Complete These Tasks Prior to Workshop
+
+* [Data Preparation & Sharing](data_preparation.md)
+
+* [GitHub Account](github_account.md)
+
+* [Data Science Philosophy](datasci_philosophy.md)
+
+* [Install Required Software](install_software.md)
+
+* [Set Up Permissions Key](Github_SSH.docx) And Say Goodbye to Passwords
+
+* [Clone This Repo to Your Computer](clone_repo.md)
+
+---
+
+## Resources
+
+[R for Data Science](https://r4ds.hadley.nz/)
+
+[R for Data Science: Exercise Solutions](https://mine-cetinkaya-rundel.github.io/r4ds-solutions)
+
+[TAMUCC's 2022 Computational Biology Course (bash, R, python, git, markdown)](https://github.com/tamucc-comp-bio-2022/classroom_repo)
+
+---
+
+
+
+
+# Data Analysis Workshop 2022-2023
+# This workshop has been completed but can still be consulted for resources.  
 The workshop will be tailored to the data you collected this summer.  We will meet on Zoom (link TBA) and we will record the sessions.  Links to the recorded sessions will be posted here.
 
 ---
