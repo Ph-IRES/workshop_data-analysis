@@ -10,10 +10,26 @@ if (!require(genepop)) install.packages('genepop')
 if (!require(related)) install.packages("related", repos="http://R-Forge.R-project.org")
 if (!require(ggplot2)) install.packages('ggplot2')
 if (!require(dplyr)) install.packages('dplyr')
+if (!require(BiocManager)) install.packages('BiocManager')
+if (!require('adegenet')) install.packages('adegenet')
+if (!require('pegas')) install.packages('pegas')
+if (!require('janitor')) install.packages('janitor')
+if (!require('tidytext')) install.packages("tidytext")
+if (!require('hierfstat')) install.packages("hierfstat")
+if (!require('pegas')) install.packages("pegas")
+if (!require('devtools')) install.packages('devtools')
+if (!require('graph4lg')) install.packages('graph4lg')
+if (!require('dartR')) install.packages('dartR')
+if (!require('StAMPP')) install.packages('StAMPP')
+BiocManager::install("SNPRelate")
+BiocManager::install("LEA")
 if (!require(remotes)) install.packages('remotes')
 remotes::install_github("rystanley/genepopedit")
 if (!require(devtools)) install.packages('devtools')
 devtools::install_github("kkeenan02/diveRsity")
+install.packages(c("fields","RColorBrewer","mapplots"))
+
+#install.packages('dartR')
 library('genepop')
 library('related')
 library('ggplot2')
@@ -21,6 +37,20 @@ library('dplyr')
 library('adegenet')
 library('genepopedit')
 library('diveRsity')
+library('LEA')
+library('adegenet')
+library('poppr')
+library('dplyr')
+library('hierfstat')
+library('reshape2')
+library('ggplot2')
+library('RColorBrewer')
+library('scales')
+library('pegas')
+library('graph4lg')
+library('tidyverse')
+library('StAMPP')
+
 #Sets working directory
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
@@ -64,8 +94,146 @@ Nm_private(locinfile, outputFile = "../outputs/SBmicro_pops.txt.PRI ", dataType 
            verbose = interactive())
 ```
 
+```{r functions from adegenet}
+##generate genind object
+sb_genind <- genepop_to_genind(locinfile, 14, pop_names = c("HR","DB","CB","NC","SC"))
+
+#summarize genind object
+sum_sb_genind <- (summary(sb_genind))
+sum_sb_genind
+
+#polymorphic loci
+poly<-isPoly(sb_genind, by=c("locus"))
+poly
+
+#locus completeness
+locmiss_sb <- propTyped(sb_genind, by = "loc")
+barplot(locmiss_sb, ylim = c(0,1), ylab = "Complete genotypes (proportion)", xlab = "Locus", las = 2, cex.names = 0.7)
+
+#private alleles
+private_alleles(sb_genind) %>% apply(MARGIN = 1, FUN = sum)
+
+#expected and observed heterozygosity
+locus <- levels(sb_genind@loc.fac)
+observed.hetero<- sum_sb_genind$Hobs
+expected.hetero<- sum_sb_genind$Hexp 
+
+my_table <- data.frame(locus = locus, observed.hetero = observed.hetero, expected.hetero = expected.hetero) |>
+  mutate (deltaH = expected.hetero-observed.hetero)
+
+table_long <- pivot_longer(my_table, c(expected.hetero,observed.hetero), names_to = "het")
+
+het_plot <- ggplot(table_long, aes(x = locus)) +
+  geom_bar(aes(y = value, fill=het), stat = "identity", position = position_dodge()) +
+  theme(axis.text.x = element_text(size = 6),
+panel.background = element_blank())
+
+plot(het_plot)
+
+#Fst values
+sb_fst <- genet.dist(sb_genind, method = "WC84") %>% round(digits = 3)
+sb_fst
+
+#95% confidence intervals for global statistics
+msat_hf <- genind2hierfstat(sb_genind)
+boot.vc(msat_hf[1], msat_hf[-1])$ci
+
+msat_genlight <- gi2gl(sb_genind, parallel = FALSE, verbose = NULL)
+
+# Calculate pairwise Fst values between each population
+pairwise.fst.p <- stamppFst(msat_genlight, 100, 95, 1)
+View(pairwise.fst.p)
+
+pairwise.fst.p[["Pvalues"]]
+
+#Discriminant analysis of Principal Components (DAPC)
+
+find.clusters()
+
+#Perform cross validation to find the optimal number of PCs to retain in DAPC
+set.seed(123)
+x <- tab(sb_genind, NA.method = "mean")
+crossval = xvalDapc(x, sb_genind$pop, result = "groupMean", xval.plot = TRUE)
+
+# Number of PCs with best stats (lower score = better)
+crossval$`Root Mean Squared Error by Number of PCs of PCA`
+
+crossval$`Number of PCs Achieving Highest Mean Success`
+
+crossval$`Number of PCs Achieving Lowest MSE`
+
+numPCs <- as.numeric(crossval$`Number of PCs Achieving Lowest MSE`)
+
+#find number of genetic clusters
+grp <- find.clusters(x, n.pca = numPCs, max.n = 12, n.clust = NULL)
+plot(grp$Kstat, type="b", col="blue")
+
+# Run a DAPC using site IDs as priors
+dapc1 <- dapc(sb_genind, sb_genind$pop, n.pca = numPCs, n.da = 3)
+
+# Analyse how much percent of genetic variance is explained by each axis
+percent <- dapc1$eig/sum(dapc1$eig)*100
+barplot(percent, ylab = "Genetic variance explained by eigenvectors (%)", ylim = c(0,60),
+        names.arg = round(percent, 1))
+
+# Create a data.frame containing individual coordinates
+ind_coords <- as.data.frame(dapc1$ind.coord)
+
+# Rename columns of dataframe
+colnames(ind_coords) <- c("Axis1","Axis2","Axis3")
+
+# Add a column containing individuals
+ind_coords$Ind <- indNames(sb_genind)
+
+# Add a column with the site IDs
+ind_coords$Site <- sb_genind$pop
+
+# Calculate centroid (average) position for each population
+centroid <- aggregate(cbind(Axis1, Axis2, Axis3) ~ Site, data = ind_coords, FUN = mean)
+
+# Add centroid coordinates to ind_coords dataframe
+ind_coords <- left_join(ind_coords, centroid, by = "Site", suffix = c("",".cen"))
+
+# Define colour palette
+cols <- brewer.pal(nPop(sb_genind), "Set2")
+
+# Custom x and y labels
+xlab = paste("Axis 1 (", format(round(percent[1], 1), nsmall=1)," %)", sep="")
+ylab = paste("Axis 2 (", format(round(percent[2], 1), nsmall=1)," %)", sep="")
+
+# Scatter plot axis 1 vs. 2
+ggplot(data = ind_coords, aes(x = Axis1, y = Axis2))+
+  geom_hline(yintercept = 0)+
+  geom_vline(xintercept = 0)+
+  # spider segments
+  geom_segment(aes(xend = Axis1.cen, yend = Axis2.cen, colour = Site), show.legend = FALSE)+
+  # points
+  geom_point(aes(fill = Site), shape = 21, size = 3, show.legend = FALSE)+
+  # centroids
+  geom_label(data = centroid, aes(label = Site, fill = Site), size = 4, show.legend = FALSE)+
+  # colouring
+  scale_fill_manual(values = cols)+
+  scale_colour_manual(values = cols)+
+  # custom labels
+  labs(x = xlab, y = ylab)+
+  ggtitle("Striped bass DAPC")+
+  # custom theme
+  ggtheme
+
+```
+
+
 ```{r structure analysis}
-PGDspideR(locinfile,GENEPOP,)
+struct2geno("../data/fish/SBmicro_pops.structure", 2, FORMAT = 2, extra.row = 0, extra.column = 2)
+
+obj.snmf = snmf("../data/fish/SBmicro_pops.structure.geno", K = 1:8, ploidy = 2, entropy = T,
+alpha = 100, project = "new")
+plot(obj.snmf, col = "blue4", cex = 1.4, pch = 19)
+
+obj.snmf = snmf("../data/fish/SBmicro_pops.structure.geno", K = 3, alpha = 100, project = "new")
+qmatrix = Q(obj.snmf, K = 3)
+barplot(t(qmatrix), col = c("red","blue","lightgreen"), border = NA, space = 0,
+xlab = "Individuals", ylab = "Admixture coefficients")
 
 ```
 
