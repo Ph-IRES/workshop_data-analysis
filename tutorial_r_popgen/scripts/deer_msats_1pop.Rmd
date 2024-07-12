@@ -1,0 +1,522 @@
+---
+title: "deer_msats"
+output: html_document
+date: "2023-07-04"
+---
+#
+```{r setup}
+
+##The Related package requires an install of gfortran on your system.  Before you run the code below, you will need to do the following:
+
+####Mac:  If you don't already have it, install Homebrew:
+#in terminal:
+#/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/dgauthie/.zprofile
+#eval "$(/opt/homebrew/bin/brew shellenv)". ***REPLACE /Users/dgauthie/.zprofile with your own username***
+#brew update
+#brew install gcc
+#which gfortran
+#mkdir -p ~/.R
+#touch ~/.R/Makevars
+#nano ~/.R/Makevars 
+## within the ~/.R/Makevars file, enter the following:
+#FC      = /opt/homebrew/bin/gfortran
+#F77     = /opt/homebrew/bin/gfortran
+#FLIBS   = -L/usr/local/opt/gcc/lib
+#you may need to modify the above paths depending on where gfortran installed.  Check this with %which gfortran
+
+####Windows and Linux:  See https://fortran-lang.org/learn/os_setup/install_gfortran/
+
+if (!require('adegenet')) install.packages('adegenet')
+if (!require('pegas')) install.packages('pegas')
+if (!require('janitor')) install.packages('janitor')
+if (!require('related')) install.packages("related", repos="http://R-Forge.R-project.org")
+if (!require('tidytext')) install.packages("tidytext")
+if (!require('polysat')) install.packages("polysat")
+if (!require('ggpubr')) install.packages("ggpubr")
+install.packages("remotes")
+remotes::install_github("nikostourvas/PopGenUtils")
+library('adegenet')
+library('ggplot2')
+library('dplyr')
+library('tidyverse')
+library('readxl')
+library('janitor')
+library('pegas')
+library('related')
+library('tidyverse')
+library('tidyr')
+library('tidytext')
+library('polysat')
+library(PopGenUtils)
+library(reshape2)
+library(ggnewscale)
+library(ggpubr)
+library("grid")
+library("ggplotify")
+
+#Sets working directory
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+```
+
+```{r read data}
+
+xldata <- read_excel("../data/VSD_2022_2023_multiplex_final.xlsx", 
+    sheet = "alleles")
+
+indiv_data <- read_csv("../data/indiv_data.csv") |>
+  clean_names() |>
+  rename(ind = id) |>
+  mutate(ind = str_replace(ind, "VSD[ ]([0-9]{1,2})", "VSD_\\1"))
+```
+
+```{r wrangle}
+#convert to basic genind and genpop formats
+df <- xldata %>% 
+  mutate(catallele=str_c(allele1,allele2)) %>%
+  select(VSDind,locus,catallele) %>%
+  pivot_wider(names_from = locus, values_from = c(catallele)) %>%
+  column_to_rownames(var="VSDind")
+  
+genind <- df %>%
+  df2genind(ncode=3, ploidy = 2, NA.char = NA)
+
+genpop <- genind2genpop(genind)
+
+#create file for package related
+related_data <- df %>%
+  separate(WY45, into = c("WY45a", "WY45b"), sep = 3) %>%
+  separate(WY56, into = c("WY56a", "WY56b"), sep = 3) %>%
+  separate(WY60, into = c("WY60a", "WY60b"), sep = 3) %>%
+  separate(WY59, into = c("WY59a", "WY59b"), sep = 3) %>%
+  separate(WY46, into = c("WY46a", "WY46b"), sep = 3) %>%
+  separate(WY32, into = c("WY32a", "WY32b"), sep = 3) %>%
+  separate(WY48, into = c("WY48a", "WY48b"), sep = 3) %>%
+  separate(WY68, into = c("WY68a", "WY68b"), sep = 3) %>%
+  separate(WY44, into = c("WY44a", "WY44b"), sep = 3) %>%
+  separate(WY55, into = c("WY55a", "WY55b"), sep = 3) %>%
+  separate(WY24, into = c("WY24a", "WY24b"), sep = 3) %>%
+  separate(WY64, into = c("WY64a", "WY64b"), sep = 3) %>%
+  separate(WY34, into = c("WY34a", "WY34b"), sep = 3) %>%
+  separate(WY62, into = c("WY62a", "WY62b"), sep = 3) %>%
+  separate(WY61, into = c("WY61a", "WY61b"), sep = 3) %>%
+  separate(WY82, into = c("WY82a", "WY82b"), sep = 3) %>%
+  separate(WY2, into = c("WY2a", "WY2b"), sep = 3) %>%
+  separate(WY66, into = c("WY66a", "WY66b"), sep = 3) %>%
+
+  
+  rownames_to_column(var="VSDind") 
+
+related_data <- related_data %>% 
+  replace(is.na(.), 0) %>%
+  rename(ind = VSDind)
+  
+
+write_delim(related_data, "../output/related_data.txt", delim = " ", col_names = FALSE, append = FALSE)
+
+#create genotype file for cervus
+
+cervus <- left_join(related_data, indiv_data) %>%
+  select(ind, sex, WY2a:WY62b) %>%
+  mutate(sex =
+    case_when(sex == "M" ~ "2",
+              sex == "F" ~ "1"
+                )
+  )
+
+write_delim(cervus, "../output/cervus.csv", delim = ",", col_names = TRUE, append = FALSE)
+```
+
+```{r adegenet functions}
+
+#summary stats
+sum_genind <- (summary(genind))
+sum_genind
+
+#polymorphic loci
+isPoly(genind, by=c("locus"))
+
+#make frequency table
+
+afreq_wide_ind <- as.data.frame(makefreq(genind))
+
+afreq_wide_pop <- as.data.frame(makefreq(genpop)) 
+  afreq_wide_pop$Genomes <- c(19)
+  
+afreq_wide_pop <- afreq_wide_pop %>%
+  select(Genomes, everything()) %>%
+  mutate(across(everything(), ~as.numeric(.)))
+
+afreq_long <- afreq_wide_pop %>%
+  select(-Genomes) %>%
+  as_tibble() %>%
+  pivot_longer(everything(),
+              names_to = c("locus","allele"),
+              names_pattern = "(WY[0-9]{1,2})\\.([0-9]*)"
+              )
+
+##PIC values
+PIC(afreq_wide_pop, bypop = TRUE, overall = FALSE)
+
+#make frequency facetplot
+freq_chart <- ggplot(afreq_long, aes(x = reorder_within(allele, as.numeric(allele),locus), y = value)) +      
+  geom_bar(position=position_dodge(), stat="identity") + 
+  scale_x_reordered() +
+  facet_grid(~ locus, scales="free_x")
+freq_chart
+
+## plot of observed vs expected heterozygosity ## 
+locus <- levels(genind@loc.fac)
+observed.hetero<- sum_genind$Hobs
+expected.hetero<- sum_genind$Hexp 
+my_table <- data.frame(locus = locus, observed.hetero = observed.hetero, expected.hetero = expected.hetero)
+
+table_long <- pivot_longer(my_table, c(expected.hetero,observed.hetero), names_to = "het")
+
+het_plot <- ggplot(table_long, aes(x = locus)) +
+  geom_bar(aes(y = value, fill=het), stat = "identity", position = position_dodge()) +
+  theme(axis.text.x = element_text(size = 6),
+panel.background = element_blank())
+  
+plot(het_plot)
+
+#HWE
+hw.test(genind)
+
+#inbreeding
+
+Fsamp<-inbreeding(genind, res.type = c("sample"), N=200, M = 20000)
+
+Fdens <- inbreeding(genind, res.type="function")
+Fdens[[1]]
+
+## plot the first 10 functions
+invisible(sapply(Fdens[1:10], plot, ylab="Density",
+main="Density of probability of F values"))
+
+## compute means for all individuals
+Fmean=sapply(Fsamp, mean)
+hist(Fmean, col="orange", xlab="mean value of F",
+main="Distribution of mean F across individuals")
+
+## estimate inbreeding - return maximum likelihood estimates
+Fest <- inbreeding(genind, res.type = "estimate")
+
+mostInbred <- which.max(Fest)
+
+plot(Fdens[[mostInbred]], ylab = "Density", xlab = "F",
+     main = paste("Probability density of F values\nfor", names(mostInbred)))
+abline(v = Fest[mostInbred], col = "red", lty = 2)
+legend("topright", legend = "MLE", col = "red", lty = 2)
+
+## note that estimates and average samples are likely to be different.
+plot(Fest, ylab = "F", col = "blue",
+     main = "comparison of MLE and average sample estimates of F")
+points(Fmean, pch = 2, col = "red")
+arrows(x0 = 1:length(Fest), y0 = Fest, 
+       y1 = Fmean, x1 = 1:length(Fest), length = 0.125)
+legend("topleft", legend = c("estimate", "sample"), col = c("blue", "red"),
+       pch = c(1, 2), title = "res.type")
+
+in_est <- as.data.frame(Fest) %>%
+  rownames_to_column(var = "ind")
+
+data_deer <-
+  indiv_data %>%
+  filter(ind != "VSD_11") %>%
+  left_join(in_est)
+
+pdf(file = "../images/ic_vs_bodycondition.pdf")
+data_deer %>%
+  ggplot(aes(x=Fest,
+             y=bcs, 
+             color=sex)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(x = "Inbreeding Coefficient", 
+       y = "Body Condition Index",
+       title = "Effect of Inbreeding on Body Condition",
+       fill = "Sex") +
+  theme_classic()
+dev.off()
+
+## Plot of estimates only
+
+pdf(file = "../images/inbreeding.pdf")
+as.data.frame(Fest) |>
+  rownames_to_column(var ="ind") |>
+  ggplot(
+    aes(x=ind, y=Fest)) +
+      geom_point() +
+      theme(
+        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=1),
+        axis.line = element_line(colour = "black"), 
+        panel.background = element_blank()
+        ) +
+      labs(
+        x = "Individual", y = "Inbreeding coefficient",
+  )
+dev.off()
+
+
+
+
+```
+```{r inbreeding vs body condition}
+
+Fest.df <- as.data.frame(Fest) |>
+  rownames_to_column(var ="ind")
+
+bc_data <-
+  full_join(Fest.df, indiv_data)
+
+bc_data %>%
+  ggplot(aes(x=Fest,
+             y=bcs, 
+             color=sex)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(x = "Inbreeding Coefficient", 
+       y = "Body Condition Index",
+       title = "Effect of Inbreeding on Body Condition",
+       fill = "Sex") +
+  theme_classic()
+
+bc_data %>%
+  ggplot(aes(x=birth_year,
+             y=bcs, 
+             color=sex)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(x = "Birth Year", 
+       y = "Body Condition Index",
+       title = "Effect of Birth Year on Body Condition",
+       fill = "Sex") +
+  theme_classic()
+
+bc_data %>%
+  ggplot(aes(x=birth_year,
+             y=Fest, 
+             color=sex)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(x = "Birth Year", 
+       y = "IC",
+       title = "Effect of Birth Year on IC",
+       fill = "Sex") +
+  theme_classic()
+
+glm_bc <-
+  glm(data=bc_data, bcs ~ Fest + sex + birth_year, family = "gaussian")
+summary(glm_bc)
+
+```
+
+```{r related analysis}
+
+##following save to Rdata objects. Load them for further analysis.
+
+input <- readgenotypedata(related_data)
+
+#estimator comparison
+compest <- compareestimators(input, 100)
+save(compest, file = "../data/compest.Rdata")
+pdf(file = "../images/Estimators.pdf")
+compest
+dev.off()
+
+#generate relatedness data
+rel <- coancestry(input$gdata, trioml = 2, wang = 2, allow.inbreeding = TRUE)
+save(rel, file="../data/rel.Rdata")
+
+#Simulations under allele frequencies calculated above
+
+sim <- familysim(input$freqs, 100)
+simoutput <- coancestry(sim, wang=2, trioml = 2)
+simrel <- cleanuprvals ( simoutput$relatedness , 100)
+save(simrel, file = "../data/simrel.Rdata")
+
+```
+```{r related plotting and pdf functions}
+
+#load related data objects
+load("../data/rel.Rdata")
+load("../data/simrel.Rdata")
+load("../data/compest.Rdata")
+
+#Plot relatedness data
+#basic scatterplot
+
+wang_rel <- ggplot(data = rel$relatedness, aes(x=group, y=wang)) +
+geom_point(shape=1)
+
+pdf(file = "../images/Wang_scatter.pdf")
+wang_rel
+dev.off()
+
+#heatmap
+
+pairwise_rel <- as_tibble(rel$relatedness)
+
+pairwise_rel2 <- pairwise_rel %>%
+  rename(ind1.id = ind2.id,
+         ind2.id = ind1.id) %>%
+  select(pair.no,ind1.id,ind2.id,everything())
+
+pairwise_rel_bothways <- bind_rows(pairwise_rel,pairwise_rel2) %>%
+  mutate(ind1.id = as.numeric(str_replace(ind1.id, "VSD_", "")),
+         ind2.id = as.numeric(str_replace(ind2.id, "VSD_", ""))
+  ) %>%
+  arrange(ind1.id, ind2.id)
+
+pairwise_trioml_matrix <- as.matrix(xtabs(trioml ~ ind1.id + ind2.id, data = pairwise_rel_bothways)) %>%
+  unclass()
+
+pairwise_wang_matrix <- as.matrix(xtabs(wang ~ ind1.id + ind2.id, data = pairwise_rel_bothways)) %>%
+  unclass()
+
+get_lower_tri <- function(pairwise_trioml_matrix){
+    pairwise_trioml_matrix[upper.tri(pairwise_trioml_matrix)] <- NA
+    return(pairwise_trioml_matrix)
+}
+
+get_upper_tri <- function(pairwise_wang_matrix){
+    pairwise_wang_matrix[lower.tri(pairwise_wang_matrix)] <- NA
+    return(pairwise_wang_matrix)
+}
+
+trioml_heatmap_lower <- get_lower_tri(pairwise_trioml_matrix)
+wang_heatmap_upper <- get_upper_tri(pairwise_wang_matrix)
+
+melted_trioml_heatmap_lower <- melt(trioml_heatmap_lower) %>%
+  mutate(lower = 1)
+melted_wang_heatmap_upper <- melt(wang_heatmap_upper) %>% 
+  mutate(upper = 1)
+
+melt_join <- full_join(melted_trioml_heatmap_lower, melted_wang_heatmap_upper)
+
+combined <- matrix(NA, nrow = 19, ncol = 19, byrow = FALSE, dimnames = list(rownames(pairwise_trioml_matrix), colnames(pairwise_trioml_matrix)))
+combined[upper.tri(combined)] <- wang_heatmap_upper[upper.tri(wang_heatmap_upper)] 
+combined[lower.tri(combined)] <- trioml_heatmap_lower[lower.tri(trioml_heatmap_lower)]
+
+trioml_values <- melt(trioml_heatmap_lower[lower.tri(trioml_heatmap_lower)], value.name = "value")
+trioml_values
+trioml_labels <- melt(trioml_heatmap_lower) |>
+  drop_na() |>
+  filter(ind1.id != ind2.id) |>
+  select(-value)
+trioml_labels
+trioml_melt_merge <- cbind(trioml_values,trioml_labels) |>
+  mutate(group="trioml")
+
+wang_values <- melt(wang_heatmap_upper[upper.tri(wang_heatmap_upper)], value.name = "value")
+wang_values
+wang_labels <- melt(wang_heatmap_upper) |>
+  drop_na() |>
+  filter(ind1.id != ind2.id) |>
+  select(-value)
+wang_labels
+wang_melt_merge <- cbind(wang_values,wang_labels) |>
+  mutate(group="wang")
+
+
+NArows <- tibble(value = NA, ind1.id = c(1:8,10,12:21), ind2.id = c(1:8,10,12:21), group = "trioml")
+
+full_melt <- rbind(trioml_melt_merge, wang_melt_merge, NArows) |>
+  arrange(ind1.id, ind2.id) |>
+  mutate(value = as.numeric(value))
+
+
+
+
+
+combo <- full_melt |>
+  ggplot() +
+   geom_tile(
+    aes(x = factor(as.numeric(ind1.id),levels = c(1:21)), y = factor(as.numeric(ind2.id),levels = c(1:21)), fill=value), 
+         filter(full_melt, group == "trioml")
+  )+
+  #scale_fill_distiller(palette = "Oranges", direction = 1) +
+  scale_fill_gradient2(low = "#fff5eb", mid = "#fd8d3c", high = "#7f2704", 
+  midpoint = 0.5, limit = c(0,1), space = "Lab", 
+  name="relatedness (TrioML)",
+  na.value = "gray") +
+  
+   # start a new scale
+  new_scale_fill() +
+  
+  geom_tile(aes(x = factor(as.numeric(ind1.id),levels = c(1:21)), y = factor(as.numeric(ind2.id), levels = c(1:21)), fill=value), 
+         filter(full_melt, group == "wang")
+  )+
+  #scale_fill_distiller(palette = "Greens", direction = 1, rescale(5:9)) +
+   scale_fill_gradient2(low = "#fcfbfd", mid = "#9e9ac8", high = "#3f007d", 
+    midpoint = 0, limit = c(-0.85,0.85), space = "Lab", 
+    name="relatedness (Wang)",
+    na.value = "gray"
+   )+
+  theme_minimal()+ 
+  scale_x_discrete() +
+  scale_y_discrete()+
+  labs(
+    #title = "Pairwise relatedness",
+    #subtitle = "TrioML in lower triangle, Wang in upper triangle",
+    x = "ID", y = "ID")
+  
+combo
+
+pdf(file = "../images/relatedness_heatmap.pdf", width = 6, height = 4)
+combo
+dev.off()
+
+
+
+#Simulations under allele frequencies calculated above
+#Prints PDFs
+relvalues_trioml <-simrel [, 5]
+relvalues_wang <- simrel [, 6]
+label1 <- rep ("PO", 100)
+label2 <- rep (" Full ", 100)
+label3 <- rep (" Half ", 100)
+label4 <- rep (" Unrelated ", 100)
+labels <- c( label1 , label2 , label3 , label4 )
+
+simtable <- tibble(rel = labels, trioml = relvalues_trioml, wang = relvalues_wang) |>
+  pivot_longer(cols = c("wang","trioml"), names_to = "group")
+
+pdf(file = "../images/simplot.pdf")
+simplot <-
+  ggplot(
+  data = simtable,
+  mapping = aes(x=rel, y=value))+
+  geom_boxplot(aes(fill = group), position = "dodge") +
+  scale_fill_manual(values = c("#fd8d3c","#9e9ac8")) +
+  theme_classic() +
+  labs(
+    x = "Relatedness", 
+    y = "Value",
+    fill = "Formula")
+simplot
+dev.off()
+
+pdf(file = "../images/sim_combined.pdf", height = 4, width = 8)
+simplot_legend <- get_legend(simplot +
+  theme(
+    legend.direction = "vertical", legend.box = "horizontal"))
+simplot_nl <- simplot + theme(legend.position = "none")
+combo_legend <- get_legend(combo +
+  theme(
+    legend.direction = "horizontal", legend.box = "vertical",
+    legend.justification = "left"))
+combo_nl <- combo + theme(legend.position = "none")
+ggarrange(
+          simplot_nl,
+          combo_nl,
+          simplot_legend,
+          combo_legend,
+          ncol = 2,
+          nrow = 2,
+          heights = c(4, 2))
+          #legend = c("bottom","bottom"))
+dev.off()
+
+```

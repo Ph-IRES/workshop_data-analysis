@@ -1,0 +1,133 @@
+---
+title: "striped_bass_msats_npop"
+output: html_document
+date: "2024-07-11"
+---
+
+```{r setup, include=FALSE}
+
+if (!require(genepop)) install.packages('genepop')
+if (!require(related)) install.packages("related", repos="http://R-Forge.R-project.org")
+if (!require(ggplot2)) install.packages('ggplot2')
+if (!require(dplyr)) install.packages('dplyr')
+if (!require(remotes)) install.packages('remotes')
+remotes::install_github("rystanley/genepopedit")
+if (!require(devtools)) install.packages('devtools')
+devtools::install_github("kkeenan02/diveRsity")
+library('genepop')
+library('related')
+library('ggplot2')
+library('dplyr')
+library('adegenet')
+library('genepopedit')
+library('diveRsity')
+#Sets working directory
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+
+#sets a variable for your data file
+locinfile <- "../data/fish/SBmicro_pops.txt"
+
+```
+```{r functions from GenePop2: null alleles, genotype frequencies, HW exact tests, linkage disequilibrium, IBD, private alleles}
+##functions in GenePop2
+
+#Null alleles
+nulls(locinfile, outputFile = "../outputs/nulls.out")
+
+#Allele and genotype frequencies per locus and per sample. 
+basic_info(locinfile, outputFile = "../outputs/basic.out", verbose = interactive())
+
+#Compute variants of the exact conditional test for Hardy-Weinberg genotypic proportions. 
+test_HW(locinfile, which = "Proba", outputFile = "../outputs/SB_HW.out",
+        settingsFile = "", enumeration = FALSE, dememorization = 10000,
+        batches = 20, iterations = 5000, verbose = interactive())
+
+#Exact test for genotypic linkage disequilibrium for each pair of loci in each population.
+test_LD(locinfile, outputFile = "../outputs/SB_LD.out", settingsFile = "",
+        dememorization = 10000, batches = 100, iterations = 5000,
+        verbose = interactive())
+
+#Evaluates Fst or related measures based on allele sizes, for all populations of for all pairs of populations.
+Fst(locinfile, sizes = FALSE, pairs = TRUE, outputFile = "../outputs/SB_FST.out",
+    dataType = "Diploid", verbose = interactive())
+
+#note here that a special Genepop format is needed where every fish is a population and every sample name is coordinates
+
+# Estimates isolation by distance by regression of genetic distance to geographical distance. 
+
+###this needs to include geographic data
+#File specification is for each individual to be a population and the name of each individual is its coordinates.
+ibd('../data/fish/SBmicro_pops_dist.txt', '../outputs/SB_FST.out.MIG', dataType='diploid', geographicScale = 'Linear', statistic = 'SingleGeneDiv', mantelRankTest=TRUE)
+
+#migration via private alleles
+Nm_private(locinfile, outputFile = "../outputs/SBmicro_pops.txt.PRI ", dataType = "Diploid",
+           verbose = interactive())
+```
+
+```{r structure analysis}
+PGDspideR(locinfile,GENEPOP,)
+
+```
+
+```{r related}
+#related analysis to determine pairwise relatedness
+
+co2<-coancestry("SBmicro_pops.related2", wang=2, error.rates = 0.1)
+
+#overall relatedness plot of coancestry output
+ggplot(data = co2$relatedness, aes(x=group, y=wang)) + geom_point(shape=1)
+
+
+#basic customizable way to output desired pairs
+ggplot(data = subset(co2$relatedness, grepl("[2-3][890][2-3][890]", group)), aes(x=group, y=wang)) + geom_point(shape=1)
+
+##only needed if dataset is making your R crash
+#dat <- read.table("CA_related.5.txt", stringsAsFactors = FALSE, sep=" ", header = FALSE)
+#dattrunc <- dat %>% select(1:401)
+#co2trunc <- coancestry(dattrunc, wang=2)
+
+
+sim <- familysim (co2$freqs , 100)
+simoutput <- coancestry(sim, wang=2)
+simrel <- cleanuprvals ( simoutput$relatedness , 100)
+relvalues <- simrel [, 6]
+
+label1 <- rep ("PO", 100)
+label2 <- rep (" Full ", 100)
+label3 <- rep (" Half ", 100)
+label4 <- rep (" Unrelated ", 100)
+
+labels <- c( label1 , label2 , label3 , label4 )
+
+plot (as.factor(labels), relvalues , ylab ="Relatedness Value", xlab ="Relatedness")
+
+# Use package adegenet: 
+    #This package is devoted to the multivariate analysis of genetic markers data. These data can be codominant markers (e.g. microsatellites) or presence/absence data (e.g. AFLP), and have any level of ploidy. 'adegenet' defines three formal (S4) classes:
+        #- genind: a class for data of individuals ("genind" stands for genotypes-individuals).
+        #- genpop: a class for data of groups of individuals ("genpop" stands for genotypes-populations)
+        #- genlight: a class for genome-wide SNP data
+#For more information, visit the adegenet website using the function adegenetWeb.
+
+#read in Genepop file (requires .gen extension)
+SB_genind<-read.genepop("SBmicro_pops.gen", ncode = 3L, quiet = FALSE)
+
+#clustering algorithm to find most probable number of clusters.  See documentation for details (?find.clusters)
+SB.clust<-find.clusters(SB_genind, clust = NULL, n.pca = NULL, n.clust = NULL,
+              method = c("kmeans", "ward"), stat = c("BIC","AIC", "WSS"),
+              choose.n.clust = TRUE, criterion = c("diffNgroup", "min","goesup","smoothNgoesup", "goodfit"), 
+              max.n.clust = round(nrow(SB_genind@tab)/10),
+              n.iter = 1e5, n.start = 10, scale = FALSE, truenames = TRUE)
+
+#principal components analysis of pre-defined groups (defined in Genepop file)
+SB_dapc<-dapc(SB_genind, pop=NULL, n.pca=NULL, n.da=NULL, scale=FALSE,
+              truenames=TRUE, var.contrib=TRUE, var.loadings=FALSE, pca.info=TRUE,
+              pca.select=c("nbEig","percVar"), perc.pca=NULL)
+
+#plotting for dapc object
+scatter(SB_dapc)
+assignplot(SB_dapc, only.grp=NULL, subset=NULL, new.pred=NULL, cex.lab=.75,pch=3)
+compoplot(SB_dapc)
+
+```
+
+
