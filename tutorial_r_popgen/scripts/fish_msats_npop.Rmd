@@ -19,17 +19,12 @@ if (!require('hierfstat')) install.packages("hierfstat")
 if (!require('pegas')) install.packages("pegas")
 if (!require('devtools')) install.packages('devtools')
 if (!require('graph4lg')) install.packages('graph4lg')
-if (!require('dartR')) install.packages('dartR')
-if (!require('StAMPP')) install.packages('StAMPP')
-BiocManager::install("SNPRelate")
 BiocManager::install("LEA")
 if (!require(remotes)) install.packages('remotes')
 remotes::install_github("rystanley/genepopedit")
 if (!require(devtools)) install.packages('devtools')
 devtools::install_github("kkeenan02/diveRsity")
 install.packages(c("fields","RColorBrewer","mapplots"))
-
-#install.packages('dartR')
 library('genepop')
 library('related')
 library('ggplot2')
@@ -137,14 +132,8 @@ sb_fst
 #95% confidence intervals for global statistics
 msat_hf <- genind2hierfstat(sb_genind)
 boot.vc(msat_hf[1], msat_hf[-1])$ci
+msat_hf 
 
-msat_genlight <- gi2gl(sb_genind, parallel = FALSE, verbose = NULL)
-
-# Calculate pairwise Fst values between each population
-pairwise.fst.p <- stamppFst(msat_genlight, 100, 95, 1)
-View(pairwise.fst.p)
-
-pairwise.fst.p[["Pvalues"]]
 
 #Discriminant analysis of Principal Components (DAPC)
 
@@ -221,7 +210,12 @@ ggplot(data = ind_coords, aes(x = Axis1, y = Axis2))+
   ggtheme
 
 ```
-
+```{r diveRsity functions}
+getwd()
+save("../data/fish/SBmicro_pops.txt", file = "test2.rda")
+test2<-load("test2.rda")
+fastDivPart(Test_data, gp = 3, outfile = "testfolder")
+```
 
 ```{r structure analysis}
 struct2geno("../data/fish/SBmicro_pops.structure", 2, FORMAT = 2, extra.row = 0, extra.column = 2)
