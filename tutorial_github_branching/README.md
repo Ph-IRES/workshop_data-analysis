@@ -4,7 +4,9 @@ Branching is a powerful feature in Git that allows you to create independent lin
 
 ---
 
-## 1.	Branch: You start by creating a new branch in the repository.
+## 1.	Branch: 
+
+Start by creating a new branch in the repository.
 
 Branching is like having multiple versions of your project where you can try out new ideas without affecting the `main` version.
 
@@ -39,23 +41,5 @@ git clone -b [branch-name] [repository-url]
 ## 3.	Make Changes: Next, you make changes in your branch. This could be adding, deleting, or modifying files.
 Once you've created the branch, you can start making changes in this isolated environment without affecting the main branch or other branches in the repository.
 
-## 4.	Submit Pull Request: Once your changes are ready, you submit a pull request (PR) to the original repository. This is essentially a request to review and merge your changes.
 
-a) Push Your Changes: First, make sure your changes are committed and pushed to your branch on GitHub.
-
- b) Navigate to the Repository: Go to the original repository from which you created your branch or fork.
-
- c) Start a New Pull Request: Click on the "Pull requests" tab, then click the "New pull request" button.
-
- d) Select Branches: Choose the base branch (the one you want your changes to be merged into) and compare branch (the one with your changes).
-
- e) Create Pull Request: Click "Create pull request". Give your pull request a title and description, explaining your changes.
-
- f) Submit for Review: After reviewing your changes and ensuring everything is correct, click "Create pull request".
-
-## 5.	Review: The maintainers of the original repository (me) will then review your changes. They might suggest or request modifications.
-
-## 6.	Discussion: There can be a discussion between you, the contributor, and the maintainers about the proposed changes.
-
-## 7.	Approval and Merge: If the maintainers approve the changes, they can merge your pull request into the main branch of the repository, incorporating your changes into the codebase.
 
