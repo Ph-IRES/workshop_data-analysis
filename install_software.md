@@ -43,7 +43,7 @@ Install a text editor which is critial for viewing/editing git README.md files, 
 
 ---
 
-## DNA Barcode Editor
+## DNA Barcode Editors
 
 * [Free Software Install](https://github.com/tamucc-comp-bio/how_to/blob/main/install_ab1_editors.md)
 
