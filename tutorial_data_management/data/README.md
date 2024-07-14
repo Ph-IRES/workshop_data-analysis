@@ -6,7 +6,7 @@
 
 ```bash
 |--------------------------------|
-|      SamplingLocations         |
+|     sampling_locations.csv     |
 |--------------------------------|
 | location_id (PK)               |
 | location_name                  |
@@ -21,7 +21,7 @@
               |
               | N
 |--------------------------------|
-|       MorphologyData           |
+|      morphology_data.csv       |
 |--------------------------------|
 | individual_id (PK)             |
 | location_id (FK)               |
