@@ -1,4 +1,4 @@
-### IV. Version Control
+# INTRODUCTION TO GIT, GITHUB AND VERSION CONTROL
 
 <details><summary>What is version control?</summary>
 
