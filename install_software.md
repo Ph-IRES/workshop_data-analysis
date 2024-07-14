@@ -29,7 +29,9 @@ Please install R on your computers if you haven’t installed it in the last mon
 
 * [Installing R Tutorial](https://github.com/tamucc-comp-bio/how_to/blob/main/install_r.md)
 
-To make R more convenient to use, we will employ R Studio.  Please install R Studio on your computers if you don’t have it or if you haven’t installed it in the past month.   Go [here and select R Studio Desktop FREE](https://www.rstudio.com/products/rstudio/download/).
+To make R more convenient to use, we will employ R Studio.  Please install R Studio on your computers if you don’t have it or if you haven’t installed it in the past month.   
+
+* [Installing RStudio Tutorial](https://github.com/tamucc-comp-bio/how_to/blob/main/install_rstudio.md).
 
 ---
 
