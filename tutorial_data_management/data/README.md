@@ -2,11 +2,44 @@
 
 ---
 
+## Entity Relationship Diagram
+
+```bash
+|--------------------------------|
+|      SamplingLocations         |
+|--------------------------------|
+| location_id (PK)               |
+| location_name                  |
+| latitude                       |
+| longitude                      |
+| date_sampled                   |
+| depth_m                        |
+| habitat_type                   |
+|--------------------------------|
+              |
+              | 1
+              |
+              | N
+|--------------------------------|
+|       MorphologyData           |
+|--------------------------------|
+| individual_id (PK)             |
+| location_id (FK)               |
+| species                        |
+| length_mm                      |
+| weight_g                       |
+| age                            |
+| sex                            |
+|--------------------------------|
+```
+
+---
+
 ## `sampling_locations.csv`:
 
 Each row is a unique combination of location and date
 
-Columms:
+Columns:
 
 * location_id: Unique identifier for each sampling location.
 
