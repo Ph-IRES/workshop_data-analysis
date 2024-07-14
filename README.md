@@ -12,7 +12,7 @@
 
 * [Install Required Software](install_software.md)
 
-* [Set Up Permissions Key](Github_SSH.docx) And Say Goodbye to Passwords
+* [Set Up Permissions Key](https://github.com/tamucc-comp-bio/how_to/blob/main/howto_sshkeys.md) And Say Goodbye to Passwords
 
 * [Clone This Repo to Your Computer](clone_repo.md)
 
