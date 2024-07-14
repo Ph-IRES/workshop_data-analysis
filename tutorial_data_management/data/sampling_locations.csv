@@ -1,0 +1,5 @@
+location_id,location_name,latitude,longitude,date_sampled,depth_m,habitat_type
+1,North Bay,29.123,-94.567,2023-06-01,5.2,Reef
+2,South Bay,29.456,-94.890,2023-06-02,3.8,Sand
+3,East Bay,29.789,-94.234,2023-06-03,4.5,Seagrass
+4,West Bay,29.012,-94.567,2023-06-04,6.0,Rocky

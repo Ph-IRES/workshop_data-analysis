@@ -1,0 +1,9 @@
+individual_id,location_id,species,length_mm,weight_g,age,sex
+A001,1,SpeciesA,34.5,12.3,2,F
+A002,1,SpeciesB,28.7,9.8,1,M
+A003,2,SpeciesA,32.1,11.2,3,F
+A004,2,SpeciesC,27.4,10.1,2,M
+A005,3,SpeciesB,30.9,10.5,1,F
+A006,3,SpeciesA,35.2,13.4,4,M
+A007,4,SpeciesC,29.8,11.0,2,F
+A008,4,SpeciesB,31.6,10.8,3,M
