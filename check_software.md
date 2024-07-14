@@ -24,8 +24,8 @@ If you don't have all of the software below installed, you can refer to the [wor
     ```
 
 4.  Open your `text editor`
-    * Windows: Notepad++
-    * Mac: BBEdit
+    * Windows: `Notepad++`
+    * Mac: `BBEdit`
 
 5.  Open `RStudio`, version should be equal to or greater than that below
 
