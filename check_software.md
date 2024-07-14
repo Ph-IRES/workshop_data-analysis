@@ -5,6 +5,7 @@
 
     ```bash
     git --version
+    git version 2.34.1
     ```
 
 4.  Open your `text editor`
