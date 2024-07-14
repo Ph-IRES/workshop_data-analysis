@@ -3,17 +3,17 @@
 If you don't have all of the software below installed, you can refer to the [workshop readme](README.md) for instructions.
 
 1.  Open your `terminal`
-    * Ubuntu version should be greater than or equal to:
-    ```bash
-    (base) cbird@xps13plus:~$ lsb_release -a
-    No LSB modules are available.
-    Distributor ID: Ubuntu
-    Description:    Ubuntu 22.04.4 LTS
-    Release:        22.04
-    Codename:       jammy
-    ```
+* Ubuntu version should be greater than or equal to:
+ ```bash
+ (base) cbird@xps13plus:~$ lsb_release -a
+ No LSB modules are available.
+ Distributor ID: Ubuntu
+ Description:    Ubuntu 22.04.4 LTS
+ Release:        22.04
+ Codename:       jammy
+ ```
 
-    * Mac: you should be good
+* Mac: you should be good
     
 3.  Display `git` version, should be greater than or equal to that below
 
