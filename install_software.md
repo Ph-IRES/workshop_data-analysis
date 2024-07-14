@@ -20,7 +20,7 @@ If you have a PC, you need to be sure to install Ubunutu on the windows linux su
 
 ---
 
-## R and R Studio
+## R and RStudio
 
 We will employ R, and specifically the tidyverse package, to wrangle your data into submission. I know some of you may have had negative experiences with R, as I did when I was a student. But now, I’m a convert. I like to think I’m good at teaching it and it’s really going to make your life as a scientist easier if you learn it.  
 Please install R on your computers if you haven’t installed it in the last month (MAC or PC). R is open source and is updated frequently.  We can avoid problems if our R versions are all up to date.  
@@ -29,15 +29,17 @@ Please install R on your computers if you haven’t installed it in the last mon
 
 * [Installing R Tutorial](https://github.com/tamucc-comp-bio/how_to/blob/main/install_r.md)
 
----
-
 To make R more convenient to use, we will employ R Studio.  Please install R Studio on your computers if you don’t have it or if you haven’t installed it in the past month.   Go [here and select R Studio Desktop FREE](https://www.rstudio.com/products/rstudio/download/).
 
 ---
 
-Install a text editor which is critial for viewing/editing DNA files or geomorphometric files.  The editors installed by your OS are inferior to our recommended free editors:
-   * For Macs: the free version of [BBEdit](https://www.barebones.com/products/bbedit/)
-   * For Windows (PCs): [Notepad++](https://notepad-plus-plus.org/downloads/)
+## Text Editor
+
+Install a text editor which is critial for viewing/editing git README.md files, DNA files or geomorphometric files.  The editors installed by your OS are inferior to our recommended free editors:
+
+* For Macs: the free version of [BBEdit](https://www.barebones.com/products/bbedit/)
+
+* For Windows (PCs): [Notepad++](https://notepad-plus-plus.org/downloads/)
 
 ---
 
