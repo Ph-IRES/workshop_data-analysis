@@ -7,3 +7,9 @@ For those working on projects with individuals (e.g.,  10 deer or 50 crabs), you
 For those with DNA data, your DNA will be turned into data by a sequencing facility and delivered to you.
 
 To share your data, and track your analysis, we are going to utilize github. Please send me your github user id ASAP. If you don’t have a github account, please create one (mentors too). Git is a version control software and github is a cloudstorage server that serves as the hub of collaborative projects like yours and it is where the master copy of your data and data analysis scripts lie. https://www.freecodecamp.org/news/git-and-github-for-beginners/ .
+
+---
+
+# Resources
+
+[How to Organize Biological Data](https://github.com/tamucc-comp-bio/how_to/blob/main/howto_organize_data.md)
