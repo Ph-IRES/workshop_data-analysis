@@ -81,4 +81,8 @@ If you don't have all of the software below installed, you can refer to the [wor
 
 ---
 
+## 9. Open the Directory Containing the Repo On your Computer
+
+* Mac Users:  should be in `home/workshop_data-analysis`
+* Win Users: should be in `C:/Users/YOURUSERNAME/Downloads/workshop_data-analysis`
 
