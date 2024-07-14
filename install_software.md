@@ -27,7 +27,7 @@ Please install R on your computers if you haven’t installed it in the last mon
 
 For this workshop, only follow instructions for installing "R on Win" or "R on Mac":
 
-* [Installing R Tutorial]([https://cloud.r-project.org/](https://github.com/tamucc-comp-bio/how_to/blob/main/install_r.md)
+* [Installing R Tutorial](https://github.com/tamucc-comp-bio/how_to/blob/main/install_r.md)
 
 ---
 
