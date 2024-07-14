@@ -6,9 +6,9 @@ Cutting to the chase, we've made a set of tutorials on ["How to Set Up Your Comp
 
 ---
 
-## Required Software for the Workshop
+## Ubunutu (Windows Only)
 
-If you have a PC, you need to be sure to install Ubunutu on the windows linux subsystem and the windows terminal.  
+If you have a PC, you need to be sure to install Ubunutu on the windows linux subsystem and the windows terminal. MacOS is based on Unix, so there is no need to install this on a Mac.
 
 * [Install Ubuntu on WindowsOS](https://github.com/tamucc-comp-bio/how_to/blob/main/install_wsl_ubuntu.md)
 
@@ -20,7 +20,9 @@ If you have a PC, you need to be sure to install Ubunutu on the windows linux su
 
 ---
 
-We will employ R, and specifically the tidyverse package, to wrangle your data into submission. I know some of you may have had negative experiences with R, as I did when I was a student. But now, I’m a convert. I like to think I’m good at teaching it and it’s really going to make your life as a scientist easier if you learn it.  [Please install R](https://cloud.r-project.org/) on your computers if you don’t have it, or if you haven’t installed it in the last month (MAC, PC). R is open source and is updated frequently.  We can avoid problems if our R versions are all up to date.  
+## R & R Studio
+
+We will employ R, and specifically the tidyverse package, to wrangle your data into submission. I know some of you may have had negative experiences with R, as I did when I was a student. But now, I’m a convert. I like to think I’m good at teaching it and it’s really going to make your life as a scientist easier if you learn it.  [Please install R]([https://cloud.r-project.org/](https://github.com/tamucc-comp-bio/how_to/blob/main/install_r.md) on your computers if you haven’t installed it in the last month (MAC or PC). R is open source and is updated frequently.  We can avoid problems if our R versions are all up to date.  
 
 ---
 
