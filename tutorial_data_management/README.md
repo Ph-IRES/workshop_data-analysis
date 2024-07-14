@@ -1,7 +1,4 @@
-# Organization and Management of Biological Data
-
-# How to Organize Biological Data
-
+# tutorial_data_management
 
 ---
 
