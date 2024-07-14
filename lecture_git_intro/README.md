@@ -28,4 +28,4 @@ _Note: this links to the TAMUCC Computational Biology Classroom Repo. We will on
 
 ---
 
-## [Branching the Workshop Repo](../tutorial_github_branching/README.md)
+## [Branching the Workshop Repo](../ tutorial_github_branching / README.md)
