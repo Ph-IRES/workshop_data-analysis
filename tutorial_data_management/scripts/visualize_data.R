@@ -1,8 +1,9 @@
 #### USER DEFINED VARIABLES ####
-data_morphology_path <- "../data/morphology_data.csv"
-data_locations_path <- "../data/sampling_locations.csv"
+script_wrangle_data_path <- "wrangle_data.R"
 
 #### INSTALL/LOAD PACKAGES ####
+source(script_wrangle_data_path)
+
 packages_used <- 
   c(
     "tidyverse", 
@@ -30,13 +31,26 @@ lapply(packages_used,
 
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
-#### READ IN DATA ####
+#### VISUALIZE DATA ####
 
-data_all <-
-  read_csv(data_morphology_path) %>%
-  clean_names() %>%
-  left_join(
-    read_csv(data_locations_path) %>%
-      clean_names()
-  ) %>%
-  rename(age_yrs = age)
+data_all %>%
+  ggplot() +
+  aes(
+    x = length_mm,
+    y = weight_g,
+    color = species
+  ) +
+  geom_point() +
+  geom_smooth(
+    method = "nls",
+    formula = y ~ a * x^b,
+    se = FALSE,
+    method.args =
+      list(
+        start = list(
+          a = 1,
+          b = 1
+        )
+      )
+  ) +
+  theme_classic()
