@@ -36,7 +36,7 @@ The content of the workshop will vary depending on our progress and needs of ind
 
 | Day | Date | Topic |
 | --- | --- | --- |
-| Monday | July 15 | [Management of Biological Data](tutorial_data_management/README.md) / [Intro to Git]() / [Intro to R]() |
+| Monday | July 15 | [Management of Biological Data](tutorial_data_management/README.md) / [Intro to Git](lecture_github_intro/README.md) / [Intro to R]() |
 | Tuesday | July 16 | [Intro to Data Visualization with ggplot2](https://r4ds.hadley.nz/data-visualize) / [Intro to Data Wrangling with Tidyverse](https://r4ds.hadley.nz/data-transform) |
 | Wednesday | July 17 | [Phylogenetic analysis]() |
 | Thursday | July 18 | [Population genetics]() |
