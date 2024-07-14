@@ -51,6 +51,8 @@ Install a text editor which is critial for viewing/editing git README.md files, 
 
 ---
 
+## Phylogeny Editor
+
 [Install FigTree](http://tree.bio.ed.ac.uk/software/figtree/).  There are packages available for Mac, Windows, and Linux.
 
 
