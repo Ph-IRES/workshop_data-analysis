@@ -6,7 +6,7 @@
 
 * [Data Preparation & Sharing](data_preparation.md)
 
-* [GitHub Account](github_account.md)
+* [GitHub Account](https://github.com/tamucc-comp-bio/how_to/blob/main/howto_github_acct.md)
 
 * [Data Science Philosophy](datasci_philosophy.md)
 
