@@ -1,9 +1,14 @@
 # Confirm that You Have the Software Installed
 
 1.  Open your `terminal`
-2.  
-3.  Open your `text editor`
-4.  Open `RStudio`, version should be equal to or greater than that below
+2.  Display `git` version, should be greater than or equal to that below
+
+    ```bash
+    git --version
+    ```
+
+4.  Open your `text editor`
+5.  Open `RStudio`, version should be equal to or greater than that below
 
     ```r
     R version 4.4.1 (2024-06-14 ucrt) -- "Race for Your Life"
@@ -11,7 +16,7 @@
     Platform: x86_64-w64-mingw32/x64
     ```
 
-5.  Load `tidyverse` in `RStudio`
+6.  Load `tidyverse` in `RStudio`
 
     ```r
     > library(tidyverse)
