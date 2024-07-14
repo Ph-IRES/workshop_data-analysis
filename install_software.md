@@ -47,7 +47,7 @@ Install a text editor which is critial for viewing/editing git README.md files, 
 
 * [Free Software Install](https://github.com/tamucc-comp-bio/how_to/blob/main/install_ab1_editors.md)
 
-* [Install Geneiou$](https:// www.geneious.com/download/). Be sure to download appropriately for your operating system.  Also, follow the “request a trial” link to get a 14 day trial license.  Please check your spam/junk folders, as this is where your trial license will usually end up.  *Don’t activate your license until next week.*  
+* We will not use Geneiou$ this year.  [Install Geneiou$](https:// www.geneious.com/download/). Be sure to download appropriately for your operating system.  Also, follow the “request a trial” link to get a 14 day trial license.  Please check your spam/junk folders, as this is where your trial license will usually end up.  *Don’t activate your license until next week.*  
 
 ---
 
