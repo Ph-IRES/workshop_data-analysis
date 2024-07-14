@@ -24,7 +24,7 @@
 
 [R for Data Science: Exercise Solutions](https://mine-cetinkaya-rundel.github.io/r4ds-solutions)
 
-[TAMUCC's 2022 Computational Biology Course (bash, R, python, git, markdown)](https://github.com/tamucc-comp-bio-2022/classroom_repo)
+[TAMUCC's 2023 Computational Biology Course (bash, R, python, git, markdown)](https://github.com/tamucc-comp-bio/classroom_repo_2023)
 
 ---
 ## Tentative Schedule
