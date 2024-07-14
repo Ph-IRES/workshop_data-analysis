@@ -33,6 +33,21 @@
 |--------------------------------|
 ```
 
+In the entity-relationship diagram (ERD), the "1" and the "N" on the line between the two entities indicate a one-to-many relationship. Here's what they mean:
+
+* `1`: This denotes that each record in the SamplingLocations table can be associated with one or more records in the MorphologyData table. In other words, a single sampling location can have multiple morphological data entries.
+
+* `N`: This signifies that each record in the MorphologyData table is associated with exactly one record in the SamplingLocations table. In other words, each individual in the morphology data is linked to one specific sampling location.
+
+This notation helps to understand how the tables are related: one sampling location (1) can be linked to many (N) morphological data entries.
+
+In the entity-relationship diagram (ERD), PK and FK stand for:
+
+* `PK (Primary Key)`: This is a unique identifier for each record in a table. It ensures that each record can be uniquely identified. In the diagram, location_id is the primary key for the SamplingLocations table, and individual_id is the primary key for the MorphologyData table.
+
+* `FK (Foreign Key)`: This is a field in one table that uniquely identifies a row of another table. The foreign key creates a link between the two tables. In the diagram, location_id in the MorphologyData table is a foreign key that references location_id in the SamplingLocations table. This establishes the relationship between the two tables, indicating that each morphological data entry is associated with a specific sampling location.
+	
+
 ---
 
 ## `sampling_locations.csv`:
