@@ -1,6 +1,8 @@
-# Branching Instructions
+# Branching a GitHub Repository
 
-Here’s how we will make changes to the data repositories moving forward:
+Branching is a powerful feature in Git that allows you to create independent lines of development in your repository.
+
+---
 
 ## 1.	Branch: You start by creating a new branch in the repository.
 
