@@ -7,3 +7,11 @@
 ---
 
 ## [Make Your GitHub Repo](../tutorial_github_makerepo)
+
+---
+
+## [Raising Issues on GitHub](../tutorial_github_issues/README.md)
+
+---
+
+## [Branching a GitHub Repo](../tutorial_github_branching/README.md)
