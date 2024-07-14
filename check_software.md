@@ -1,5 +1,7 @@
 # Confirm that You Have the Software Installed
 
+If you don't have all of the software below installed, you can refer to the [workshop readme](README.md) for instructions.
+
 1.  Open your `terminal`
 2.  Display `git` version, should be greater than or equal to that below
 
@@ -8,8 +10,11 @@
     git version 2.34.1
     ```
 
-4.  Open your `text editor`
-5.  Open `RStudio`, version should be equal to or greater than that below
+3.  Open your `text editor`
+    * Windows: Notepad++
+    * Mac: BBEdit
+
+4.  Open `RStudio`, version should be equal to or greater than that below
 
     ```r
     R version 4.4.1 (2024-06-14 ucrt) -- "Race for Your Life"
@@ -17,7 +22,7 @@
     Platform: x86_64-w64-mingw32/x64
     ```
 
-6.  Load `tidyverse` in `RStudio`
+5.  Load `tidyverse` in `RStudio`
 
     ```r
     > library(tidyverse)
@@ -38,3 +43,7 @@
     ```r
     install.packages("tidyverse")
     ```
+
+6. Open UGENE
+
+7. Open FinchTV
