@@ -6,6 +6,8 @@ This tutorial is for the Ph-IRES program participants.
 
 # Step by Step Instrucions
 
+---
+
 ## 1. Goto the [Ph-IRES Organization on GitHub](https://github.com/Ph-IRES)
 
 ![](phires_org.png)
@@ -90,11 +92,11 @@ git push
 
 ---
 
-# 12. On GitHub, modify your README.md file in the main repo directory
+## 12. On GitHub, modify your README.md file in the main repo directory
 
 ---
 
-# 13.  Pull the changes you made to your repo on GitHub to the copy of your repo on your computer in the terminal.
+## 13.  Pull the changes you made to your repo on GitHub to the copy of your repo on your computer in the terminal.
 
 ```
 git pull
@@ -102,7 +104,7 @@ git pull
 
 ---
 
-# 14. Confirm changes made on GitHub are now on you computer
+## 14. Confirm changes made on GitHub are now on you computer
 
 ---
 
