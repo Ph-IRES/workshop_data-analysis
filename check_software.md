@@ -1,8 +1,9 @@
 # Confirm that You Have the Software Installed
 
 1.  Open your `terminal`
-2.  Open your `text editor`
-3.  Open `RStudio`
+2.  
+3.  Open your `text editor`
+4.  Open `RStudio`, version should be equal to or greater than that below
 
     ```r
     R version 4.4.1 (2024-06-14 ucrt) -- "Race for Your Life"
@@ -10,7 +11,7 @@
     Platform: x86_64-w64-mingw32/x64
     ```
 
-4.  Load `tidyverse` in `RStudio`
+5.  Load `tidyverse` in `RStudio`
 
     ```r
     > library(tidyverse)
@@ -24,4 +25,10 @@
     ✖ dplyr::filter() masks stats::filter()
     ✖ dplyr::lag()    masks stats::lag()
     ℹ Use the conflicted package to force all conflicts to become errors
+    ```
+
+    If you don't have tidyverse then
+
+    ```r
+    install.packages("tidyverse")
     ```
