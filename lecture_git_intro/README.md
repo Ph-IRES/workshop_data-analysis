@@ -7,9 +7,11 @@ Prior to following the lecture, goto your terminal and navigate to the workshop 
 ```bash
 # if you have ubuntu on windows:
 cd /mnt/c/Users/REPLACE-THIS-TEXT-WITH-YOUR-USERNAME/Downloads/workshop_data-analysis
-git clone
+
 # if you have a mac:
 cd ~/workshop_data-analysis
+
+
 ```
 
 ## [Git & GitHub Lecture](https://github.com/tamucc-comp-bio/classroom_repo_2023/blob/master/lectures/lecture04.md#iv-version-control)
