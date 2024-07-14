@@ -9,7 +9,7 @@ Issues are a great way to keep track of tasks, enhancements, and bugs for your p
 
 1. Navigate to the main page of your repository.
 2. Under your repository name, click the "Issues" tab.
-![Issues Tab](https://docs.github.com/assets/images/help/repository/repo-tab-issues.png)
+![Issues Tab](issues_tab.png)
 3. Click on the green "New issue" button.
 4. Give your issue a title and a description. The title should succinctly describe the problem, and the description should provide as much detail as necessary to understand and resolve the issue.
 5. (Optional) Assign the issue to someone, add labels, or link a pull request.
