@@ -28,7 +28,7 @@ Us the following bash command in your terminal to clone the workshop repo.  Cons
 
   ```bash
   # replace URL_TO_REPO with the URL you copy from the repo's webpage.  There is a green "Code" button that you select, then select "SSH", then copy the URL.
-  git clone URL_TO_REPO
+  git clone git@github.com:Ph-IRES/workshop_data-analysis.git
   ```
   
 Note: in bash, the `#` denotes a human comment.  Lines that begin with `#` will not be executed.
