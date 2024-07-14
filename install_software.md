@@ -39,9 +39,7 @@ To make R more convenient to use, we will employ R Studio.  Please install R Stu
 
 Install a text editor which is critial for viewing/editing git README.md files, DNA files or geomorphometric files.  The editors installed by your OS are inferior to our recommended free editors:
 
-* For Macs: the free version of [BBEdit](https://www.barebones.com/products/bbedit/)
-
-* For Windows (PCs): [Notepad++](https://notepad-plus-plus.org/downloads/)
+* [Installing a Text Editor for Coding](https://github.com/tamucc-comp-bio/how_to/blob/main/install_text_editor.md)
 
 ---
 
