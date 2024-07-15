@@ -23,10 +23,10 @@ If you don't have all of the software below installed, you can refer to the [wor
 
 ## 2.  Display `git` version, should be greater than or equal to that below
 
-    ```bash
-    git --version
-    git version 2.34.1
-    ```
+  ```bash
+  git --version
+  git version 2.34.1
+  ```
 
 ---
 
