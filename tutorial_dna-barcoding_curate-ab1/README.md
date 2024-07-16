@@ -1,6 +1,8 @@
 # DNA Barcoding Tutorial: Curating Sanger (`*.ab1`) Sequence Data
 
-In the tutorial, we will learn how to use free software tools to manually edit your DNA sequence files (`*.ab1`).
+![](aurora-bluetail.jpg)
+
+In the tutorial, we will learn how to use free software tools to manually edit the DNA sequence files (`*.ab1`) from the aurora blue tail damselfly (_Ischnura aurora_).
 
 It is necessary to edit raw data files from Sanger sequencing because the machine makes mistakes in calling nucleotides and human eyes can be used to correct these machine errors.
 
