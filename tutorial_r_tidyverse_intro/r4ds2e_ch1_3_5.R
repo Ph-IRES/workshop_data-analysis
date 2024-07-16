@@ -459,5 +459,6 @@ str_view(words, "[^aeiou]y[^aeiou]")
 str_view(fruit, "apple|melon|nut")
 str_view(fruit, "aa|ee|ii|oo|uu")
 
+#counters
 str_view(fruit, "o{2}")
 
