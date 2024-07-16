@@ -1,6 +1,10 @@
 #R4DS script
 #modified 1/9/24
 
+#following script draws from R4DS (R for Data Science) 2nd edition
+#https://r4ds.hadley.nz/
+#answers to problems can be found at https://mine-cetinkaya-rundel.github.io/r4ds-solutions
+
 #package loadings
 if (!require('tidyverse')) install.packages('tidyverse')
 if (!require('palmerpenguins')) install.packages('palmerpenguins')
