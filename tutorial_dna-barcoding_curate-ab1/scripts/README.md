@@ -6,7 +6,7 @@
 
 1. [Inspect chromatograms and edit `*.ab1` files](howto_edit_ab1.md)
 
-  * We will be editing the DNA sequence `*.ab1` files manually. Once they have been curated, all further processing of the sequencing data will be accomplished in R.
+   * We will be editing the DNA sequence `*.ab1` files manually. Once they have been curated, all further processing of the sequencing data will be accomplished in R.
   
 ---
 
