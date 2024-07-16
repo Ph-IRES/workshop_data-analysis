@@ -16,7 +16,7 @@
 
 ## Instructions for Editing/Cleaning the `*.ab1` Files
 
-1. Copy the `ab1` files into the `prj_rotablue_barcoding/output/sanger_SEQUENCINGFACILITY_YYYY_MM_DD` dir
+1. Copy the `ab1` files into the `output/sanger_SEQUENCINGFACILITY_YYYY_MM_DD` dir
 
 2. Remove the HCO1 primer sequence from the end of the LCO1 `*.ab1` files and vice versa.
 
@@ -26,8 +26,8 @@
 
    * The ends of the sequence reads will necessarily be the primer sequences, so they can be trimmed off
    * Use [FinchTV](https://digitalworldbiology.com/FinchTV) to trim the `ab1` files
-   * Save the trimmed files into `prj_rotablue_barcoding/output/sanger_SeqFacilityName_YYYY_MM_DD`, do not overwrite the original files
-   * For your reference, the primer sequences should be saved in `prj_rotablue_barcoding/data/primers.fasta`
+   * Save the trimmed files into `output/sanger_SeqFacilityName_YYYY_MM_DD`, do not overwrite the original files
+   * For your reference, the primer sequences should be saved in `data/primers.fasta`
       * The sequence at the end of the LCO files is HCO2198: 
 	  
          `TGATTTTTTGGTCACCCTGAAGTTTA`
@@ -38,16 +38,16 @@
 
    * *If the above strategy to trim the primers doesn't work for you, follow the full instructions in [how to trim primers.md](./how_to_trim_primers.md)*
 		 
-   * Record the trimming in the `prj_rotablue_barcoding/data/rbd_sequencing_dna_barcodes.xlsx` workbook, in the columns named `fwd_seq_primer_trimmed` and `rev_seq_primer_trimmed`
+   * Record the trimming in the `data/rbd_sequencing_dna_barcodes.xlsx` workbook, in the columns named `fwd_seq_primer_trimmed` and `rev_seq_primer_trimmed`
 
       ![](markdown_images/metadata_primer_trim.png)
 
       * If the primer seq was present and trimmed, `trimmed`
       * If the primer seq was not present, `absent`
       * Otherwise, `NA`
-   * As you go, note which sequence reads need to be redone (either resequenced or repcred) in the `prj_rotablue_barcoding/data/rbd_extraction_barcoding.xlsx` workbook, in the columns named `fwd_quality` and `rev_quality`
+   * As you go, note which sequence reads need to be redone (either resequenced or repcred) in the `data/rbd_extraction_barcoding.xlsx` workbook, in the columns named `fwd_quality` and `rev_quality`
 
-3. In UGENE open (or create) a project named `prj_rotablue_barcoding/output/process_ab1.uprj`
+3. In UGENE open (or create) a project named `output/process_ab1.uprj`
 
    ![](markdown_images/ugene_process_ab1.png)
 
@@ -62,7 +62,7 @@
    * The more similar the sequences are, it seems the better this will work
       
    * `Tools/Sanger Data Analysis/Map Reads to Reference`
-      * `Reference: prj_rotablue_barcoding/output/blast-rbd_02_E1_LCO-coi-consensus.fasta`
+      * `Reference: output/blast-rbd_02_E1_LCO-coi-consensus.fasta`
          * [Instructions to create the reference sequence](howto_create_reference.md) if it does not exist
 	  * Add all LCO1490 `ab1` files to `Reads` 
       * `Trimming quality threshold: 0`
