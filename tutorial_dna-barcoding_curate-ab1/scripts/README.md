@@ -1,4 +1,4 @@
-# prj_rotablue_barcoding: Scripts
+# DNA Barcoding Tutorial: Scripts
 
 ---
 
