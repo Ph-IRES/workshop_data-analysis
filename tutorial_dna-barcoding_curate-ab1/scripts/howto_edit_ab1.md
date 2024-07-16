@@ -16,11 +16,6 @@
 
 ## Instructions for Editing/Cleaning the `*.ab1` Files
 
-0. In UGENE open (or create) a project named `prj_rotablue_barcoding/output/process_ab1.uprj`
-
-   ![](markdown_images/ugene_process_ab1.png)
-
-
 1. Copy the `ab1` files into the `prj_rotablue_barcoding/output/sanger_SEQUENCINGFACILITY_YYYY_MM_DD` dir
 
 2. Remove the HCO1 primer sequence from the end of the LCO1 `*.ab1` files and vice versa.
@@ -52,7 +47,12 @@
       * Otherwise, `NA`
    * As you go, note which sequence reads need to be redone (either resequenced or repcred) in the `prj_rotablue_barcoding/data/rbd_extraction_barcoding.xlsx` workbook, in the columns named `fwd_quality` and `rev_quality`
 
-3. Map all LCO1490 from a single taxon to the consensus reference sequence in UGENE
+3. In UGENE open (or create) a project named `prj_rotablue_barcoding/output/process_ab1.uprj`
+
+   ![](markdown_images/ugene_process_ab1.png)
+
+
+4. Map all LCO1490 from a single taxon to the consensus reference sequence in UGENE
    
    ![](markdown_images/ugene_mapping_menu.png)
    
@@ -79,7 +79,7 @@
    ![](markdown_images/ugene_mapping_alignment.png)
 
    
-4. Use the alignment of the chromatograms in UGENE to guide further editing of the `ab1` files with FinchTV.
+5. Use the alignment of the chromatograms in UGENE to guide further editing of the `ab1` files with FinchTV.
 
    * Because UGENE does not edit the `ab1` files, we will use FinchTV to edit them.
    
@@ -110,18 +110,18 @@
 
       * If your final alignment looks like that above, then In FinchTV, the left side of these `ab1` files should be deleted up to the last indel in the UGENE mapped alignment.
    
-5. When you've completed step 4, goto step 3 and map your edited `ab1` files.
+6. When you've completed step 4, goto step 3 and map your edited `ab1` files.
 
    * Continue with step 4 (and 3) until no edits are required to fix the mapped reads.
 
-6. Repeat steps 3-5 for the reverse sequence read (HCO)
+7. Repeat steps 3-5 for the reverse sequence read (HCO)
 
    * It will be worth while to reverse and compliment the `ab1` files in FinchTV: `View/Reverse Complement`
    
-7. Inspect the alignment of the fwd and reverse reads and edit the `ab1` files in FinchTV as necessary
+8. Inspect the alignment of the fwd and reverse reads and edit the `ab1` files in FinchTV as necessary
 
    * Once you've completed step 6, map all of the edited `ab1` files, both fwd and reverse
    * Arrange them so you can compare the two reads for each specimen
    * Sequence reads from the same specimen should have the same sequence
 
-8. The `ab1` files have now been cleaned and are ready for automated processing
+9. The `ab1` files have now been cleaned and are ready for automated processing
