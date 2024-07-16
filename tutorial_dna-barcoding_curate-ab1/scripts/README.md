@@ -8,6 +8,6 @@
 
 ---
 
-These instructions will continue in the phylogeny tutorial
+The remaining instructions will be in the phylogeny tutorial, for now, goto the instructions for step 1, above
 
 
