@@ -36,7 +36,7 @@
 	  
          `CCAATATCTTTATGATTTGTTGACC`
 
-   *If the above strategy to trim the primers doesn't work for you, follow the full instructions in [how to trim primers.md](./how_to_trim_primers.md)*
+   * *If the above strategy to trim the primers doesn't work for you, follow the full instructions in [how to trim primers.md](./how_to_trim_primers.md)*
 		 
    * Record the trimming in the `prj_rotablue_barcoding/data/rbd_sequencing_dna_barcodes.xlsx` workbook, in the columns named `fwd_seq_primer_trimmed` and `rev_seq_primer_trimmed`
 
