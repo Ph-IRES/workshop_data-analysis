@@ -44,8 +44,8 @@ This tutorial is for the Ph-IRES program participants.
 # mac
 cd ~
 
-# win
-cd Downloads
+# Ubuntu in win
+cd /mnt/c/Users/YOURUSERDIR/Downloads
 ```
 
 ---
