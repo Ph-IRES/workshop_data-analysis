@@ -41,7 +41,7 @@ The content of the workshop will vary depending on our progress and needs of ind
 | Monday | July 15 | [Confirm Software Installation](check_software.md) / [Intro to Git](lecture_git_intro/README.md) / [Management of Biological Data](tutorial_data_management) / [Intro to R](tutorial_r_intro) |
 | Tuesday | July 16 | [CLI Scavenger Hunt!](https://forms.office.com/r/Zq7avbJpqu) / [Intro to Data Visualization with ggplot2](https://r4ds.hadley.nz/data-visualize) / [Intro to Data Wrangling with Tidyverse](https://r4ds.hadley.nz/data-transform) |
 | Wednesday | July 17 | [Organize Your Repo, Write Script to Read in Data and Make One Plot](exercise_curate-your-personal-repo.md) / [Curating DNA Sequences]() / [Phylogenetic Analysis]() |
-| Thursday | July 18 |[Create ThermoConnect account](https://www.thermofisher.com/account-center/signin-identifier.html) [Population genetics]() |
+| Thursday | July 18 |[Create ThermoConnect account](https://www.thermofisher.com/account-center/signin-identifier.html) / [Population genetics]() |
 | Friday | July 19 | [Statistical analysis I]() |
 | Monday | July 22 | [Statistical analysis II]() |
 | Tuesday | July 23 | [Automate your own data analysis I]() |
