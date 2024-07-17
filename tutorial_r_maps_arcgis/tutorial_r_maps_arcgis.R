@@ -1,18 +1,62 @@
-#### Initialize ####
-
+#### SET WORKING DIR ####
+library(rstudioapi)
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
-library(tidyverse)
-library(janitor)
-library(magrittr)
-library(measurements)
-library(lubridate)
-library(rgdal)
-library(raster)
-library(sf)
-library(rgeos)
-library(maptools)
-library(tmap)
+
+#### LOAD PACKAGES ####
+# library(tidyverse)
+# library(janitor)
+# library(magrittr)
+# library(measurements)
+# library(lubridate)
+# library(rgdal)
+# library(raster)
+# library(sf)
+# library(rgeos)
+# library(maptools)
+# library(tmap)
+
+# Install remotes package if not already installed
+if (!require(remotes)) install.packages("remotes")
+
+# Install development versions of the packages
+remotes::install_github("r-spatial/rgdal")
+remotes::install_github("r-spatial/rgeos")
+remotes::install_github("r-spatial/maptools")
+
+packages_used <- 
+  c(
+    "tidyverse",
+    "janitor",
+    "magrittr",
+    "measurements",
+    "lubridate",
+    "rgdal",
+    "raster",
+    "sf",
+    "rgeos",
+    "maptools",
+    "tmap"
+  )
+
+packages_to_install <-
+  packages_used[!packages_used %in% installed.packages()[, 1]]
+
+if (length(packages_to_install) > 0) {
+  install.packages(
+    packages_to_install,
+    Ncpus = parallel::detectCores() - 1
+  )
+}
+
+lapply(
+  packages_used,
+  require,
+  character.only = TRUE
+)
+
+
+
 
 #### USER DEFINED VARIABLES ####
 #inFilePath = "../data/SU-SI_Duplicates(1).xlsx"
