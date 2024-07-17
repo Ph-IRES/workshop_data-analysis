@@ -83,7 +83,7 @@
    
 6. Use the alignment of the chromatograms in UGENE to guide further editing of the `ab1` files with FinchTV.
 
-   * Because UGENE does not edit the `ab1` files, we will use FinchTV to edit them.
+   * Because UGENE has some idiosyncrasies in editing the alignment that could cause you to have to start over again, we will only use FinchTV to edit them.
    
       ![](markdown_images/finchtv_window.png)
    
