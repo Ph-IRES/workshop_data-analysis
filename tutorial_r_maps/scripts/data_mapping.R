@@ -1,6 +1,14 @@
 #### USER DEFINED VARIABLES ####
 
-inFilePath1 = "../data/metadata.rds"
+inFilePath = "../data/metadata.rds"
+outFilePath = "../output/map_philippines.png"
+
+#### CALCULATED VARIABLES ####
+outFileType <-
+  str_remove(
+    outFilePath,
+    "^.*\\."
+  )
 
 #### SET WORKING DIR ####
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
@@ -34,7 +42,7 @@ lapply(
 
 #### READ IN DATA####
 metadata <-
-  read_rds(inFilePath1)
+  read_rds(inFilePath)
 
 #### SIMPLE MAP OF SITE LOCATIONS ####
 metadata %>%
@@ -275,39 +283,71 @@ map_data_regions <-
   )
 
 subregions_keep %>%
-  purrr::map_df(~ map_data_regions %>%
-                  filter(subregion == .x)) %>%
-  
-  mutate(lat = case_when(lat < minLat ~ minLat,
-                         lat > maxLat ~ maxLat,
-                         TRUE ~ lat),
-         long = case_when(long < minLong ~ minLong,
-                          long > maxLong ~ maxLong,
-                          TRUE ~ long)) %>%
-  ggplot(aes(long,
-             lat,
-             group=group)) +
+  purrr::map_df(
+    ~ map_data_regions %>%
+      filter(subregion == .x)
+  ) %>%
+  mutate(
+    lat = 
+      case_when(
+        lat < minLat ~ minLat,
+        lat > maxLat ~ maxLat,
+        TRUE ~ lat
+      ),
+    long = 
+      case_when(
+        long < minLong ~ minLong,
+        long > maxLong ~ maxLong,
+        TRUE ~ long
+      )
+  ) %>%
+  ggplot() +
+  aes(
+    long,
+    lat,
+    group=group
+  ) +
   geom_polygon(fill="lightgray") +
   # region names
-  geom_text(data = region_label_data,
-            aes(x = long,
-                y= lat,
-                label = region),
-            size = 10,
-            hjust = 0.5,
-            inherit.aes = FALSE) +
-  geom_text(aes(x = 121,
-                y= 8,
-                label = "Sulu Sea"),
-            size = 10,
-            hjust = 0.5,
-            color = "grey20",
-            inherit.aes = FALSE) +
-  geom_point(data = metadata,
-             aes(x = long_e,
-                 y = lat_n,
-                 color = habitat,
-                 shape = site),
-             inherit.aes = FALSE) +
+  geom_text(
+    data = region_label_data,
+    aes(
+      x = long,
+      y= lat,
+      label = region
+    ),
+    size = 10,
+    hjust = 0.5,
+    inherit.aes = FALSE
+  ) +
+  geom_text(
+    aes(
+      x = 121,
+      y= 8,
+      label = "Sulu Sea"
+    ),
+    size = 10,
+    hjust = 0.5,
+    color = "grey20",
+    inherit.aes = FALSE
+  ) +
+  geom_point(
+    data = metadata,
+    aes(
+      x = long_e,
+      y = lat_n,
+      color = habitat,
+      shape = site
+    ),
+    inherit.aes = FALSE
+  ) +
   coord_fixed(1) +
   theme_classic()
+
+ggsave(
+  outFilePath,
+  device = outFileType,
+  units = "in",
+  width = 7.5,
+  height = 11
+)
