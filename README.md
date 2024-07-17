@@ -16,6 +16,8 @@
 
 * [Clone This Repo to Your Computer](clone_repo.md)
 
+* [Create a Repo for Your Personal Data](exercise_curate-your-personal-repo)
+
 ---
 
 ## Resources
