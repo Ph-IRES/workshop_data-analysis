@@ -8,10 +8,13 @@ library(readxl)
 # library(devtools)
 # install_github("vqv/ggbiplot")
 library(ggbiplot)
+# install.packages("missMDA")
+library(missMDA)
+
 
 #### USER DEFINED VARIABLES ####
 
-inFilePath1 = "./Morphometric Measurements_New.xlsx"
+inFilePath1 = "../data/Morphometric Measurements_New.xlsx"
 sheet1 = "Geomorphometric Master List"
 sheet2 = "Lai Ratios"
 sheet3 = "data_all"
@@ -82,7 +85,7 @@ data_lai_ratios %>%
   theme_classic() +
   facet_grid(ratio ~ province + site,
              scales = "free_y")
-ggsave("boxplot_morphratio-x-site.png")
+ggsave("../output/boxplot_morphratio-x-site.png")
 
 #### PCA ####
 lai_ratio.pca <- 
@@ -184,10 +187,6 @@ ggbiplot(lai_ratio_imputed.pca,
 #### Missing value imputation for PCA ####
 
 
-# Install and load the package
-install.packages("missMDA")
-library(missMDA)
-
 # Estimate the number of dimensions
 nb <- 
   estim_ncpPCA(data_lai_ratios %>%
@@ -201,9 +200,9 @@ lai_ratio_imputed_2 <-
 
 # Now use this data in your PCA
 lai_ratio_imputed_2.pca <- 
-  prcomp(imputed_data$completeObs, 
-                     center = TRUE, 
-                     scale. = TRUE)
+  prcomp(lai_ratio_imputed_2$completeObs, 
+         center = TRUE, 
+         scale. = TRUE)
 
 summary(lai_ratio_imputed_2.pca)
 summary(lai_ratio.pca)
@@ -222,3 +221,4 @@ ggbiplot(lai_ratio_imputed_2.pca,
   theme_classic() +
   labs(title = "PC3 x PC4",
        subtitle = "Grouped by Province, With Ellipses, Variables Removed")
+
