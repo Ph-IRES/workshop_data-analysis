@@ -1,4 +1,5 @@
 #### INITIALIZATION ####
+library(rstudioapi)
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 library(tidyverse)
@@ -27,7 +28,7 @@ sheet4 = "Morphometric Master List"
 data_geomorph_master <-
   read_excel(inFilePath1,
              sheet = sheet1,
-             skip=1) %>%
+             skip=1) %>% 
   clean_names() 
 
 data_lai_ratios <-
@@ -37,9 +38,11 @@ data_lai_ratios <-
 
 # some of these column names are a bit long.  I suggest abbreviating these names, and then making another sheet that provides the abbrviations and full descriptions
 data_all <-
-  read_excel(inFilePath1,
-             sheet = sheet3,
-             skip = 1) %>%
+  read_excel(
+    inFilePath1,
+    sheet = sheet3,
+    skip = 1
+  ) %>%
   clean_names() 
 
 data_morph_master <-
@@ -50,8 +53,10 @@ data_morph_master <-
   # note, there was a conflict between ggbiplot and dplyr, both have "rename" command
   # because ggbiplot was loaded second, its rename command takes precidence, so we have to specify
   # that we want dplyr's rename command `dplyr::rename`
-  dplyr::rename(carapace_width_1 = carapace_width_excluding_9th_anterior_lateral_tooth_cw1,
-                carapace_width_2 = carapace_width_including_9th_anterior_lateral_tooth_cw2) %>%
+  dplyr::rename(
+    carapace_width_1 = carapace_width_excluding_9th_anterior_lateral_tooth_cw1,
+    carapace_width_2 = carapace_width_including_9th_anterior_lateral_tooth_cw2
+  ) %>%
   # rather than calculating the ratios in excel and then manually merging them together, 
   # calculating them from the raw morph master list sheet will result in fewer errors
   mutate(cw1_cl = carapace_width_1 / carapace_length_cl,
