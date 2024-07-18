@@ -57,14 +57,15 @@ library("ggplotify")
 
 #Sets working directory
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+getwd()
 ```
 
 ```{r read data}
 
-xldata <- read_excel("../data/VSD_2022_2023_multiplex_final.xlsx", 
+xldata <- read_excel("../data/deer/VSD_2022_2023_multiplex_final.xlsx", 
     sheet = "alleles")
 
-indiv_data <- read_csv("../data/indiv_data.csv") |>
+indiv_data <- read_csv("../data/deer/indiv_data.csv") |>
   clean_names() |>
   rename(ind = id) |>
   mutate(ind = str_replace(ind, "VSD[ ]([0-9]{1,2})", "VSD_\\1"))
@@ -84,33 +85,26 @@ genind <- df %>%
 genpop <- genind2genpop(genind)
 
 #create file for package related
-related_data <- df %>%
-  separate(WY45, into = c("WY45a", "WY45b"), sep = 3) %>%
-  separate(WY56, into = c("WY56a", "WY56b"), sep = 3) %>%
-  separate(WY60, into = c("WY60a", "WY60b"), sep = 3) %>%
-  separate(WY59, into = c("WY59a", "WY59b"), sep = 3) %>%
-  separate(WY46, into = c("WY46a", "WY46b"), sep = 3) %>%
-  separate(WY32, into = c("WY32a", "WY32b"), sep = 3) %>%
-  separate(WY48, into = c("WY48a", "WY48b"), sep = 3) %>%
-  separate(WY68, into = c("WY68a", "WY68b"), sep = 3) %>%
-  separate(WY44, into = c("WY44a", "WY44b"), sep = 3) %>%
-  separate(WY55, into = c("WY55a", "WY55b"), sep = 3) %>%
-  separate(WY24, into = c("WY24a", "WY24b"), sep = 3) %>%
-  separate(WY64, into = c("WY64a", "WY64b"), sep = 3) %>%
-  separate(WY34, into = c("WY34a", "WY34b"), sep = 3) %>%
-  separate(WY62, into = c("WY62a", "WY62b"), sep = 3) %>%
-  separate(WY61, into = c("WY61a", "WY61b"), sep = 3) %>%
-  separate(WY82, into = c("WY82a", "WY82b"), sep = 3) %>%
-  separate(WY2, into = c("WY2a", "WY2b"), sep = 3) %>%
-  separate(WY66, into = c("WY66a", "WY66b"), sep = 3) %>%
 
-  
-  rownames_to_column(var="VSDind") 
+# List of columns to separate
 
-related_data <- related_data %>% 
-  replace(is.na(.), 0) %>%
-  rename(ind = VSDind)
-  
+# List of columns to separate
+columns_to_separate <- c("WY45", "WY56", "WY60", "WY59", "WY46", "WY32", "WY48", 
+                         "WY68", "WY44", "WY55", "WY24", "WY64", "WY34", "WY62", 
+                         "WY61", "WY82", "WY2", "WY66")
+
+# Separate each column in a loop
+related_data <- df
+
+for (col in columns_to_separate) {
+  col_name_a <- paste0(col, "a")
+  col_name_b <- paste0(col, "b")
+  related_data <- related_data %>%
+    separate(col, into = c(col_name_a, col_name_b), sep = 3, remove = TRUE)
+}
+
+# Add rownames as a column
+related_data <- related_data %>% rownames_to_column(var = "VSDind")
 
 write_delim(related_data, "../output/related_data.txt", delim = " ", col_names = FALSE, append = FALSE)
 
