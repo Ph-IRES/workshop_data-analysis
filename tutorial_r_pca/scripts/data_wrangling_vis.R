@@ -156,11 +156,18 @@ ggbiplot(lai_ratio.pca,
 
 data_lai_ratios_imputed <- 
   data_lai_ratios %>%
-  dplyr::mutate(across(where(is.numeric), 
-                       ~replace(., 
-                                is.na(.), 
-                                mean(., 
-                                     na.rm=TRUE))))
+  dplyr::mutate(
+    across(
+      where(is.numeric), 
+      ~replace(
+        ., 
+        is.na(.), 
+        mean(., 
+             na.rm=TRUE)
+      )
+    )
+  )
+
 data_lai_ratios_imputed
 
 
@@ -194,8 +201,10 @@ ggbiplot(lai_ratio_imputed.pca,
 
 # Estimate the number of dimensions
 nb <- 
-  estim_ncpPCA(data_lai_ratios %>%
-                 select(-code:-baranguay))
+  estim_ncpPCA(
+    data_lai_ratios %>%
+      select(-code:-baranguay)
+  )
 
 # Impute the missing values
 lai_ratio_imputed_2 <- 
