@@ -59,7 +59,6 @@ library("ggplotify")
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 getwd()
 ```
-
 ```{r read data}
 
 xldata <- read_excel("../data/deer/VSD_2022_2023_multiplex_final.xlsx", 
@@ -70,7 +69,6 @@ indiv_data <- read_csv("../data/deer/indiv_data.csv") |>
   rename(ind = id) |>
   mutate(ind = str_replace(ind, "VSD[ ]([0-9]{1,2})", "VSD_\\1"))
 ```
-
 ```{r wrangle}
 #convert to basic genind and genpop formats
 df <- xldata %>% 
@@ -110,8 +108,8 @@ write_delim(related_data, "../output/related_data.txt", delim = " ", col_names =
 
 #create genotype file for cervus
 
-cervus <- left_join(related_data, indiv_data) %>%
-  select(ind, sex, WY2a:WY62b) %>%
+cervus <- left_join(related_data, indiv_data, join_by(VSDind == ind)) %>%
+  select(VSDind, sex, WY2a:WY62b) %>%
   mutate(sex =
     case_when(sex == "M" ~ "2",
               sex == "F" ~ "1"
@@ -120,7 +118,6 @@ cervus <- left_join(related_data, indiv_data) %>%
 
 write_delim(cervus, "../output/cervus.csv", delim = ",", col_names = TRUE, append = FALSE)
 ```
-
 ```{r adegenet functions}
 
 #summary stats
@@ -215,46 +212,6 @@ legend("topleft", legend = c("estimate", "sample"), col = c("blue", "red"),
 in_est <- as.data.frame(Fest) %>%
   rownames_to_column(var = "ind")
 
-data_deer <-
-  indiv_data %>%
-  filter(ind != "VSD_11") %>%
-  left_join(in_est)
-
-pdf(file = "../images/ic_vs_bodycondition.pdf")
-data_deer %>%
-  ggplot(aes(x=Fest,
-             y=bcs, 
-             color=sex)) +
-  geom_point() +
-  geom_smooth(method = "lm") +
-  labs(x = "Inbreeding Coefficient", 
-       y = "Body Condition Index",
-       title = "Effect of Inbreeding on Body Condition",
-       fill = "Sex") +
-  theme_classic()
-dev.off()
-
-## Plot of estimates only
-
-pdf(file = "../images/inbreeding.pdf")
-as.data.frame(Fest) |>
-  rownames_to_column(var ="ind") |>
-  ggplot(
-    aes(x=ind, y=Fest)) +
-      geom_point() +
-      theme(
-        axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=1),
-        axis.line = element_line(colour = "black"), 
-        panel.background = element_blank()
-        ) +
-      labs(
-        x = "Individual", y = "Inbreeding coefficient",
-  )
-dev.off()
-
-
-
-
 ```
 ```{r inbreeding vs body condition}
 
@@ -305,7 +262,6 @@ glm_bc <-
 summary(glm_bc)
 
 ```
-
 ```{r related analysis}
 
 ##following save to Rdata objects. Load them for further analysis.

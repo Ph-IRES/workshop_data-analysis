@@ -1,4 +1,4 @@
-qHR UP	0
+HR UP	0
 HR DN	100
 DB		285
 HB		380
