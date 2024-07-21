@@ -43,7 +43,7 @@ The content of the workshop will vary depending on our progress and needs of ind
 | Wednesday | July 17 | [Organize Your Repo, Write Script to Read in Data and Make One Plot](exercise_curate-your-personal-repo.md) / [Curating DNA Sequences](tutorial_dna-barcoding_curate-ab1) / [Phylogenetic Analysis]() |
 | Thursday | July 18 |[Create ThermoConnect account](https://www.thermofisher.com/account-center/signin-identifier.html) / [Population genetics]() |
 | Friday | July 19 | [Statistical analysis I]() |
-| Monday | July 22 | [Statistical analysis II]() |
+| Monday | July 22 | [Phylogenetic analysis]() |
 | Tuesday | July 23 | [Automate your own data analysis I]() |
 | Wednesday | July 24 | [Automate your own data analysis II]() 
 
