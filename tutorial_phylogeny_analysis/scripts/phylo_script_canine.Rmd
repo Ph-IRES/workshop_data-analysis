@@ -5,12 +5,13 @@ date: 2023-06-13
 ```{r setup}
 ##finds if required packages are installed, loads them if not
 if (!requireNamespace("BiocManager", quietly=TRUE)) install.packages("BiocManager")
-library(BiocManager)
+if (!require("devtools")) install.packages("devtools") 
+library("BiocManager")
+library("devtools")
 if (!require("phangorn")) install.packages("phangorn")
 if (!require("ape")) install.packages("ape")
 if (!require("msa")) BiocManager::install("msa")
 if (!require("tinytex")) install.packages("tinytex") 
-if (!require("devtools")) install.packages("devtools") 
 if (!require("tidyverse")) install.packages("tidyverse")
 if (!require("igraph")) install.packages("igraph", type="binary")
 if (!require("ips")) install.packages("ips")
@@ -26,7 +27,6 @@ if (!require("RCurl")) install.packages("RCurl", type="binary")
 if (!require("YuLab-SMU/ggmsa")) devtools::install_github("YuLab-SMU/ggmsa", type="binary")
 if (!require("treedataverse")) BiocManager::install("YuLab-SMU/treedataverse", type="binary", force=TRUE)
 if (!require("usedist")) devtools::install_github("kylebittinger/usedist")
-
 
 ##load required library
 library(tidyverse)
@@ -80,8 +80,8 @@ seq<-RNA2DNA(seq)
 ##multi-sequence alignment.  Muscle is generally the fastest option here.  Other options are ClustalW and ClustalOmega
 
 seqalign<-msa(seq, method= "Muscle", type = "dna", verbose = TRUE)
-writeXStringSet(as(unmasked(seqalign), "XStringSet"), file="aln.fasta")
-nt<-readDNAMultipleAlignment("aln.fasta", format = "fasta")
+writeXStringSet(as(unmasked(seqalign), "XStringSet"), file="../output/aln.fasta")
+nt<-readDNAMultipleAlignment("../output/aln.fasta", format = "fasta")
 
 #basic alignment
 print(seqalign, show="complete")
@@ -194,7 +194,13 @@ tbl.tree <- tree %>% as.treedata %>% as_tibble()
 View(tbl.tree)
 ```
 ```{r modify and manipulate trees}
+##Manipulations to trees can be done using the ggtree manual, to be found here: https://yulab-smu.top/treedata-book/index.html
+##You should create new treeplot from the basic called treeplot_mod and build out a ggtree command in the usual way
+#examples of specific mods are given below; your final tree should consist of one ggplot block
+
 ##create dataframe for metadata
+#see https://yulab-smu.top/treedata-book/chapter5.html
+
 dat <- data.frame(id=c(53,52), tribe=c("Vulpini","Canini"), offset = c(0.3,0.4), group = c("A","B"))
 
 ##Should create new treeplot from the basic called treeplot_mod and build out a ggtree command in the usual way
