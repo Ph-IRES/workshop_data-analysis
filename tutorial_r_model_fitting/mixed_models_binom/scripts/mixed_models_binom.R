@@ -44,8 +44,8 @@ library(ggforce)
 #### USER DEFINED VARIABLES ####
 
 # path to fish sex change data set
-inFilePath2 = "./visayan_deer_3primer_microsat_amp_data.rds"
-functionPath = "../functions/model_fitting_functions.R"
+inFilePath2 = "../data/visayan_deer_3primer_microsat_amp_data.rds"
+functionPath = "../../functions/model_fitting_functions.R"
 
 # you can make a default theme for your publication's figures.  This makes things easier for you. 
 # feel free to customize as necessary
@@ -143,7 +143,7 @@ p_sampsize <-
     ggplot(aes(x = plate_column,
                y = plate_row,
                color = n)) +
-    geom_point(size = 35) +
+    geom_point(size = 20) +
     scale_color_gradient(high = "blue4",
                          low = "white") +
     geom_text(aes(label = str_c("n = ",
@@ -182,7 +182,7 @@ p_amp <-
     ggplot(aes(x = plate_column,
            y = plate_row,
            color = prop_amped)) +
-    geom_point(size = 35) +
+    geom_point(size = 20) +
     scale_color_gradient(high = "green4",
                          low = "grey90") +
     geom_text(aes(label = round(prop_amped, 

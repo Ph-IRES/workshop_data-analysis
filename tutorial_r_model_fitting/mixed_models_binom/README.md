@@ -19,13 +19,13 @@ We will use Noelles data set on cross amplification of microsat loci in Visayan 
 ### basic ggplot plots
 It is important to understand the nature of your data. Histograms can help you make decisions on how your data must be treated to conform with the assumptions of statistical models.
 
-![](Rplot.png)
+![](../output/Rplot.png)
 Fig 1. Histograms of number of PCR libraries evaluated relative to primer concentration and locus. Note that the data does not represent a complete design and that different loci should probably be subjected to different model tests.
-![](Rplot01.png)
+![](../output/Rplot01.png)
 Fig 2. Heatmaps of sample size (number of libraries) and proportion amplified by plate address.
 
 
-![](Rplot02.png)
+![](../output/Rplot02.png)
 Fig 3. Scatterplot of proportion amplified against number of libraries. Each point is a well address. Shapes represent the number of different individuals and color is the number of loci.
 
 ---
@@ -36,13 +36,13 @@ Fig 3. Scatterplot of proportion amplified against number of libraries. Each poi
 
 vis_dists() creates three figures
 
-![](Rplot03.png)
+![](../output/Rplot03.png)
 Fig 4. Histogram and cumulative distribution of `amplification`
 
-![](Rplot04.png)
+![](../output/Rplot04.png)
 Fig 5. Cullen and Frey Graph of kurtosis vs square of skewness for `amplification`. **I really like this one.**  This shows you which statistical distribution the data most closely resembles.  Here, the data is nearly log normal, but better fit by the beta distribution.
 
-![](Rplot05.png)
+![](../output/Rplot05.png)
 Fig 6. 4 additional plots that allow you to determine the distribution that most closely fits `amplification`
 
 ---
@@ -63,7 +63,7 @@ Here are some rules of thumb:
 
 Here we will test for the effect of size on the sex of _Halichores scapularis_ among different locations.
 
-![](Rplot06.png)
+![](../output/Rplot06.png)
 Fig 7. Plots of amplification success rate vs. primer concentration. Each point is a PCR library and is jittered by 0.025 both vertically and horizontally.  Fit lines are logistic.
 
 Some things to notice are that some loci are tested across a broader range of primer concentrations than others.  They should probably be split apart into groups and analyzed separately.
@@ -119,7 +119,7 @@ The summary output identifies a potential difference with WY48 (p = 0.0758), whi
 	---
 	Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-![](Rplot07.png)
+![](../output/Rplot07.png)
 Fig 8. Visualization of `model11`. Note that the "Estimates"  output by `summary(model)` can be derived from this plot. The site 'Estimates' in `summary(model)` are the y values for each site fit line where x = mean primer x. The intercept 'Estimate' is the mean of groups at x=0. Note that the y axis is on the logit scale, not probability of amplifcation success, but larger y values are related to increased amplification success..
 
 
@@ -269,7 +269,7 @@ Table 3. The `multicomp:cld` groupings are added to the emmeans table. Only two 
 4     1.25 WY48    0.963  0.0448   Inf   0.687       0.997 "  b"  b    
 5     0.1  WY68    0.150  0.202    Inf   0.00781     0.798 " ab"  a,b  
 6     1.25 WY68    0.141  0.135    Inf   0.0181      0.594 " a "  a    
-![](Rplot08.png)
+![](../output/Rplot08.png)
 Fig 9. Estimated marginal means for the probability that 116mm fish are male at each location.  Letters indicate statistically significant groupings according to `multicomp:cld`. Note that the groups conflict with the contrasts.  This can happen at the edge of significance (0.05 in this case).
 
 
@@ -291,7 +291,7 @@ plot(emmeans_ggpredict) +
   theme_myfigs
 ```
 
-![](Rplot09.png)
+![](../output/Rplot09.png)
 Fig 10. Plots of amplification success against primer concentration.  Fit lines are based on the glmer (amplification ~  locus * primer_x + (1|individual) + (1|plate_number) + (1|plate_row) + (1|plate_column)). 
 
 This plot (Fig 9) is pretty good, but it might contain extrapolations and does not have the data.  We can make this better by filtering the tibble created by `ggemmeans` down to those between the min and max length for each location and adding the original data to the plot using `geom_jitter()`.  In the example below, we use `ggpredict` to bring your attention to its existence, but in this case it is interchangable with `ggemmeans`.
@@ -332,7 +332,7 @@ emmeans_ggpredict %>%
   theme_myfigs
 ```
 
-![](Rplot10.png)
+![](../output/Rplot10.png)
 Fig 11. Plots of amplification success against primer concentration.  Fit lines are based on the glmer (amplification ~  locus * primer_x + (1|individual) + (1|plate_number) + (1|plate_row) + (1|plate_column)).  The points are the observed data with vertical & horizontal jittering to better visualize multiple observations of the same primer_x and amplification success.
 
 
@@ -443,10 +443,10 @@ P value adjustment: BH method for 21 tests
 
 And the primary issue with model fitting seems to stem from combinations of `locus` and `primer_x` that completely failed (no amplification). Notice the wide confidence limits when the probability of success is near or equal to zero.
 
-![](Rplot11.png)
+![](../output/Rplot11.png)
 Fig 12. Estimated marginal means for amplification success at primer concentrations of 0.6 and 1.25.  
 
-![](Rplot12.png)
+![](../output/Rplot12.png)
 Fig 13. This is the overall model fit as of now. The CI ribbons are not shown for clarity - consult Fig 12.
 
 It appears that decreasing the primer concentration below 0.6x will likely lead to improvement in the amplification of WY34, 46, 62, and maybe 56.
@@ -478,7 +478,7 @@ locus = WY64:
 P value adjustment: BH method for 3 tests 
 ```
 
-![](Rplot13.png)
+![](../output/Rplot13.png)
 Fig 14. Estimated marginal means for amplification success at primer concentrations of 0.6 and 1x.  
 
 

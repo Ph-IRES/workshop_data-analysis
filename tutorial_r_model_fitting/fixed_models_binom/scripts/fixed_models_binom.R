@@ -43,8 +43,10 @@ library(ggeffects)
 #### USER DEFINED VARIABLES ####
 
 # path to fish sex change data set
-inFilePath = "./halichores_scapularis_measurements_bartlett_2.rds"
-functionPath = "../functions/model_fitting_functions.R"
+inFilePath = "../data/halichores_scapularis_measurements_bartlett_2.rds"
+
+# these functions are used in several different analysis, and so they would be "outside" of the repo.
+functionPath = "../../functions/model_fitting_functions.R"
 
 # you can make a default theme for your publication's figures.  This makes things easier for you. 
 # feel free to customize as necessary
@@ -366,6 +368,7 @@ emmeans_ggpredict <-
     theme_myfigs
   
 
+# does not work past here.
 # alternatively, we can use the predict command.  The logic used is similar to above.
   x_increment = 1
   

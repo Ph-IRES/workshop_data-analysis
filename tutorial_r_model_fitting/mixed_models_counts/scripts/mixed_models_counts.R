@@ -44,8 +44,8 @@ library(ggforce)
 #### USER DEFINED VARIABLES ####
 
 # path to fish sex change data set
-inFilePath2 = "./meso_euphotic_carniv_fish_videobaitstations_all.rds"
-functionPath = "../functions/model_fitting_functions.R"
+inFilePath2 = "../data/meso_euphotic_carniv_fish_videobaitstations_all.rds"
+functionPath = "../../functions/model_fitting_functions.R"
 
 # you can make a default theme for your publication's figures.  This makes things easier for you. 
 # feel free to customize as necessary

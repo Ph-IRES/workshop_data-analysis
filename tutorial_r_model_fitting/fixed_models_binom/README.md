@@ -19,13 +19,13 @@ We will use Ingrids data set on sex change in _Halichores scapularis_ which has 
 ### basic ggplot plots
 It is important to understand the nature of your data. Histograms can help you make decisions on how your data must be treated to conform with the assumptions of statistical models.
 
-![](Rplot.png)
+![](../output/Rplot.png)
 Fig 1. Histograms of fish measurements by location and sex.  U=immature, sex cannot be determined, F=female, MF=both sex organs, M=male, PM=primary male, NA= no observation made
 
-![](Rplot01.png)
+![](../output/Rplot01.png)
 Fig 2. Histograms of fish measurements by location and sex. The stages range from 0=immature sex undecipherable to 4=mature female to ...
 
-![](Rplot01.png)
+![](../output/Rplot01.png)
 Fig 2. Histograms of fish measurements by location and sex. The stages range from 0=immature sex undecipherable to 4=mature female to ...
 
 ---
@@ -36,13 +36,13 @@ Fig 2. Histograms of fish measurements by location and sex. The stages range fro
 
 `vis_dists()` creates three figures
 
-![](Rplot02.png)
+![](../output/Rplot02.png)
 Fig 3. Histogram and cumulative distribution of `female_male`
 
-![](Rplot03.png)
+![](../output/Rplot03.png)
 Fig 4. Cullen and Frey Graph of kurtosis vs square of skewness for `female_male`. **I really like this one.**  This shows you which statistical distribution the data most closely resembles.  Here, the data is falls along the upper boundary of the beta distribution (grey ribbon). Note that the beta distribution describes the greatest amount of parameter space and many other distributions are special cases of the beta. Here, we know that our data binomially distributed because there are only 0 or 1, but the binomial dist is not represented in the Cullen Frey graph. I would expect all binomial data sets to fall along the upper edge of the beta distribution ribbon. 
 
-![](Rplot04.png)
+![](../output/Rplot04.png)
 Fig 5. 4 additional plots that allow you to determine the distribution that most closely fits `female_male`
 
 ---
@@ -67,7 +67,7 @@ Here are some rules of thumb:
 
 Here we will test for the effect of size on the sex of _Halichores scapularis_ among different locations.
 
-![](Rplot05.png)
+![](../output/Rplot05.png)
 Fig 6. Plots of fish sex (F=0, M=1) against total length.  Fit lines are logistic.
 
 Some things to notice are that there are not many males from Dumaguete and not many females from Buenavista.  Consequently we might want to test some other hypotheses later. For example, testing for differences in total length by sex and location might be useful. But lets save this for later.
@@ -129,7 +129,7 @@ summary(model)
 
 	Number of Fisher Scoring iterations: 7
 
-![](Rplot06.png)
+![](../output/Rplot06.png)
 
 Fig 7. Visualization of `model`. Note that the "Estimates"  output by `summary(model)` can be derived from this plot. The site 'Estimates' in `summary(model)` are the y values for each site fit line where x = Mean Tot L. The intercept 'Estimate' is the mean of groups at x=0. Note that the y axis is on the logit scale, not probability of being male.
 
@@ -239,7 +239,7 @@ Table 3. The `multicomp:cld` groupings are added to the emmeans table. Dumaguete
 	2            116. Dumaguete, Negros    0.0588 0.0774   Inf   0.00403     0.492 " a "  a    
 	3            116. San Juan, Siquijor   0.877  0.0619   Inf   0.698       0.956 "  b"  b  
 
-![](Rplot07.png)
+![](../output/Rplot07.png)
 Fig 8. Estimated marginal means for the probability that 116mm fish are male at each location.  Letters indicate statistically significant groupings according to `multicomp:cld`.
 
 
@@ -261,7 +261,7 @@ emmeans_ggpredict <-
     theme_myfigs
 ```
 
-![](Rplot08.png)
+![](../output/Rplot08.png)
 Fig 9. Plots of fish sex (F=0, M=1) against total length.  Fit lines are based on the glm (female_male ~ total_length_mm + location). 
 
 This plot (Fig 9) is pretty good, but it contains extrapolations and does not accurately reflect the data.  We can make this better by filtering the tibble created by `ggemmeans` down to those between the min and max length for each location and adding the original data to the plot using `geom_jitter()`.  In the example below, we use `ggpredict` to bring your attention to its existence, but in this case it is interchangable with `ggemmeans`.
@@ -301,7 +301,7 @@ geom_jitter(data = data,
 theme_myfigs
 ```
 
-![](Rplot09.png)
+![](../output/Rplot09.png)
 Fig 10. Plots of fish sex (F=0, M=1) against total length.  Fit lines are based on the glm (female_male ~ total_length_mm + location).  The points are the observed data with vertical jittering to better visualize multiple observations of the same length and sex.
 
 
