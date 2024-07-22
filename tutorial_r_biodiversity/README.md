@@ -5,6 +5,7 @@
 * [vegan](https://cloud.r-project.org/web/packages/vegan/index.html)
 * [BiodiversityR](https://rdrr.io/cran/BiodiversityR/)
 * [adiv](https://besjournals.onlinelibrary.wiley.com/doi/epdf/10.1111/2041-210X.13430)
+* [iNext](https://cran.r-project.org/web/packages/iNEXT/index.html)
 
 ---
 
