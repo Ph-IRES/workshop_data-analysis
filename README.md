@@ -44,8 +44,8 @@ The content of the workshop will vary depending on our progress and needs of ind
 | Thursday | July 18 |[Create ThermoConnect account](https://www.thermofisher.com/account-center/signin-identifier.html) / [Population genetics]() |
 | Friday | July 19 | [Statistical analysis I]() |
 | Monday | July 22 | [Phylogenetic analysis](tutorial_phylogeny_analysis) |
-| Tuesday | July 23 | [Automate your own data analysis I]() |
-| Wednesday | July 24 | [Automate your own data analysis II]() 
+| Tuesday | July 23 | [Model Fitting & Testing](tutorial_r_model_fitting) / [Biodiversity Analysis](tutorial_r_biodiversity) |
+| Wednesday | July 24 | [Phylogenies II]() / [Automate Your Own Analysis]() |
 
 # Data Analysis Workshop 2022-2023
 # This workshop has been completed but can still be consulted for resources.  
