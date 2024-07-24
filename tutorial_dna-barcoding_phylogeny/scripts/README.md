@@ -25,8 +25,14 @@ Refer to https://github.com/orgs/opihi-partnership/repositories where a similar 
 
    ```bash
    # wrangle_blast_output.bash ReplaceThisTextWithTheBlastMsaFastaFilePath > ReplaceThisTextWithTheNewFilePath.tsv
-   bash wrangle_blast_output.bash ../output/sanger_curated_ab1_ischnura_luta_coi/blast_rbd_06_E1_500.fasta > ../output/sanger_curated_ab1_ischnura_luta_coi/blast_rbd_06_E1_500_better.tsv.tsv
+   bash wrangle_blast_output.bash ../output/sanger_curated_ab1_ischnura_luta_coi/blast_rbd_06_E1_500.fasta > ../output/sanger_curated_ab1_ischnura_luta_coi/blast_rbd_06_E1_500_better.tsv
    ```
+
+   ```bash
+   # check the tidy metadata extracted from the sequence names
+   column -t -s $'\t' ../output/sanger_curated_ab1_ischnura_luta_coi/blast_rbd_06_E1_500_better.tsv | less -S
+   ```
+   
 5. Read the aligned NCBI blast sequences into R using the function `renameBlastFastaSeqs()` from `functions_sanger.R`
    	* See `ischnura_luta_phylogeny.R`
 
