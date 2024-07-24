@@ -1,0 +1,12 @@
+SampleCollectionDate	FieldCode	dna_extract_tube_ID	sequencing_run_id	sequencing-date	fwd_primer	rev_primer	fwd_quality	rev_quality	fwd_seq_primer_trimmed_2023	rev_seq_primer_trimmed_2023	fwd_seq_primer_trimmed_2024	rev_seq_primer_trimmed_2024	GeneticSampleCode	Category	GENETIC_CODE	UGENE_GENETIC_CODE	species_field_id	field-notes	species_dna_id	Notes
+1/14/2022	Isauau22ROT-01	rbd_01_E1	1	12/28/2023	LCO1490	HCO2198	ok	ok	trimmed	trimmed	NA	NA	Isauau22ROT-01	Damselfly	5	Invertebrate-Mitochondrial-Code	Ischnura aurora aurora	NA	Ischnura aurora aurora	NA
+1/14/2022	Isauau22ROT-02	rbd_02_E1	1	12/28/2023	LCO1490	HCO2198	ok	redo	trimmed	absent	NA	NA	Isauau22ROT-02	Damselfly	5	Invertebrate-Mitochondrial-Code	Ischnura aurora aurora	NA	Ischnura aurora aurora	NA
+1/14/2022	Isauau22ROT-03	rbd_03_E1	1	12/28/2023	LCO1490	HCO2198	ok	ok	trimmed	trimmed	NA	NA	Isauau22ROT-03	Damselfly	5	Invertebrate-Mitochondrial-Code	Ischnura aurora aurora	NA	Ischnura aurora aurora	NA
+11/3/2023	TK 3-2-1	rbd_07_E1	1	12/28/2023	LCO1490	HCO2198	ok	ok	trimmed	trimmed	NA	NA		Damselfly	5	Invertebrate-Mitochondrial-Code	Ischnura aurora aurora	NA	Ischnura aurora aurora	NA
+11/3/2023	TK 3-2-3	rbd_09_E1	1	12/28/2023	LCO1490	HCO2198	ok	terrible	trimmed	NA	NA	NA		Damselfly	5	Invertebrate-Mitochondrial-Code	Ischnura aurora aurora	NA	Ischnura aurora aurora	NA
+11/3/2023	TK 2-2.2-2	rbd_10_E1	1	12/28/2023	LCO1490	HCO2198	ok	ok	trimmed	trimmed	NA	NA		Damselfly	5	Invertebrate-Mitochondrial-Code	Ischnura aurora aurora	NA	Ischnura aurora aurora	NA
+11/3/2023	TK 2-2.2-3	rbd_11_E1	1	12/28/2023	LCO1490	HCO2198	ok	redo	trimmed	trimmed	NA	NA		Damselfly	5	Invertebrate-Mitochondrial-Code	Ischnura aurora aurora	NA	Ischnura aurora aurora	NA
+11/3/2023	TK 2-2.2-5	rbd_13_E1	1	12/28/2023	LCO1490	HCO2198	ok	ok	trimmed	trimmed	NA	NA		Damselfly	5	Invertebrate-Mitochondrial-Code	Ischnura aurora aurora	NA	Ischnura aurora aurora	NA
+11/3/2023	TK 2-2.2-6	rbd_14_E1	1	12/28/2023	LCO1490	HCO2198	ok	redo	trimmed	NA	NA	NA		Damselfly	5	Invertebrate-Mitochondrial-Code	Ischnura aurora aurora	NA	Ischnura aurora aurora	NA
+11/3/2023	TK 2-2.2-7	rbd_15_E1	1	12/28/2023	LCO1490	HCO2198	ok	ok	trimmed	trimmed	NA	NA		Damselfly	5	Invertebrate-Mitochondrial-Code	Ischnura aurora aurora	NA	Ischnura aurora aurora	NA
+11/3/2023	TK 2-2.2-8	rbd_16_E1	1	12/28/2023	LCO1490	HCO2198	ok	ok	trimmed	trimmed	NA	NA		Damselfly	5	Invertebrate-Mitochondrial-Code	Ischnura aurora aurora	NA	Ischnura aurora aurora	NA

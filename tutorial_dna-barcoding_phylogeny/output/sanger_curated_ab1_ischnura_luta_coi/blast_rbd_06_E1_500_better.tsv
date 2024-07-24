@@ -1,0 +1,501 @@
+Accession	Location	Completeness	Topology	Organism	tissue_type	Specimen_Voucher	Isolate	Gcode	Country	Lat_lon	Collection_date	Collected_by	Identified_by	Tech
+KY127433.1	mitochondrion			Ischnura_elegans			2	5						
+KY127439.1	mitochondrion			Ischnura_elegans			8	5						
+KY127437.1	mitochondrion			Ischnura_elegans			6	5						
+KY127432.1	mitochondrion			Ischnura_elegans			1	5						
+MN701555.1	mitochondrion			Ischnura_genei		MT81_Igen_2018_3		5	Malta:_Malta_Island,_Il-Maghluqa_ta'_Marsascala	35.8621_N,14.5622_E	16-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701542.1	mitochondrion			Ischnura_genei		MT1_Igen_2018_3		5	Malta:_Malta_Island,_Wied_Ghajn_Rihana	35.9187_N,14.4012_E	04-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701541.1	mitochondrion			Ischnura_genei		MT44_Igen_2018_1		5	Malta:_Gozo_Island,_Il-Qattara	36.051_N,14.1923_E	10-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701537.1	mitochondrion			Ischnura_genei		MT56_Igen_2018_4		5	Malta:_Gozo_Island,_Il-Fekruna	36.033_N,14.2272_E	11-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701532.1	mitochondrion			Ischnura_genei		MT81_Igen_2018_2		5	Malta:_Malta_Island,_Il-Maghluqa_ta'_Marsascala	35.8621_N,14.5622_E	16-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701521.1	mitochondrion			Ischnura_genei		MT56_Igen_2018_2		5	Malta:_Gozo_Island,_Il-Fekruna	36.033_N,14.2272_E	11-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701519.1	mitochondrion			Ischnura_genei		MT81_Igen_2018_5		5	Malta:_Malta_Island,_Il-Maghluqa_ta'_Marsascala	35.8621_N,14.5622_E	16-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701493.1	mitochondrion			Ischnura_genei		MT59_Igen_2018_6		5	Malta:_Gozo_Island,_Il-Wied_ta'_Marsalforn	36.0497_N,14.2459_E	12-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701491.1	mitochondrion			Ischnura_genei		MT59_Igen_2018_4		5	Malta:_Gozo_Island,_Il-Wied_ta'_Marsalforn	36.0497_N,14.2459_E	12-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701487.1	mitochondrion			Ischnura_genei		MT81_Igen_2018_1		5	Malta:_Malta_Island,_Il-Maghluqa_ta'_Marsascala	35.8621_N,14.5622_E	16-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701481.1	mitochondrion			Ischnura_genei		MT59_Igen_2018_2		5	Malta:_Gozo_Island,_Il-Wied_ta'_Marsalforn	36.0497_N,14.2459_E	12-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701543.1	mitochondrion			Ischnura_genei		MT56_Igen_2018_1		5	Malta:_Gozo_Island,_Il-Fekruna	36.033_N,14.2272_E	11-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+KY127438.1	mitochondrion			Ischnura_elegans			7	5						
+MK951668.1	mitochondrion	complete	circular	Ischnura_elegans				5						
+KY127434.1	mitochondrion			Ischnura_elegans			3	5						
+MZ657323.1	mitochondrion			Ischnura_elegans		ZMUO.029858		5	Finland:_Karelia_australis,_Virolahti,_Niemelae	60.5429_N,27.8199_E	04-Jul-1999	Sami_Karjalainen	Sami_Karjalainen	barcode
+MW208392.1	mitochondrion			Ischnura_elegans			Odo_BIH_08	5	Bosnia_and_Herzegovina					
+MW490515.1	mitochondrion			Ischnura_elegans		TRD-ODO106		5	Norway:_Nord-Trondelag,_Steinkjer,_Leksdalsvatnet,_north_end	63.908_N,11.588_E	03-Jul-2008	Dag_Dolmen	Dag_Dolmen	barcode
+MW490445.1	mitochondrion			Ischnura_elegans		TRD-ODO107		5	Norway:_Nord-Trondelag,_Flatanger,_Froesendalsvatnet	64.572_N,10.95_E	31-Jul-2009	Dag_Dolmen	Dag_Dolmen	barcode
+MW490415.1	mitochondrion			Ischnura_elegans		TRD-ODO108		5	Norway:_Nord-Trondelag,_Levanger,_Byavatnet,_outlet	63.679_N,11.05_E	30-Jul-2009	Dag_Dolmen	Dag_Dolmen	barcode
+MW490169.1	mitochondrion			Ischnura_elegans		TRD-ODO45		5	Norway:_Nord-Trondelag,_Levanger,_Nesvatnet,_Asen	63.653_N,11.093_E	14-Jul-2014	Jon_K._Skei	Jon_K._Skei	barcode
+MN701560.1	mitochondrion			Ischnura_genei		MT65_Igen_2018_1		5	Malta:_Gozo_Island,_Wied_tal-Furnar	36.0441_N,14.2786_E	12-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701531.1	mitochondrion			Ischnura_genei		MT1_Igen_2018_5		5	Malta:_Malta_Island,_Wied_Ghajn_Rihana	35.9187_N,14.4012_E	04-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701525.1	mitochondrion			Ischnura_genei		MT59_Igen_2018_3		5	Malta:_Gozo_Island,_Il-Wied_ta'_Marsalforn	36.0497_N,14.2459_E	12-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701523.1	mitochondrion			Ischnura_genei		MT59_Igen_2018_1		5	Malta:_Gozo_Island,_Il-Wied_ta'_Marsalforn	36.0497_N,14.2459_E	12-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701517.1	mitochondrion			Ischnura_genei		MT1_Igen_2018_1		5	Malta:_Malta_Island,_Wied_Ghajn_Rihana	35.9187_N,14.4012_E	04-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701516.1	mitochondrion			Ischnura_genei		MT61_Igen_2018_2		5	Malta:_Gozo_Island,_Wied_ir-Ramla	36.0525_N,14.2836_E	12-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701512.1	mitochondrion			Ischnura_genei		MT81_Igen_2018_6		5	Malta:_Malta_Island,_Il-Maghluqa_ta'_Marsascala	35.8621_N,14.5622_E	16-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701508.1	mitochondrion			Ischnura_genei		MT61_Igen_2018_1		5	Malta:_Gozo_Island,_Wied_ir-Ramla	36.0525_N,14.2836_E	12-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701507.1	mitochondrion			Ischnura_genei		MT56_Igen_2018_3		5	Malta:_Gozo_Island,_Il-Fekruna	36.033_N,14.2272_E	11-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701505.1	mitochondrion			Ischnura_genei		MT74_Igen_2018_1		5	Malta:_Comino_Island,_Comino	36.0099_N,14.3351_E	14-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701504.1	mitochondrion			Ischnura_genei		MT10_Igen_2018_2		5	Malta:_Malta_Island,_Wied_Ghajn_Rihana	35.9386_N,14.3367_E	04-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701502.1	mitochondrion			Ischnura_genei		MT59_Igen_2018_5		5	Malta:_Gozo_Island,_Il-Wied_ta'_Marsalforn	36.0497_N,14.2459_E	12-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701500.1	mitochondrion			Ischnura_genei		MT34_Igen_2018_1		5	Malta:_Malta_Island,_Simar_Nature_Reserve	35.9459_N,14.3826_E	08-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701496.1	mitochondrion			Ischnura_genei		MT10_Igen_2018_1		5	Malta:_Malta_Island,_Wied_Ghajn_Rihana	35.9386_N,14.3367_E	04-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701492.1	mitochondrion			Ischnura_genei		MT74_Igen_2018_2		5	Malta:_Comino_Island,_Comino	36.0099_N,14.3351_E	14-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701486.1	mitochondrion			Ischnura_genei		MT61_Igen_2018_3		5	Malta:_Gozo_Island,_Wied_ir-Ramla	36.0525_N,14.2836_E	12-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701482.1	mitochondrion			Ischnura_genei		MT81_Igen_2018_4		5	Malta:_Malta_Island,_Il-Maghluqa_ta'_Marsascala	35.8621_N,14.5622_E	16-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MN701478.1	mitochondrion			Ischnura_genei		MT39_Igen_2018_1		5	Malta:_Malta_Island,_Kenedy_Grove	35.9434_N,14.421_E	08-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+MT298478.1	mitochondrion			Ischnura_saharensis		MIB:ZPL:08645		5	Morocco	29.10_N,10.30_W		A._Galimberti,_G._Assandri	Giacomo_Assandri	barcode
+MT298472.1	mitochondrion			Ischnura_genei		MIB:ZPL:08257		5	Italy:_Sicily,_Trapani	37.90_N,12.70_E		A._Galimberti,_G._Assandri	Giacomo_Assandri	barcode
+MT298470.1	mitochondrion			Ischnura_genei		MIB:ZPL:08252		5	Italy:_Sardinia,_Sassari	40.70_N,9.00_E		A._Galimberti,_G._Assandri	Giacomo_Assandri	barcode
+MT298469.1	mitochondrion			Ischnura_elegans		MIB:ZPL:08247		5	Italy:_Lazio,_Viterbo	42.20_N,12.00_E		A._Galimberti,_G._Assandri	Giacomo_Assandri	barcode
+MT298468.1	mitochondrion			Ischnura_elegans		MIB:ZPL:08244		5	Italy:_Tuscany,_Grosseto	43.00_N,10.90_E		A._Galimberti,_G._Assandri	Giacomo_Assandri	barcode
+MT298466.1	mitochondrion			Ischnura_elegans		MIB:ZPL:08231		5	Italy:_Piedmont,_Torino	45.10_N,7.50_E		A._Galimberti,_G._Assandri	Giacomo_Assandri	barcode
+MW490413.1	mitochondrion			Ischnura_elegans		GBOL_20144		5	Germany:_Bavaria,_Oberbayern,_Weilheim-Schongau,_Seeshaupt	47.8252_N,11.3012_E	27-Jul-2018	Stefan_Koch	Stefan_Koch	barcode
+MH450005.1	mitochondrion			Ischnura_evansi				5	Iran:_Sarbaz_Gorge		Oct-1997	H.J._Dumont		
+MH450003.1	mitochondrion			Ischnura_saharensis			7003	5	Mauritania:_Aghrmakoum		Jul-2006	E._Durand_J._Renoult		
+MH449993.1	mitochondrion			Ischnura_elegans			6694	5	USA:_Batumi_Georgia		Oct-1997	H.J._Dumont		
+MH449982.1	mitochondrion			Ischnura_elegans			6727	5	Belgium:_Affligem		May-1999	H.J._Dumont		
+MF458738.1	mitochondrion			Ischnura_elegans			T_P60	5	France:_Durance_River					
+NC_031824.1	mitochondrion	complete	circular	Ischnura_elegans				5	Germany					
+OQ693852.1	mitochondrion	complete	circular	Ischnura_elegans		CNU11497		5	South_Korea:_Yongin					
+OP913230.1	mitochondrion			Ischnura_elegans			E13	5	Portugal:_Vila_Nova_de_Cerveira,_International_Minho_River			Nuno_Gomes	Nuno_Gomes,_Duarte_Martins	
+OV121114.2	mitochondrion			Ischnura_elegans				5						
+NC_063728.1	mitochondrion	complete	circular	Ischnura_asiatica				5						
+KF369415.1	mitochondrion			Ischnura_elegans		RMNH.INS.228277		5	Netherlands			Van_Tol,_J.		barcode
+MW208399.1	mitochondrion			Ischnura_elegans			Odo0202	5	Austria					
+MW208398.1	mitochondrion			Ischnura_elegans			Odo0056	5	Austria					
+MW208397.1	mitochondrion			Ischnura_elegans			Odo_Alb_05	5	Albania					
+MW208396.1	mitochondrion			Ischnura_elegans			Odo_Alb_10	5	Albania					
+MW208394.1	mitochondrion			Ischnura_elegans			Odo_Alb_06	5	Albania					
+MW208393.1	mitochondrion			Ischnura_elegans			Odo_Alb_04	5	Albania					
+MW208391.1	mitochondrion			Ischnura_elegans			Odo_Cro_03	5	Croatia					
+MW490468.1	mitochondrion			Ischnura_elegans		GBOL05461		5	Greece:_Evros,_Alexandropolis	40.846_N,25.855_E	10-Jun-2014	H._Muehle	Hans_Muehle	barcode
+MW490463.1	mitochondrion			Ischnura_elegans		ODOPL_152		5	Poland:_Wadolek_Lake,_Wigry_National_Park	54.112_N,23.043_E	12-Jun-2019	Grzegorz_Tonczyk	Grzegorz_Tonczyk	barcode
+MW490459.1	mitochondrion			Ischnura_elegans		GBOL_20207		5	Germany:_Bavaria,_Oberbayern,_Garmisch-Partenkirchen,_Bad_Kohlgrub	47.6668_N,11.0506_E	12-Jul-2018	Stefan_Koch	Stefan_Koch	barcode
+MW490434.1	mitochondrion			Ischnura_elegans		GBOL_20254		5	Germany:_Bavaria,_Oberbayern,_Penzberg,_Eitzenberger_Weiher	47.7852_N,11.3619_E	17-Jun-2018	Stefan_Koch	Stefan_Koch	barcode
+MW490420.1	mitochondrion			Ischnura_elegans		GBOL05510		5	Germany:_Bavaria,_Storchenmoosweiher	47.709_N,10.852_E	01-Jun-2014	M._Franzen	Michael_Franzen	barcode
+MW490412.1	mitochondrion			Ischnura_elegans		GBOL05508		5	Germany:_Bavaria,_Vorflutgraben_Nord	48.378_N,11.841_E	22-May-2014	M._Franzen	Michael_Franzen	barcode
+MW490382.1	mitochondrion			Ischnura_elegans		GBOL02841		5	Germany:_Bavaria				Lars_Hendrich	barcode
+MW490371.1	mitochondrion			Ischnura_elegans		ODOPL_148		5	Poland:_Wadolek_Lake,_Wigry_National_Park	54.112_N,23.043_E	12-Jun-2019	Grzegorz_Tonczyk	Grzegorz_Tonczyk	barcode
+MW490314.1	mitochondrion			Ischnura_elegans		ODOPL_147		5	Poland:_Wadolek_Lake,_Wigry_National_Park	54.112_N,23.043_E	12-Jun-2019	Grzegorz_Tonczyk	Grzegorz_Tonczyk	barcode
+MW490310.1	mitochondrion			Ischnura_elegans		GBOL05513		5	Austria:_Burgenland,_Kiesgrube_Rosaliakapelle	47.782_N,16.848_E	12-Jun-2014	M._Franzen	Michael_Franzen	barcode
+MW490302.1	mitochondrion			Ischnura_elegans		ZFMK-TIS-2556887		5	Germany:_Mecklenburg-Vorpommern,_Boek,_MF3,_Kronendachluecke	53.4255_N,12.7791_E		GBOL-Team_ZFMK	Bjoern_Rulik	barcode
+MW490135.1	mitochondrion			Ischnura_elegans		GBOL05460		5	Greece:_Evros,_Evros_Delta	40.826_N,25.99_E	07-Jun-2014	H._Muehle	Hans_Muehle	barcode
+MW490113.1	mitochondrion			Ischnura_elegans		GBOL02845		5	Germany:_Bavaria			E._Toussaint	Lars_Hendrich	barcode
+MT298477.1	mitochondrion			Ischnura_saharensis		MIB:ZPL:08644		5	Morocco	28.50_N,10.00_W		A._Galimberti,_G._Assandri	Giacomo_Assandri	barcode
+MT298471.1	mitochondrion			Ischnura_genei		MIB:ZPL:08254		5	Italy:_Sicily,_Siracusa	37.10_N,15.30_E		A._Galimberti,_G._Assandri	Giacomo_Assandri	barcode
+MT298467.1	mitochondrion			Ischnura_elegans		MIB:ZPL:08238		5	Italy:_Apulia,_Lecce	40.20_N,18.40_E		A._Galimberti,_G._Assandri	Giacomo_Assandri	barcode
+MT298465.1	mitochondrion			Ischnura_elegans		MIB:ZPL:08230		5	Italy:_Trentino-Alto_Adige,_Trento	46.20_N,11.10_E		A._Galimberti,_G._Assandri	Giacomo_Assandri	barcode
+MT298464.1	mitochondrion			Ischnura_elegans		MIB:ZPL:08626		5	Montenegro	41.95_N,19.35_E		A._Galimberti,_G._Assandri	Giacomo_Assandri	barcode
+MT216297.1	mitochondrion			Ischnura_elegans		OdoPL59		5	Poland:_River_Odra,_Krapkowice	50.4761_N,17.9714_E	11-Oct-2018	Tomasz_Rewicz	Grzegorz_Tonczyk	barcode
+MT216295.1	mitochondrion			Ischnura_elegans		OdoPL89		5	Poland:_River_Plicia,_KurnEdz	51.3164_N,19.9037_E	02-Nov-2018	Grzegorz_Tonczyk	Grzegorz_Tonczyk	barcode
+MT216294.1	mitochondrion			Ischnura_elegans		OdoPL27		5	Poland:_River_Odra,_Brody	52.0552_N,15.4302_E	10-Oct-2018	Tomasz_Rewicz	Grzegorz_Tonczyk	barcode
+MT216293.1	mitochondrion			Ischnura_elegans		OdoPL61		5	Poland:_oxbow_of_Pilica_river,_Sulejow	51.3338_N,19.8961_E	02-Nov-2018	Tomasz_Rewicz	Grzegorz_Tonczyk	barcode
+MT216292.1	mitochondrion			Ischnura_elegans		OdoPL48		5	Poland:_River_Odra,_Leszkowice	51.6184_N,16.333_E	10-Oct-2018	Tomasz_Rewicz	Grzegorz_Tonczyk	barcode
+MT216291.1	mitochondrion			Ischnura_elegans		OdoPL60		5	Poland:_River_Odra,_Krapkowice	50.4761_N,17.9714_E	11-Oct-2018	Tomasz_Rewicz	Grzegorz_Tonczyk	barcode
+MT216289.1	mitochondrion			Ischnura_elegans		OdoPL26		5	Poland:_River_Odra,_Brody	52.0552_N,15.4302_E	10-Oct-2018	Tomasz_Rewicz	Grzegorz_Tonczyk	barcode
+MT216287.1	mitochondrion			Ischnura_elegans		OdoPL28		5	Poland:_River_Odra,_Brody	52.0552_N,15.4302_E	10-Oct-2018	Tomasz_Rewicz	Grzegorz_Tonczyk	barcode
+MT216286.1	mitochondrion			Ischnura_elegans		OdoPL88		5	Poland:_River_Plicia,_KurnEdz	51.3164_N,19.9037_E	02-Nov-2018	Grzegorz_Tonczyk	Grzegorz_Tonczyk	barcode
+HQ563104.1	mitochondrion			Ischnura_elegans		BC_ZSM_AQU_00399		5	Germany	48.107_N,11.458_E	21-May-2009	Ober,_S._V.		barcode
+HM376192.1	mitochondrion			Ischnura_elegans		BC_ZSM_AQU_00172		5	Germany		22-Jun-2009	Hess,_M.,_Heckes,_U.		barcode
+MH449997.1	mitochondrion			Ischnura_rufostigma			2	5	China:_Shangri_La_Yunnan		Jul-2011	H.J._Dumont		
+MH449996.1	mitochondrion			Ischnura_rufostigma				5	China:_Shangri_La_Yunnan		Jul-2011	H.J._Dumont		
+KU220894.1	mitochondrion			Rhodischnura_nursei		R.nu		5	India			H._Dumont	H._Dumont	barcode
+MW490501.1	mitochondrion			Ischnura_elegans		GBOL02843		5	Germany:_Bavaria				Lars_Hendrich	barcode
+MW490215.1	mitochondrion			Ischnura_elegans		GBOL_20184		5	Germany:_Bavaria,_Oberbayern,_Erding,_Flughafen_Muenchen,_Oberdingermoos	48.3305_N,11.8047_E	04-Jul-2018	Stefan_Koch	Stefan_Koch	barcode
+MH450007.1	mitochondrion			Ischnura_fluviatilis				5	Brazil:_Rio_Doce_Lakes		Mar-2010	H.J._Dumont		
+MH450002.1	mitochondrion			Ischnura_abyssinica			7002	5	Ethiopia:_Ambo		May-2004	V._Clausnitzer_K.D._Dijkstra		
+KU220895.1	mitochondrion			Ischnura_fluviatilis		I.fl		5	Brazil			A._Rietzler	A._Rietzler	barcode
+MW490414.1	mitochondrion			Ischnura_elegans		GBOL02844		5	Germany:_Bavaria			E._Toussaint	Lars_Hendrich	barcode
+MT216300.1	mitochondrion			Ischnura_elegans		OdoPL49		5	Poland:_River_Odra,_Leszkowice	51.6184_N,16.333_E	10-Oct-2018	Tomasz_Rewicz	Grzegorz_Tonczyk	barcode
+MT216299.1	mitochondrion			Ischnura_elegans		OdoPL87		5	Poland:_River_Plicia,_KurnEdz	51.3164_N,19.9037_E	02-Nov-2018	Grzegorz_Tonczyk	Grzegorz_Tonczyk	barcode
+MT216298.1	mitochondrion			Ischnura_elegans		OdoPL13		5	Poland:_River_Vistula,_Wyszogord	52.3855_N,20.1954_E	05-Oct-2018	Grzegorz_Tonczyk	Grzegorz_Tonczyk	barcode
+MT216296.1	mitochondrion			Ischnura_elegans		OdoPL14		5	Poland:_River_Vistula,_Wyszogord	52.3855_N,20.1954_E	05-Oct-2018	Grzegorz_Tonczyk	Grzegorz_Tonczyk	barcode
+MT216290.1	mitochondrion			Ischnura_elegans		OdoPL16		5	Poland:_River_Vitula,_Nieszawa	52.836_N,18.9037_E	05-Oct-2018	Grzegorz_Tonczyk	Grzegorz_Tonczyk	barcode
+MW490567.1	mitochondrion			Ischnura_elegans		GBOL_20186		5	Germany:_Bavaria,_Oberbayern,_Erding,_Flughafen_Muenchen,_Vorflutgraben_Nord	48.3537_N,11.775_E	04-Jul-2018	Stefan_Koch	Stefan_Koch	barcode
+MH449986.1	mitochondrion			Ischnura_nursei			6679	5	Iran:_Bandar_Abbas		Nov-2010	S._Sadeghi		
+MW490337.1	mitochondrion			Ischnura_elegans		GBOL02852		5	Germany:_Bavaria				Lars_Hendrich	barcode
+MT216288.1	mitochondrion			Ischnura_elegans		OdoPL15		5	Poland:_River_Vitula,_Nieszawa	52.836_N,18.9037_E	05-Oct-2018	Grzegorz_Tonczyk	Grzegorz_Tonczyk	barcode
+MW490402.1	mitochondrion			Ischnura_elegans		GBOL02851		5	Germany:_Bavaria				Lars_Hendrich	barcode
+MH449991.1	mitochondrion			Ischnura_nursei			6692	5	Iran:_Sabaz_River		Oct-1997	H.J._Dumont		
+JN311539.1	mitochondrion			Ischnura_sp._BOLD:AAH6880		10BBODA-0270		5	USA	26.00_N,81.60_W	14-Mar-2010	Biobus_2010		barcode
+HQ986328.1	mitochondrion			Ischnura_ramburii		BIOUG<CAN>:10BBODA-0234		5	USA	29.8389_N,94.6544_W	03-Apr-2010	Biobus_2010		barcode
+MH449984.1	mitochondrion			Ischnura_nursei			6729	5	India:_Jaipur		Mar-1999	H.J._Dumont		
+MH450004.1	mitochondrion			Ischnura_ramburii			7034	5	USA:_Maryland_Talbot_County		Jul-2003	R._Hovmoller		
+OL898455.1	mitochondrion			Ischnura_ramburii		I.ramburii5		5						
+MW509063.1	mitochondrion			Ischnura_elegans	abdomen_segment	IeleFin2		5	Finland					
+MN701499.1	mitochondrion			Ischnura_genei		MT55_Igen_2018_1		5	Malta:_Gozo_Island,_Il-Fekruna	36.0328_N,14.2284_E	11-Feb-2018	Mora_A,_Calleja_E,_Mauchart_P,_Pernecker_B,_Rewicz_T,_Sant_Q,_Csabai_Z		barcode
+GU711557.1	mitochondrion			Ischnura_sp._BOLD:AAH6880		BIOUG<CAN>:09BBODO-007		5	USA	30.7884_N,101.835_W	24-May-2009	K.Perez,_S.McCubbin,_J.Cossey,_A.Borisenko		barcode
+KF369538.1	mitochondrion			Rhodischnura_nursei		RMNH.INS.500482		5	India:_Maharashtra	21.217_N,78.806_E	01-Jan-2008	Dijkstra,_K.-D.B.		barcode
+MW509065.1	mitochondrion			Ischnura_elegans	abdomen_segment	IeleFin6		5	Finland					
+HQ986500.1	mitochondrion			Coenagrionidae_sp._BOLD:AAO8233		gvc13586-1L		5	Australia	19.3811_S,146.449_E	09-Jan-2010	G._Cocks		barcode
+MW509062.1	mitochondrion			Ischnura_elegans	abdomen_segment	IeleSwe362		5	Sweden					
+HQ986187.1	mitochondrion			Ischnura_sp._BOLD:AAH6880		BIOUG<CAN>:10BBODA-0084		5	USA	25.9906_N,81.5784_W	13-Mar-2010	Biobus_2010		barcode
+HQ986183.1	mitochondrion			Ischnura_sp._BOLD:AAH6880		BIOUG<CAN>:10BBODA-0080		5	USA	25.9906_N,81.5784_W	13-Mar-2010	Biobus_2010		barcode
+MW139676.1	mitochondrion			Ischnura_saharensis		1E24BAB000-28		5	Romania		2019	Selma_Menabit		
+MW490214.1	mitochondrion			Ischnura_elegans		GBOL02847		5	Germany:_Bavaria				Lars_Hendrich	barcode
+HQ834803.1	mitochondrion			Ischnura_elegans			3a	5						
+FJ812817.1	mitochondrion			Ischnura_heterosticta			JSS16844	5						
+GQ256032.1	mitochondrion			Ischnura_elegans		canIe3d		5						
+GQ256031.1	mitochondrion			Ischnura_elegans		canIe2d		5						
+GQ256030.1	mitochondrion			Ischnura_elegans		canIe1d		5						
+ON545812.1	mitochondrion			Ischnura_rufostigma		DM40		5	India	32.0401_N,76.5676_E		GAGANDEEP_KAUR_DHILLON		
+MT516411.1	mitochondrion			Ischnura_nursei		RN		5	India	21.0641_N,78.8683_E		GAGANDEEP_KAUR_DHILLON		
+MG976186.1	mitochondrion			Ischnura_aff._heterosticta_MOH16Odon1		MOH16Odon1	MOH16Odon1	5						
+MG517560.1	mitochondrion			Ischnura_rufostigma		IR		5			10-Sep-2016			
+KY127440.1	mitochondrion			Ischnura_elegans			9	5						
+ON679605.1	mitochondrion			Ischnura_nursei		IN		5	India	31.1689_N,74.9428_E		GAGANDEEP_KAUR_DHILLON		
+MH450001.1	mitochondrion			Ischnura_senegalensis			7000	5	Kenya:_Nairobi		Apr-2003	V._Clausnitzer_K.D._Dijkstra		
+MH450000.1	mitochondrion			Ischnura_senegalensis			6999	5	Yemen:_Socotra_Hadibu		Feb-1999	K._Van_Damme		
+MG976118.1	mitochondrion			Ischnura_aff._heterosticta_Coen1		Coen1	Coen1_Ex2	5						
+MG976117.1	mitochondrion			Ischnura_aff._heterosticta_Coen1		Coen1	Coen1_Ex1	5						
+MW490138.1	mitochondrion			Ischnura_elegans		GBOL02856		5	Germany:_Bavaria				Lars_Hendrich	barcode
+HM901891.1	mitochondrion			Ischnura_elegans		BC_ZSM_AQU_00440		5	Germany	48.72_N,11.676_E	31-Jul-2009	Weihrauch,_F.		barcode
+HQ986193.1	mitochondrion			Ischnura_sp._BOLD:AAH6880		BIOUG<CAN>:10BBODA-0091		5	USA	25.9906_N,81.5784_W	13-Mar-2010	Biobus_2010		barcode
+GU713114.1	mitochondrion			Coenagrionidae_sp._ECODN260-09		UNB-064-N13-OE		5	Canada	46.267_N,66.642_W	24-Sep-2007	Colin_Curry		barcode
+AB758039.1	mitochondrion			Ischnura_senegalensis			ohori09F7	5	Japan:_Fukuoka,_Fukuoka					
+AB757953.1	mitochondrion			Ischnura_senegalensis			ikeuchi09M2	5	Japan:_Okayama,_Okayama					
+GU713115.1	mitochondrion			Coenagrionidae_sp._ECODN245-09		UNB-049-N13-OE		5	Canada	46.267_N,66.642_W	24-Sep-2007	Colin_Curry		barcode
+MW490456.1	mitochondrion			Ischnura_elegans		GBOL02855		5	Germany:_Bavaria				Lars_Hendrich	barcode
+KM536415.1	mitochondrion			Ischnura_sp._BOLD:AAI2161		08OMSOD-0202		5	Canada:_Manitoba,_Riding_Mountain_NP,_Moon_Lake	50.881_N,100.056_W	13-Jul-2008	BIObus_2008		barcode
+AB757995.1	mitochondrion			Ischnura_senegalensis			konan09M5	5	Japan:_Okayama,_Okayama					
+AB758094.1	mitochondrion			Ischnura_senegalensis			yonago09M2	5	Japan:_Tottori,_Yonago					
+AB758091.1	mitochondrion			Ischnura_senegalensis			urasoe11M7	5	Japan:_Okinawa,_Urasoe					
+AB758086.1	mitochondrion			Ischnura_senegalensis			urasoe11M2	5	Japan:_Okinawa,_Urasoe					
+AB758073.1	mitochondrion			Ischnura_senegalensis			ozutsumi09M8	5	Japan:_Fukui,_Sakai					
+AB758072.1	mitochondrion			Ischnura_senegalensis			ozutsumi09M7	5	Japan:_Fukui,_Sakai					
+AB758070.1	mitochondrion			Ischnura_senegalensis			ozutsumi09M5	5	Japan:_Fukui,_Sakai					
+AB758057.1	mitochondrion			Ischnura_senegalensis			osato09M8	5	Japan:_Okinawa,_Ishigaki,_Is._Ishigaki					
+AB758055.1	mitochondrion			Ischnura_senegalensis			osato09M6	5	Japan:_Okinawa,_Ishigaki,_Is._Ishigaki					
+AB758044.1	mitochondrion			Ischnura_senegalensis			okinou11F3	5	Japan:_Okinawa,_Itoman					
+AB757975.1	mitochondrion			Ischnura_senegalensis			kaji11M1	5	Japan:_Kagoshima,_Aira					
+AB757925.1	mitochondrion			Ischnura_senegalensis			heiwa11M5	5	Japan:_Okinawa,_Itoman					
+AB757911.1	mitochondrion			Ischnura_senegalensis			fukudai09M1	5	Japan:_Fukuoka,_Fukuoka					
+AB757902.1	mitochondrion			Ischnura_senegalensis			banna11M5	5	Japan:_Okinawa,_Ishigaki,_Is._Ishigaki					
+AB757900.1	mitochondrion			Ischnura_senegalensis			banna11M3	5	Japan:_Okinawa,_Ishigaki,_Is._Ishigaki					
+AB757885.1	mitochondrion			Ischnura_senegalensis			amami11F4	5	Japan:_Kagoshima,_Yamato,_Is._Amami-Oshima					
+HQ986205.1	mitochondrion			Ischnura_sp._BOLD:AAA2219		BIOUG<CAN>:10BBODA-0105		5	USA	27.2524_N,82.2958_W	21-Mar-2010	Biobus_2010		barcode
+HQ986204.1	mitochondrion			Ischnura_sp._BOLD:AAA2219		BIOUG<CAN>:10BBODA-0103		5	USA	27.582_N,81.0468_W	05-Mar-2010	Biobus_2010		barcode
+HM901892.1	mitochondrion			Ischnura_elegans		BC_ZSM_AQU_00441		5	Germany	47.895_N,12.167_E	16-Jul-2009	Weihrauch,_F.		barcode
+HM901865.1	mitochondrion			Ischnura_elegans		BC_ZSM_AQU_00400		5	Germany	48.237_N,11.505_E	18-Jun-2009	Ober,_S._V.		barcode
+HQ986235.1	mitochondrion			Ischnura_posita		BIOUG<CAN>:10BBODA-0137		5	USA	27.2446_N,82.3014_W	18-Mar-2010	Biobus_2010		barcode
+MT506706.1	mitochondrion			Ischnura_senegalensis		MS		5	India	21.1458_N,79.0882_E		GAGANDEEP_KAUR_DHILLON		
+MH449999.1	mitochondrion			Ischnura_senegalensis			6998	5	Borneo:_Palangka_Raya		May-2006	H.J._Dumont		
+MF774553.1	mitochondrion			Burmagomphus_sowerbyi			Hubei_9	5						
+MF358847.1	mitochondrion			Ischnura_senegalensis			Chenzhou.5	5						
+MF358846.1	mitochondrion			Ischnura_senegalensis			Chenzhou.4	5						
+MF358823.1	mitochondrion			Ischnura_senegalensis			Zhanjiang.2	5						
+MF358822.1	mitochondrion			Ischnura_senegalensis			Zhanjiang.1	5						
+MF358819.1	mitochondrion			Ischnura_senegalensis			Huzhou.6	5						
+MF358817.1	mitochondrion			Ischnura_senegalensis			Huzhou.4	5						
+MF358816.1	mitochondrion			Ischnura_senegalensis			Huzhou.3	5						
+MF358815.1	mitochondrion			Ischnura_senegalensis			Jian.4	5						
+MF358814.1	mitochondrion			Ischnura_senegalensis			Jian.3	5						
+MF358811.1	mitochondrion			Ischnura_senegalensis			Guangzhou.2	5						
+MF358810.1	mitochondrion			Ischnura_senegalensis			Guangzhou.1	5						
+KT957478.1	mitochondrion			Ischnura_senegalensis			SP24_M	5	Thailand			apisit_thipaksorn		
+KT957477.1	mitochondrion			Ischnura_senegalensis			RB10_F	5	Thailand			apisit_thipaksorn		
+KT957476.1	mitochondrion			Ischnura_senegalensis			PT27_F	5	Thailand			apisit_thipaksorn		
+KT957475.1	mitochondrion			Ischnura_senegalensis			PT26_M	5	Thailand			apisit_thipaksorn		
+KT957474.1	mitochondrion			Ischnura_senegalensis			LB42_F	5	Thailand			apisit_thipaksorn		
+KT957473.1	mitochondrion			Ischnura_senegalensis			CS48_F	5	Thailand			apisit_thipaksorn		
+KT957472.1	mitochondrion			Ischnura_senegalensis			CS47_M	5	Thailand			apisit_thipaksorn		
+KT957471.1	mitochondrion			Ischnura_senegalensis			CS18_F	5	Thailand			apisit_thipaksorn		
+KM532563.1	mitochondrion			Ischnura_verticalis		08OMSOD-0190		5	Canada:_Manitoba,_Riding_Mountain_NP,_Moon_Lake	50.881_N,100.056_W	13-Jul-2008	BIObus_2008		barcode
+KM530329.1	mitochondrion			Ischnura_verticalis		08OMSOD-0040		5	Canada:_Ontario,_Pukaskwa_NP,_Hattie_Cove_Campground	48.589_N,86.292_W	18-Aug-2008	BIObus_2008		barcode
+ON682934.1	mitochondrion			Ischnura_senegalensis		IS		5	India	11.0168_N,76.9558_E		GAGANDEEP_KAUR_DHILLON		
+AB758002.1	mitochondrion			Ischnura_senegalensis			kyoei11M4	5	Japan:_Mie,_Kuwana					
+AB757999.1	mitochondrion			Ischnura_senegalensis			kyoei11M1	5	Japan:_Mie,_Kuwana					
+AB757992.1	mitochondrion			Ischnura_senegalensis			kirara09M8	5	Japan:_Yamaguchi,_Yamaguchi					
+AB757991.1	mitochondrion			Ischnura_senegalensis			kirara09M6	5	Japan:_Yamaguchi,_Yamaguchi					
+AB757987.1	mitochondrion			Ischnura_senegalensis			kirara09M2	5	Japan:_Yamaguchi,_Yamaguchi					
+AB757983.1	mitochondrion			Ischnura_senegalensis			kanazawa11M7	5	Japan:_Ishikawa,_Kanazawa					
+AB758093.1	mitochondrion			Ischnura_senegalensis			yonago09M1	5	Japan:_Tottori,_Yonago					
+AB758092.1	mitochondrion			Ischnura_senegalensis			urasoe11M8	5	Japan:_Okinawa,_Urasoe					
+AB758090.1	mitochondrion			Ischnura_senegalensis			urasoe11M6	5	Japan:_Okinawa,_Urasoe					
+AB758089.1	mitochondrion			Ischnura_senegalensis			urasoe11M5	5	Japan:_Okinawa,_Urasoe					
+AB758088.1	mitochondrion			Ischnura_senegalensis			urasoe11M4	5	Japan:_Okinawa,_Urasoe					
+AB758087.1	mitochondrion			Ischnura_senegalensis			urasoe11M3	5	Japan:_Okinawa,_Urasoe					
+AB758084.1	mitochondrion			Ischnura_senegalensis			takeda11F6	5	Japan:_Ibaraki,_Tsukuba					
+AB758083.1	mitochondrion			Ischnura_senegalensis			takeda11F5	5	Japan:_Ibaraki,_Tsukuba					
+AB758082.1	mitochondrion			Ischnura_senegalensis			takeda11F4	5	Japan:_Ibaraki,_Tsukuba					
+AB758081.1	mitochondrion			Ischnura_senegalensis			takeda11F3	5	Japan:_Ibaraki,_Tsukuba					
+AB758080.1	mitochondrion			Ischnura_senegalensis			takeda11F2	5	Japan:_Ibaraki,_Tsukuba					
+AB758079.1	mitochondrion			Ischnura_senegalensis			takeda11F1	5	Japan:_Ibaraki,_Tsukuba					
+AB758078.1	mitochondrion			Ischnura_senegalensis			takeda09M2	5	Japan:_Ibaraki,_Tsukuba					
+AB758077.1	mitochondrion			Ischnura_senegalensis			takeda09M1	5	Japan:_Ibaraki,_Tsukuba					
+AB758076.1	mitochondrion			Ischnura_senegalensis			shimomasu09M1	5	Japan:_Miyagi,_Natori					
+AB758075.1	mitochondrion			Ischnura_senegalensis			shimoma09M2	5	Japan:_Miyagi,_Natori					
+AB758074.1	mitochondrion			Ischnura_senegalensis			shimoma09M1	5	Japan:_Miyagi,_Natori					
+AB758071.1	mitochondrion			Ischnura_senegalensis			ozutsumi09M6	5	Japan:_Fukui,_Sakai					
+AB758065.1	mitochondrion			Ischnura_senegalensis			otto11M19	5	Japan:_Ibaraki,_Tsukuba					
+AB758064.1	mitochondrion			Ischnura_senegalensis			otto11M14	5	Japan:_Ibaraki,_Tsukuba					
+AB758063.1	mitochondrion			Ischnura_senegalensis			otto11M13	5	Japan:_Ibaraki,_Tsukuba					
+AB758062.1	mitochondrion			Ischnura_senegalensis			otto11M12	5	Japan:_Ibaraki,_Tsukuba					
+AB758061.1	mitochondrion			Ischnura_senegalensis			otto11M11	5	Japan:_Ibaraki,_Tsukuba					
+AB758060.1	mitochondrion			Ischnura_senegalensis			otto11M10	5	Japan:_Ibaraki,_Tsukuba					
+AB758059.1	mitochondrion			Ischnura_senegalensis			otto09M2	5	Japan:_Ibaraki,_Tsukuba					
+AB758058.1	mitochondrion			Ischnura_senegalensis			otto09M1	5	Japan:_Ibaraki,_Tsukuba					
+AB758056.1	mitochondrion			Ischnura_senegalensis			osato09M7	5	Japan:_Okinawa,_Ishigaki,_Is._Ishigaki					
+AB758054.1	mitochondrion			Ischnura_senegalensis			osato09M5	5	Japan:_Okinawa,_Ishigaki,_Is._Ishigaki					
+AB758053.1	mitochondrion			Ischnura_senegalensis			osato09M4	5	Japan:_Okinawa,_Ishigaki,_Is._Ishigaki					
+AB758051.1	mitochondrion			Ischnura_senegalensis			osato09M2	5	Japan:_Okinawa,_Ishigaki,_Is._Ishigaki					
+AB758049.1	mitochondrion			Ischnura_senegalensis			okinou11M5	5	Japan:_Okinawa,_Itoman					
+AB758048.1	mitochondrion			Ischnura_senegalensis			okinou11M4	5	Japan:_Okinawa,_Itoman					
+AB758047.1	mitochondrion			Ischnura_senegalensis			okinou11M3	5	Japan:_Okinawa,_Itoman					
+AB758045.1	mitochondrion			Ischnura_senegalensis			okinou11M1	5	Japan:_Okinawa,_Itoman					
+AB758043.1	mitochondrion			Ischnura_senegalensis			okinou11F2	5	Japan:_Okinawa,_Itoman					
+AB758042.1	mitochondrion			Ischnura_senegalensis			okinou11F1	5	Japan:_Okinawa,_Itoman					
+AB758040.1	mitochondrion			Ischnura_senegalensis			ohori09M1	5	Japan:_Fukuoka,_Fukuoka					
+AB758038.1	mitochondrion			Ischnura_senegalensis			ohori09F5	5	Japan:_Fukuoka,_Fukuoka					
+AB758037.1	mitochondrion			Ischnura_senegalensis			ohori09F4	5	Japan:_Fukuoka,_Fukuoka					
+AB758036.1	mitochondrion			Ischnura_senegalensis			ohori09F3	5	Japan:_Fukuoka,_Fukuoka					
+AB758035.1	mitochondrion			Ischnura_senegalensis			natorichosei09M11	5	Japan:_Miyagi,_Natori					
+AB758034.1	mitochondrion			Ischnura_senegalensis			natorichosei09F7	5	Japan:_Miyagi,_Natori					
+AB758033.1	mitochondrion			Ischnura_senegalensis			natorichosei09F6	5	Japan:_Miyagi,_Natori					
+AB758032.1	mitochondrion			Ischnura_senegalensis			natorichosei09F5	5	Japan:_Miyagi,_Natori					
+AB758031.1	mitochondrion			Ischnura_senegalensis			natorichosei09F10	5	Japan:_Miyagi,_Natori					
+AB758030.1	mitochondrion			Ischnura_senegalensis			natori09M2	5	Japan:_Miyagi,_Natori					
+AB758029.1	mitochondrion			Ischnura_senegalensis			natori09M1	5	Japan:_Miyagi,_Natori					
+AB758028.1	mitochondrion			Ischnura_senegalensis			nakane11M9	5	Japan:_Ibaraki,_Tsukuba					
+AB758027.1	mitochondrion			Ischnura_senegalensis			nakane11M8	5	Japan:_Ibaraki,_Tsukuba					
+AB758026.1	mitochondrion			Ischnura_senegalensis			nakane11M7	5	Japan:_Ibaraki,_Tsukuba					
+AB758025.1	mitochondrion			Ischnura_senegalensis			nakane11M6	5	Japan:_Ibaraki,_Tsukuba					
+AB758023.1	mitochondrion			Ischnura_senegalensis			nakane11M4	5	Japan:_Ibaraki,_Tsukuba					
+AB758022.1	mitochondrion			Ischnura_senegalensis			nakane11M3	5	Japan:_Ibaraki,_Tsukuba					
+AB758021.1	mitochondrion			Ischnura_senegalensis			nakane11M2	5	Japan:_Ibaraki,_Tsukuba					
+AB758020.1	mitochondrion			Ischnura_senegalensis			nakane11M10	5	Japan:_Ibaraki,_Tsukuba					
+AB758018.1	mitochondrion			Ischnura_senegalensis			mizumoto09M8	5	Japan:_Tokyo,_Katsushika					
+AB758017.1	mitochondrion			Ischnura_senegalensis			mizumoto09M7	5	Japan:_Tokyo,_Katsushika					
+AB758016.1	mitochondrion			Ischnura_senegalensis			mizumoto09M6	5	Japan:_Tokyo,_Katsushika					
+AB758015.1	mitochondrion			Ischnura_senegalensis			mizumoto09M5	5	Japan:_Tokyo,_Katsushika					
+AB758014.1	mitochondrion			Ischnura_senegalensis			mizumoto09M4	5	Japan:_Tokyo,_Katsushika					
+AB758013.1	mitochondrion			Ischnura_senegalensis			mizumoto09M3	5	Japan:_Tokyo,_Katsushika					
+AB758012.1	mitochondrion			Ischnura_senegalensis			mizumo09M2	5	Japan:_Tokyo,_Katsushika					
+AB758011.1	mitochondrion			Ischnura_senegalensis			mizumo09M1	5	Japan:_Tokyo,_Katsushika					
+AB757974.1	mitochondrion			Ischnura_senegalensis			kaji09M8	5	Japan:_Kagoshima,_Aira					
+AB757971.1	mitochondrion			Ischnura_senegalensis			kaji09M5	5	Japan:_Kagoshima,_Aira					
+AB757970.1	mitochondrion			Ischnura_senegalensis			kaji09M4	5	Japan:_Kagoshima,_Aira					
+AB757969.1	mitochondrion			Ischnura_senegalensis			kaji09M3	5	Japan:_Kagoshima,_Aira					
+AB757968.1	mitochondrion			Ischnura_senegalensis			kaji09M2	5	Japan:_Kagoshima,_Aira					
+AB757965.1	mitochondrion			Ischnura_senegalensis			ishin11M6	5	Japan:_Aichi,_Nagoya					
+AB757961.1	mitochondrion			Ischnura_senegalensis			ishin11M2	5	Japan:_Aichi,_Nagoya					
+AB757957.1	mitochondrion			Ischnura_senegalensis			ikeuchi09M6	5	Japan:_Okayama,_Okayama					
+AB757951.1	mitochondrion			Ischnura_senegalensis			ikebana11M8	5	Japan:_Ibaraki,_Omitama					
+AB757950.1	mitochondrion			Ischnura_senegalensis			ikebana11M7	5	Japan:_Ibaraki,_Omitama					
+AB757949.1	mitochondrion			Ischnura_senegalensis			ikebana11M6	5	Japan:_Ibaraki,_Omitama					
+AB757948.1	mitochondrion			Ischnura_senegalensis			ikebana11M5	5	Japan:_Ibaraki,_Omitama					
+AB757947.1	mitochondrion			Ischnura_senegalensis			ikebana11M4	5	Japan:_Ibaraki,_Omitama					
+AB757946.1	mitochondrion			Ischnura_senegalensis			ikebana11M2	5	Japan:_Ibaraki,_Omitama					
+AB757945.1	mitochondrion			Ischnura_senegalensis			ikebana11M1	5	Japan:_Ibaraki,_Omitama					
+AB757944.1	mitochondrion			Ischnura_senegalensis			ikebana09M1	5	Japan:_Ibaraki,_Omitama					
+AB757942.1	mitochondrion			Ischnura_senegalensis			ibusuki11M6	5	Japan:_Kagoshima,_Ibusuki					
+AB757941.1	mitochondrion			Ischnura_senegalensis			ibusuki11M5	5	Japan:_Kagoshima,_Ibusuki					
+AB757940.1	mitochondrion			Ischnura_senegalensis			ibusuki11M4	5	Japan:_Kagoshima,_Ibusuki					
+AB757938.1	mitochondrion			Ischnura_senegalensis			ibusuki11M2	5	Japan:_Kagoshima,_Ibusuki					
+AB757937.1	mitochondrion			Ischnura_senegalensis			ibusuki11M1	5	Japan:_Kagoshima,_Ibusuki					
+AB757936.1	mitochondrion			Ischnura_senegalensis			ibusuki11F1	5	Japan:_Kagoshima,_Ibusuki					
+AB757926.1	mitochondrion			Ischnura_senegalensis			heiwa11M6	5	Japan:_Okinawa,_Itoman					
+AB757910.1	mitochondrion			Ischnura_senegalensis			fukudai09F9	5	Japan:_Fukuoka,_Fukuoka					
+AB757908.1	mitochondrion			Ischnura_senegalensis			fukudai09F6	5	Japan:_Fukuoka,_Fukuoka					
+AB757907.1	mitochondrion			Ischnura_senegalensis			fukudai09F5	5	Japan:_Fukuoka,_Fukuoka					
+AB757906.1	mitochondrion			Ischnura_senegalensis			fukudai09F10	5	Japan:_Fukuoka,_Fukuoka					
+AB757905.1	mitochondrion			Ischnura_senegalensis			banna11M8	5	Japan:_Okinawa,_Ishigaki,_Is._Ishigaki					
+AB757904.1	mitochondrion			Ischnura_senegalensis			banna11M7	5	Japan:_Okinawa,_Ishigaki,_Is._Ishigaki					
+AB757901.1	mitochondrion			Ischnura_senegalensis			banna11M4	5	Japan:_Okinawa,_Ishigaki,_Is._Ishigaki					
+AB757899.1	mitochondrion			Ischnura_senegalensis			banna11M2	5	Japan:_Okinawa,_Ishigaki,_Is._Ishigaki					
+AB757898.1	mitochondrion			Ischnura_senegalensis			banna11M1	5	Japan:_Okinawa,_Ishigaki,_Is._Ishigaki					
+AB757896.1	mitochondrion			Ischnura_senegalensis			asahata11M5	5	Japan:_Shizuoka,_Shizuoka					
+AB757894.1	mitochondrion			Ischnura_senegalensis			asahata11M3	5	Japan:_Shizuoka,_Shizuoka					
+AB757889.1	mitochondrion			Ischnura_senegalensis			amami11M4	5	Japan:_Kagoshima,_Yamato,_Is._Amami-Oshima					
+AB757888.1	mitochondrion			Ischnura_senegalensis			amami11M3	5	Japan:_Kagoshima,_Yamato,_Is._Amami-Oshima					
+AB757887.1	mitochondrion			Ischnura_senegalensis			amami11M2	5	Japan:_Kagoshima,_Yamato,_Is._Amami-Oshima					
+AB757886.1	mitochondrion			Ischnura_senegalensis			amami11M1	5	Japan:_Kagoshima,_Yamato,_Is._Amami-Oshima					
+AB757884.1	mitochondrion			Ischnura_senegalensis			amami11F3	5	Japan:_Kagoshima,_Yamato,_Is._Amami-Oshima					
+AB757883.1	mitochondrion			Ischnura_senegalensis			amami11F2	5	Japan:_Kagoshima,_Yamato,_Is._Amami-Oshima					
+AB757882.1	mitochondrion			Ischnura_senegalensis			amami11F1	5	Japan:_Kagoshima,_Yamato,_Is._Amami-Oshima					
+AB757881.1	mitochondrion			Ischnura_senegalensis			akogi11F2	5	Japan:_Ibaraki,_Tokai					
+AB757880.1	mitochondrion			Ischnura_senegalensis			akogi11F1	5	Japan:_Ibaraki,_Tokai					
+AB757879.1	mitochondrion			Ischnura_senegalensis			akogi09M6	5	Japan:_Ibaraki,_Tokai					
+AB757878.1	mitochondrion			Ischnura_senegalensis			akogi09M5	5	Japan:_Ibaraki,_Tokai					
+AB757877.1	mitochondrion			Ischnura_senegalensis			akogi09M4	5	Japan:_Ibaraki,_Tokai					
+AB757876.1	mitochondrion			Ischnura_senegalensis			akogi09M3	5	Japan:_Ibaraki,_Tokai					
+AB757875.1	mitochondrion			Ischnura_senegalensis			akogi09M2	5	Japan:_Ibaraki,_Tokai					
+AB757874.1	mitochondrion			Ischnura_senegalensis			akogi09M1	5	Japan:_Ibaraki,_Tokai					
+KF369416.1	mitochondrion			Ischnura_senegalensis		RMNH.INS.501241		5	Malaysia:_Sarawak	2.35_N,111.865_E	01-Jan-2010	Dow,_R.A.		barcode
+NC_060418.1	mitochondrion	complete	circular	Ischnura_senegalensis				5	China		15-Jun-2019			
+MW135330.1	mitochondrion			Ischnura_senegalensis			TN1	5						
+HQ986240.1	mitochondrion			Ischnura_posita		BIOUG<CAN>:10BBODA-0142		5	USA	27.2524_N,82.2958_W	19-Mar-2010	Biobus_2010		barcode
+HM424065.1	mitochondrion			Odonata_sp._BOLD:AAH6889		NIBGE_IMB-00259		5	Pakistan	30.7167_N,72.6333_E	18-Oct-2009	A._Rasool		barcode
+GU711559.1	mitochondrion			Ischnura_sp._BOLD:AAA2219		BIOUG<CAN>:09BBODO-053		5	USA	34.8378_N,91.4692_W	12-May-2009	J.Cossey,_J.McCormick,_J.Sones		barcode
+HM381227.1	mitochondrion			Ischnura_verticalis		BIOUG<CAN>:08BBODO-326		5	Canada	48.59_N,86.269_W	19-Aug-2008	J.Straka,J.Cossey		barcode
+MN206478.1	mitochondrion			Ischnura_senegalensis		NSMK-IN-180100470141		5						
+MN206477.1	mitochondrion			Ischnura_senegalensis		NSMK-IN-180100469140		5						
+MN206476.1	mitochondrion			Ischnura_senegalensis		NSMK-IN-180100468139		5						
+KY844956.1	mitochondrion			Rhodischnura_nursei		BIOUG16241-F12		5	Pakistan:_Islamabad,_Islamabad,_Pakistan_Museum_of_Natural_History	33.6863_N,73.076_E	29-May-2012	M.Rafique,_Q.Abbas		barcode
+MK774300.1	mitochondrion			Ischnura_senegalensis		OPU_BS_2017-081-DT-OD		5						
+MG450314.1	mitochondrion			Ischnura_sp._GZPL-086		GZPL-086		5	Canada:_Ontario,_Pond_in_the_other_side_Guelph_Lake	43.616_N,80.208_W	29-Oct-2015	Martha_Valdez-Moreno,_Manuel_Elias-Gutierrez	Manuel_Elias-Gutierrez	barcode
+MG449768.1	mitochondrion			Ischnura_kellicotti		GZPL-087		5	Canada:_Ontario,_Pond_in_the_other_side_Guelph_Lake	43.616_N,80.208_W	29-Oct-2015	Martha_Valdez-Moreno,_Manuel_Elias-Gutierrez	Manuel_Elias-Gutierrez	barcode
+MG449710.1	mitochondrion			Ischnura_sp._BIOUG27652-E07		BIOUG27652-E07		5	Mexico:_Tlaxcala,_Chipila	19.481_N,98.191_W	18-Nov-2014	Manuel_Elias_Gutierrez,_Ana_Martinez_Caballero	Manuel_Elias-Gutierrez	barcode
+MG375306.1	mitochondrion			Ischnura_kellicotti		BIOUG24298-C04		5	Canada:_Ontario,_Cambridge,_rare_Charitable_Research_Reserve,_Site_3	43.3908_N,80.3747_W	27-May-2015	BIO_Collections_Staff	Kate_Perez	barcode
+KT879905.1	mitochondrion			Ischnura_senegalensis		RADF-23		5	India					
+KM537224.1	mitochondrion			Coenagrionidae_sp._BOLD:AAA2219		BIOUG04972-B02		5	Canada:_Ontario,_Point_Pelee_NP,_Cactus_Field	41.939_N,82.516_W	18-May-2012	Heidi_Brown		barcode
+MG379400.1	mitochondrion			Ischnura_verticalis		BIOUG24298-C08		5	Canada:_Ontario,_Cambridge,_rare_Charitable_Research_Reserve,_Site_3	43.391_N,80.375_W	25-May-2015	BIO_Collections_Staff	Kate_Perez	barcode
+KM531820.1	mitochondrion			Ischnura_verticalis		08OMSOD-0039		5	Canada:_Ontario,_Pukaskwa_NP,_Hattie_Cove_Campground	48.589_N,86.292_W	18-Aug-2008	BIObus_2008		barcode
+KM530285.1	mitochondrion			Ischnura_verticalis		08SOODO-0038		5	Canada:_Ontario,_Point_Pelee_NP	41.94_N,82.52_W	03-Jun-2008	BIObus_2008		barcode
+KM528340.1	mitochondrion			Ischnura_sp._BOLD:AAI2161		08OMSOD-0183		5	Canada:_Manitoba,_Riding_Mountain_NP,_Moon_Lake	50.881_N,100.056_W	13-Jul-2008	BIObus_2008		barcode
+AB758004.1	mitochondrion			Ischnura_senegalensis			mitarase11F1	5	Japan:_Niigata,_Niigata					
+AB758003.1	mitochondrion			Ischnura_senegalensis			mitara11M3	5	Japan:_Niigata,_Niigata					
+AB758001.1	mitochondrion			Ischnura_senegalensis			kyoei11M3	5	Japan:_Mie,_Kuwana					
+AB758000.1	mitochondrion			Ischnura_senegalensis			kyoei11M2	5	Japan:_Mie,_Kuwana					
+AB757998.1	mitochondrion			Ischnura_senegalensis			konan09M8	5	Japan:_Okayama,_Okayama					
+AB757997.1	mitochondrion			Ischnura_senegalensis			konan09M7	5	Japan:_Okayama,_Okayama					
+AB757996.1	mitochondrion			Ischnura_senegalensis			konan09M6	5	Japan:_Okayama,_Okayama					
+AB757993.1	mitochondrion			Ischnura_senegalensis			konan09M1	5	Japan:_Okayama,_Okayama					
+AB757990.1	mitochondrion			Ischnura_senegalensis			kirara09M5	5	Japan:_Yamaguchi,_Yamaguchi					
+AB757989.1	mitochondrion			Ischnura_senegalensis			kirara09M4	5	Japan:_Yamaguchi,_Yamaguchi					
+AB757988.1	mitochondrion			Ischnura_senegalensis			kirara09M3	5	Japan:_Yamaguchi,_Yamaguchi					
+AB757986.1	mitochondrion			Ischnura_senegalensis			kirara09F2	5	Japan:_Yamaguchi,_Yamaguchi					
+AB757984.1	mitochondrion			Ischnura_senegalensis			kanazawa11M8	5	Japan:_Ishikawa,_Kanazawa					
+AB757982.1	mitochondrion			Ischnura_senegalensis			kanazawa11M6	5	Japan:_Ishikawa,_Kanazawa					
+AB757981.1	mitochondrion			Ischnura_senegalensis			kanazawa11M5	5	Japan:_Ishikawa,_Kanazawa					
+AB757980.1	mitochondrion			Ischnura_senegalensis			kanazawa11M4	5	Japan:_Ishikawa,_Kanazawa					
+AB757979.1	mitochondrion			Ischnura_senegalensis			kanazawa11M3	5	Japan:_Ishikawa,_Kanazawa					
+AB757978.1	mitochondrion			Ischnura_senegalensis			kanazawa11M2	5	Japan:_Ishikawa,_Kanazawa					
+AB757977.1	mitochondrion			Ischnura_senegalensis			kanaza11M1	5	Japan:_Ishikawa,_Kanazawa					
+AB757976.1	mitochondrion			Ischnura_senegalensis			kaji11M2	5	Japan:_Kagoshima,_Aira					
+AB757985.1	mitochondrion			Ischnura_senegalensis			kirara09F1	5	Japan:_Yamaguchi,_Yamaguchi					
+AB758100.1	mitochondrion			Ischnura_senegalensis			yonago09M8	5	Japan:_Tottori,_Yonago					
+AB758099.1	mitochondrion			Ischnura_senegalensis			yonago09M7	5	Japan:_Tottori,_Yonago					
+AB758098.1	mitochondrion			Ischnura_senegalensis			yonago09M6	5	Japan:_Tottori,_Yonago					
+AB758097.1	mitochondrion			Ischnura_senegalensis			yonago09M5	5	Japan:_Tottori,_Yonago					
+AB758095.1	mitochondrion			Ischnura_senegalensis			yonago09M3	5	Japan:_Tottori,_Yonago					
+AB758085.1	mitochondrion			Ischnura_senegalensis			urasoe11M1	5	Japan:_Okinawa,_Urasoe					
+AB758068.1	mitochondrion			Ischnura_senegalensis			ozutsumi09M3	5	Japan:_Fukui,_Sakai					
+AB758067.1	mitochondrion			Ischnura_senegalensis			ozutsu09M2	5	Japan:_Fukui,_Sakai					
+AB758066.1	mitochondrion			Ischnura_senegalensis			ozutsu09M1	5	Japan:_Fukui,_Sakai					
+AB758052.1	mitochondrion			Ischnura_senegalensis			osato09M3	5	Japan:_Okinawa,_Ishigaki,_Is._Ishigaki					
+AB758050.1	mitochondrion			Ischnura_senegalensis			osato09M1	5	Japan:_Okinawa,_Ishigaki,_Is._Ishigaki					
+AB758046.1	mitochondrion			Ischnura_senegalensis			okinou11M2	5	Japan:_Okinawa,_Itoman					
+AB758024.1	mitochondrion			Ischnura_senegalensis			nakane11M5	5	Japan:_Ibaraki,_Tsukuba					
+AB758019.1	mitochondrion			Ischnura_senegalensis			nakane11M1	5	Japan:_Ibaraki,_Tsukuba					
+AB758010.1	mitochondrion			Ischnura_senegalensis			mitarase11M8	5	Japan:_Niigata,_Niigata					
+AB758009.1	mitochondrion			Ischnura_senegalensis			mitarase11M7	5	Japan:_Niigata,_Niigata					
+AB758008.1	mitochondrion			Ischnura_senegalensis			mitarase11M6	5	Japan:_Niigata,_Niigata					
+AB758007.1	mitochondrion			Ischnura_senegalensis			mitarase11M4	5	Japan:_Niigata,_Niigata					
+AB758006.1	mitochondrion			Ischnura_senegalensis			mitarase11M2	5	Japan:_Niigata,_Niigata					
+AB758005.1	mitochondrion			Ischnura_senegalensis			mitarase11M1	5	Japan:_Niigata,_Niigata					
+AB757973.1	mitochondrion			Ischnura_senegalensis			kaji09M7	5	Japan:_Kagoshima,_Aira					
+AB757972.1	mitochondrion			Ischnura_senegalensis			kaji09M6	5	Japan:_Kagoshima,_Aira					
+AB757967.1	mitochondrion			Ischnura_senegalensis			ishin11M8	5	Japan:_Aichi,_Nagoya					
+AB757964.1	mitochondrion			Ischnura_senegalensis			ishin11M5	5	Japan:_Aichi,_Nagoya					
+AB757963.1	mitochondrion			Ischnura_senegalensis			ishin11M4	5	Japan:_Aichi,_Nagoya					
+AB757960.1	mitochondrion			Ischnura_senegalensis			ishin11M1	5	Japan:_Aichi,_Nagoya					
+AB757959.1	mitochondrion			Ischnura_senegalensis			ikeuchi09M8	5	Japan:_Okayama,_Okayama					
+AB757958.1	mitochondrion			Ischnura_senegalensis			ikeuchi09M7	5	Japan:_Okayama,_Okayama					
+AB757956.1	mitochondrion			Ischnura_senegalensis			ikeuchi09M5	5	Japan:_Okayama,_Okayama					
+AB757955.1	mitochondrion			Ischnura_senegalensis			ikeuchi09M4	5	Japan:_Okayama,_Okayama					
+AB757954.1	mitochondrion			Ischnura_senegalensis			ikeuchi09M3	5	Japan:_Okayama,_Okayama					
+AB757952.1	mitochondrion			Ischnura_senegalensis			ikeuchi09M1	5	Japan:_Okayama,_Okayama					
+AB757943.1	mitochondrion			Ischnura_senegalensis			ibusuki11M8	5	Japan:_Kagoshima,_Ibusuki					
+AB757939.1	mitochondrion			Ischnura_senegalensis			ibusuki11M3	5	Japan:_Kagoshima,_Ibusuki					
+AB757935.1	mitochondrion			Ischnura_senegalensis			hekura11M8	5	Japan:_Ishikawa,_Wajima,_Is._Hegura					
+AB757934.1	mitochondrion			Ischnura_senegalensis			hekura11M7	5	Japan:_Ishikawa,_Wajima,_Is._Hegura					
+AB757933.1	mitochondrion			Ischnura_senegalensis			hekura11M6	5	Japan:_Ishikawa,_Wajima,_Is._Hegura					
+AB757932.1	mitochondrion			Ischnura_senegalensis			hekura11M5	5	Japan:_Ishikawa,_Wajima,_Is._Hegura					
+AB757931.1	mitochondrion			Ischnura_senegalensis			hekura11M4	5	Japan:_Ishikawa,_Wajima,_Is._Hegura					
+AB757930.1	mitochondrion			Ischnura_senegalensis			hekura11M3	5	Japan:_Ishikawa,_Wajima,_Is._Hegura					
+AB757929.1	mitochondrion			Ischnura_senegalensis			hekura11M2	5	Japan:_Ishikawa,_Wajima,_Is._Hegura					
+AB757928.1	mitochondrion			Ischnura_senegalensis			hekura11M1	5	Japan:_Ishikawa,_Wajima,_Is._Hegura					
+AB757924.1	mitochondrion			Ischnura_senegalensis			heiwa11M4	5	Japan:_Okinawa,_Itoman					
+AB757923.1	mitochondrion			Ischnura_senegalensis			heiwa11M3	5	Japan:_Okinawa,_Itoman					
+AB757922.1	mitochondrion			Ischnura_senegalensis			heiwa11M2	5	Japan:_Okinawa,_Itoman					
+AB757920.1	mitochondrion			Ischnura_senegalensis			heiwa11F1	5	Japan:_Okinawa,_Itoman					
+AB757919.1	mitochondrion			Ischnura_senegalensis			gochi09M8	5	Japan:_Niigata,_Joetsu					
+AB757918.1	mitochondrion			Ischnura_senegalensis			gochi09M7	5	Japan:_Niigata,_Joetsu					
+AB757917.1	mitochondrion			Ischnura_senegalensis			gochi09M6	5	Japan:_Niigata,_Joetsu					
+AB757916.1	mitochondrion			Ischnura_senegalensis			gochi09M5	5	Japan:_Niigata,_Joetsu					
+AB757915.1	mitochondrion			Ischnura_senegalensis			gochi09M4	5	Japan:_Niigata,_Joetsu					
+AB757914.1	mitochondrion			Ischnura_senegalensis			gochi09M3	5	Japan:_Niigata,_Joetsu					
+AB757913.1	mitochondrion			Ischnura_senegalensis			gochi09M2	5	Japan:_Niigata,_Joetsu					
+AB757912.1	mitochondrion			Ischnura_senegalensis			gochi09M1	5	Japan:_Niigata,_Joetsu					
+AB757909.1	mitochondrion			Ischnura_senegalensis			fukudai09F8	5	Japan:_Fukuoka,_Fukuoka					
+AB757903.1	mitochondrion			Ischnura_senegalensis			banna11M6	5	Japan:_Okinawa,_Ishigaki,_Is._Ishigaki					
+AB757897.1	mitochondrion			Ischnura_senegalensis			asahata11M6	5	Japan:_Shizuoka,_Shizuoka					
+AB757895.1	mitochondrion			Ischnura_senegalensis			asahata11M4	5	Japan:_Shizuoka,_Shizuoka					
+AB757893.1	mitochondrion			Ischnura_senegalensis			asahata09M8	5	Japan:_Shizuoka,_Shizuoka					
+AB757892.1	mitochondrion			Ischnura_senegalensis			asahata09M7	5	Japan:_Shizuoka,_Shizuoka					
+AB757890.1	mitochondrion			Ischnura_senegalensis			asahata09M1	5	Japan:_Shizuoka,_Shizuoka					
+HM381230.1	mitochondrion			Ischnura_sp._ODSO825-08		BIOUG<CAN>:08BBODO-335		5	Canada	48.59_N,86.269_W	19-Aug-2008	J.Straka,J.Cossey		barcode
+HM381229.1	mitochondrion			Ischnura_verticalis		BIOUG<CAN>:08BBODO-334		5	Canada	48.59_N,86.269_W	19-Aug-2008	J.Straka,J.Cossey		barcode
+HM381220.1	mitochondrion			Ischnura_sp._ODSO389-08		BIOUG<CAN>:08OMSOD-0182		5	Canada	50.881_N,100.056_W	13-Jul-2008	J.Cossey,_N.Jeffery,_J.Straka		barcode
+MF358821.1	mitochondrion			Ischnura_senegalensis			Haikou.2	5						
+MF358848.1	mitochondrion			Ischnura_senegalensis			Chenzhou.6	5						
+MF358818.1	mitochondrion			Ischnura_senegalensis			Huzhou.5	5						
+MF358812.1	mitochondrion			Ischnura_senegalensis			Jian.1	5						
+MF358820.1	mitochondrion			Ischnura_senegalensis			Haikou.1	5						
+KM532708.1	mitochondrion			Ischnura_verticalis		08OMSOD-0100		5	Canada:_Manitoba,_Riding_Mountain_NP,_Clear_Lake_trail	50.66_N,99.97_W	06-Jul-2008	BIObus_2008		barcode
+AB757994.1	mitochondrion			Ischnura_senegalensis			konan09M2	5	Japan:_Okayama,_Okayama					
+AB758096.1	mitochondrion			Ischnura_senegalensis			yonago09M4	5	Japan:_Tottori,_Yonago					
+AB758041.1	mitochondrion			Ischnura_senegalensis			ohori09M2	5	Japan:_Fukuoka,_Fukuoka					
+AB757962.1	mitochondrion			Ischnura_senegalensis			ishin11M3	5	Japan:_Aichi,_Nagoya					
+AB757927.1	mitochondrion			Ischnura_senegalensis			heiwa11M8	5	Japan:_Okinawa,_Itoman					
+AB757921.1	mitochondrion			Ischnura_senegalensis			heiwa11M1	5	Japan:_Okinawa,_Itoman					
+AB757891.1	mitochondrion			Ischnura_senegalensis			asahata09M2	5	Japan:_Shizuoka,_Shizuoka					
+HQ986289.1	mitochondrion			Ischnura_sp._BOLD:AAA2219		BIOUG<CAN>:10BBODA-0193		5	USA	34.75_N,112.004_W	27-Apr-2010	Biobus_2010		barcode
+HQ986284.1	mitochondrion			Ischnura_sp._BOLD:AAA2219		BIOUG<CAN>:10BBODA-0188		5	USA	34.75_N,112.004_W	27-Apr-2010	Biobus_2010		barcode
+HQ986281.1	mitochondrion			Ischnura_sp._BOLD:AAA2219		BIOUG<CAN>:10BBODA-0185		5	USA	34.75_N,112.004_W	27-Apr-2010	Biobus_2010		barcode
+HM400578.1	mitochondrion			Ischnura_posita		UNB-022-N01-OE		5	Canada	46.132_N,66.613_W	10-Oct-2007	Colin_Curry		barcode
+HM413564.1	mitochondrion			Ischnura_posita		BIOUG<CAN>:09BBEOD-0127		5	Canada	44.4007_N,65.2201_W	04-Aug-2009	J._Cossey,_J._Fernandez,_R._Labbee,_J._Smith,_M._Zhang		barcode
+HM381228.1	mitochondrion			Ischnura_sp._ODSO823-08		BIOUG<CAN>:08BBODO-333		5	Canada	48.59_N,86.269_W	19-Aug-2008	J.Straka,J.Cossey		barcode
+HM381221.1	mitochondrion			Ischnura_sp._ODSO395-08		BIOUG<CAN>:08OMSOD-0188		5	Canada	50.881_N,100.056_W	13-Jul-2008	J.Cossey,_N.Jeffery,_J.Straka		barcode
+MF774518.1	mitochondrion			Libellulidae_sp._Dargai_7			Dargai_7	5						
+KM537155.1	mitochondrion			Ischnura_sp._BOLD:ABZ2709		08BBODO-033		5	Canada:_Alberta,_Waterton_Lakes_NP,_Maskinonge_Lake	49.11_N,113.84_W	26-Jul-2008	BIObus_2008		barcode
+KM536053.1	mitochondrion			Ischnura_verticalis		08OMSOD-0038		5	Canada:_Ontario,_Pukaskwa_NP,_Hattie_Cove_Campground	48.589_N,86.292_W	18-Aug-2008	BIObus_2008		barcode
+KM528644.1	mitochondrion			Ischnura_sp._BOLD:ABZ2709		08BBODO-067		5	Canada:_Alberta,_Banff_NP,_Cave_and_Basin_Area	51.171_N,115.586_W	30-Jul-2008	BIObus_2008		barcode
+AB758069.1	mitochondrion			Ischnura_senegalensis			ozutsumi09M4	5	Japan:_Fukui,_Sakai					
+AB757966.1	mitochondrion			Ischnura_senegalensis			ishin11M7	5	Japan:_Aichi,_Nagoya					
+HQ986325.1	mitochondrion			Ischnura_posita		BIOUG<CAN>:10BBODA-0230		5	USA	35.0761_N,92.5464_W	18-May-2010	Biobus_2010		barcode
+HM400590.1	mitochondrion			Coenagrionidae_sp._ECODB382-09		UNB-023-N09-OE		5	Canada	46.198_N,66.691_W	30-Aug-2007	Colin_Curry		barcode
+HM400571.1	mitochondrion			Ischnura_sp._ECODB325-09		UNB-013-N01-OE		5	Canada	46.132_N,66.613_W	10-Oct-2007	Colin_Curry		barcode
+LC101599.1	mitochondrion			Ischnura_asiatica			kenkyu12M3	5	Japan			Yuma_Takahashi		
+LC101563.1	mitochondrion			Ischnura_asiatica			shinchi11M8	5	Japan			Yuma_Takahashi		
+LC101546.1	mitochondrion			Ischnura_asiatica			park11M6	5	Japan			Yuma_Takahashi		
+KM534572.1	mitochondrion			Ischnura_sp._BOLD:ABZ2709		08OMSOD-0239		5	Canada:_Saskatchewan,_Grasslands_NP,_East_Block_badlands	49.071_N,106.531_W	16-Jul-2008	BIObus_2008		barcode
+KM528643.1	mitochondrion			Ischnura_sp._BOLD:ABZ2709		08BBODO-066		5	Canada:_Alberta,_Banff_NP,_Cave_and_Basin_Area	51.171_N,115.586_W	30-Jul-2008	BIObus_2008		barcode
+JN294456.1	mitochondrion			Ischnura_sp._BBODA140-10		BIOUG<CAN>:10BBODO-0235		5	Canada	49.045_N,125.701_W	04-Jul-2010	BIObus_2010		barcode
+HQ986250.1	mitochondrion			Ischnura_sp._BOLD:AAA2219		BIOUG<CAN>:10BBODA-0153		5	USA	27.2524_N,82.2958_W	19-Mar-2010	Biobus_2010		barcode
+HQ986246.1	mitochondrion			Ischnura_sp._BOLD:AAA2219		BIOUG<CAN>:10BBODA-0149		5	USA	27.2524_N,82.2958_W	19-Mar-2010	Biobus_2010		barcode
+KM534864.1	mitochondrion			Ischnura_sp._BOLD:ABZ2709		08BBODO-078		5	Canada:_Alberta,_Banff_NP,_Cave_and_Basin_Area	51.171_N,115.586_W	30-Jul-2008	BIObus_2008		barcode
+KF257118.1	mitochondrion			Ischnura_elegans		ZYG18		5						
+MW666056.1	mitochondrion			Ischnura_senegalensis			ISN6	5	India		23-May-2017	Nitha_Bose_C	Nitha_Bose_C	
+MF358824.1	mitochondrion			Ischnura_senegalensis			Zhanjiang.3	5						
+MF358813.1	mitochondrion			Ischnura_senegalensis			Jian.2	5						
+LC101610.1	mitochondrion			Ischnura_asiatica			otto12M5	5	Japan			Yuma_Takahashi		
+LC101607.1	mitochondrion			Ischnura_asiatica			otto12M2	5	Japan			Yuma_Takahashi		
+LC101605.1	mitochondrion			Ischnura_asiatica			otto12F6	5	Japan			Yuma_Takahashi		
+LC101596.1	mitochondrion			Ischnura_asiatica			kenkyu12F4	5	Japan			Yuma_Takahashi		
+LC101590.1	mitochondrion			Ischnura_asiatica			shinoba12M3	5	Japan			Yuma_Takahashi		
+LC101589.1	mitochondrion			Ischnura_asiatica			shinoba12M2	5	Japan			Yuma_Takahashi		
+LC101587.1	mitochondrion			Ischnura_asiatica			shinoba12F3	5	Japan			Yuma_Takahashi		
+LC101584.1	mitochondrion			Ischnura_asiatica			konan12M5	5	Japan			Yuma_Takahashi		
+LC101580.1	mitochondrion			Ischnura_asiatica			konan12L8	5	Japan			Yuma_Takahashi		
+LC101578.1	mitochondrion			Ischnura_asiatica			konan12L6	5	Japan			Yuma_Takahashi		
+LC101576.1	mitochondrion			Ischnura_asiatica			konan12L4	5	Japan			Yuma_Takahashi		
+LC101572.1	mitochondrion			Ischnura_asiatica			ishin11M1	5	Japan			Yuma_Takahashi		
+LC101569.1	mitochondrion			Ischnura_asiatica			toriyano11M6	5	Japan			Yuma_Takahashi		
+LC101566.1	mitochondrion			Ischnura_asiatica			toriyano11M3	5	Japan			Yuma_Takahashi		
+LC101564.1	mitochondrion			Ischnura_asiatica			toriyano11M1	5	Japan			Yuma_Takahashi		
+LC101560.1	mitochondrion			Ischnura_asiatica			shinchi11M5	5	Japan			Yuma_Takahashi		
+LC101540.1	mitochondrion			Ischnura_asiatica			natorichosei11M8	5	Japan			Yuma_Takahashi		
+LC101521.1	mitochondrion			Ischnura_asiatica			hatukaM4	5	Japan			Yuma_Takahashi		
+LC101518.1	mitochondrion			Ischnura_asiatica			hatukaM1	5	Japan			Yuma_Takahashi		
+LC101514.1	mitochondrion			Ischnura_asiatica			fujinumaM5	5	Japan			Yuma_Takahashi		
+LC101504.1	mitochondrion			Ischnura_asiatica			baba11M2	5	Japan			Yuma_Takahashi		
+KC912315.1	mitochondrion			Ischnura_graellsii		Igr2		5	Spain					
+MH449998.1	mitochondrion			Ischnura_asiatica			6991	5	China:_Beijing			H.J._Dumont		
+LC101611.1	mitochondrion			Ischnura_asiatica			otto12M6	5	Japan			Yuma_Takahashi		
+LC101608.1	mitochondrion			Ischnura_asiatica			otto12M3	5	Japan			Yuma_Takahashi		
+LC101606.1	mitochondrion			Ischnura_asiatica			otto12M1	5	Japan			Yuma_Takahashi		
+LC101602.1	mitochondrion			Ischnura_asiatica			otto12F3	5	Japan			Yuma_Takahashi		
+LC101600.1	mitochondrion			Ischnura_asiatica			otto12F1	5	Japan			Yuma_Takahashi		
+LC101598.1	mitochondrion			Ischnura_asiatica			kenkyu12M2	5	Japan			Yuma_Takahashi		
+OR653522.1	mitochondrion			Ischnura_aurora			BMR03938	5	Australia:_Western_Australia	22.541529_S,119.0561252_E				
