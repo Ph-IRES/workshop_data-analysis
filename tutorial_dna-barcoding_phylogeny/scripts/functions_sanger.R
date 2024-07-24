@@ -2,11 +2,11 @@
 
 #### PACKAGES ####
 
-if (!require("BiocManager", quietly = TRUE))
+if(!require("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
 
 BiocManager::install("sangerseqR")
-
+BiocManager::install("DECIPHER")
 
 packages_used <-
   c(
