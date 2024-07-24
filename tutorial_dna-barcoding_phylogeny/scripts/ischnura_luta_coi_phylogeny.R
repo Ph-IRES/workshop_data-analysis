@@ -9,33 +9,33 @@ source("../../../phylogenetic_tools/phylogeny_functions.R")
 
 #### Make Consensus Seqs from Fwd-Rev Curated AB1 ####
 processCuratedAB1(
-    ab1_dir = "../output/sanger_curated_ab1_ischnura_luta/",
-    out_file = "../output/sanger_curated_ab1_ischnura_luta/ischnura_luta_coi_consensus_sequences.fasta"
+    ab1_dir = "../output/sanger_curated_ab1_ischnura_luta_coi/",
+    out_file = "../output/sanger_curated_ab1_ischnura_luta_coi/ischnura_luta_coi_consensus_sequences.fasta"
   )
 
 #### Update GenBank Fasta Seq Names ####
 renameBlastFastaSeqs(
-  inTsvFile = "../output/sanger_curated_ab1_ischnura_luta/blast_rbd_06_E1_500_better.tsv",
-  inFastaFile = "../output/sanger_curated_ab1_ischnura_luta/blast_rbd_06_E1_500.fasta",
-  outFastaFile = "../output/sanger_curated_ab1_ischnura_luta/blast_rbd_06_E1_500_renamed.fasta"
+  inTsvFile = "../output/sanger_curated_ab1_ischnura_luta_coi/blast_rbd_06_E1_500_better.tsv",
+  inFastaFile = "../output/sanger_curated_ab1_ischnura_luta_coi/blast_rbd_06_E1_500.fasta",
+  outFastaFile = "../output/sanger_curated_ab1_ischnura_luta_coi/blast_rbd_06_E1_500_renamed.fasta"
 )
 
 #### Concat Fastas, Deduplicate Haplotypes, Align ####
 concatFastas(
-  inFilePaths = c("../output/sanger_curated_ab1_ischnura_luta/ischnura_luta_coi_consensus_sequences.fasta",
-                  "../output/sanger_curated_ab1_ischnura_luta/blast_rbd_06_E1_500_renamed.fasta"),
-  outFilePath = "../output/sanger_curated_ab1_ischnura_luta/ischnura_luta_coi.fasta"
+  inFilePaths = c("../output/sanger_curated_ab1_ischnura_luta_coi/ischnura_luta_coi_consensus_sequences.fasta",
+                  "../output/sanger_curated_ab1_ischnura_luta_coi/blast_rbd_06_E1_500_renamed.fasta"),
+  outFilePath = "../output/sanger_curated_ab1_ischnura_luta_coi/ischnura_luta_coi.fasta"
 )
 
 uniqueSeqsFastaFile(
-  inFilePath = "../output/sanger_curated_ab1_ischnura_luta/ischnura_luta_coi.fasta",
-  outFilePath = "../output/sanger_curated_ab1_ischnura_luta/ischnura_luta_coi_haps.fasta"
+  inFilePath = "../output/sanger_curated_ab1_ischnura_luta_coi/ischnura_luta_coi.fasta",
+  outFilePath = "../output/sanger_curated_ab1_ischnura_luta_coi/ischnura_luta_coi_haps.fasta"
 )
 
 fasta <-
   alignFastaFile(
-    inFilePath = "../output/sanger_curated_ab1_ischnura_luta/ischnura_luta_coi_haps.fasta",
-    outFilePath = "../output/sanger_curated_ab1_ischnura_luta/ischnura_luta_coi_haps_aligned.fasta"
+    inFilePath = "../output/sanger_curated_ab1_ischnura_luta_coi/ischnura_luta_coi_haps.fasta",
+    outFilePath = "../output/sanger_curated_ab1_ischnura_luta_coi/ischnura_luta_coi_haps_aligned.fasta"
   )
 
 #### MAXIMUM LIKELIHOOD PHYLOGENY ####
@@ -49,7 +49,7 @@ tree <-
   )
 
 saveNewickTree(tree, 
-               "../output/sanger_curated_ab1_ischnura_luta/tree_ischnura_luta_500_renamed.nwk")
+               "../output/sanger_curated_ab1_ischnura_luta_coi/tree_ischnura_luta_500_renamed.nwk")
 
 #### PLOT TREE ####
 tree %>%
@@ -62,7 +62,7 @@ tree %>%
 
 #### PLOT HAPLOTYPE NETWORK ####
 
-sequences <- read.dna(file ="../output/sanger_curated_ab1_ischnura_luta/rbd_sequences_nooutgroup.fasta", format = "fasta")
+sequences <- read.dna(file ="../output/sanger_curated_ab1_ischnura_luta_coi/rbd_sequences_nooutgroup.fasta", format = "fasta")
 haplo_data <- haplotype(sequences)
 haplo_div <- hap.div(haplo_data)
 
