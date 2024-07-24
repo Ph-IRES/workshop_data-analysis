@@ -1,111 +1,138 @@
->rbd_06_E1
----------g ggactgcttt aagaatatta attcgagttg aactaggaca acctggctct
-ctaattggag atgaccaaat ttataatgta gtagtaactg cacacgcttt tgtcataatt
-ttctttatag taataccaat cataattggt ggattcggaa attgattagt gccattaata
-ctaggggcac cagatatagc tttccctcga ttaaataaca taagattttg acttttacct
-ccctcgttaa ctttactttt agcaagaagt ttagtagaaa gaggggcagg aactggatga
-acagtatacc ccccattagc aggggtgatt gctcatgccg gggcatcagt tgatttaaca
-attttttcac tacatttggc gggagtatca tcaattctag gggcaattaa ttttatcacc
-actacaatca atataaaatc acccggaata aatatagatc aactaccttt atttgtttga
-gccgtagtta ttaccgcagt actactctta ttatcattac cagtactggc tggtgctatt
-accatactat taacagatcg taatatcaac acatcatttt ttgatccagc agggggaggg
-gatcctattt tatatcaaca tttgttc
->rbd_22_E1
----------g ggactgcttt aagaatatta attcgagttg aactaggaca acctggctct
-ctaattggag atgaccaaat ttataatgta gtagtaactg cacacgcttt tgtcataatt
-ttctttatag taataccaat cataattggt ggattcggaa attgattagt gccattaata
-ctaggggcac cagatatagc tttccctcga ttaaataaca taagattttg acttttacct
-ccctcgttaa ctttactttt agcaagaagt ttagtagaaa gaggggcagg aactggatga
-acagtatacc ccccattagc aggggtgatt gctcatgccg gggcatcagt tgatttaaca
-attttttcac tacatttggc gggagtatca tcaattctag gggcaattaa ttttatcacc
-actacaatca atataaaatc acccggaata aatatagatc aactaccttt atttgtttga
-gctgtagtta ttaccgcagt actactctta ttatcattac cagtactggc tggtgctatt
-accatactat taacagatcg taatatcaac acatcatttt ttgatccagc agggggaggg
-gatcctattt tatatcaaca tttgttc
->rbd_21_E1
-------gtag ggactgcttt aagaatatta attcgagttg aactaggaca acctggctct
-ctaattggag atgaccaaat ttataatgta gtagtaactg cacacgcttt tgtcataatt
-ttctttatag taataccaat cataattggt ggattcggaa attgattagt gccattaata
-ctaggggcac cagatatagc tttccctcga ttaaataaca taagattttg acttttacct
-ccctcgttaa ctttactttt agcaagaagt ttagtagaaa gaggggcagg aactggatga
-acagtatacc ccccattagc aggggtgatt gctcatgccg gggcatcagt tgatttaaca
-attttttcac tacatttggc gggagtatca tcaattctag gggcaattaa ttttatcacc
-actacaatca atataaaatc acccggaata aatatagatc aactaccttt atttgtttga
-gccgtagtta ttaccgcagt actactctta ttatcattac cagtactggc tggtgctatt
-accatactat taacagatcg taatatcaac acatcatttt ttgatccagc agggggaggg
-gatcctattt tatatcaaca tttgttc
->rbd_24_E1
----------- --actgcttt aagaatatta attcgagttg aactaggaca acctggctct
-ctaattggag atgaccaaat ttataatgta gtagtaactg cacacgcttt tgtcataatt
-ttctttatag taataccaat cataattggt ggattcggaa attgattagt gccattaata
-ctaggggcac cagatatagc tttccctcga ttaaataaca taagattttg acttttacct
-ccctcgttaa ctttactttt agcaagaagt ttagtagaaa gaggggcagg aactggatga
-acagtatatc ccccattagc aggggtgatt gctcatgccg gggcatcagt tgatttaaca
-attttttcac tacatttggc gggagtatca tcaattctag gggcaattaa ttttatcacc
-actacaatca atataaaatc acccggaata aatatagatc aactaccttt atttgtttga
-gccgtagtta ttaccgcagt actactctta ttatcattac cagtactggc tggtgctatt
-accatactat taacagatcg taatatcaac acatcatttt ttgatccagc agggggaggg
-ga-------- ---------- -------
->rbd_04_E1
----------g ggactgcttt aagaatatta attcgagttg aactaggaca acctggctct
-ctaattggag atgaccaaat ttataatgta gtagtaactg cacacgcttt tgtcataatt
-ttctttatag taataccaat cataattggt ggattcggaa attgattagt gccattaata
-ctaggggcac cagatatagc tttccctcga ttaaataaca taagattttg acttttacct
-ccctcgttaa ctttactttt agcaagaagt ttagtagaaa gaggggcagg aactggatga
-acagtatatc ccccattagc aggggtgatt gctcatgccg gggcatcagt tgatttaaca
-attttttcac tacatttggc gggagtatca tcaattctag gggcaattaa ttttatcacc
-actacaatca atataaaatc gcccggaata aatatagatc aactaccttt atttgtttga
-gccgtagtta ttaccgcagt actactctta ttatcattac cagtactggc tggtgctatt
-accatactat taacagatcg taatatcaac acatcatttt ttgatccagc agggggaggg
-gatcctattt tatatcaaca tttgttc
->rbd_05_E1
----------- -----gcttt aagaatatta attcgagttg aactaggaca acctggctct
-ctaattggag atgaccaaat ttataatgta gtagtaactg cacacgcttt tgtcataatt
-ttcttcatag taataccaat cataattggt ggattcggaa attgattagt gccattaata
-ctaggggcac cagatatagc tttccctcga ttaaataaca taagattttg acttttacct
-ccctcgttaa ctttactttt agcaagaagt ttagtagaaa gaggggcagg aactggatga
-acagtatatc ccccattagc aggggtgatt gctcatgccg gggcatcagt tgatttaaca
-attttttcac tacatttggc gggagtatca tcaattctag gggcaattaa ttttatcacc
-actacaatca atataaaatc acccggaata aatatagatc aactaccttt atttgtttga
-gccgtagtta ttaccgcagt actactctta ttatcattac cagtactggc tggtgctatt
-accatactat taacagatcg taatatcaac ---------- ---------- ----------
----------- ---------- -------
->rbd_23_E1
-------gtag ggactgcttt aagaatatta attcgagttg aactaggaca acctggctct
-ctaattggag atgaccaaat ttataatgta gtagtaactg cacacgcttt tgtcataatt
-ttctttatag taataccaat cataattggt ggattcggaa attgattagt gccattaata
-ctaggggcac cagatatagc tttccctcga ttaaataaca taagattttg acttttacct
-ccctcgttaa ctttactttt agcaagaagt ttagtagaaa gaggggcagg aactggatga
-acagtatatc ccccattagc aggggtgatt gctcatgccg gggcatcagt tgatttaaca
-attttttcac tacatttggc gggagtatca tcaattctag gggcaattaa ttttatcacc
-actacaatca atataaaatc gcccggaata aatatagatc aactaccttt atttgtttga
-gccgtagtta ttaccgcagt actactctta ttatcattac cagtactggc tggtgctatt
-accatactat taacagatcg taatatcaac acatcatttt ttgatccagc agggggaggg
-g--------- ---------- -------
->rbd_25_E1
-------gtag ggactgcttt aagaatatta attcgagttg aactaggaca acctggctct
-ctaattggag atgaccaaat ttataatgta gtagtaactg cacacgcttt tgtcataatt
-ttctttatag taataccaat cataattggt ggattcggaa attgattagt gccattaata
-ctaggggcac cagatatagc tttccctcga ttaaataaca taagattttg acttttacct
-ccctcgttaa ctttactttt agcaagaagt ttagtagaaa gaggggcagg aactggatga
-acagtatatc ccccattagc aggggtgatt gctcatgccg gggcatcagt tgatttaaca
-attttttcac tacatttggc gggagtatca tcaattctag gggcaattaa ttttatcacc
-actacaatca atataaaatc acccggaata aatatagatc aactaccttt atttgtttga
-gccgtagtta ttaccgcagt actactctta ttatcattac cagtactggc tggtgctatt
-accatactat taacagatcg taatatcaac acatcatttt ttgatccagc agggggaggg
-g--------- ---------- -------
 >rbd_20_E1
-ggaatagtag ggactgcttt aagaatatta attcgagttg aactaggaca acctggctct
-ctaattggag atgaccaaat ttataatgta gtagtaactg cacacgcttt tgtcataatt
-ttctttatag taataccaat cataattggt ggattcggaa attgattagt gccattaata
-ctaggggcac cagatatagc tttccctcga ttaaataaca taagattttg acttttacct
-ccctcgttaa ctttactttt agcaagaagt ttagtagaaa gaggggcagg aactggatga
-acagtatatc ccccattagc aggggtgatt gctcatgccg gggcatcagt tgatttaaca
-attttttcac tacatttggc gggagtatca tcaattctag gggcaattaa ttttatcacc
-actacaatca atataaaatc acccggaata aatatagatc aactaccttt atttgtttga
-gccgtagtta ttaccgcagt actactctta ttatcattac cagtactggc tggtgctatt
-accatactat taacagatc- ---------- ---------- ---------- ----------
----------- ---------- -------
+---------- --ggaatagt agggactgct ---------t taagaatatt aattcgagtt
+gaactaggac aacctggctc tctaattgga gatgaccaaa tttataatgt agtagtaact
+gcacaaacaa ataaaggtag ttgatctata tttattccgg gcgcttttgt cataattttc
+tttatagtaa aattaatacc -aatcataat tggtgatact cccgccaaat ggattcggaa
+attgattagt gccattaata ctaggggcac cagatatagc tttccctcga ttaaataaca
+taagattttg acttttacct ccccctcgtt aactttactt ttagcaagaa gttta-----
+----gtagaa agaggggcag gaactggatg aacagtatat cccccattag caggggtgat
+tgctcatgcc ggggcatcag ttgatt---t aacaattttt tca----cta catttggcgg
+gagtatcat- ---------- ---------c aattctaggg gcaattaatt ttatcaccac
+---------- -----tacaa tcaatataaa at--cacc-- -------cgg aataaatata
+gatcaactac ctttatttgt ttgagccgta gttattaccg cagtactact cttattatca
+ttaccagtac tggctgg--t gctattacca tactattaac agatcgtaat atca---aca
+catcattttt tgatccagca gggggagggg atcctatttt atatcaacat ttgttc----
+----
+>rbd_04_E1
+---------- ---------- -gggactgct ---------t taagaatatt aattcgagtt
+gaactaggac aacctggctc tctaattgga gatgaccaaa tttataatgt agtagtaact
+gcaca----- ---------- ---------- ---------- -cgcttttgt cataattttc
+tttatagtaa ------tacc -aatcataat tggtg----- ---------- -gattcggaa
+attgattagt gccattaata ctaggggcac cagatatagc tttccctcga ttaaataaca
+taagattttg acttttacct cc--ctcgtt aactttactt ttagcaagaa gttta-----
+----gtagaa agaggggcag gaactggatg aacagtatat cccccattag caggggtgat
+tgctcatgcc ggggcatcag ttgatt---t aacaattttt tca----cta catttggcgg
+gagtatcat- ---------- ---------c aattctaggg gcaattaatt ttatcaccac
+---------- -----tacaa tcaatataaa at--cgcc-- -------cgg aataaatata
+gatcaactac ctttatttgt ttgagccgta gttattaccg cagtactact cttattatca
+ttaccagtac tggctgg--t gctattacca tactattaac agatcgtaat atca---aca
+catcattttt tgatccagca gggggagggg atcctatttt atatcaacat ttgttc----
+----
+>rbd_05_E1
+---------- ---------- -gggactgct ---------t taagaatatt aattcgagtt
+gaactaggac aacctggctc tctaattgga gatgaccaaa tttataatgt agtagtaact
+gcaca----- ---------- ---------- ---------- -cgcttttgt cataattttc
+ttcatagtaa ------tacc -aatcataat tggtg----- ---------- -gattcggaa
+attgattagt gccattaata ctaggggcac cagatatagc tttccctcga ttaaataaca
+taagattttg acttttacct cc--ctcgtt aactttactt ttagcaagaa gtttagatac
+tcccgtagaa agaggggcag gaactggatg aacagtatat cccccattag caggggtgat
+tgctcatgcc ggggcatcag ttgatt---t aacaattttt tca----cta catttggcgg
+gagtatcat- ---------- ---------c aattctaggg gcaattaatt ttatcaccac
+aggta----- aaagttacaa tcaatataaa at--cacc-- -------cgg aataaatata
+gatcaactac ctttatttgt ttgagccgta gttattaccg cagtactact cttattatca
+ttaccagtac tggctggaat gctattacca tactattaac agatcgtaat atcaaataca
+catcattttt tgatccagca gggggagggg atcctatttt atatcaacat ttgttcctta
+aagc
+>rbd_22_E1
+---------- ---------- -gggactgct ---------t taagaatatt aattcgagtt
+gaactaggac aacctggctc tctaattgga gatgaccaaa tttataatgt agtagtaact
+gcaca----- ---------- ---------- ---------- -cgcttttgt cataattttc
+tttatagtaa ------tacc -aatcataat tggtg----- ---------- -gattcggaa
+attgattagt gccattaata ctaggggcac cagatatagc tttccctcga ttaaataaca
+taagattttg acttttacct cc--ctcgtt aactttactt ttagcaagaa gttta-----
+----gtagaa agaggggcag gaactggatg aacagtatac cccccattag caggggtgat
+tgctcatgcc ggggcatcag ttgatt---t aacaattttt tca----cta catttggcgg
+gagtatcat- ---------- ---------c aattctaggg gcaattaatt ttatcaccac
+---------- -----tacaa tcaatataaa at--cacc-- -------cgg aataaatata
+gatcaactac ctttatttgt ttgagctgta gttattaccg cagtactact cttattatca
+ttaccagtac tggctgg--t gctattacca tactattaac agatcgtaat atca---aca
+catcattttt tgatccagca gggggagggg atcctatttt atatcaacat ttgttc----
+----
+>rbd_23_E1
+-cccctcccc ctgctggagt agggactgct gtgttgattt taagaatatt aattcgagtt
+gaactaggac aacctggctc tctaattgga gatgaccaaa tttataatgt agtagtaact
+gcaca----- ---------- ---------- ---------- -cgcttttgt cataattttc
+tttatagtaa ------tacc -aatcataat tggtg----- ---------- -gattcggaa
+attgattagt gccattaata ctaggggcac cagatatagc tttccctcga ttaaataaca
+taagattttg acttttacct cc--ctcgtt aactttactt ttagcaagaa gttta-----
+----gtagaa agaggggcag gaactggatg aacagtatat cccccattag caggggtgat
+tgctcatgcc ggggcatcag ttgattctat aacaattttt tcaaaaacta catttggcgg
+gagtatcata agtcaaaatc ttatgttatc aattctaggg gcaattaatt ttatcaccac
+tacaatcaat ggcacta--a tcaatataaa atcgcaccaa ttatgaccgg aataaatata
+gatcaactac ctttatttgt ttgagccgta gttattaccg cagtactact cttattatca
+ttaccagtac tggctgg--t gctattacca tactattaac agatcgtaat atca---aca
+catcattttt tgatccagca gggggagggg atcctatttt atatcaacat ttgttc----
+----
+>rbd_25_E1
+-cccctcccc ctgctggagt agggactgct gtgttgattt taagaatatt aattcgagtt
+gaactaggac aacctggctc tctaattgga gatgaccaaa tttataatgt agtagtaact
+gcaca----- ---------- ---------- ---------- -cgcttttgt cataattttc
+tttatagtaa ------tacc gaatcataat tggtg----- ---------- -gattcggaa
+attgattagt gccattaata ctaggggcac cagatatagc tttccctcga ttaaataaca
+taagattttg acttttacct cc--ctcgtt aactttactt ttagcaagaa gttta-----
+----gtagaa agaggggcag gaactggatg aacagtatat cccccattag caggggtgat
+tgctcatgcc ggggcatcag ttgattctat aacaattttt tcaaaaacta catttggcgg
+gagtattaaa agtcaaaatc ttatgttatt taatcgaggg acatcaattc taggggcaat
+taattttatc accactacaa tcaatataaa at--cacccg ttatgattgg aataaatata
+gatcaactac ctttatttgt ttgagccgta gttattaccg cagtactact cttattatca
+ttaccagtac tggctgg--t gctattacca tactattaac agatcgtaat atca---aca
+catcattttt tgatccagca gggggagggg atcctatttt atatcaacat ttgttc----
+----
+>rbd_21_E1
+---------- --------gt agggactgct ---------t taagaatatt aattcgagtt
+gaactaggac aacctggctc tctaattgga gatgaccaaa tttataatgt agtagtaact
+gcaca----- ---------- ---------- ---------- -cgcttttgt cataattttc
+tttatagtaa ------tacc -aatcataat tggtg----- ---------- -gattcggaa
+attgattagt gccattaata ctaggggcac cagatatagc tttccctcga ttaaataaca
+taagattttg acttttacct cc--ctcgtt aactttactt ttagcaagaa gttta-----
+----gtagaa agaggggcag gaactggatg aacagtatac cccccattag caggggtgat
+tgctcatgcc ggggcatcag ttgatt---t aacaattttt tca----cta catttggcgg
+gagtatc--- ---------- -------atc aattctaggg gcaattaatt ttatcaccac
+taca------ ---------a tcaatataaa at--cacc-- -------cgg aataaatata
+gatcaactac ctttatttgt ttgagccgta gttattaccg cagtactact cttattatca
+ttaccagtac tggctgg--t gctattacca tactattaac agatcgtaat atca---aca
+catcattttt tgatccagca gggggagggg atcctatttt atatcaacat ttgttc----
+----
+>rbd_24_E1
+tcccctccca ctgctggatc aaaaaatgct ttaagaatat tacgatcttt aattcgagtt
+gaactaggac aacctggctc tctaattgga gatgaccaaa tttataatgt agtagtaact
+gcaca----- ---------- ---------- ---------- -cgcttttgt cataattttc
+tttatagtaa ------tacc -aatcataat tggtg----- ---------- -gattcggaa
+attgattagt gccattaata ctaggggcac cagatatagc tttccctcga ttaaataaca
+taagattttg acttttacct cc--ctcgtt aactttactt ttagcaagaa gttta-----
+----gtagaa agaggggcag gaactggatg aacagtatat cccccattag caggggtgat
+tgctcatgcc ggggcatcag ttgattctat aacaattttt tcaaaaacta catttggcgg
+gagtatcata agtcaaaatc ttatgttatc aattctaggg aaagctatat ctggggcaat
+taattttatc accactacaa tcaatataaa at--cacccg ttatgattgg aataaatata
+gatcaactac ctttatttgt ttgagccgta gttattaccg cagtactact cttattatca
+ttaccagtac tggctgg--t gctattacca tactattaac agatcgtaat atca---aca
+catcattttt tgatccagca gggggagggg atcctatttt atatcaacat ttgttc----
+----
+>rbd_06_E1
+---------- ---------- -gggactgct ttaagaatat ta-------- -attcgagtt
+gaactaggac aacctggctc tctaattgga gatgaccaaa tttataatgt agtagtaact
+gcaca----- ---------- ---------- ---------- -cgcttttgt cataattttc
+tttatagtaa ------tacc -aatcataat tggtg----- ---------- -gattcggaa
+attgattagt gccattaata ctaggggcac cagatatagc tttccctcga ttaaataaca
+taagattttg acttttacct cc--ctcgtt aactttactt ttagcaagaa gttta-----
+----gtagaa agaggggcag gaactggatg aacagtatac cccccattag caggggtgat
+tgctcatgcc ggggcatcag ttgatt---t aacaattttt tca----cta catttggcgg
+gagtatcat- ---------- ---------c aattctaggg ---------- -----gcaat
+taattttatc accactacaa tcaatataaa at--cacccg ---------g aataaatata
+gatcaactac ctttatttgt ttgagccgta gttattaccg cagtactact cttattatca
+ttaccagtac tggctgg--t gctattacca tactattaac agatcgtaat atca---aca
+catcattttt tgatccagca gggggagggg atcctatttt atatcaacat ttgttc----
+----
 >ISCHNURA_ELEGANS,UNK.,KY127433
 gggactgctt taagaatatt aattcgagtt gaactaggac aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -117,7 +144,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattacctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgaccctg cagggggagg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ELEGANS,UNK.,KY127439
 --gactgctt taagaatatt aattcgagtt gaactaggac aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -129,7 +159,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattacctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgaccctg cagggggagg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ELEGANS,UNK.,KY127437
 --gactgctt taagaatatt aattcgagtt gaactaggac aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -141,7 +174,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattacctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgaccctg cagggggagg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ELEGANS,UNK.,KY127432
 gggactgctt taagaatatt aattcgagtt gaactaggac aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -153,7 +189,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattacctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatgcta
 ctgacagacc gtaatatcaa tacatcattc tttgaccctg cagggggagg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_GENEI,MALTA,MN701555
 gggactgctt taagaatatt aattcgagtt gaactagggc aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -165,7 +204,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattgcctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgatcctg cagggggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_GENEI,MALTA,MN701543
 -ggactgctt taagaatatt aattcgagtt gaactagggc aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -177,7 +219,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattgcctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgatcctg cagggggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ELEGANS,UNK.,KY127438
 ---------- -aagaatatt aattcgagtt gaactaggac aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -189,7 +234,10 @@ ttacacttgg caggagtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattacctc tatttgtttg agctgtagtg
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgaccctg cagggggagg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ELEGANS,UNK.,MK951668
 gggactgctt taagaatatt aattcgagtt gaactagggc aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -201,7 +249,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattacctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgatcctg cagggggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ELEGANS,UNK.,KY127434
 gggactgctt taagaatatt aattcgagtt gaactaggac aacctggatc tctaattgga
 gacgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -213,7 +264,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattacctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgaccctg cagggggagg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ELEGANS,FINLAND,MZ657323
 gggactgctt taagaatatt aattcgagtt gaactagggc aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -225,7 +279,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattgcctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgatcctg cagggggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ELEGANS,BOSNIA_AND_HERZEGOVINA,MW208392
 gggactgctt taagaatatt gattcgagtt gaactaggac aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -237,7 +294,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattacctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgaccctg cagggggagg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_GENEI,MALTA,MN701560
 gggactgctt taagaatatt aattcgagtt gaactagggc aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -249,7 +309,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattgcctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgatcctg cagggggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_GENEI,MALTA,MN701512
 gggactgctt taagaatatt aattcgagtt gaactagggc aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -261,7 +324,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattgcctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgatcctg cagggggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SAHARENSIS,MOROCCO,MT298478
 gggactgctt taagaatatt aattcgagtt gaactagggc aacctgggtc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -273,7 +339,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattgcctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgatcctg cagggggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ELEGANS,ITALY,MT298469
 gggactgctt taagaatatt aattcgagtt gaactagggc aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -285,7 +354,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaatatagat caattgcctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgatcctg cagggggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ELEGANS,GERMANY,MW490413
 gggactgctt taagaatatt aattcgagtt gaactagggc aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -297,7 +369,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattgcctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgatcc?g cagggggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_EVANSI,IRAN,MH450005
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacatgctt ttgtcataat tttttttata
@@ -309,7 +384,10 @@ ttacacttgg caggggtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt cacctggaat aaatatagat caattacctt tatttgtttg agctgtagtt
 atcaccgcag tgctactttt attatcatta ccagtattag ctggtgctat tactatacta
 ttgacagatc gtaatatcaa tacatcattt tttgatcctg caggaggagg agacccgatt
-ttatatcaac a--------- -------
+ttatatcaac a--------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ELEGANS,ALBANIA,MW208396
 gggactgctt taagaatatt aattcgagtt gaactagggc aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -321,7 +399,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattgcctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgaccctg cagggggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_GENEI,ITALY,MT298471
 gggactgctt taagaatatt aattcgagtt gaactagggc aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -333,7 +414,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattgcctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgatcctg cagggggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_RUFOSTIGMA,CHINA,MH449997
 ggaactgctt taagaatatt aattcgagtt gaactaggac aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgcct ttgttataat tttttttata
@@ -345,7 +429,10 @@ ttacacttgg caggggtatc ctcaatttta ggagcaatta attttattac caccacaatt
 aatataaaat cacctggaat aaatatagat caattacctt tatttgtctg agctgtagtt
 attaccgcag tattactttt gttatcatta ccagtattag ctggtgctat tactatatta
 ttgacagatc gtaacattaa tacatcattt tttgacccgg cagggggagg agaccccatt
-ttataccaac acttattc-- -------
+ttataccaac acttattc-- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >RHODISCHNURA_NURSEI,INDIA,KU220894
 gggactgctt taagaatatt aattcgagtt gaactaggac aacccggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgcct ttgttataat tttttttata
@@ -357,7 +444,10 @@ ttacacttgg caggagtatc ctcaattttg ggagcaatta attttattac aactactatt
 aatataaagt cacctggaat aaatatagat caattacctt tattcgtttg agctgtagtt
 attaccgcag tattactctt attatcatta ccagtattag ctggtgctat tactatacta
 ctaacagatc gtaatatcaa tacatcattt tttgacccag caggaggagg agatcccatc
-ttatatcaac at-------- -------
+ttatatcaac at-------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_FLUVIATILIS,BRAZIL,MH450007
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgcct ttgttataat tttttttata
@@ -369,7 +459,10 @@ ttacacttag caggagtatc atcaatttta ggagcaatta attttattac caccacgatt
 aatataaagt cacctggaat aaatatagat caattacctc tatttgtttg agctgtagtt
 attaccgcag tactactttt attatcatta ccagtattag ctggtgctat taccatacga
 tcaacaaatc ataatattaa cacatcattt tttgatcctg cggggggagg agatcctatt
-ttataccagc attt------ -------
+ttataccagc attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ABYSSINICA,ETHIOPIA,MH450002
 gggactgctt taagaatatt aattcgagtt gagctaggac aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacatgcct ttgtcataat tttttttata
@@ -381,7 +474,10 @@ ctacacttgg caggtgtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctggaat aaacatagat caattacctc tatttgtttg agctgtagtt
 attaccgcag tgttactttt attatcatta ccagtattag ctggtgctat tactatacta
 ctgacagatc gtaatatcaa tacatcattt tttgatcctg cagggggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ELEGANS,GERMANY,MW490414
 gggactgctt taagaatatt aattcgagtt gaactagggc aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -393,7 +489,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattgcctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgatcccg ctgggggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ELEGANS,POLAND,MT216300
 gggactgctt taagaatatt aattcgagtt gaactagggc aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -405,7 +504,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattgcctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgatcctg cagggggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ELEGANS,POLAND,MT216299
 gggactgctt taagaatatt aattcgagtt gaactagggc aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -417,7 +519,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattgcctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgatcctg cagggggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ELEGANS,POLAND,MT216298
 ---actgctt taagaatatt aattcgagtt gaactagggc aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -429,7 +534,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattgcctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgatcctg cagggggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_NURSEI,IRAN,MH449986
 gggactgctt taagaatatt aattcgagtt gaactaggac aacccggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgcct ttgttataat tttttttata
@@ -441,7 +549,10 @@ ttacacttgg caggagtatc ctcaattttg ggagcaatta attttattac aactactatt
 aatataaagt cacctggaat aaatatagat caattacctt tattcgtttg agctgtagtt
 attaccgcag tattactctt attgtcatta ccagtattag ctggtgctat tactatacta
 ctaacagatc gtaatatcaa tacatcattt tttgacccag caggaggagg agatcccatc
-ttatatcaac at-------- -------
+ttatatcaac at-------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ELEGANS,GERMANY,MW490337
 gggactgctt taagaatatt aattcgagtt gaactagggc aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -453,7 +564,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattgcctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgatcctg caggaggagg ggatcctatt
-ttatatca-- ---------- -------
+ttatatca-- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ELEGANS,POLAND,MT216288
 ---actgctt taagaatatt aattcgagtt gaactagggc aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -465,7 +579,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattgcctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgatcctg cagggggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_NURSEI,IRAN,MH449991
 gggccggctt taagaatatt aattcgagtt gaactaggac aacccggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgcct ttgttataat tttttttata
@@ -477,7 +594,10 @@ ttacacttgg caggagtatc ctcaattttg ggagcaatta attttattac aactactatt
 aatataaagt cacctggaat aaatatagat caattacctt tattcgtttg agctgtagtt
 attaccgcag tattactctt attgtcatta ccagtattag ctggtgctat tactatacta
 ctaacagatc gtaatatcaa tacatcattt tttgacccag caggaggagg agatcccatc
-ttatatcaac at-------- -------
+ttatatcaac at-------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SP.,USA,JN311539
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgcct ttgtcatgat tttttttata
@@ -489,7 +609,10 @@ ttgcacttgg cgggggtatc ctcaatctta ggggcaatta attttattac caccacaatt
 aatataaaat cacccgggat aaacatggat cagttacctc tatttgtctg agctgtggtt
 attactgcag tactactttt attatcctta ccagtattag ctggtgctat tactatacta
 ttaacagatc gtaatattaa tacatcattt tttgatcctg cagggggagg agatcctatt
-ttataccaac attt------ -------
+ttataccaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_RAMBURII,USA,HQ986328
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgcct ttgtcatgat tttttttata
@@ -501,7 +624,10 @@ ttgcacttgg cgggggtatc ctcaatctta ggggcaatta attttattac caccacaatt
 aatataaaat cacccgggat aaacatggat cagttacctc tatttgtctg agctgtggtt
 attactgcag tactactttt attatcctta ccagtattag ctggtgctat tactatatta
 ttaacagatc gtaatattaa tacatcattt tttgatcctg caggaggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_NURSEI,INDIA,MH449984
 gggactgctt taagaatatt aattcgagtt gaactaggac aacccggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgcct ttgttataat tttttttata
@@ -513,7 +639,10 @@ ttacacttgg caggagtatc ctcaattttg ggagcaatta attttattac aactactatt
 aatataaagt cacctggaat aaatatagat caattacctt tattcgtttg agctgtagtt
 attaccgcag tattactctt attatcatta ccagtattag ctggtgctat tactatacta
 ctaacagatc gtaatatcaa tacatcattt tttgacccag caggaggagg agatcccatt
----------- ---------- -------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_RAMBURII,USA,MH450004
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgcct ttgtcatgat tttttttata
@@ -525,7 +654,10 @@ ttgcacttgg cgggggtatc ctcaatctta ggggcaatta attttattac caccacaatt
 aatataaaat cacccgggat aaacatggat cagttacctc tatttgtctg agctgtggtt
 attactgcag tactactttt attatcctta ccagtattag ctggtgctat tactatatta
 ttaacagatc gtaatattaa tacatcattt tttgatcctg caggaggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ELEGANS,FINLAND,MW509063
 ---------- -----atatt aattcgagtt gaactagggc aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -537,7 +669,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattgcctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgatcctg cagggggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_GENEI,MALTA,MN701499
 ---------- --------tt aattcgagtt gaactagggc aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -549,7 +684,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattgcctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgatcctg cagggggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >RHODISCHNURA_NURSEI,INDIA,KF369538
 gggactgctt taagaatatt aattcgagtt gaactaggac aacccggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgcct ttgttataat tttttttata
@@ -561,7 +699,10 @@ ttacacttgg caggagtatc ctcaattttg ggagcaatta attttattac aactactatt
 aatataaagt cacctggaat aaatatggat caattacctt tattcgtttg agctgtagtt
 attaccgcag tattactctt attgtcatta ccagtattag ctggtgctat tactatacta
 ctaacagatc gtaatatcaa tacatcattt tttgacccag caggaggagg agaccccatc
-ttatatcaac at-------- -------
+ttatatcaac at-------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >COENAGRIONIDAE_SP.,AUSTRALIA,HQ986500
 gggactgctt taagaatatt aattcgagtt gaactaggac aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacatgcat ttgtaataat tttttttata
@@ -573,7 +714,10 @@ ttacacttgg caggagtctc ctcaacttta ggagcaatta attttattac cactacaatt
 aatataaagt cacctggaat aaatatagat gaattgcctt tatttgtttg agctgtggtt
 attaccgcag taatactttt attatcatta cc?gtattag ctggtgctat tactatactc
 ttaacagatc gtaacattaa tacatcattc tttgacccag cagggggagg agatcctatt
-ttatatca?c atttattc-- -------
+ttatatca?c atttattc-- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ELEGANS,SWEDEN,MW509062
 ---------- -----atatt aattcgagtt gaactagggc aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -585,7 +729,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattgcctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgatcctg cagggggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SP.,USA,HQ986187
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgcct ttgtcatgat tttttttata
@@ -597,7 +744,10 @@ ttgcacttgg cgggggtatc ctcaatctta ggggcaatta attttattac caccacaatt
 aatataaaat cacccgggat aaacatggat cagttacctc tatttgtctg agctgtggtt
 attactgcag tactactttt attatcctta ccagtattag ctggtgctat tactatatta
 ttaacagatc gtaatattaa tacatcattt tttgatcctg caggaggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SP.,USA,HQ986183
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgcct ttgtcatgat tttttttata
@@ -609,7 +759,10 @@ ttgcacttgg cgggggtatc ctcaatctta ggggcaatta attttattac caccacaatt
 aatataaaat cacccgggat aaacatggat cagttacctc tatttgtctg agctgtggtt
 attactgcag tactactttt attatcctta ccagtattag ctggtgctat tactatatta
 ttaacagatc gtaatattaa tacatcattt tttgatcctg caggaggagg agatcctatt
-ttataccaac attt------ -------
+ttataccaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SAHARENSIS,ROMANIA,MW139676
 ---------- -------att aattcgagtt gaactagggc aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -621,7 +774,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattgcctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgatcctg cagggggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ELEGANS,GERMANY,MW490214
 gggactgctt taagaatatt aattcgagtt gaactagggc aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -633,7 +789,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattgcctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc gtttatcctg cagggggagg agatcctatt
----------- ---------- -------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_HETEROSTICTA,UNK.,FJ812817
 gggactgctt taagaatatt aattcgagtt gaactaggac aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacatgcat ttgtaataat tttttttata
@@ -645,7 +804,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaaat ctcctgggat aaatatagac caactacctc tattcgtctg agctgtagtt
 attacagcag tgttactttt attatcatta ccagtattag ctggtgctat tactatacta
 ctgacagatc gtaatatcaa tacatcattt tttgaccctg cggggggagg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_RUFOSTIGMA,INDIA,ON545812
 ---actgctt taagaatatt aattcgagtt gaactaggac aacctgggtc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgcct ttgttataat tttttttata
@@ -657,7 +819,10 @@ ttacacttgg caggggtatc ctcaatttta ggagcaatta attttattac caccacaatt
 aatataaaat cacctggaat aaatatagat caattacctt tatttgtctg agctgtagtt
 attaccgcag tactactttt gttatcatta ccagtattag ctggtgctat tactatatta
 ttgacagatc gtaacattaa tacatcat-- ---------- ---------- ----------
----------- ---------- -------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_NURSEI,INDIA,MT516411
 gggactgctt taagaatatt aattcgagtt gaactaggac aacccggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgcct ttgttataat tttttttata
@@ -669,7 +834,10 @@ ttacacttgg caggagtatc ctctattttg ggagcaatta attttattac aactactatt
 aatataaagt cacctggaat aaatatggat caattacctt tattcgtttg agctgtagtt
 attaccgcag tattactctt attgtcattt ccagtattag ctggtgctat tactatacta
 ctaacagatc gtaatatcaa tacatcattt tttgacccag caggaggagg agaccccatc
-ttatatcaac at-------- -------
+ttatatcaac at-------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_AFF._HETEROSTICTA_MOH16ODON1,UNK.,MG976186
 gggactgctt taagaatatt aattcgagtt gaactaggac aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacatgcat ttgtaataat tttttttata
@@ -681,7 +849,10 @@ ttacacttgg caggagtgtc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaaat ctcctgggat aaatatagac caactacctc tattcgtctg agctgtagtt
 attacagcag tgttactttt attatcatta ccagtattag ctggtgctat tactatacta
 ctgacagatc gtaatatcaa tacatcattt tttgaccctg cggggggagg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_RUFOSTIGMA,UNK.,MG517560
 ---actgctt taagaatatt aattcgagtt gaactaggac aacctgggtc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgcct ttgttataat tttttttata
@@ -693,7 +864,10 @@ ttacacttgg caggggtatc ctcaatttta ggagcaatta attttattac caccacaatt
 aatataaaat cacctggaat aaatatagat caattacctt tatttgtctg agctgtagtt
 attaccgcag tactactttt gttatcatta ccagtattag ctggtgctat tactatatta
 ttgacagatc gtaacattaa tacatcat-- ---------- ---------- ----------
----------- ---------- -------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ELEGANS,UNK.,KY127440
 ---------- ---------- ---------- ----taggac aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -705,7 +879,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattacctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgaccctg cagggggagg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_NURSEI,INDIA,ON679605
 gggactgctt taagaatatt aattcgagtt gaactaggac aacccggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgcct ttgttataat tttttttata
@@ -717,7 +894,10 @@ ttacacttgg caggagtatc ctctattttg ggagcaatta attttattac aactactatt
 aatataaagt cacctggaat aaatatggat caattacctt tattcgtttg agctgtagtt
 attaccgcag tattactctt attgtcattt ccagtattag ctggtgctat tactatacta
 ctaacagatc gtaatatcaa tacatcattt tttgacccag caggaggagg agaccccatc
-ttatatcaac at-------- -------
+ttatatcaac at-------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,KENYA,MH450001
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -729,7 +909,10 @@ ttacacttgg caggggtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat gaatatagat caactacctc tatttgtctg agctgtagtt
 attacagcag tattactttt attatcatta ccagtattag ctggtgctat tactatgtta
 ctgacagatc gtaatatcaa tacatcattt tttgatcctg caggaggagg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_AFF._HETEROSTICTA_COEN1,UNK.,MG976118
 gggactgctt taagaatatt aattcgagtt gaactaggac aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacatgcat ttgtaataat tttttttata
@@ -741,7 +924,10 @@ ttacacttgg caggagtctc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaaat ctcctgggat aaatatagac caactacctc tattcgtctg agctgtagtt
 attacagcag tgttactttt attatcatta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaatatcaa tacatcattt tttgaccctg cggggggagg agaccccatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ELEGANS,GERMANY,MW490138
 gggactggtt taagaatatt aattcgagtt gaactagggc aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -753,7 +939,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattgcctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgatcc-- ---------- ----------
----------- ---------- -------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SP.,USA,HQ986193
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgcct ttgtcatgat tttttttata
@@ -765,7 +954,10 @@ ttgcacttgg cgggggtatc ctcaatctta ggggcgatta attttattac caccacaatt
 aatataaaat cacccgggat aaacatggat cagttacctc tatttgtctg agctgtggtt
 attactgcag tactactttt attatcctta ccagtattag ctggtgctat tactatatta
 ttaacagatc gtaatattaa tacatcattt tttgatcctg caggaggagg ----------
----------- ---------- -------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >COENAGRIONIDAE_SP.,CANADA,GU713114
 ggaactgctt taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattgga
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -777,7 +969,10 @@ ttacatttag cgggagtatc ctcaatttta ggagcaatta attttattac aactacaatt
 actataaagt cacctggaat aaacatagat caattaccat tgtttgtatg agctgtagtt
 attacagcag tattgctttt attatcatta ccagtattag ctggagcaat tactatactt
 ttaactgatc gtaatattaa cacttcattt tttgatcccg ctggaggagg ggatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB758039
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -789,7 +984,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagat caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaatatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB757953
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -801,7 +999,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgatcctg caggaggggg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >COENAGRIONIDAE_SP.,CANADA,GU713115
 ggaactgctt taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattgga
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -813,7 +1014,10 @@ ttacatttag cgggagtatc ctcaatttta ggagcaatta attttattac aactacaatt
 actataaagt cacctggaat aaacatagat caattaccat tgtttgtatg agctgtagtt
 attacagcag tattgctttt attatcatta ccagtattag ctggagcaat tactatactt
 ttaactgatc gtaatattaa cacttcattt tttgatcccg ctggaggagg ggatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ELEGANS,GERMANY,MW490456
 ---------- ---------- ---------- ---------- ----tggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -825,7 +1029,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattgcctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgatcctg cagggggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SP.,CANADA,KM536415
 ggaactgcat taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattggt
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -837,7 +1044,10 @@ ttacatttag cgggagtgtc ctcaatttta ggggcaatta attttattac aactacaatt
 aatataaagt cacctggaat aaatatagat caattaccat tgtttgtatg agcggtagtt
 attacagcag tattactttt attatcatta ccagtattag ctggtgcaat tactatactt
 ttaactgatc gtaatattaa cacttcattt tttgaccctg ctggaggggg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB757995
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -849,7 +1059,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatacta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB758094
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -861,7 +1074,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggagg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB758091
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -873,7 +1089,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB758086
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -885,7 +1104,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagat caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB758073
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -897,7 +1119,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaatatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB758057
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -909,7 +1134,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB758055
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaatgat tttttttata
@@ -921,7 +1149,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagat caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB757900
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -933,7 +1164,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SP.,USA,HQ986205
 ggaactgctt taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattgga
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -945,7 +1179,10 @@ ttacatttag cgggagtatc ctcaatttta ggagcaatta attttattac aactacaatt
 aatataaaat cacctggaat gaatatagat caattaccat tgtttgtatg agctgtagtt
 attacagcag tgttactttt attatcatta ccagtattag ctggagcaat tactatactt
 ttaactgatc gtaatattaa tacttcattt tttgatcccg ctggaggagg ggatcctatc
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_POSITA,USA,HQ986235
 ---actgctt taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattgga
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -957,7 +1194,10 @@ ttacatttag cgggagtatc ctcaatttta ggagcaatta attttattac aactacaatt
 aatataaaat cacctggaat gaatatagat caattaccat tgtttgtatg agctgtagtt
 attacagcag tgttactttt attatcatta ccagtattag ctggagcaat tactatactt
 ttaactgatc gtaatattaa tacttcattt tttgatcccg ctggaggagg ggatcctatc
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,INDIA,MT506706
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaatgat tttttttata
@@ -969,7 +1209,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_VERTICALIS,CANADA,KM532563
 ggaactgctt taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattgga
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -981,7 +1224,10 @@ ttacatttag cgggagtatc ctcaatttta ggagcaatta attttattac aactacaatt
 aatataaaat cacctggaat gaatatagat caattaccat tgtttgtatg agctgtagtt
 attacagcag tgttactttt attatcatta ccagtattag ctggagcaat tactatactt
 ttaactgatc gtaatattaa tacttcattt tttgatcccg ctggaggagg ggatcctatc
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_VERTICALIS,CANADA,KM530329
 ggaactgctt taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattgga
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -993,7 +1239,10 @@ ttacatttag cgggagtatc ctcaatttta ggagcaatta attttattac aactacaatt
 aatataaaat cacctggaat gaatatagat caattaccat tgtttgtatg agctgtagtt
 attacagcag tgttactttt attatcatta ccagtattag ctggagcaat tactatactt
 ttaactgatc gtaatattaa tacttcattt tttgatcccg ctggaggagg ggatcctatc
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB758002
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1005,7 +1254,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB757992
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1017,7 +1269,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB757983
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1029,7 +1284,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg cagggggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB758090
 gggactgctt taagaatatt aattcgagtt gaactaggac aacctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1041,7 +1299,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtgttag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB758087
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctgggtc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1053,7 +1314,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB758054
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1065,7 +1329,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggagg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB758047
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1077,7 +1344,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcgtgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaatatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB758040
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1089,7 +1359,10 @@ ttacacttgg caggagtatc ctcaatttta ggggcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactaccgc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB758037
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1101,7 +1374,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB757904
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctgggtc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaatgat tttttttata
@@ -1113,7 +1389,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB757883
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1125,7 +1404,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agatcctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB757882
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1137,7 +1419,10 @@ ttacacttgg caggagtatc ctcaatttta ggggcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatc
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_POSITA,USA,HQ986240
 ---actgctt taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattgga
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1149,7 +1434,10 @@ ttacatttag cgggagtatc ctcaatttta ggagcaatta attttattac aactacaatt
 aatataaaat cacctggaat gaatatagat caattaccat tgtttgtatg agctgtagtt
 attacagcag tgttactttt attatcatta ccagtattag ctggagcaat tactatactt
 ttaactgatc gtaatattaa tacttcattt tttgatcccg ctggaggagg ggatcctatc
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SP.,USA,GU711559
 ggaactgctt taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattgga
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1161,7 +1449,10 @@ ttacatttag cgggagtatc ctcaatttta ggagcaatta attttattac aactacaatt
 aatataaaat cacctggaat gaatatagat caattaccat tgtttgtatg agctgtagtt
 attacagcag tgttactttt attatcatta ccagtattag ctggagcaat tactatactt
 ttaactgatc gtaatattaa tacttcattt tttgatcccg ctggaggagg ggatcctatc
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,UNK.,MK774300
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1173,7 +1464,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SP.,CANADA,MG450314
 ggaactgctt taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattgga
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1185,7 +1479,10 @@ ttacatttag cgggagtatc ctcaatttta ggagcaatta attttattac aactacaatt
 aatataaaat cacctggaat gaatatagat caattaccat tgtttgtatg agctgtagtt
 attacagcag tgttactttt attatcatta ccagtattag ctggagcaat tactatactt
 ttaactgatc gtaatattaa tacttcattt tttgatcccg ctggaggagg ggatcctatc
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_KELLICOTTI,CANADA,MG449768
 ggaactgctt taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattgga
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1197,7 +1494,10 @@ ttacatttag cgggagtatc ctcaatttta ggagcaatta attttattac aactacaatt
 aatataaagt cacctggaat aaatatagat caattaccat tgtttgtatg agctgtaatt
 attacagcag tattactttt attatcatta ccagtattag ctggagcaat tactatgctt
 ttaactgatc gtaacattaa tacttcattt tttgaccccg ctgggggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SP.,MEXICO,MG449710
 ggaactgctt taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattgga
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1209,7 +1509,10 @@ ttacatttag cgggagtatc ctcaatttta ggagcaatta attttattac aactacaatt
 aatataaaat cacctggaat gaatatagat caattaccat tgtttgtatg agctgtagtt
 attacagcag tgttactttt attatcatta ccagtattag ctggagcaat tactatactt
 ttaactgatc gtaatattaa tacttcattt tttgatcccg ctggaggagg ggatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,INDIA,KT879905
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaatgat tttttttata
@@ -1221,7 +1524,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >COENAGRIONIDAE_SP.,CANADA,KM537224
 ggaactgctt taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattgga
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1233,7 +1539,10 @@ ttacatttag cgggagtatc ctcaatttta ggagcaatta attttattac aactacaatt
 aatataaaat cacctggaat gaatatagat caattaccat tgtttgtatg agctgtagtt
 attacagcag tgttactttt attatcatta ccagtattag ctggagcaat tactatactt
 ttaactgatc gtaatattaa tacttcattt tttgatcccg ctggaggagg ggatcctatc
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SP.,CANADA,KM528340
 ggaactgcat taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattggt
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1245,7 +1554,10 @@ ttacatttag cgggagtgtc ctcaatttta ggggcaatta attttattac aactacaatt
 aatataaagt cacctggaat aaatatagat caattaccat tgtttgtatg agcggtagtt
 attacagcag tattactttt attatcatta ccagtattag ctggtgcaat tactatactt
 ttaactgatc gtaatattaa cacttcattt tttgaccctg ctggaggggg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB757996
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1257,7 +1569,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB757989
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1269,7 +1584,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatc
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB757986
 gggactgctt taagaatatt aattcgagtt gaactaggcc agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1281,7 +1599,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB757984
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1293,7 +1614,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB758085
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1305,7 +1629,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactaccgc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB758052
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1317,7 +1644,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tgttactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB758050
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaatgat tttttttata
@@ -1329,7 +1659,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtgttag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB758046
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1341,7 +1674,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtgttag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB758024
 gggactgctt taagaatatt aattcgagtt gaactaggac agtctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaatgat tttttttata
@@ -1353,7 +1689,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB757972
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1365,7 +1704,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtgttag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB757967
 gggactgctt taagaatatt aattcgagtt gaactaggac agtctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1377,7 +1719,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB757958
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1389,7 +1734,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB757943
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1401,7 +1749,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB757939
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaatgat tttttttata
@@ -1413,7 +1764,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg gaggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB757924
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1425,7 +1779,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggggctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,UNK.,MF358821
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaatgat tttttttata
@@ -1437,7 +1794,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctaaatcaac att------- -------
+ctaaatcaac att------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,UNK.,MF358812
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaatgat tttttttata
@@ -1449,7 +1809,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac at-------- -------
+ctatatcaac at-------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,UNK.,MF358820
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaatgat tttttttata
@@ -1461,7 +1824,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactagctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_VERTICALIS,CANADA,KM532708
 ggaactgctt taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattgga
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1473,7 +1839,10 @@ ttacatttag cgggagtatc ctcaatttta ggagcaatta attttattac aactacaatt
 aatataaaat cacctggaat gaatatagat caattaccat tgtttgtatg agctgtagtt
 attacagcag tgttactttt attatcatta ccagtattag ctggagcaat tactatactt
 ttaactgatc gtaatattaa tacttcgttt tttgatcccg ctggaggagg ggatcctatc
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB757994
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1485,7 +1854,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB758096
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1497,7 +1869,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggcgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB758041
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1509,7 +1884,10 @@ ttacacttgg caggagtgtc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtgttag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB757927
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1521,7 +1899,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtgttag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB757921
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1533,7 +1914,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB757891
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1545,7 +1929,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtgttag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SP.,USA,HQ986289
 ggaactgctt taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattgga
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1557,7 +1944,10 @@ ttacatttag cgggagtatc ctcaatttta ggagcaatta attttattac aactacaatt
 aatataaaat cacctggaat gaatatagat caattaccat tgtttgtatg agctgtagtt
 attacagcag tgttactttt attatcatta ccagtattag ctggagcaat tactatactt
 ttaactgatc gtaatattaa tacttcattt tttgatcccg ctggaggagg ggatcctatc
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_POSITA,CANADA,HM400578
 ggaactgctt taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattgga
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1569,7 +1959,10 @@ ttacatttag cgggagtatc ctcaatttta ggagcaatta attttattac aactacaatt
 aatataaaat cacctggaat gaatatagat caattaccat tgtttgtatg agctgtagtt
 attacagcag tgttactttt attatcatta ccagtattag ctggagcaat tactatactt
 ttaactgatc gtaatattaa tacttcattt tttgatcccg ctggaggggg ggatcctatc
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_POSITA,CANADA,HM413564
 ggaactgctt taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattgga
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1581,7 +1974,10 @@ ttacatttag cgggagtatc ctcaatttta ggagcaatta attttattac aactacaatt
 aatataaaat cacctggaat gaatatagat caattaccat tgtttgtatg agctgtagtt
 attacagcag tgttactttt attatcatta ccagtattag ctggagcaat tactatactt
 ttaactgatc gtaatattaa tacttcattt tttgatcccg ctggaggagg ggatcctatc
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SP.,CANADA,HM381221
 ggaactgctt taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattgga
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1593,7 +1989,10 @@ ttacatttag cgggagtatc ctcaatttta ggagcaatta attttattac aactacaatt
 aatataaaat cacctggaat gaatatagat caattaccat tgtttgtatg agctgtagtt
 attacagcag tgttactttt attatcatta ccagtattag ctggagcaat tactatactt
 ttaactgatc gtaatattaa tacttcattt tttgatcccg ctggaggggg ggatcctatc
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >LIBELLULIDAE_SP.,UNK.,MF774518
 ---------- --agaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaatgat tttttttata
@@ -1605,7 +2004,10 @@ ttacacctag caggtgtatc ttctatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcatta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgatccag caggaggagg agatcctatt
-ttatatcaac at-------- -------
+ttatatcaac at-------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SP.,CANADA,KM537155
 ggaactgctt taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattgga
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1617,7 +2019,10 @@ ttacatttag cgggagtatc ctcaatttta ggagcaatta attttattac aactacaatt
 aatataaagt cacctggtat aaacatagat caattaccat tgtttgtatg agctgtagtt
 attacagcag tattactttt attatcatta ccagtattag ctggagcaat taccatactt
 ttaactgatc gtaatattaa tacttcattt tttgatcctg ctggaggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_VERTICALIS,CANADA,KM536053
 ggaactgctt taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattgga
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1629,7 +2034,10 @@ ttacatttag cgggagtatc ctcaatttta ggagcaatta attttattac aactacaatt
 aatataaaat cacctggaat gaatatagac caattaccat tgtttgtatg agctgtagtt
 attacagcag tgttactttt attatcatta ccagtattag ctggagcaat tactatactt
 ttaactgatc gtaatattaa tacttcattt tttgatcccg ctggaggagg ggatcctatc
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SP.,CANADA,KM528644
 ggaactgctt taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattgga
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1641,7 +2049,10 @@ ttacatttag cgggagtatc ctcaatttta ggagcaatta attttattac aactacaatt
 aatataaagt cacctggtat aaacatagat caattaccat tgtttgtatg agctgtagtt
 attacagcag tactactttt attatcatta ccagtattag ctggagcaat taccatactt
 ttaactgatc gtaatattaa tacttcattt tttgatcctg ctggaggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,JAPAN,AB757966
 gggactgctt taagaatatt aattcgaatt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaataat tttttttata
@@ -1653,7 +2064,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtgttag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctatt
-ctatatcaac attt------ -------
+ctatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_POSITA,USA,HQ986325
 ggaactgctt taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattgga
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1665,7 +2079,10 @@ ttacatttag cgggagtatc ctcaatttta ggagcaatta attttattac aactacaatt
 aatataaaat cacctggaat gaatatagat caattaccat tgtttgtatg agctgtagtt
 attacagcag tgttactttt attatcatta ccagtattag ctggagcaat tactatactt
 ttaactgatc gtaatattaa tacttcattt tttgatcccg ctggaggagg agatcctatc
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >COENAGRIONIDAE_SP.,CANADA,HM400590
 ggaactgctt taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattgga
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1677,7 +2094,10 @@ ttacatttag cgggagtatc ctcaatttta ggagcaatta attttattac aactacaatt
 aatataaaat cacctggaat gaatatagat caattaccat tgtttgtatg agctgtagtt
 attacagcag tgttactttt attatcatta ccagtattag ctggagcaat tactatactt
 ttaactgatc gaaatattaa tacttcattt tttgatcccg ctggaggagg ggatcctatc
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ASIATICA,JAPAN,LC101599
 gggactgcct taagaatatt aattcgagtt gaattaggac aaccgggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1689,7 +2109,10 @@ ttacatttag caggagtatc atcaatttta ggggcaatca attttattac cactacaatt
 aatataaaat caccaggaat aagtatagat caattaccct tgtttgtatg agccgtagtt
 attaccgcag tattactatt attatcacta cctgtattag caggtgctat tactatactt
 ttaactgatc gaaatattaa tacttcattc ttcgaccctg ctggaggggg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ASIATICA,JAPAN,LC101563
 gggactgcct taagaatatt aattcgagtt gaattaggac aaccaggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1701,7 +2124,10 @@ ttacatttag caggagtatc atcaatttta ggggcaatca attttattac cactacaatt
 aatataaaat caccaggaat aagtatagat caattacctt tgtttgtatg agccgtagtt
 attactgcag tattactatt attatcacta cctgtattag caggtgctat tactatactt
 ttaactgatc gaaatattaa tacttccttc ttcgaccctg ctggaggggg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ASIATICA,JAPAN,LC101546
 gggactgcct taagaatatt aattcgagtt gaattaggac aaccaggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1713,7 +2139,10 @@ ttacatttag caggagtatc atcaatttta ggggcaatca attttattac cactacaatt
 aatataaaat caccaggaat aagtatagat caattaccct tgtttgtatg agccgtagtt
 attactgcag tattactatt attatcacta cctgtattag caggtgctat tactatactt
 ttaactgatc gaaatattaa tacttccttc tttgaccctg ctggaggggg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SP.,CANADA,KM534572
 ggaactgctt taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattgga
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1725,7 +2154,10 @@ ttacatttag cgggagtatc ctcaatttta ggagcaatta attttattac aactacaatt
 aatataaagt cacctggtat aaacatagat caattaccat tgtttgtatg agctgtagtt
 attacagcag tattactttt attatcatta ccagtattag ctggagcaat taccatactt
 ttaactgatc gtaatattaa tacttcattt tttgatcctg ctggaggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SP.,CANADA,KM528643
 ggaactgctt taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattgga
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1737,7 +2169,10 @@ ttacatttag cgggagtatc ctcaatttta ggagcaatta attttattac aactacaatt
 aatataaagt cacctggtat aaacatagat caattaccat tgtttgtatg agctgtagtt
 attacagcag tattactttt attatcatta ccagtattag ctggagcaat taccatactt
 ttaactgatc gtaatattaa tacttcattt tttgatcctg ctggaggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SP.,USA,HQ986246
 ggaactgctt taagaatatt aattcgagtt gaactcggac aaccaggatc tctaattgga
 gatgatcaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1749,7 +2184,10 @@ ttacatttag cgggagtatc ctcaatttta ggagcaatta attttattac aactacaatt
 aatataaaat cacctggaat gaatatagat caattaccat tgtttgtatg agctgtagtt
 attacagcag tgttactttt attatcatta ccagtattag ctggagcaat tactatactt
 ttaactgatc gtaatattaa tacttcattt tttgatcccg ctggaggagg ggatcctat-
----------- ---------- -------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ELEGANS,UNK.,KF257118
 ---------- ---------- ---------- ---------- ---------- ----------
 --------aa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -1761,7 +2199,10 @@ ttacacttgc caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacccggaat aaacatagat caattgcctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa tacatcattc tttgatcctg cagggggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,INDIA,MW666056
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaatgat tttttttata
@@ -1773,7 +2214,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggagg-gg gg--------
----------- ---------- -------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_SENEGALENSIS,UNK.,MF358813
 gggactgctt taagaatatt aattcgagtt gaactaggac agcctggatc tctgattgga
 gatgaccaaa tttataatgt agtagtaact gcacatgcct ttgtaatgat tttttttata
@@ -1785,7 +2229,10 @@ ttacacttgg caggagtatc ctcaatttta ggagcaatta attttattac cactacaatt
 aatataaagt ctcctgggat aaatatagac caactacctc tatttgtctg agctgtagtt
 attactgcag tattactttt attatcacta ccagtattag ctggtgctat tactatatta
 ctgacagatc gtaacatcaa tacatcattt tttgaccctg caggaggggg agaccctat-
----------- ---------- -------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ASIATICA,JAPAN,LC101610
 gggactgcct taagaatatt aattcgagtt gaattaggac aaccaggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1797,7 +2244,10 @@ ttacatttag caggagtatc atcaatttta ggggcaatca attttattac cactacaatt
 aatataaaat caccaggaat aagtatagat caattaccct tgtttgtatg agccgtagtt
 attactgcag tattactatt attatcacta cctgtattag caggtgctat tactatactt
 ttaactgatc gaaatattaa tacttccttc ttcgaccctg ctggaggggg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ASIATICA,JAPAN,LC101607
 gggactgcct taagaatatt aattcgagtt gaattaggac aaccaggatc tctaattgga
 gacgaccaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1809,7 +2259,10 @@ ttacatttag caggagtatc atcaatttta ggggcaatca attttattac cactacaatt
 aatataaaat caccaggaat aagtatagat caattaccct tgtttgtatg agccgtagtt
 attactgcag tattactatt attatcacta cctgtattag caggtgctat tactatactt
 ttaactgatc gaaatattaa tacttcattc ttcgaccctg ctggaggggg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ASIATICA,JAPAN,LC101605
 gggactgcct taagaatatt aattcgagtt gaattaggac aaccaggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1821,7 +2274,10 @@ ttacatttag caggagtatc atcaatttta ggggcaatca attttattac cactacaatt
 aatataaaat caccaggaat aagtatagat caattaccct tgtttgtatg agccgtagtt
 attactgcag tattactatt attatcacta cctgtactag caggtgctat tactatactt
 ttaactgatc gaaatattaa tacttccttc ttcgaccctg ctggaggggg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ASIATICA,JAPAN,LC101596
 gggactgcct taagaatatt aattcgagtt gaattaggac aaccaggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1833,7 +2289,10 @@ ttacatttag caggagtatc atcaatttta ggggcaatca attttattac cactacaatt
 aatataaaat caccaggaat aagtatagat caattaccct tgtttgtatg agccgtagtt
 attactgcag tattactatt attatcacta cctgtattag caggtgctat tactatactt
 ttaactgatc gaaatattaa tacttcattc ttcgaccctg ctggaggggg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ASIATICA,JAPAN,LC101590
 gggactgcct taagaatatt aattcgagtt gaattaggac aaccaggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1845,7 +2304,10 @@ ttacatttag caggagtatc atcaatttta ggggcaatca attttattac cactacaatt
 aatataaaat caccaggaat aagtatagat caattaccct tgtttgtatg agccgtagtt
 attactgcag tattactatt attatcacta cctgtattag caggtgctat tactatactt
 ttaactgatc gaaatattaa tacttccttc ttcgaccctg ctggaggggg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ASIATICA,JAPAN,LC101589
 gggactgcct taagaatatt aattcgagtt gaattaggac aaccaggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1857,7 +2319,10 @@ ttacatttag caggagtatc atcaatttta ggggcaatca attttattac cactacaatt
 aatataaaat caccaggaat aagtatagat caattaccct tgtttgtatg agccgtagtt
 attactgcag tattactatt attatcacta cctgtattag caggtgctat tactatactt
 ttaactgatc gaaatattaa tacttccttc ttcgaccctg ctgggggggg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ASIATICA,JAPAN,LC101587
 gggactgcct taagaatatt aattcgagtt gaattaggac aaccaggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgctt ttgtcataat tttttttata
@@ -1869,7 +2334,10 @@ ttacatttag caggagtatc atcaatttta ggggcaatca attttattac cactacaatt
 aatataaaat caccaggaat aagtatagat caattaccct tgtttgtatg agccgtagtt
 attactgcag tattactatt attatcacta cctgtattag caggtgctat tactatactt
 ttaactgatc gaaatattaa tacttccttc ttcgaccctg ctggaggggg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ASIATICA,JAPAN,LC101580
 gggactgcct taagaatatt aattcgagtt gaattaggac aaccaggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1881,7 +2349,10 @@ ttacatttag caggagtatc atcaatttta ggggcaatca attttattac cactacaatt
 aatataaaat caccaggaat aagtatagat caattaccct tgtttgtatg agccgtagtt
 attactgcag tattactatt attatcacta cctgtattag caggtgctat tactatactt
 ttaactgatc gaaatattaa tacttccttc ttcgaccctg ctggaggggg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ASIATICA,JAPAN,LC101578
 gggactgcct taagaatatt aattcgagtt gaattaggac aaccaggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1893,7 +2364,10 @@ ttacatttag caggagtatc atcaatttta ggggcaatca attttatcac cactacaatt
 aatataaaat caccaggaat aagtatagat caattaccct tgtttgtatg agccgtagtt
 attactgcag tattactatt attatcacta cctgtattag caggtgctat tactatactt
 ttaactgatc gaaatattaa tacttccttc ttcgaccctg ctggaggggg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ASIATICA,JAPAN,LC101572
 gggactgcct taagaatatt aattcgagtt gaattaggac aaccaggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1905,7 +2379,10 @@ ttacatttag caggagtatc atcaatttta ggggcaatca attttattac cactacaatt
 aatataaaat caccaggaat aagtatagat caattaccct tgtttgtatg agccgtagtt
 attactgcag tattactatt attatcacta cctgtattag caggtgctat tactatactt
 ttaactgatc gaaatattaa tacttccttc ttcgaccctg ctggaggggg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ASIATICA,JAPAN,LC101569
 gggactgcct taagaatatt aattcgagtt gaattaggac aaccaggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1917,7 +2394,10 @@ ttacatttag caggagtatc atcaatttta ggggcaatca attttattac cactacaatt
 aatataaaat caccaggaat aagtatagat caattaccct tgtttgtatg agccgtagtt
 attactgcag tattactatt attatcacta cctgtattag caggtgctat tactatactt
 ttaactgatc gaaatattaa tacttccttc ttcgaccctg ctggaggggg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ASIATICA,JAPAN,LC101540
 gggactgcct taagaatatt aattcgagtt gaattaggac aaccaggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1929,7 +2409,10 @@ ttacatttag caggagtatc atcaatttta ggggcaatca attttattac cactacaatt
 aatataaaat caccaggaat aagtatagat caattaccct tgtttgtatg agccgtagtt
 attactgcag tattactatt attatcacta cctgtattag caggtgctat tactatactt
 ttaaccgatc gaaatattaa tacttccttc ttcgaccctg ctggaggggg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_GRAELLSII,SPAIN,KC912315
 ---------- ---------- aattcgagtt gaactagggc aacctggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaacc gcacacgctt ttgtcataat tttttttata
@@ -1941,7 +2424,10 @@ ttacacttgg caggggtgtc ctcaatttta ggagcaatta attttattac aactacaatc
 aatataaagt cacctggaat aaacatagat caattgcctc tatttgtttg agctgtagta
 attaccgcag tactactttt attatcatta ccagtactag ccggtgctat tactatacta
 ctgacagacc gtaatatcaa ---------- ---------- ---------- ----------
----------- ---------- -------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ASIATICA,CHINA,MH449998
 ---actgcct taagaatatt aattcgagtt gaattaggac aaccaggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1953,7 +2439,10 @@ ttacatttag caggagtatc atcaatttta ggggcaatca attttattac cactacaatt
 aatataaaat caccaggaat aagtatagat caattaccct tgtttgtatg agccgtagtt
 attactgcag tattactatt attatcacta cctgtattag caggtgctat tactatactt
 ttaactgatc gaaatattaa tacttccttc ttcgaccctg ctggaggggg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ASIATICA,JAPAN,LC101611
 gggactgcct taagaatatt aattcgagtt gaattaggac aaccaggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1965,7 +2454,10 @@ ttacatttag caggagtatc atcaatttta ggggcaatca attttattac cactacaatt
 aatataaaat caccaggaat aagtatagat caattaccct tgtttgtatg agccgtagtt
 attactgcag tattactatt attatcacta cctgtattag caggtgctat tactatactt
 ttaactgatc gaaatattaa tacttccttc ttcgaccctg ctggaggggg agaccctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_ASIATICA,JAPAN,LC101600
 gggactgcct taagaatatt aattcgagtt gaattaggac aaccaggatc tctaattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1977,7 +2469,10 @@ ttacatttag caggagtatc atcaatttta ggggcaatca attttattac cactacaatt
 aatataaaat caccaggaat aagtatagat caattaccct tgtttgtatg agccgtggtt
 attactgcag tattactatt attatcacta cctgtattag caggtgctat tactatactt
 ttaactgatc gaaatattaa tacttccttc ttcgaccctg ctggaggggg agaccctatt
-ttatatcaac atttgtt--- -------
+ttatatcaac atttgtt--- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
 >ISCHNURA_AURORA,AUSTRALIA,OR653522
 ggaactgctt taagaatatt aattcgagtt gaactaggac aaccaggatc tcttattgga
 gatgaccaaa tttataatgt agtagtaact gcacacgctt ttgttataat tttttttata
@@ -1989,4 +2484,7 @@ ttacacttag caggagtatc ttctatttta ggtgcaatta atttcattac caccacaatt
 aatataaagt caccaggaat aaatatagac caattacctt tatttgtatg agctgtagtt
 attacagcgg tattactttt attatcatta ccagttctgg ctggtgctat tactatactt
 ttaactgatc gtaatattaa tacatccttc tttgatccag caggaggagg agatcctatt
-ttatatcaac attt------ -------
+ttatatcaac attt------ ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+---------- ---------- ---------- ---------- ---------- ----------
+----
