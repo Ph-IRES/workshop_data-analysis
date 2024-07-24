@@ -26,6 +26,8 @@
 
 [R for Data Science: Exercise Solutions](https://mine-cetinkaya-rundel.github.io/r4ds-solutions)
 
+[Data Analayis in R](https://bookdown.org/steve_midway/DAR/random-effects.html#types-of-models-with-random-effects)
+
 [TAMUCC's 2023 Computational Biology Course (bash, R, python, git, markdown)](https://github.com/tamucc-comp-bio/classroom_repo_2023)
 
 ---
