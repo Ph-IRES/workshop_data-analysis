@@ -15,6 +15,7 @@ Consult with your mentor/advisor prior to creating a new expedition.  There may 
 	* Enter your expedition code
 
 3. Edit an existing expedition by selecting [My Expeditions](https://geome-db.org/workbench/expeditions) in the left panel, and then selecting the expedition
-       * Be sure to change the visibility for unpublished data to `project members`  not `visible`
+
+	* Be sure to change the visibility for unpublished data to `project members`  not `visible`
 
 	![](geome_editexpedition.png)
